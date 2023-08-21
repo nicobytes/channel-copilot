@@ -8,7 +8,7 @@ load_dotenv()
 
 class Settings(BaseSettings):
     name: str = os.getenv("NAME", "channel-copilot")
-    debug: bool = os.getenv("DEBUG")
+    debug: bool = os.getenv("DEBUG", False)
 
     # OpenAI
     open_ai_key: str = os.getenv("OPENAI_API_KEY")

@@ -3,7 +3,7 @@ from transcript.audio import get_audio
 from transcript.whisper import write_transcribe
 from chains.summary_chain import SummaryChain
 from chains.twets_chain import TweetsChain
-from image.image import generate_image
+# from image.image import generate_image
 import settings
 from rich import print
 
@@ -18,17 +18,17 @@ def audio():
 
 @app.command()
 def transcribe():
-    transcript = write_transcribe('./data/video.mp4', 'large')
+    transcript = write_transcribe('./input/video.mp4', 'small')
     print(transcript)
 
 
 @app.command()
 def summary():
     summary_chain = SummaryChain.from_class()
-    file = open("./data/transcript.txt", "r+")
+    file = open("./output/transcript.txt", "r+")
     transcript = file.read()
     summary = summary_chain.generate_response(transcript=transcript)
-    with open('./data/summarize.txt', 'w') as file:
+    with open('./output/summarize.txt', 'w') as file:
         file.write(summary)
         print(summary)
 
@@ -36,17 +36,18 @@ def summary():
 @app.command()
 def tweets():
     tweets_chain = TweetsChain.from_class()
-    file = open("./data/summarize.txt", "r+")
+    file = open("./output/summarize.txt", "r+")
     context = file.read()
     tweets = tweets_chain.generate_response(context=context)
-    with open('./data/tweets.txt', 'w') as file:
+    with open('./output/tweets.txt', 'w') as file:
         file.write(tweets)
         print(tweets)
 
 
 @app.command()
 def image():
-    generate_image("An dog in the middle of the forest")
+    pass
+    # generate_image("An dog in the middle of the forest")
 
 
 if __name__ == "__main__":

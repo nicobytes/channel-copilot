@@ -1,0 +1,7 @@
+En este video, estoy probando Nvidia Canvas, una aplicación que me permite dibujar como en Paint y generar imágenes realistas utilizando Inteligencia Artificial. Es realmente interesante ver cómo a partir de trazos simples, la aplicación va generando una imagen representativa. Puedo elegir diferentes materiales, como montañas, ríos y nubes, y la aplicación los va incorporando en la imagen. También puedo seleccionar paletas de colores y estilos. Aunque todavía no es perfecto, es impresionante la calidad de las imágenes que puedo crear con esta herramienta.
+
+En el video, muestro cómo utilizo Nvidia Canvas para dibujar un paisaje con un río desembocando en el mar. Voy agregando los elementos clave, como el río, el mar y la vegetación, y la aplicación va generando la imagen. También puedo hacer ajustes y agregar detalles, como flores en las rocas. Es interesante ver cómo la aplicación interpreta los trazos y los convierte en elementos visuales.
+
+Es importante destacar que Nvidia Canvas utiliza inteligencia artificial y algoritmos que se ejecutan directamente en la tarjeta gráfica, lo que permite obtener resultados de alta calidad. Me encantaría que me compartas tus experiencias si tienes una tarjeta gráfica y pruebas esta herramienta. Puedes descargarla y compartir tus imágenes en los comentarios.
+
+Recuerda suscribirte a mi canal y seguirme en Twitter y LinkedIn como Nikobai para más contenido sobre el uso de herramientas como esta. ¡Nos vemos en el próximo video!

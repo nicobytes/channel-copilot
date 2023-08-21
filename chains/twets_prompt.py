@@ -1,11 +1,11 @@
 from langchain.prompts import PromptTemplate
 
-template = """Convert the context into a tweet of up to 140 characters based on the context.
+template = """Convert the context into 5 tweets based on the context.
 
 context:
 {context}
 
-Tweet in Spanish:
+Tweets in Spanish:
 """
 
 TWEETS_PROMPT = PromptTemplate(

@@ -2,7 +2,7 @@ import whisper
 
 def get_transcribe(path, type="base"):
   model = whisper.load_model(type)
-  result = model.transcribe(path, fp16=False, language="es")
+  result = model.transcribe(path, fp16=False, language="es", verbose=True)
   return result
 
 def write_transcribe(path, type="base"):

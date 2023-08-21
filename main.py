@@ -3,7 +3,9 @@ from transcript.audio import get_audio
 from transcript.whisper import write_transcribe
 from chains.summary_chain import SummaryChain
 from chains.twets_chain import TweetsChain
-# from image.image import generate_image
+from chains.dalle_chain import DalleChain
+from image.dalle import generate_image
+#from image.stable_diffusion import generate_image
 import settings
 from rich import print
 
@@ -18,7 +20,7 @@ def audio():
 
 @app.command()
 def transcribe():
-    transcript = write_transcribe('./input/video.mp4', 'small')
+    transcript = write_transcribe('./input/video.mp4', 'large')
     print(transcript)
 
 
@@ -45,10 +47,24 @@ def tweets():
 
 
 @app.command()
-def image():
-    pass
-    # generate_image("An dog in the middle of the forest")
+def dalle():
+    chain = DalleChain.from_class()
+    file = open("./output/summarize.txt", "r+")
+    text = file.read()
+    response = chain.generate_response(text=text)
+    with open('./output/dalle-prompts.txt', 'w') as file:
+        file.write(response)
+        print(response)
 
+
+@app.command()
+def image():
+    file = open("./output/dalle-prompts.txt", "r+")
+    text = file.read()
+    parts = list(filter(None, text.split('\n')))
+    for index, item in enumerate(parts):
+        response = generate_image(item, index)
+        print(response)
 
 if __name__ == "__main__":
     app()

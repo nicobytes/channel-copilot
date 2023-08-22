@@ -1,6 +1,6 @@
 import typer
 from transcript.audio import get_audio
-from transcript.whisper import write_transcribe
+from transcript.whisper import get_transcribe
 from chains.summary_chain import SummaryChain
 from chains.twets_chain import TweetsChain
 from chains.dalle_chain import DalleChain
@@ -10,27 +10,34 @@ import settings
 from rich import print
 
 app = typer.Typer()
+output_dir = './data/2023-07-12-nvidia'
 
 
 @app.command()
 def audio():
-    path = get_audio()
+    video_path = f"./input/video.mp4"
+    path = get_audio(video_path)
     print(path)
 
 
 @app.command()
 def transcribe():
-    transcript = write_transcribe('./input/video.mp4', 'large')
-    print(transcript)
+    file_path = './input/audio.wav'
+    transcript = get_transcribe(file_path, 'large')
+    path = f'./{output_dir}/transcript.txt'
+    with open(path, 'w') as file:
+        file.write(transcript)
+        print(transcript)
 
 
 @app.command()
 def summary():
     summary_chain = SummaryChain.from_class()
-    file = open("./output/transcript.txt", "r+")
+    file = open(f"./{output_dir}/transcript.txt", "r+")
     transcript = file.read()
     summary = summary_chain.generate_response(transcript=transcript)
-    with open('./output/summarize.txt', 'w') as file:
+    path = f'./{output_dir}/summarize.txt'
+    with open(path, 'w') as file:
         file.write(summary)
         print(summary)
 
@@ -38,10 +45,11 @@ def summary():
 @app.command()
 def tweets():
     tweets_chain = TweetsChain.from_class()
-    file = open("./output/summarize.txt", "r+")
+    file = open(f"./{output_dir}/summarize.txt", "r+")
     context = file.read()
     tweets = tweets_chain.generate_response(context=context)
-    with open('./output/tweets.txt', 'w') as file:
+    path = f'./{output_dir}/tweets.txt'
+    with open(path, 'w') as file:
         file.write(tweets)
         print(tweets)
 

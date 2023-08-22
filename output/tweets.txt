@@ -1,9 +1,0 @@
-1. En este video te enseñaré cómo crear tu propio chat de inteligencia artificial utilizando el SDK de Verzel y la API de OpenAI. #AI #chatbot
-
-2. Descubre cómo conectar tu aplicación al LLM de OpenAI utilizando el SDK de Verzel. ¡Aprende a crear un chatbot con todo el potencial de la inteligencia artificial! #OpenAI #SDK
-
-3. Verzel ha creado una librería para aplicaciones basadas en inteligencia artificial. Aprende a utilizarla junto con el framework Nest y construye tu propio chatbot. #Verzel #Nest #chat
-
-4. Conecta tu aplicación a la API de OpenAI y consume modelos como chat GPT-3, 4, a Home and Face. Descubre cómo hacerlo con el SDK de Verzel. #OpenAI #SDK #chatbot
-
-5. Utiliza el SDK de Verzel para orquestar la manipulación de un LLM de forma compleja. Aprende a crear una aplicación sobre Nest y utiliza React como framework. #Verzel #Nest #React

@@ -30,3 +30,10 @@ conda install -c conda-forge poetry
 conda install -c conda-forge ffmpeg
 conda env export > environment.yml
 ```
+
+# TODOs
+
+- [ ] Avoid be rebudant
+- [ ] change aprenderemos por aprenderás
+- [ ] improvements in generate tweets with summary, hasttags, include links, emojis etc
+- [ ] test generate images

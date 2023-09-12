@@ -1,9 +1,0 @@
-DALL-E Prompt: Create an image of a computer screen displaying the Verzel SDK documentation page, with a highlighted section about connecting to the OpenAI API and creating an AI chatbot using the Nest framework.
-
-DALL-E Prompt: Generate an image of a developer working on a laptop, with code editor open and the Verzel SDK and Nest framework logos visible on the screen. The developer is writing code to connect to the OpenAI API and create a chatbot using the Verzel SDK and Nest framework.
-
-DALL-E Prompt: Create an image of a smartphone with a chatbot interface on the screen. The interface shows a conversation between a user and the chatbot, with the Verzel and OpenAI logos visible in the chat window. The chatbot is responding to the user's messages using the OpenAI model, powered by the Verzel SDK.
-
-DALL-E Prompt: Generate an image of a group of developers sitting around a table, discussing and brainstorming ideas for an AI chatbot. They have laptops open, with code editors and documentation visible. The Verzel and OpenAI logos are displayed on their laptops, indicating their use of the Verzel SDK and OpenAI API.
-
-DALL-E Prompt: Create an image of a futuristic chatbot interface, with a sleek design and advanced AI capabilities. The interface shows a conversation between a user and the chatbot, with the Verzel and OpenAI logos visible in the interface. The chatbot is providing intelligent and helpful responses to the user's queries, showcasing the power of the Verzel SDK and OpenAI models.

@@ -1,0 +1,11 @@
+¡Hola a todos! 👋 En mi nuevo video les mostraré cómo migrar mi proyecto de Angular 15 a la última versión, ¡Angular 16! 🚀 Veremos los pasos necesarios para migrar una aplicación que se conecta a una API y utiliza Angular Material. Mi proyecto es un sistema de administración de un e-commerce que se conecta a la API de Platzi Fake Store, donde obtenemos datos de productos, categorías y usuarios. Además, cuenta con autenticación basada en JWT. En este video, migraremos el gestor de contenidos, incluyendo rutas, listado de productos y categorías. 😎
+
+Mi aplicación utiliza Angular Material y tiene protección de rutas basada en el estado de la sesión. Si intentamos acceder a una ruta protegida sin iniciar sesión, ¡seremos redirigidos al login! También encontramos un pequeño bug en la redirección de rutas inexistentes, ¡pero lo resolveremos durante la migración! 🐞
+
+Para llevar a cabo la migración, primero actualizaremos el Angular CLI global. Luego, utilizaremos el comando ngUpdate para actualizar las dependencias del proyecto. En este caso, actualizaremos el Core y el CLI a la versión 16. Después, actualizaremos el Angular ESLint, aunque tuvimos que forzar la actualización debido a un conflicto. Por último, actualizaremos el CDK y Angular Material a la versión 16. 🔧
+
+Una vez completada la actualización, verificaremos que la aplicación siga funcionando correctamente. Iniciaremos sesión, navegaremos por las diferentes secciones y comprobaremos que la protección de rutas y el listado de productos y categorías sigan funcionando como antes. ¡Todo en orden! ✅
+
+Finalmente, haremos un commit y fusionaremos la rama de actualización con la rama principal. La aplicación se desplegará automáticamente en Fiber Hosting y comprobaremos que siga funcionando correctamente en producción. ¡Todo listo! 🚀
+
+En los próximos videos, aprovecharemos las nuevas características de Angular 16 para mejorar nuestra aplicación. ¡No se lo pierdan! 😉 #Angular16 #MigraciónExitosa #DesarrolloWeb

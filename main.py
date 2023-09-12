@@ -2,7 +2,7 @@ import typer
 from transcript.audio import get_audio
 from transcript.whisper import get_transcribe
 from chains.summary_chain import SummaryChain
-from chains.twets_chain import TweetsChain
+from chains.twet_chain import TweetChain
 from chains.dalle_chain import DalleChain
 from image.dalle import generate_image
 #from image.stable_diffusion import generate_image
@@ -10,7 +10,7 @@ import settings
 from rich import print
 
 app = typer.Typer()
-output_dir = './data/2023-07-12-nvidia'
+output_dir = './data/2023-09-12-standalone'
 
 
 @app.command()
@@ -43,12 +43,12 @@ def summary():
 
 
 @app.command()
-def tweets():
-    tweets_chain = TweetsChain.from_class()
+def tweet():
+    tweet_chain = TweetChain.from_class()
     file = open(f"./{output_dir}/summarize.txt", "r+")
-    context = file.read()
-    tweets = tweets_chain.generate_response(context=context)
-    path = f'./{output_dir}/tweets.txt'
+    summary = file.read()
+    tweets = tweet_chain.generate_response(summary=summary)
+    path = f'./{output_dir}/tweet.txt'
     with open(path, 'w') as file:
         file.write(tweets)
         print(tweets)

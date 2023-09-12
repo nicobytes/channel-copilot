@@ -1,0 +1,9 @@
+En este video, vamos a hacer la migración de una aplicación de Angular que utiliza módulos a una versión más moderna que propone eliminar los módulos por completo. Comenzamos con una aplicación modularizada en la que cada funcionalidad está encapsulada en un módulo, como el módulo de autenticación, el módulo de dashboard, el módulo de productos, etc. Sin embargo, en las versiones futuras de Angular, se propone desarrollar aplicaciones sin módulos, importando solo lo que se necesita en cada componente. 
+
+Para realizar la migración, seguimos los pasos proporcionados por Angular en su página de migración. El primer paso es convertir todos los componentes, directivas y pipes a standalone, es decir, importar solo lo necesario en cada componente. Luego, eliminamos los ngModules innecesarios, ya que cada componente se encarga de importar lo que necesita. Por último, cambiamos el bootstrap de la aplicación para que funcione sin módulos. 
+
+Durante la migración, encontramos algunos errores que tuvimos que corregir manualmente, como la importación de un módulo que no fue detectada por Angular. También realizamos algunos ajustes en el archivo de configuración de la aplicación para mantener el main.ts lo más limpio posible. 
+
+Al finalizar la migración, probamos la aplicación y verificamos que funcione correctamente. Aunque la migración puede ser un proceso tedioso, eliminar los módulos puede reducir el tamaño de la aplicación y simplificar el proceso de desarrollo. Además, seguimos organizando la aplicación por dominios, aunque a nivel técnico ya no se utilizan los módulos. 
+
+Si te interesa ver más videos de migración o tienes alguna pregunta, déjame un comentario y estaré encantado de responder. No olvides suscribirte al canal para más contenido. ¡Nos vemos en el próximo video!

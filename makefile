@@ -1,0 +1,2 @@
+activate:
+	conda activate channel

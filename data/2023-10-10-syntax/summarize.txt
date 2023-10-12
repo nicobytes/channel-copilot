@@ -1,0 +1,11 @@
+¡Hola a todos! En este video les voy a hablar sobre la nueva sintaxis que Angular está proponiendo, basada en Svelte. Angular quiere cambiar el modelo de sintaxis para que sea más sencillo de aprender y controlar el flujo dentro de nuestro HTML. Se inspiran en la sintaxis de Svelte, que es un framework interesante y rápido en su rendimiento.
+
+En Svelte, la sintaxis es diferente a la de Angular. Por ejemplo, en Svelte, si quieres representar un elemento basado en una condición, lo haces directamente en un statement, a diferencia de Angular que utiliza directivas como ng-if o ng-for. Angular propone cambiar a un modelo de sintaxis similar a Svelte.
+
+Angular se ha inspirado en frameworks como Solid para su modelo de reactividad, y ahora también se inspira en Svelte para su sintaxis. La versión 17 de Angular será la que incluya estos cambios. Ya se puede probar una versión beta de la versión 17 para ver cómo es esta nueva sintaxis.
+
+En el video, muestro una aplicación sencilla que utiliza las directivas ng-if, ng-for, ng-container y ng-template. Luego, muestro cómo quedaría la aplicación con la nueva sintaxis propuesta por Angular. Se utilizan nuevos bloques como if y for, en lugar de las directivas ng-if y ng-for.
+
+Aunque la nueva sintaxis aún está en desarrollo y puede generar algunos errores, Angular siempre ha sido retrocompatible, lo que significa que se pueden utilizar tanto la sintaxis nueva como la antigua. En el video, también se menciona que Angular está proponiendo cambios en el lazy loading de componentes, utilizando la nueva sintaxis.
+
+En resumen, Angular está proponiendo una nueva sintaxis basada en Svelte para hacer más sencillo el control del flujo en el HTML. Se inspiran en frameworks como Solid y Svelte para mejorar su modelo de reactividad y su sintaxis. La versión 17 de Angular incluirá estos cambios y ya se puede probar una versión beta. ¡Déjenme saber en los comentarios qué les parece esta nueva sintaxis! Recuerden compartir el video y suscribirse al canal. ¡Nos vemos en el próximo video!

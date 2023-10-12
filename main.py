@@ -10,7 +10,7 @@ import settings
 from rich import print
 
 app = typer.Typer()
-output_dir = './data/2023-09-12-standalone'
+output_dir = './data/2023-10-10-syntax'
 
 
 @app.command()

@@ -2,14 +2,29 @@
 
 ```sh
 conda env create -f environment.yml
-conda activate channel
 ```
 
-# Install poetry
+# Activate env
 
 ```sh
-pip install poetry
+conda activate notebooks
+```
+
+# Install deps
+
+```sh
 poetry install
+```
+
+# Generate conda env from zero
+```sh
+conda create --name notebooks python=3.10
+conda activate notebooks
+conda install pytorch torchvision torchaudio pytorch-cuda=11.7 -c pytorch -c nvidia
+conda install -c conda-forge poetry
+conda install -c conda-forge ffmpeg
+conda env export > environment.yml
+poetry init
 ```
 
 # Run
@@ -21,15 +36,6 @@ python main.py tweet
 python main.py dalle
 python main.py image
 ``` 
-
-# Generate conda env
-```sh
-conda create --name channel python=3.10
-conda pytorch torchvision torchaudio pytorch-cuda=11.7 -c pytorch -c nvidia
-conda install -c conda-forge poetry
-conda install -c conda-forge ffmpeg
-conda env export > environment.yml
-```
 
 # TODOs
 

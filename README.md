@@ -32,6 +32,7 @@ poetry init
 python main.py audio
 python main.py transcribe
 python main.py summary
+python main.py youtube
 python main.py tweet
 python main.py dalle
 python main.py image

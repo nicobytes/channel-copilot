@@ -17,3 +17,4 @@ human_template = PromptTemplate(
 
 human_message_prompt = HumanMessagePromptTemplate(prompt=human_template)
 SUMMARY_PROMPT = ChatPromptTemplate.from_messages([system_message_prompt, human_message_prompt])
+

@@ -18,5 +18,4 @@ class Settings(BaseSettings):
 settings = Settings()
 
 openai.api_key = settings.open_ai_key
-openai.api_key = settings.open_ai_key
 langchain.verbose = settings.debug

@@ -1,24 +1,11 @@
-import openai
-from langchain.llms import OpenAI
-from langchain import LLMChain
-from chains.summary_prompt import SUMMARY_PROMPT
+from langchain_core.runnables import RunnablePassthrough
+from langchain_core.output_parsers import StrOutputParser
+from langchain_openai import ChatOpenAI
+from langchain import hub
 
-class SummaryChain():
-    def __init__(self):
-        llm = OpenAI(
-            model_name='gpt-3.5-turbo-16k',
-            temperature=0.2,
-            max_tokens=512,
-        )
+prompt = hub.pull("nicobutes/summary-transcription")
 
-        self.chain = LLMChain(
-            llm=llm,
-            prompt=SUMMARY_PROMPT,
-        )
+model = ChatOpenAI(model="gpt-4-0125-preview")
+output_parser = StrOutputParser()
 
-    def generate_response(self, transcript: str) -> str:
-        return self.chain.predict(transcript=transcript)
-
-    @classmethod
-    def from_class(cls):
-        return cls()
+summary_chain = {"transcript": RunnablePassthrough()} | prompt | model | output_parser

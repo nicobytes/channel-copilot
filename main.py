@@ -1,16 +1,17 @@
+import settings
 import typer
 from transcript.audio import get_audio
 from transcript.whisper import get_transcribe
-from chains.summary_chain import SummaryChain
+from chains.summary_chain import summary_chain
+from chains.youtube_chain import youtube_chain
 from chains.twet_chain import TweetChain
 from chains.dalle_chain import DalleChain
 from image.dalle import generate_image
-#from image.stable_diffusion import generate_image
-import settings
 from rich import print
 
+
 app = typer.Typer()
-output_dir = './data/2023-10-10-syntax'
+output_dir = './data/2024-01-28-figma'
 
 
 @app.command()
@@ -32,14 +33,27 @@ def transcribe():
 
 @app.command()
 def summary():
-    summary_chain = SummaryChain.from_class()
     file = open(f"./{output_dir}/transcript.txt", "r+")
     transcript = file.read()
-    summary = summary_chain.generate_response(transcript=transcript)
+    summary = summary_chain.invoke(transcript)
     path = f'./{output_dir}/summarize.txt'
     with open(path, 'w') as file:
         file.write(summary)
         print(summary)
+
+
+@app.command()
+def youtube():
+    file = open(f"./{output_dir}/summarize.txt", "r+")
+    summary = file.read()
+    result = youtube_chain.invoke({
+        "summary": summary,
+        "language": "Spanish"
+    })
+    path = f'./{output_dir}/youtube.txt'
+    with open(path, 'w') as file:
+        file.write(result)
+        print(result)
 
 
 @app.command()

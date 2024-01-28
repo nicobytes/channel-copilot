@@ -8,9 +8,9 @@ packages = [{include = "channel_copilot"}]
 
 [tool.poetry.dependencies]
 python = "~3.10"
-langchain = "^0.0.270"
-openai = "^0.27.8"
-openai-whisper = "^20230314"
+langchain = "0.1.4"
+openai = "1.10.0"
+openai-whisper = "20231117"
 python-dotenv = "^1.0.0"
 pydantic = "^1.10.9"
 ffmpeg-python = "^0.2.0"
@@ -20,6 +20,9 @@ rich = "^13.5.2"
 tensorflow = "^2.13.0"
 keras-cv = "^0.6.1"
 keras-core = "^0.1.4"
+tiktoken = "0.5.2"
+langchain-openai = "^0.0.5"
+langchainhub = "^0.1.14"
 
 
 [build-system]

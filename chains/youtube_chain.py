@@ -8,4 +8,9 @@ prompt = hub.pull("nicobutes/youtube")
 model = ChatOpenAI(model="gpt-4-0125-preview")
 output_parser = StrOutputParser()
 
-youtube_chain = {"summary": RunnablePassthrough(), "language": RunnablePassthrough()} | prompt | model | output_parser
+youtube_chain = (
+    {"summary": RunnablePassthrough(), "language": RunnablePassthrough()}
+    | prompt
+    | model
+    | output_parser
+)

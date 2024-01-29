@@ -6,6 +6,7 @@ from pydantic import BaseSettings
 
 load_dotenv()
 
+
 class Settings(BaseSettings):
     name: str = os.getenv("NAME", "channel-copilot")
     debug: bool = os.getenv("DEBUG", False)
@@ -14,6 +15,7 @@ class Settings(BaseSettings):
     open_ai_key: str = os.getenv("OPENAI_API_KEY")
     open_ai_organization: str = os.getenv("OPENAI_ORGANIZATION")
     open_ai_proxy: str = os.getenv("OPENAI_PROXY")
+
 
 settings = Settings()
 

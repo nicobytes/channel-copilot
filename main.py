@@ -11,7 +11,7 @@ from rich import print
 
 
 app = typer.Typer()
-output_dir = './data/2024-01-25-migration'
+output_dir = "./data/2024-01-25-migration"
 
 
 @app.command()
@@ -23,10 +23,10 @@ def audio():
 
 @app.command()
 def transcribe():
-    file_path = './input/audio.wav'
-    transcript = get_transcribe(file_path, 'large')
-    path = f'./{output_dir}/transcript.txt'
-    with open(path, 'w') as file:
+    file_path = "./input/audio.wav"
+    transcript = get_transcribe(file_path, "large")
+    path = f"./{output_dir}/transcript.txt"
+    with open(path, "w") as file:
         file.write(transcript)
         print(transcript)
 
@@ -36,8 +36,8 @@ def summary(path: str):
     file = open(f"./{path}/transcript.txt", "r+")
     transcript = file.read()
     summary = summary_chain.invoke(transcript)
-    path = f'./{path}/summarize.txt'
-    with open(path, 'w') as file:
+    path = f"./{path}/summarize.txt"
+    with open(path, "w") as file:
         file.write(summary)
         print(summary)
 
@@ -46,12 +46,9 @@ def summary(path: str):
 def youtube(path: str):
     file = open(f"./{path}/summarize.txt", "r+")
     summary = file.read()
-    result = youtube_chain.invoke({
-        "summary": summary,
-        "language": "Spanish"
-    })
-    path = f'./{path}/youtube.txt'
-    with open(path, 'w') as file:
+    result = youtube_chain.invoke({"summary": summary, "language": "Spanish"})
+    path = f"./{path}/youtube.txt"
+    with open(path, "w") as file:
         file.write(result)
         print(result)
 
@@ -60,19 +57,20 @@ def youtube(path: str):
 def thread(path: str):
     file = open(f"./{path}/summarize.txt", "r+")
     text = file.read()
-    paragraphs = list(filter(lambda x: x != "", text.split('\n')))
-    result = thread_chain.invoke({
-        "word_count": 140,
-        "target_audience": "Angular Developers",
-        "language": "Spanish",
-        "number_of_tweets": len(paragraphs),
-        "text": text
-    })
-    path = f'./{path}/thread.txt'
-    with open(path, 'w') as file:
+    paragraphs = list(filter(lambda x: x != "", text.split("\n")))
+    result = thread_chain.invoke(
+        {
+            "word_count": 140,
+            "target_audience": "Angular Developers",
+            "language": "Spanish",
+            "number_of_tweets": len(paragraphs),
+            "text": text,
+        }
+    )
+    path = f"./{path}/thread.txt"
+    with open(path, "w") as file:
         file.write(result)
         print(result)
-
 
 
 @app.command()
@@ -80,7 +78,7 @@ def dalle(path: str):
     file = open("./output/summarize.txt", "r+")
     text = file.read()
     response = dalle_chain.invoke(text)
-    with open('./output/dalle-prompts.txt', 'w') as file:
+    with open("./output/dalle-prompts.txt", "w") as file:
         file.write(response)
         print(response)
 
@@ -89,10 +87,11 @@ def dalle(path: str):
 def image():
     file = open("./output/dalle-prompts.txt", "r+")
     text = file.read()
-    parts = list(filter(None, text.split('\n')))
+    parts = list(filter(None, text.split("\n")))
     for index, item in enumerate(parts):
         response = generate_image(item, index)
         print(response)
+
 
 if __name__ == "__main__":
     app()

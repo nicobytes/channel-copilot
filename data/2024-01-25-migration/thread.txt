@@ -1,0 +1,7 @@
+Actualizar tu aplicación de Angular 16 a 17 puede parecer un desafío, pero con los pasos correctos, es una transición suave. Comienza creando una nueva rama en tu repositorio para mantener seguro tu entorno de producción. #1/4
+
+Asegúrate de que estás utilizando Node versión 18 como mínimo para evitar inconvenientes. Con Node Version Manager, esto es fácil. Luego, actualiza el CLI de Angular y utiliza `ng update` para que Angular te guíe en la actualización. #2/4
+
+Durante la actualización, puedes encontrarte con problemas, como con Angular ESLint. Solucionarlos puede requerir una actualización forzada para compatibilidad. No olvides revisar y actualizar manualmente paquetes como Angular CDK y Material. #3/4
+
+Una vez completada la actualización y resueltos los conflictos, verifica que tu aplicación funcione en la versión 17 en local y producción. Este primer paso es crucial para desbloquear nuevas características y mejoras en Angular 17. #4/4

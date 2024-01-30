@@ -1,0 +1,9 @@
+¿Te enfrentas al desafío de actualizar tu aplicación de Angular versión 16 a la 17 y no sabes por dónde empezar? ¡Tengo justo lo que necesitas! 🚀 En mi último video, te llevo de la mano en el proceso de actualización de una aplicación de Angular, mostrándote cada paso necesario para hacer la transición sin contratiempos. 
+
+Comparto mi experiencia trabajando con una aplicación que ya implementa Angular Material y componentes independientes, lo que simplifica el proceso de migración. Desde la creación de una nueva rama en el repositorio hasta asegurarte de usar Node versión 18 como mínimo, cubro todos los detalles importantes para una actualización exitosa. Además, enfrento y soluciono un problema con el paquete Angular ESLint, te guío en la actualización de otros paquetes necesarios y te muestro cómo verificar que todo funcione correctamente una vez completada la actualización.
+
+Este es solo el primer paso para desbloquear las nuevas características y mejoras que Angular versión 17 tiene para ofrecer. Si eres desarrollador y buscas mantener tu aplicación al día, este video es para ti. ¡No te pierdas esta guía detallada y comienza a aprovechar todo lo que Angular 17 puede ofrecer a tu proyecto!
+
+Haz clic aquí para ver el video: [Actualizar aplicación Angular de versión 16 a 17](https://www.youtube.com/watch?v=0kNFH_iYa60)
+
+¡Espero tus comentarios y que compartas tu experiencia de actualización! #Angular #DesarrolloWeb #Programación

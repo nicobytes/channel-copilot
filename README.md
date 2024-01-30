@@ -31,9 +31,10 @@ poetry init
 ```py
 python main.py audio
 python main.py transcribe
-python main.py summary ./data/2024-01-25-migration
-python main.py youtube ./data/2024-01-25-migration
-python main.py thread ./data/2024-01-25-migration
+python main.py summary ./data/2024-01-28-figma
+python main.py youtube ./data/2024-01-28-figma
+python main.py thread ./data/2024-01-28-figma
+python main.py linkedin ./data/2024-01-28-figma
 python main.py dalle
 python main.py image
 ``` 

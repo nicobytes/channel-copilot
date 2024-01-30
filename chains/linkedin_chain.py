@@ -3,18 +3,18 @@ from langchain_core.output_parsers import StrOutputParser
 from langchain_openai import ChatOpenAI
 from langchain import hub
 
-prompt = hub.pull("chickensoup/twitter-thread")
+prompt = hub.pull("nicobutes/linkedin")
 
 model = ChatOpenAI(model="gpt-4-0125-preview")
 output_parser = StrOutputParser()
 
-thread_chain = (
+linkedin_chain = (
     {
-        "word_count": RunnablePassthrough(),
-        "target_audience": RunnablePassthrough(),
+        "counter_p": RunnablePassthrough(),
         "language": RunnablePassthrough(),
-        "number_of_tweets": RunnablePassthrough(),
-        "text": RunnablePassthrough(),
+        "summary": RunnablePassthrough(),
+        "link": RunnablePassthrough(),
+        "target_audience": RunnablePassthrough(),
     }
     | prompt
     | model

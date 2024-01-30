@@ -5,6 +5,7 @@ from transcript.whisper import get_transcribe
 from chains.summary_chain import summary_chain
 from chains.youtube_chain import youtube_chain
 from chains.thread_chain import thread_chain
+from chains.linkedin_chain import linkedin_chain
 from chains.dalle_chain import dalle_chain
 from image.dalle import generate_image
 from rich import print
@@ -61,13 +62,32 @@ def thread(path: str):
     result = thread_chain.invoke(
         {
             "word_count": 140,
-            "target_audience": "Angular Developers",
+            "target_audience": "Designers",
             "language": "Spanish",
             "number_of_tweets": len(paragraphs),
             "text": text,
         }
     )
     path = f"./{path}/thread.txt"
+    with open(path, "w") as file:
+        file.write(result)
+        print(result)
+
+
+@app.command()
+def linkedin(path: str):
+    file = open(f"./{path}/summarize.txt", "r+")
+    summary = file.read()
+    result = linkedin_chain.invoke(
+        {
+            "counter_p": 3,
+            "target_audience": "Designers",
+            "language": "Latam Spanish",
+            "summary": summary,
+            "link": "https://www.youtube.com/watch?v=0kNFH_iYa60",
+        }
+    )
+    path = f"./{path}/linkedin.txt"
     with open(path, "w") as file:
         file.write(result)
         print(result)

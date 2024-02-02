@@ -12,7 +12,6 @@ from rich import print
 
 
 app = typer.Typer()
-output_dir = "./data/2024-01-25-migration"
 
 
 @app.command()
@@ -23,10 +22,10 @@ def audio():
 
 
 @app.command()
-def transcribe():
+def transcribe(path: str):
     file_path = "./input/audio.wav"
     transcript = get_transcribe(file_path, "large")
-    path = f"./{output_dir}/transcript.txt"
+    path = f"./{path}/transcript.txt"
     with open(path, "w") as file:
         file.write(transcript)
         print(transcript)
@@ -55,15 +54,16 @@ def youtube(path: str):
 
 
 @app.command()
-def thread(path: str):
+def thread(path: str, link: str, target: str):
     file = open(f"./{path}/summarize.txt", "r+")
     text = file.read()
     paragraphs = list(filter(lambda x: x != "", text.split("\n")))
     result = thread_chain.invoke(
         {
             "word_count": 140,
-            "target_audience": "Designers",
-            "language": "Spanish",
+            "target_audience": target,
+            "language": "Latam Spanish",
+            "link": link,
             "number_of_tweets": len(paragraphs),
             "text": text,
         }
@@ -75,16 +75,16 @@ def thread(path: str):
 
 
 @app.command()
-def linkedin(path: str):
+def linkedin(path: str, link: str, target: str):
     file = open(f"./{path}/summarize.txt", "r+")
     summary = file.read()
     result = linkedin_chain.invoke(
         {
             "counter_p": 3,
-            "target_audience": "Designers",
+            "target_audience": target,
             "language": "Latam Spanish",
             "summary": summary,
-            "link": "https://www.youtube.com/watch?v=0kNFH_iYa60",
+            "link": link,
         }
     )
     path = f"./{path}/linkedin.txt"

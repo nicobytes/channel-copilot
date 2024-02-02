@@ -1,0 +1,7 @@
+1/4 ¿Quieres migrar tu app de Angular a la nueva sintaxis con un solo comando? En mi último video, te muestro cómo actualizar un gestor de e-commerce paso a paso. Utilizamos una herramienta de Angular que facilita este proceso desde la versión 17. ¡Prepara tu terminal!
+
+2/4 Durante el tutorial, descubrimos cómo este comando no solo actualiza tu app completa o partes de ella, sino que también hace la transición de "ng if" y "ng for" a la nueva sintaxis. Incluso tratamos componentes como listas y formularios, optimizando su rendimiento.
+
+3/4 ¿Sabías que la actualización mejora automáticamente el rendimiento introduciendo 'track by' en algunos casos? Aunque es recomendable ajustarlo a tus necesidades específicas. Después de migrar, probé la app para garantizar su funcionamiento antes del lanzamiento en producción.
+
+4/4 Este proceso no solo simplifica la migración a la nueva sintaxis de Angular, sino que también realza la experiencia de desarrollo y el rendimiento de tu app. Si estás listo para llevar tu proyecto al siguiente nivel, ¡no te pierdas el tutorial completo! https://youtu.be/lsoee2eZxeI

@@ -1,0 +1,5 @@
+Title: "Angular 17: Dominando los Nuevos Builders y el Futuro del Server-Side Rendering"
+
+Description: "En este video, me sumerjo en el emocionante mundo de Angular versión 17, desentrañando las innovaciones detrás de sus tres nuevos builders: Webpack, ESBuild, y uno especializado en server-side rendering. Te guiaré a través de las características de cada uno, cómo se comparan entre sí y la forma en que puedes seleccionar el más conveniente para tus proyectos. Desde la velocidad impresionante de ESBuild hasta las ventajas específicas para server-side rendering del builder Application, este análisis profundo no solo te preparará para migrar con confianza sino que también te adelantará a las tendencias futuras en desarrollo web. ¡Acompáñame en esta aventura tecnológica, mejora tus tiempos de desarrollo y prepárate para lo que Angular tiene reservado!"
+
+Tags: Angular 17, Webpack, ESBuild, server-side rendering, desarrollo web, migración Angular, rendimiento web, SEO, Angular builders, integración continua, desarrollo local, client-side rendering, configuración Angular, Angular versión 18, frameworks modernos

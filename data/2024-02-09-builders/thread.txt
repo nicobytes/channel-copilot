@@ -1,0 +1,9 @@
+1/5 🚀 Angular versión 17 trae innovaciones clave con 3 builders: Webpack, ESBuild y uno optimizado para server-side rendering. ¿Cuál elegir? 🧐 Descúbrelo aquí. 
+
+2/5 🛠️ Primer vistazo: El builder de Browser con Webpack, perfecto para una transición suave hacia las nuevas funcionalidades de Angular, manteniendo tus personalizaciones intactas.
+
+3/5 ⚡ Luego, el builder Browser ESBuild, destacando por su rapidez, gracias a Go. Ideal para agilizar la integración continua y el desarrollo local. ¿Listos para acelerar?
+
+4/5 🌐 No te pierdas el builder Application, una fusión de ESBuild y Byte para optimizar tanto el server-side como el client-side rendering. Un paso adelante en eficiencia y SEO.
+
+5/5 🛠️ + 🖥️ Exploramos la migración a Application, mejoras en la construcción y organización de archivos, y debatimos el futuro del server-side rendering. ¿Nos movemos hacia allí por defecto? Descúbrelo en nuestro último video: https://youtu.be/k711swbVBr4

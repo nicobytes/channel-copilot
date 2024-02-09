@@ -1,0 +1,19 @@
+¿Estás al día con las últimas innovaciones de Angular versión 17? 🚀
+
+Como desarrolladores de Angular, sabemos que mantenerse actualizado es crucial para aprovechar al máximo las herramientas que usamos. Por eso, en mi último video, profundizo en las novedades introducidas en Angular 17, destacando especialmente la llegada de tres diferentes builders para la construcción de aplicaciones: Webpack, ESBuild y un tercero optimizado para server-side rendering. Cada uno ofrece ventajas únicas y en el video, explico cómo seleccionar el mejor según tus necesidades específicas.
+
+Iniciamos con el builder de Browser, un aliado perfecto para aquellos buscando una transición suave hacia las nuevas funcionalidades de Angular, especialmente si tienes dependencias o personalizaciones en Webpack. Luego, exploramos el builder Browser ESBuild, que destaca por su rapidez gracias a su desarrollo en Go, representando una mejora significativa en velocidad comparado con Webpack. Esta opción es ideal para optimizar los tiempos de desarrollo local e integración continua.
+
+Pero el foco principal está en el builder Application, una novedad de Angular 17 diseñada para un desarrollo más eficiente, favoreciendo tanto el server-side como el client-side rendering. Te muestro paso a paso cómo realizar la migración desde versiones anteriores, detallando su configuración y los beneficios de rendimiento que ofrece. Este builder se alinea con la tendencia actual hacia el server-side rendering por defecto, prometiendo mejoras significativas en carga inicial y SEO.
+
+Además, realizo una demostración práctica de cómo migrar a Application en un proyecto existente, ajustando la configuración basada en la documentación oficial y resaltando las mejoras en tiempos de construcción y organización de archivos.
+
+Para cerrar, reflexiono sobre cuándo y por qué habilitar el server-side rendering, considerando aspectos de rendimiento y accesibilidad, y adelanto que Angular versión 18 podría hacer del server-side rendering la configuración estándar.
+
+Te invito a sumergirte en este tema tan relevante y a participar en la discusión sobre server-side rendering. Además, ¡no te pierdas el anuncio de un próximo video dedicado exclusivamente a este tema!
+
+👉 Mira el video completo aquí: https://youtu.be/k711swbVBr4
+
+¡Suscríbete y forma parte de nuestra comunidad de desarrolladores Angular! 💻✨
+
+#Angular #Angular17 #WebDevelopment #ServerSideRendering #AngularDevs

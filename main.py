@@ -5,6 +5,7 @@ from transcript.whisper import get_transcribe
 from chains.summary_chain import summary_chain
 from chains.youtube_chain import youtube_chain
 from chains.thread_chain import thread_chain
+from chains.tweet_chain import tweet_chain
 from chains.linkedin_chain import linkedin_chain
 from chains.dalle_chain import dalle_chain
 from image.dalle import generate_image
@@ -52,6 +53,24 @@ def youtube(path: str):
         file.write(result)
         print(result)
 
+
+@app.command()
+def tweet(path: str, link: str, target: str):
+    file = open(f"./{path}/summarize.txt", "r+")
+    text = file.read()
+    result = tweet_chain.invoke(
+        {
+            "word_count": 140,
+            "target_audience": target,
+            "language": "Latam Spanish",
+            "link": link,
+            "text": text,
+        }
+    )
+    path = f"./{path}/tweet.txt"
+    with open(path, "w") as file:
+        file.write(result)
+        print(result)
 
 @app.command()
 def thread(path: str, link: str, target: str):

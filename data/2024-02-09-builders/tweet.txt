@@ -1,0 +1,11 @@
+🚀 ¡Atención #AngularDevs! Conoce las novedades de Angular 17 en nuestro último video 🎥:
+
+- Introducción de 3 builders: Webpack, ESBuild, y uno para server-side rendering 🛠️
+- Velocidad superior con ESBuild, escrito en Go ⚡
+- Nuevo builder Application combina ESBuild y Byte para eficiencia en server-side y client-side rendering 🌐
+- Consejos para migrar y mejorar rendimiento y SEO 📈
+- Reflexión sobre el futuro del server-side rendering en Angular 18 🤔
+
+Explora cómo estas actualizaciones pueden revolucionar tu desarrollo. Mira ahora 👉 https://youtu.be/k711swbVBr4 
+
+#Angular #WebDevelopment #ServerSideRendering

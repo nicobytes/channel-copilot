@@ -1,0 +1,21 @@
+¿Has pensado alguna vez en transformar audio a texto con alta precisión, pero no sabes por dónde empezar? 🤔
+
+¡Tengo la solución perfecta para ti! En mi último video, te llevo de la mano a través del emocionante mundo de la inteligencia artificial para convertir audio a texto usando Whisper, el revolucionario modelo de OpenAI, ¡y todo ello de manera gratuita y abierta!
+
+Comenzamos el viaje configurando un ambiente en Python con Conda, herramienta esencial para cualquier proyecto de IA, seguido de la instalación de Poetry y FFmpeg, piezas clave en nuestro engranaje para manejar dependencias y audio, respectivamente.
+
+Luego, sumergimos en la instalación de la librería Whisper de OpenAI en Python. Aunque el tiempo de configuración puede variar, te aseguro que el esfuerzo vale cada segundo. Creamos nuestro primer script `main.py`, importamos Whisper, y establecemos el escenario para el desarrollo dentro de Visual Studio Code, asegurándonos de trabajar en el ambiente correcto.
+
+La magia sucede al definir una función que captura el transcript de un audio, seleccionando el modelo de Whisper que mejor se ajuste a nuestras necesidades. Y no solo eso, sino que también exploramos cómo exportar estas transcripciones en formatos como TSV, TXT, y SRT, ampliando las posibilidades de uso en subtitulación o análisis de datos.
+
+Aunque corremos los modelos localmente en este tutorial, no dejo de lado las opciones de ejecución en la nube, simplificando el proceso para aquellos que prefieran evitar la configuración local.
+
+Para cerrar con broche de oro, comparto mi entusiasmo por la aplicación de inteligencia artificial en el desarrollo de aplicaciones, especialmente al combinarla con tecnologías de frontend como Angular, abriendo un abanico de posibilidades en soluciones empresariales.
+
+Si eres desarrollador y te apasiona la inteligencia artificial tanto como a mí, este video es para ti. 🚀
+
+Dale like, suscríbete para más contenido relacionado con inteligencia artificial y desarrollo de aplicaciones, y no dejes de compartir tu opinión en los comentarios. ¡Tu feedback es oro!
+
+Aquí tienes el link: [Transforma audio a texto con Whisper y Python](https://youtu.be/7-4ZAAjBfC8)
+
+#InteligenciaArtificial #DesarrolloDeSoftware #OpenAI #Python #Whisper #InnovaciónTech

@@ -1,0 +1,14 @@
+🎙️¿Te has encontrado alguna vez con la necesidad de transcribir audio a texto con alta precisión y te preguntas cómo hacerlo eficientemente? ¡Tengo algo increíble que compartir contigo!
+
+Recientemente, me he adentrado en el mundo de Whisper, un modelo de IA de OpenAI diseñado para convertir cualquier audio a texto con una calidad y precisión sorprendentes. En mi último blogpost, te guío paso a paso sobre cómo utilizar este modelo de IA para obtener transcripciones de archivos de audio y cómo ejecutarlo con Python. 🐍✨
+
+Desde la creación de tu entorno con Conda y Poetry hasta la instalación de Whisper y su uso práctico, cubro todo lo que necesitas saber para empezar. Además, te muestro cómo guardar los resultados de las transcripciones en diferentes formatos para manejarlos según tus necesidades.
+
+Ya sea que estés trabajando en proyectos de desarrollo, investigaciones académicas o simplemente por curiosidad en la inteligencia artificial, este artículo es para ti. ¡No te pierdas este viaje hacia la eficiencia en la transcripción de audio!
+
+👉 Lee el artículo completo aquí: [Cómo utilizar Whisper para transcripciones de audio](https://nicobytes.com/blog/en/how-to-use-whisper/)
+
+¡Espero que encuentres este recurso tan útil como yo! No dudes en compartir tus pensamientos y experiencias con Whisper. #IA #Whisper #OpenAI #Python #TranscripciónDeAudio
+
+---
+Recuerda que este contenido está dirigido especialmente para desarrolladores y entusiastas de la tecnología que buscan explorar las últimas herramientas de IA para mejorar sus flujos de trabajo o proyectos. ¡Nos vemos en el blog!

@@ -1,0 +1,12 @@
+🚀 Devs, descubran cómo transformar audio a texto con #Whisper de OpenAI 🤖 en nuestro último video. Un recorrido completo desde la configuración hasta la ejecución:
+
+- Uso de #Python y Conda 🐍
+- Instalación de herramientas como Poetry y FFmpeg 🛠️
+- Creación y configuración de `main.py` en VS Code 🔧
+- Selección de modelos Whisper para precisión deseada 🎯
+- Exportación de transcripciones en TSV, TXT, SRT 📄
+- Opciones de ejecución local y en la nube ☁️
+
+Perfecto para integrar IA en soluciones empresariales. ¡Chequéalo! ➡️ https://youtu.be/7-4ZAAjBfC8
+
+#IA #DesarrolloDeSoftware #OpenAI

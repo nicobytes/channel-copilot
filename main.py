@@ -62,7 +62,7 @@ def tweet(path: str, link: str, target: str):
         {
             "word_count": 140,
             "target_audience": target,
-            "language": "Latam Spanish",
+            "language": "LATAM Spanish",
             "link": link,
             "text": text,
         }
@@ -94,16 +94,18 @@ def thread(path: str, link: str, target: str):
 
 
 @app.command()
-def linkedin(path: str, link: str, target: str):
+def linkedin(path: str, link: str, target: str, format: str, type: str):
     file = open(f"./{path}/summarize.txt", "r+")
     summary = file.read()
     result = linkedin_chain.invoke(
         {
+            "type_content": type,
             "counter_p": 3,
-            "target_audience": target,
             "language": "Latam Spanish",
             "summary": summary,
+            "format": format,
             "link": link,
+            "target_audience": target,
         }
     )
     path = f"./{path}/linkedin.txt"

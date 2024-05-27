@@ -25,17 +25,18 @@ conda install -c conda-forge poetry
 conda install -c conda-forge ffmpeg
 conda env export > environment.yml
 poetry init
+
 ```
 
 # Run
 ```py
 python main.py audio
-python main.py transcribe ./data/2024-02-09-builders
-python main.py summary ./data/2024-02-09-builders
-python main.py youtube ./data/2024-02-09-builders
-python main.py tweet ./data/2024-02-09-builders https://youtu.be/k711swbVBr4 "Angular Devs"
-python main.py thread ./data/2024-02-09-builders https://youtu.be/k711swbVBr4 "Angular Devs"
-python main.py linkedin ./data/2024-02-09-builders https://youtu.be/k711swbVBr4 "Angular Devs"
+python main.py transcribe ./data/2024-05-27-envs
+python main.py summary ./data/2024-05-27-envs
+python main.py youtube ./data/2024-05-27-envs
+python main.py tweet ./data/2024-05-27-envs https://youtu.be/xBMEvd7PyEY "Angular Devs"
+python main.py thread ./data/2024-05-27-envs https://youtu.be/xBMEvd7PyEY "Angular Devs"
+python main.py linkedin ./data/2024-05-27-envs https://youtu.be/xBMEvd7PyEY "Angular Devs" "text" "video"
 python main.py dalle
 python main.py image
 ``` 

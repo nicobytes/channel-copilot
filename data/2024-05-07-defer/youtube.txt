@@ -1,0 +1,5 @@
+Title: "Cómo Crear Tablas Responsivas y Optimizar Tu App con Angular"
+
+Description: "En este video, te guío a través del emocionante proceso de crear tablas responsivas y optimizar tu aplicación para una carga más rápida, usando el Differ View de Angular. Te mostraré cómo hacer que tus aplicaciones sean perfectamente accesibles y altamente funcionales en dispositivos móviles, transformando tablas en listas con tarjetas para una mejor experiencia de usuario. Descubre cómo implementar dos componentes separados para escritorio y móvil, cargar componentes de manera condicional y diferida, y cómo esto puede reducir significativamente el JavaScript necesario, acelerando la carga de tu aplicación. Únete a mí en este tutorial práctico y empieza a mejorar tus habilidades en la creación de aplicaciones web eficientes y accesibles con Angular."
+
+Tags: "Angular, tablas responsivas, optimización de aplicaciones, Differ View de Angular, Breakpoint Observer, carga diferida, rendimiento web, desarrollo web, aplicaciones móviles, experiencia del usuario, tutorial de Angular, desarrollo frontend, Angular CDK, optimización de JavaScript"

@@ -1,0 +1,11 @@
+🤖💬 Convert audio to text with high accuracy using #OpenAI's Whisper! Devs, here's a quick guide:
+
+- Set up your env with Conda & Poetry 🛠️
+- Install Whisper with `poetry add openai-whisper` 👩‍💻
+- Choose from 5 model sizes for speed & accuracy trade-offs 🚀
+- Run Whisper in Python for high-quality transcriptions 📝
+- Save results in multiple formats (tsv, txt, srt) 📂
+
+Dive deeper into using Whisper for your projects: https://nicobytes.com/blog/en/how-to-use-whisper/
+
+#AI #MachineLearning #Python #Devs

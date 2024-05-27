@@ -1,0 +1,5 @@
+Title: "Transforma Audio en Texto con Precisión: Dominando Whisper de OpenAI"
+
+Description: En este video, te llevo de la mano a través del emocionante mundo de la inteligencia artificial para transformar audio a texto usando Whisper de OpenAI. Desde la configuración de un entorno de desarrollo con Conda y Python, hasta la elección del modelo perfecto de Whisper para nuestras necesidades, te muestro cómo obtener transcripciones precisas de archivos de audio. Además, exploramos juntos cómo exportar estas transcripciones en varios formatos y las posibilidades de ejecutar estos modelos tanto localmente como en la nube. Si te apasiona la inteligencia artificial y cómo puede potenciar el desarrollo de aplicaciones, especialmente combinadas con tecnologías frontend, este video es para ti. ¡Dale like, suscríbete y acompáñame en esta aventura tecnológica!
+
+Tags: OpenAI, Whisper, inteligencia artificial, transformar audio a texto, Python, Conda, Poetry, FFmpeg, desarrollo de aplicaciones, transcripción de audio, modelos de IA, TSV, TXT, SRT, Azure, Cloudflare, API de OpenAI, Angular, soluciones empresariales

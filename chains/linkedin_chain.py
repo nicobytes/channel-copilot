@@ -10,9 +10,11 @@ output_parser = StrOutputParser()
 
 linkedin_chain = (
     {
+        "type_content": RunnablePassthrough(),
         "counter_p": RunnablePassthrough(),
         "language": RunnablePassthrough(),
         "summary": RunnablePassthrough(),
+        "format": RunnablePassthrough(),
         "link": RunnablePassthrough(),
         "target_audience": RunnablePassthrough(),
     }

@@ -1,0 +1,13 @@
+🚀 #AngularDevs, descubran cómo manejar ambientes para diferenciar desarrollo y producción en Angular:
+
+✅ Generación manual de archivos de ambiente.
+✅ Configuración de variables específicas por entorno.
+✅ Uso dinámico de variables para alternar entre desarrollo y producción.
+✅ Automatización con `ng serve` y `ng build`.
+✅ Flexibilidad para entornos de prueba.
+
+👉 Adopten buenas prácticas evitando "quemar" variables en el código. 
+
+📺 Ve el proceso completo aquí: https://youtu.be/xBMEvd7PyEY 
+
+#Angular #DesarrolloWeb

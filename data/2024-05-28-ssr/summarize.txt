@@ -1,0 +1,11 @@
+En mi último video, les mostré cómo transformar una aplicación Angular existente en una que aproveche el server-side rendering (SSR). Comenzamos explorando el proyecto nicobytes.store, una single-page application común que, aunque funcional, enfrenta limitaciones en términos de SEO y velocidad de carga porque su contenido se genera dinámicamente en el cliente, no siendo ideal para la indexación por parte de motores de búsqueda como Google.
+
+El principal motivo para habilitar SSR es mejorar la visibilidad en buscadores, algo crucial para sitios dirigidos al público general. Las páginas renderizadas en el servidor se entregan al cliente ya con contenido, lo que las hace más amigables para los crawlers que indexan la web. Además, SSR puede mejorar tiempos de carga gracias a la precarga de contenido desde el servidor.
+
+Durante el video, expliqué el proceso de habilitación de SSR en Angular mediante el comando `ng add @nguniversal/express-engine`, que ajusta la aplicación para que genere contenido en el lado del servidor, utilizando Express. A pesar de algunos desafíos técnicos, como la necesidad de habilitar manualmente ciertas configuraciones debido a errores y la reintegración de paquetes, el proceso culminó exitosamente, demostrando cómo una aplicación Angular puede beneficiarse del SSR.
+
+A lo largo del tutorial, resalté las ventajas de SSR, como la mejora en SEO y la optimización de carga, sin perder las funcionalidades dinámicas en el cliente gracias al proceso de "hydration". También mencioné cómo este cambio afecta la elección del proveedor de hosting, ya que SSR requiere un entorno de servidor que soporte Node.js, a diferencia de las aplicaciones estáticas que pueden alojarse en cualquier parte.
+
+Finalmente, compartí mis reflexiones sobre cuándo es conveniente aplicar SSR, considerando que no todas las aplicaciones se benefician de igual manera. Para proyectos que no dependen de la indexación en buscadores o que son principalmente herramientas internas, la implementación de SSR podría no ser necesaria. Sin embargo, para aquellos que buscan maximizar su visibilidad y rendimiento, SSR ofrece ventajas significativas.
+
+Asegúrense de suscribirse y estar atentos al canal para más contenido sobre desarrollo web con Angular, y no duden en dejar sus comentarios sobre cómo esta técnica puede mejorar sus proyectos.

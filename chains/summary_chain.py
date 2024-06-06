@@ -5,7 +5,7 @@ from langchain import hub
 
 prompt = hub.pull("nicobutes/summary-transcription")
 
-model = ChatOpenAI(model="gpt-4-0125-preview")
+model = ChatOpenAI(model="gpt-4-turbo")
 output_parser = StrOutputParser()
 
 summary_chain = {"transcript": RunnablePassthrough()} | prompt | model | output_parser

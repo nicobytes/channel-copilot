@@ -1,0 +1,9 @@
+En este video, les he mostrado cómo desplegar una aplicación de Angular con Server Side Rendering (SSR) utilizando la nube de Cloudflare, una opción destacable frente a otras como Heroku o DigitalOcean. Expliqué la importancia de tener un entorno de ejecución de JavaScript del lado del servidor, necesario para funcionar con SSR a diferencia de las Single Page Applications que solo utilizan archivos estáticos.
+
+Inicialmente, discutí cómo Cloudflare, mediante el uso de Edge Computing, ofrece una solución más pequeña y eficiente comparada con entornos completos de Node.js, facilitando la ejecución de JavaScript del lado del servidor a menor costo y con menor latencia gracias a su distribución global.
+
+Durante el tutorial, demostré cómo configurar un proyecto de Angular para SSR desde cero en Cloudflare Pages, incluyendo la instalación de dependencias necesarias y ajustes en la configuración que difieren de un entorno convencional de Node.js. Se abordó cómo Cloudflare maneja el SSR a través de su tecnología de Edge Computing, no utilizando servidores tradicionales sino operando dentro de su CDN.
+
+Finalmente, realicé una demostración práctica desde la creación del proyecto hasta el despliegue, destacando cómo las configuraciones específicas permiten que Angular funcione adecuadamente en este entorno. También cubrí cómo realizar ajustes para el despliegue final, asegurando que la aplicación se ejecutara correctamente en producción bajo Cloudflare Pages, aprovechando las ventajas de rendimiento y coste que ofrece la plataforma.
+
+Este tutorial es crítico para desarrolladores que buscan implementar SSR en Angular de manera eficiente, utilizando las modernas capacidades de Cloudflare y su tecnología de Edge Computing.

@@ -31,12 +31,12 @@ poetry init
 # Run
 ```py
 python main.py audio
-python main.py transcribe ./data/2024-05-28-ssr
-python main.py summary ./data/2024-05-28-ssr
-python main.py youtube ./data/2024-05-28-ssr
-python main.py tweet ./data/2024-05-28-ssr https://youtu.be/-btLsujdlDw "Angular Devs"
-python main.py thread ./data/2024-05-28-ssr https://youtu.be/-btLsujdlDw "Angular Devs"
-python main.py linkedin ./data/2024-05-28-ssr https://youtu.be/-btLsujdlDw "Angular Devs" "text" "video"
+python main.py transcribe ./data/2024-06-06-cf-ssr
+python main.py summary ./data/2024-06-06-cf-ssr
+python main.py youtube ./data/2024-06-06-cf-ssr
+python main.py tweet ./data/2024-06-06-cf-ssr https://youtu.be/StJQc0JnA6A "Angular Devs"
+python main.py thread ./data/2024-06-06-cf-ssr https://youtu.be/StJQc0JnA6A "Angular Devs"
+python main.py linkedin ./data/2024-06-06-cf-ssr https://youtu.be/StJQc0JnA6A "Angular Devs" "text" "video"
 python main.py dalle
 python main.py image
 ``` 

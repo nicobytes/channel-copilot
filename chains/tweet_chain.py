@@ -5,7 +5,7 @@ from langchain import hub
 
 prompt = hub.pull("nicobutes/youtube-tweet")
 
-model = ChatOpenAI(model="gpt-4-0125-preview")
+model = ChatOpenAI(model="gpt-4-turbo")
 output_parser = StrOutputParser()
 
 tweet_chain = (

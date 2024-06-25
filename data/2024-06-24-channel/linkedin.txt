@@ -1,0 +1,13 @@
+¿Alguna vez te has preguntado cómo la inteligencia artificial puede transformar la creación de contenido en redes sociales? 🤖✨
+
+En mi último video, comparto cómo he utilizado tecnologías avanzadas de IA para automatizar la generación de contenido, no solo para mejorar la eficiencia sino también para mantener la autenticidad y calidad que nos caracteriza. Inspirado por ideas innovadoras como el Podcast Pilot de Microsoft, desarrollé "Channel Copilot", un proyecto que ahora puedes explorar en GitHub.
+
+🎙️ Desde la transcripción de audio con Whisper hasta la extracción de información clave usando Dolly, y la creación de resúmenes con GPT-4, el video expone cada paso del proceso, mostrando cómo estas herramientas pueden servirte para optimizar tus propios flujos de trabajo en plataformas como LinkedIn y Twitter.
+
+🔍 Además, reflexiono sobre el equilibrio crucial entre el uso de IA y la intervención humana para asegurar que cada pieza de contenido no solo sea eficiente sino también genuina y personal.
+
+Te invito a ver el video completo en YouTube para descubrir cómo puedes utilizar estas innovaciones en tus proyectos. ¡Explora, aprende y transforma la manera en que generas contenido digital! 
+
+👉 [Mira el video aquí](https://youtu.be/tXfiVUEOA-E)
+
+#InteligenciaArtificial #InnovaciónDigital #CreaciónDeContenido #Tecnología #ChannelCopilot #MarketingDigital

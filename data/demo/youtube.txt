@@ -1,0 +1,5 @@
+Title: Cómo Desplegar Aplicaciones Angular con SSR en Cloudflare: Guía Completa
+
+Description: ¡Hola a todos! En este video, les muestro cómo desplegar eficientemente una aplicación Angular utilizando Server Side Rendering (SSR) en Cloudflare. Exploraremos por qué Cloudflare es una opción superior, especialmente por su capacidad de Edge Computing, lo que nos permite ejecutar JavaScript del lado del servidor de manera más eficiente. Aprenderemos a configurar un proyecto Angular desde cero y adaptar aplicaciones existentes para este entorno. Además, les mostraré cómo realizar el despliegue final en producción integrado con GitHub y discutiremos las ventajas de reducir costos y mejorar la latencia. ¡No olviden compartir sus experiencias y preferencias en los comentarios!
+
+Tags: Cloudflare, SSR, Angular, Server Side Rendering, Edge Computing, despliegue de aplicaciones, GitHub, programación, JavaScript, Node, tecnologías en la nube, Cloudflare Pages, desarrollo web, tutoriales de Angular, optimización de aplicaciones

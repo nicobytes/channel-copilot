@@ -36,7 +36,7 @@ def transcribe(path: str):
 def summary(path: str):
     file = open(f"./{path}/transcript.txt", "r+")
     transcript = file.read()
-    summary = summary_chain.invoke(transcript)
+    summary = summary_chain.invoke({"transcript": transcript, "language": "Spanish"})
     path = f"./{path}/summarize.txt"
     with open(path, "w") as file:
         file.write(summary)

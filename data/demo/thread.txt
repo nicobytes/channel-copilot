@@ -1,0 +1,7 @@
+1/4 🚀 ¿Sabías que puedes desplegar aplicaciones Angular con SSR en Cloudflare para mejorar la eficiencia y reducir costos? 🌐 Exploramos esta técnica ideal para dinamizar aplicaciones que trascienden los archivos estáticos. #Angular #SSR #Cloudflare
+
+2/4 🛠 En el video, te muestro cómo configurar un proyecto Angular para SSR desde cero con Cloudflare, aprovechando la potencia del Edge Computing. ¿Ya tienes una app? Te enseño a adaptar tu proyecto existente. #DesarrolloWeb #JavaScript
+
+3/4 📤 Demostramos la implementación y las pruebas locales antes del despliegue final. Además, integramos con GitHub para actualizaciones automáticas y distribución eficiente mediante Cloudflare Pages. #DevOps #CloudflarePages
+
+4/4 💡 Usar Cloudflare para SSR en Angular no solo reduce costos sino que mejora la latencia y simplifica el despliegue. Comparte tus experiencias y preferencias sobre el despliegue de apps modernas. 📹 Mira el video completo aquí: https://youtu.be/StJQc0JnA6A #AngularDev

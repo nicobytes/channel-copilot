@@ -1,0 +1,5 @@
+Title: "Revolucionando la Creación de Contenido: IA para Automatizar tus Redes Sociales"
+
+Description: "¡Hola a todos! En este video, les cuento cómo he utilizado la inteligencia artificial para revolucionar la gestión de contenido en redes sociales como LinkedIn y Twitter. Les mostraré cómo mi proyecto, Channel Copilot, inspirado en Podcast Pilot de Microsoft y ahora disponible en GitHub, automatiza desde la transcripción de audio hasta la publicación en redes utilizando modelos de IA como Whisper, Dolly y GPT-4. Además, discutiremos cómo mantener la autenticidad del contenido a pesar de la automatización y cómo pueden utilizar estas herramientas para optimizar sus propios flujos de trabajo en el ámbito digital."
+
+Tags: "inteligencia artificial, creación de contenido, automatización redes sociales, Channel Copilot, Podcast Pilot, Microsoft, LinkedIn, Twitter, Whisper IA, Dolly IA, GPT-4, autenticidad contenido, herramientas IA, Lansmith, marketing digital"

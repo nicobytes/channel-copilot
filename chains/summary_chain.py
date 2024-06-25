@@ -8,4 +8,12 @@ prompt = hub.pull("nicobutes/summary-transcription")
 model = ChatOpenAI(model="gpt-4-turbo")
 output_parser = StrOutputParser()
 
-summary_chain = {"transcript": RunnablePassthrough()} | prompt | model | output_parser
+summary_chain = (
+    {
+        "transcript": RunnablePassthrough(),
+        "language": RunnablePassthrough(),
+    }
+    | prompt
+    | model
+    | output_parser
+)

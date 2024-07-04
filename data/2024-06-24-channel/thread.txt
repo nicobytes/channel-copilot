@@ -1,9 +1,5 @@
-1/5 🚀 Explorando la fusión de #IA y contenido digital: He creado "Channel Copilot", inspirado en Podcast Pilot de Microsoft, para automatizar desde transcripciones hasta publicaciones en redes. ¡Todo sobre GitHub! Detalles aquí 👉 [https://youtu.be/tXfiVUEOA-E](https://youtu.be/tXfiVUEOA-E)
+1/3 🚀 Explorando la fusión entre IA y creación de contenido en mi último proyecto "Shannel co-pilot". Inspirándome en Microsoft, uso #IA como Whisper, Dolly y GPT-4 para automatizar y personalizar publicaciones en #YouTube, #Twitter y #LinkedIn. Más detalles en el video 👇
 
-2/5 🔍 Utilizo Whisper para convertir el audio en texto y Dolly para extraer datos clave, como nombres en podcasts. Estos se enriquecen y procesan con GPT-4, creando resúmenes y contenido visual que se publica automáticamente. #Tecnología
+2/3 🤖 Mantener la autenticidad mientras se automatiza es clave. A través de mi repositorio en GitHub, fomento la colaboración y mejora continua. Landsmeet me ayuda a optimizar prompts de IA sin tocar el código. ¡Únete y aporta! #OpenSource #TechInnovation
 
-3/5 🤖 La IA inicialmente crea borradores, pero la revisión humana es esencial para mantener la autenticidad y reflejar mi estilo personal. Este balance es crucial para la calidad del contenido. #InnovaciónDigital
-
-4/5 🛠️ Las herramientas como Lansmith permiten gestionar prompts de IA eficientemente, transformando la creación de contenido digital. Animo a explorar y personalizar estas herramientas en vuestros proyectos. #DesarrolloDigital
-
-5/5 🌐 Integrar IA en flujos de trabajo no solo optimiza la producción de contenido, sino que inspira nuevas posibilidades en el ámbito digital y de marketing. Descubre más sobre cómo aplicar estas innovaciones en tu estrategia. Mira el video completo aquí: [https://youtu.be/tXfiVUEOA-E](https://youtu.be/tXfiVUEOA-E) #AngularDevs
+3/3 🌐 Este enfoque no solo optimiza la creación de contenido digital sino que también abre puertas a nuevas herramientas de #IA. Explora, contribuye y debate sobre personalización y autenticidad en la era digital. Mira el video completo aquí: https://youtu.be/tXfiVUEOA-E #AngularDevs

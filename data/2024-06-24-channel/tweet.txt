@@ -1,10 +1,11 @@
-🚀 Explorando IA en la generación de contenido 🎥
+🚀 Explorando la IA para contenido digital! En mi nuevo video:
 
-👉 Descubre cómo automatizo contenido para LinkedIn y Twitter:
-- Uso de IA para transcripciones y extracción de info clave.
-- Procesamiento con GPT-4 para resúmenes visuales.
-- Equilibrio entre IA y toque humano para autenticidad.
+🔹 Uso de #IA para automatización: Whisper, Dolly, GPT-4
+🔹 Creación de "Shannel co-pilot" inspirado en Microsoft
+🔹 Importancia de la autenticidad en publicaciones
+🔹 Repositorio abierto en GitHub para colaboración
+🔹 Optimización con Landsmeet para prompts de IA
 
-🔗 Mira el proceso completo aquí: https://youtu.be/tXfiVUEOA-E
+📺 Mira cómo integro estas herramientas en mi flujo de trabajo: https://youtu.be/tXfiVUEOA-E
 
-#IA #DesarrolloWeb #Angular #Tecnología
+#DesarrolloWeb #Angular #TecnologíaAI

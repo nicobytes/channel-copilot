@@ -1,0 +1,7 @@
+🚀 ¡Explora la nueva "Let Syntax" de #Angular! 🎬 Mira el video completo aquí: https://youtu.be/KLUDb5M-ASE
+
+🔹 Asigna valores en templates fácilmente.
+🔹 Mejora la lógica sin complicar el código.
+🔹 Ideal para manejar observables y datos dinámicos.
+
+⚠️ Usa con precaución para mantener un código limpio y eficiente. ¡Descubre cómo puede transformar tu desarrollo! #DevLife #AngularDev

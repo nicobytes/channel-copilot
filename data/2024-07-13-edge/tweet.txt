@@ -1,0 +1,9 @@
+🚀 Explorando el Edge Computing en la industria del software:
+- 💡 Cambio de paradigma: procesamiento cerca del usuario final.
+- 🔍 Reduce latencia y costos, mejora eficiencia.
+- 🌐 Uso de CDN para optimizar rendimiento.
+- 🛠️ Innovaciones: nuevos frameworks y runtimes ligeros.
+
+Descubre más detalles en nuestro video 📹: https://youtu.be/oXtyhmYzT70
+
+#EdgeComputing #Desarrollo #Tecnología #Innovación

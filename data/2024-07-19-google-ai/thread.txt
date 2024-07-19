@@ -1,0 +1,5 @@
+1/3 🚀 Explorando Google AI Edge: procesamiento de IA directamente en tus dispositivos, ¡sin nube necesaria! En mi última visita a Google I.O., descubrí cómo esta tecnología potencia privacidad y eficiencia en aplicaciones. Más detalles en mi video. 👇 #IA #GoogleAIEDGE
+
+2/3 📲 Con Google MediaPipe, probé detección de objetos y gestos usando sólo la cámara de mi PC. Esta plataforma soporta JavaScript, Python y más, perfecta para desarrolladores que buscan integrar IA en apps móviles y web, directamente desde el navegador. #DesarrolloWeb #Tecnología
+
+3/3 🔍 Descubre Gemini Nano: optimizado, de código abierto y operable offline. Google AI Edge reduce latencia y preserva privacidad, abriendo nuevas posibilidades para desarrolladores. ¡Veamos más en el video y discutamos su potencial! 🎥👉 [https://youtu.be/6XjIwo1UH9o] #Innovación

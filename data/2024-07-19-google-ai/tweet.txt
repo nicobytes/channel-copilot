@@ -1,0 +1,10 @@
+🚀 Explorando #GoogleAIEDGE: procesamiento de IA en tus dispositivos, sin nube. 🛡️Privacidad mejorada y operación offline. 
+
+🤖 Destacamos:
+- Google MediaPipe: soporte para JavaScript y Python 🐍
+- Aplicaciones en tiempo real: detección de gestos con tu cámara 📸
+- Uso en Google Meet para funciones avanzadas 🖥️
+
+🔗 Mira más detalles y demostraciones en mi último video: https://youtu.be/6XjIwo1UH9o
+
+#Desarrolladores #IA #Tecnología

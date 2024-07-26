@@ -1,0 +1,5 @@
+Title: "Descubre Windows.ai: Inteligencia Artificial en Google Chrome Sin Servidores Externos"
+
+Description: "¡Hola a todos! Hoy les traigo una novedad fascinante sobre Google Chrome que está explorando una integración de inteligencia artificial directamente desde el navegador con una nueva API llamada Windows.ai. Esta innovación permite interactuar con modelos de lenguaje grandes sin depender de servidores externos, todo desde nuestro propio navegador. Les contaré cómo habilitar esta función en Google Chrome Dev, descargar el modelo Gemini Nano y las ventajas de ejecutar AI directamente en nuestro dispositivo, mejorando la privacidad y reduciendo la latencia. Además, exploraremos las futuras posibilidades de extender esta funcionalidad a otros sistemas como Android. ¡No se lo pierdan!"
+
+Tags: "Google Chrome, Windows.ai, inteligencia artificial, navegador, API, Gemini Nano, privacidad, latencia, Chrome Dev, integración AI, modelos de lenguaje, JavaScript"

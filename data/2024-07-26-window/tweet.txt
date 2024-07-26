@@ -1,0 +1,9 @@
+🚀 Google Chrome innova con #WindowsAI para integrar #IA directamente en el navegador. 🌐
+
+🔹 Activa IA en Chrome Dev para usar modelos de lenguaje grandes sin servidores externos.
+🔹 Mejora privacidad y reduce latencia.
+🔹 Potencial expansión a otros SO como Android.
+
+👀 Más detalles en el video: https://youtu.be/QZKvx-l-l2I
+
+#DesarrolloWeb #Tecnología #Programación

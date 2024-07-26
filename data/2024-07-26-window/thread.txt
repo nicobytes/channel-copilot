@@ -1,0 +1,8 @@
+1/4 🚀 Google Chrome está revolucionando con Windows.ai, una nueva API que permite usar inteligencia artificial directamente desde el navegador, ¡sin servidores externos! Descubre cómo activarla en Chrome Dev. #DesarrolloWeb #IA 🌐
+
+2/4 Para usar Windows.ai, instala Google Chrome Dev y sigue los pasos para activar funciones experimentales. ¡Podrás interactuar con un modelo LLM como Gemini Nano, todo desde tu navegador! #InnovacionTech #Programacion 💻
+
+3/4 Ventajas de Windows.ai: ejecuta modelos de AI on-device, mejorando la privacidad y reduciendo la latencia. ¿Lo mejor? Podría expandirse a sistemas como Android, integrando aún más la IA en apps móviles. #Tecnología #Privacidad 📲
+
+4/4 Sin embargo, Windows.ai solo funciona en Chrome, limitando su uso en otros navegadores. A pesar de esto, es un gran paso hacia la integración de AI en la web. Descubre más en nuestro video 🎥👇
+https://youtu.be/QZKvx-l-l2I

@@ -34,9 +34,9 @@ python main.py audio
 python main.py transcribe ./data/2024-08-01-ts
 python main.py summary ./data/2024-08-01-ts
 python main.py youtube ./data/2024-08-01-ts
-python main.py tweet ./data/2024-08-01-ts https://youtu.be/QZKvx-l-l2I "Developers"
-python main.py thread ./data/2024-08-01-ts https://youtu.be/QZKvx-l-l2I "Developers"
-python main.py linkedin ./data/2024-08-01-ts https://youtu.be/QZKvx-l-l2I "Developers" "text" "video"
+python main.py tweet ./data/2024-08-01-ts https://youtu.be/AxVXwSj3DHY "Developers"
+python main.py thread ./data/2024-08-01-ts https://youtu.be/AxVXwSj3DHY "Developers"
+python main.py linkedin ./data/2024-08-01-ts https://youtu.be/AxVXwSj3DHY "Developers" "text" "video"
 python main.py dalle
 python main.py image
 ``` 

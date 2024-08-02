@@ -1,0 +1,11 @@
+🚀 Explorando TypeScript 5.5: ¡Una actualización que no te puedes perder! 🎉
+
+🔹 Mejor inferencia de tipos post-`filter`
+🔹 Inferencia avanzada en manejo de objetos
+🔹 Detección de errores en regex directo en el editor
+🔹 Nuevos métodos para conjuntos en JS
+🔹 Optimización en tamaño del paquete NPM
+
+Descubre más en detalle sobre estas mejoras y cómo pueden elevar tu código. 👨‍💻🔗 [Ver video](https://youtu.be/AxVXwSj3DHY) 
+
+#TypeScript #DesarrolloWeb #Programación

@@ -1,0 +1,5 @@
+Title: "Domina Signal Inputs en Angular: Mejora Rendimiento y Reactividad"
+
+Description: "En el video de hoy, me sumerjo en cómo utilizar Signal Inputs en Angular para potenciar la comunicación entre componentes y optimizar el rendimiento de tus aplicaciones. Exploro desde los fundamentos hasta técnicas avanzadas, como la computación de valores y la estrategia OnPush, para hacer tu código más eficiente y menos propenso a errores. Acompáñame en una sesión práctica donde demostraré con ejemplos reales cómo estos cambios pueden transformar la manera en que desarrollas y mantienes tus proyectos en Angular."
+
+Tags: "Angular, Signal Inputs, rendimiento de código, reactividad en Angular, gestión de estados, estrategia OnPush, desarrollo web, programación reactiva, aplicaciones web, optimización de Angular"

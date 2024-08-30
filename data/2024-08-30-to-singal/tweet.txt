@@ -1,0 +1,9 @@
+🚀 Explora #2Signal con mi último video:
+- Transforma observables en signals para reactividad mejorada en #Angular 🔄
+- Mantiene lógica de negocio con mínimos ajustes 🧩
+- Gestiona estados y errores eficazmente ⚙️
+- Ejemplos prácticos, desde teoría a API 📊
+
+Mira cómo optimizar tu código Angular ➡️ https://youtu.be/hoYIUe_e4Rs
+
+#Dev #RxJS #CodingTips

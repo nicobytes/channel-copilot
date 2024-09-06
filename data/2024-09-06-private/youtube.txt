@@ -1,0 +1,5 @@
+Title: "¡Descubre cómo JavaScript ahora soporta propiedades privadas sin TypeScript!"
+
+Description: "¡Hola a todos! En el video de hoy, estoy emocionado de compartir una actualización revolucionaria en JavaScript: la incorporación de métodos y propiedades privadas directamente en el lenguaje, sin la necesidad de TypeScript. Exploraré cómo esta nueva característica, que utiliza un hashtag (#) para designar privacidad, cambia la forma en que escribimos y protegemos nuestro código. Aunque diferente a lo que muchos están acostumbrados con TypeScript, este avance ofrece una mayor seguridad y encapsulamiento. ¡Acompáñame para entender cómo puedes utilizar estas nuevas funcionalidades en tus proyectos futuros y mejorar la estructura de tu código!"
+
+Tags: "JavaScript, propiedades privadas, TypeScript, programación, encapsulamiento, seguridad en código, hashtag privacidad, desarrollo web, actualizaciones JavaScript, tutoriales de programación"

@@ -1,0 +1,5 @@
+¿Te has enfrentado a los desafíos del manejo del estado en aplicaciones Angular? Hoy quiero compartir contigo una solución sencilla y eficiente: ngRx Signals. Este paquete aprovecha la nueva reactividad de Angular, ofreciendo una alternativa más simple y declarativa frente a Redux, eliminando el exceso de boilerplate.
+
+NgRx Signals resuelve el problema del Prop Drilling, permitiendo que los componentes se suscriban a partes específicas del estado y reaccionen automáticamente a los cambios. Con ngRx Signals puedes definir el estado, los estados derivados y los métodos de modificación en un solo lugar, facilitando el mantenimiento.
+
+Además, puedes integrar servicios que manejen datos externos directamente en los métodos del store, permitiendo que los componentes se centren en la representación visual. ¿Quieres conocer más sobre cómo esta herramienta puede simplificar tu proyecto? Te invito a ver el video completo: [Mira el video aquí](https://youtu.be/BNtwU1h2QPU).

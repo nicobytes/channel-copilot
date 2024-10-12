@@ -7,8 +7,7 @@ from chains.youtube_chain import youtube_chain
 from chains.thread_chain import thread_chain
 from chains.tweet_chain import tweet_chain
 from chains.linkedin_chain import linkedin_chain
-from chains.dalle_chain import dalle_chain
-from image.dalle import generate_image
+from chains.blog_chain import blog_chain
 from rich import print
 
 
@@ -26,7 +25,7 @@ def audio():
 def transcribe(path: str):
     file_path = "./input/audio.wav"
     transcript = get_transcribe(file_path, "large")
-    path = f"./{path}/transcript.txt"
+    path = f"./{path}/transcript.md"
     with open(path, "w") as file:
         file.write(transcript)
         print(transcript)
@@ -34,10 +33,13 @@ def transcribe(path: str):
 
 @app.command()
 def summary(path: str):
-    file = open(f"./{path}/transcript.txt", "r+")
+    file = open(f"./{path}/transcript.md", "r+")
     transcript = file.read()
-    summary = summary_chain.invoke({"transcript": transcript, "language": "Spanish"})
-    path = f"./{path}/summarize.txt"
+    summary = summary_chain.invoke({
+        "transcript": transcript,
+        "language": "Spanish"
+    })
+    path = f"./{path}/summarize.md"
     with open(path, "w") as file:
         file.write(summary)
         print(summary)
@@ -45,10 +47,10 @@ def summary(path: str):
 
 @app.command()
 def youtube(path: str):
-    file = open(f"./{path}/summarize.txt", "r+")
+    file = open(f"./{path}/summarize.md", "r+")
     summary = file.read()
     result = youtube_chain.invoke({"summary": summary, "language": "Spanish"})
-    path = f"./{path}/youtube.txt"
+    path = f"./{path}/youtube.md"
     with open(path, "w") as file:
         file.write(result)
         print(result)
@@ -56,7 +58,7 @@ def youtube(path: str):
 
 @app.command()
 def tweet(path: str, link: str, target: str):
-    file = open(f"./{path}/summarize.txt", "r+")
+    file = open(f"./{path}/summarize.md", "r+")
     text = file.read()
     result = tweet_chain.invoke(
         {
@@ -67,14 +69,14 @@ def tweet(path: str, link: str, target: str):
             "text": text,
         }
     )
-    path = f"./{path}/tweet.txt"
+    path = f"./{path}/tweet.md"
     with open(path, "w") as file:
         file.write(result)
         print(result)
 
 @app.command()
 def thread(path: str, link: str, target: str):
-    file = open(f"./{path}/summarize.txt", "r+")
+    file = open(f"./{path}/summarize.md", "r+")
     text = file.read()
     paragraphs = list(filter(lambda x: x != "", text.split("\n")))
     result = thread_chain.invoke(
@@ -87,7 +89,7 @@ def thread(path: str, link: str, target: str):
             "text": text,
         }
     )
-    path = f"./{path}/thread.txt"
+    path = f"./{path}/thread.md"
     with open(path, "w") as file:
         file.write(result)
         print(result)
@@ -95,7 +97,7 @@ def thread(path: str, link: str, target: str):
 
 @app.command()
 def linkedin(path: str, link: str, target: str, format: str, type: str):
-    file = open(f"./{path}/summarize.txt", "r+")
+    file = open(f"./{path}/summarize.md", "r+")
     summary = file.read()
     result = linkedin_chain.invoke(
         {
@@ -108,30 +110,30 @@ def linkedin(path: str, link: str, target: str, format: str, type: str):
             "target_audience": target,
         }
     )
-    path = f"./{path}/linkedin.txt"
+    path = f"./{path}/linkedin.md"
     with open(path, "w") as file:
         file.write(result)
         print(result)
 
 
 @app.command()
-def dalle(path: str):
-    file = open("./output/summarize.txt", "r+")
-    text = file.read()
-    response = dalle_chain.invoke(text)
-    with open("./output/dalle-prompts.txt", "w") as file:
-        file.write(response)
-        print(response)
+def blog(path: str):
+    file = open(f"./{path}/summarize.md", "r+")
+    summary = file.read()
+    result = blog_chain.invoke(
+        {
+            "language": "Latam Spanish",
+            "keyword": "JavaScript, TypeScript, propiedades privadas, métodos privados, privacidad en JavaScript, hashtag en JavaScript, clases en JavaScript, novedades JavaScript, programación, desarrollo web, seguridad en código, ProductService, evolución JavaScript, privacidad nativa, tutorial JavaScript, ejemplo práctico, programación web, JavaScript avanzado",
+            "context": summary,
+        }
+    )
+    path = f"./{path}/blog.md"
+    with open(path, "w") as file:
+        file.write(result)
+        print(result)
 
 
-@app.command()
-def image():
-    file = open("./output/dalle-prompts.txt", "r+")
-    text = file.read()
-    parts = list(filter(None, text.split("\n")))
-    for index, item in enumerate(parts):
-        response = generate_image(item, index)
-        print(response)
+
 
 
 if __name__ == "__main__":

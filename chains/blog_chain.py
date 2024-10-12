@@ -3,15 +3,16 @@ from langchain_core.output_parsers import StrOutputParser
 from langchain_openai import ChatOpenAI
 from langchain import hub
 
-prompt = hub.pull("nicobutes/summary-transcription")
+prompt = hub.pull("nicobutes/generate_blog_post")
 
 model = ChatOpenAI(model="gpt-4o")
 output_parser = StrOutputParser()
 
-summary_chain = (
+blog_chain = (
     {
-        "transcript": RunnablePassthrough(),
         "language": RunnablePassthrough(),
+        "keyword": RunnablePassthrough(),
+        "context": RunnablePassthrough(),
     }
     | prompt
     | model

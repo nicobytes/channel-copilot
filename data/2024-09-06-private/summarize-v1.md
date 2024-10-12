@@ -1,0 +1,13 @@
+Hola a todos, hoy quiero compartir con ustedes una emocionante novedad en el mundo de JavaScript. Recientemente, se ha lanzado una nueva funcionalidad que permite declarar métodos y propiedades privadas directamente en JavaScript, sin necesidad de recurrir a TypeScript. Esto significa que ahora podemos utilizar privacidad en nuestras clases de manera nativa en JavaScript. La forma de lograrlo es un poco diferente a lo que estamos acostumbrados, ya que se utiliza un hashtag (#) al inicio de las variables o métodos privados.
+
+Para ilustrar mejor esta novedad, les mostraré un ejemplo práctico. Vamos a comparar cómo se manejan las propiedades privadas en TypeScript y en JavaScript. Tradicionalmente, en TypeScript utilizamos la palabra reservada "private" para declarar variables y métodos privados. Sin embargo, en JavaScript ahora utilizamos el hashtag antes del nombre de la variable o método.
+
+Veamos un ejemplo con una clase llamada `ProductService`. En TypeScript, declaramos propiedades privadas utilizando "private". Por ejemplo, tenemos un array de productos y un método para agregar productos a la lista, asegurándonos de que el acceso a estas propiedades esté restringido. Si intentamos acceder a estas propiedades privadas desde fuera de la clase, TypeScript nos arroja un error. Sin embargo, cuando transpilamos el código a JavaScript, estas restricciones desaparecen, ya que JavaScript no soportaba la privacidad nativa... hasta ahora.
+
+Con esta nueva funcionalidad, al transpilar de TypeScript a JavaScript, podemos mantener la privacidad nativa utilizando el hashtag. En el JavaScript resultante, las propiedades privadas con hashtag no pueden ser accedidas desde fuera de la clase, manteniendo la integridad y seguridad de nuestro código.
+
+Aunque este cambio puede parecer extraño al principio, ya que estamos acostumbrados a palabras reservadas como "private", el uso del hashtag en variables y métodos privados es ahora la forma nativa en JavaScript para indicar privacidad. Esto nos permite proteger nuestras propiedades tanto en el entorno de desarrollo con TypeScript como en el entorno de ejecución con JavaScript puro.
+
+Esta actualización es un gran avance para el lenguaje, ya que nos brinda una mayor seguridad y control sobre el acceso a nuestras propiedades y métodos. Aunque puede llevar un tiempo acostumbrarse a este nuevo enfoque, es un paso positivo hacia la evolución y madurez de JavaScript. 
+
+Espero que esta explicación les haya sido útil y los motive a explorar y adoptar esta nueva funcionalidad en sus proyectos. Déjenme saber en los comentarios qué opinan de este cambio y si tienen alguna pregunta o tema que les gustaría que abordara en futuros videos. ¡Nos vemos en la próxima!

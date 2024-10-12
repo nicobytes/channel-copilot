@@ -5,7 +5,7 @@ from langchain import hub
 
 prompt = hub.pull("nicobutes/linkedin")
 
-model = ChatOpenAI(model="gpt-4-turbo")
+model = ChatOpenAI(model="gpt-4o")
 output_parser = StrOutputParser()
 
 linkedin_chain = (

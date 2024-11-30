@@ -1,0 +1,7 @@
+¿Te has preguntado alguna vez cómo integrar Google Maps en una aplicación Angular de manera poco convencional? Hoy quiero compartir contigo mi experiencia con esta integración usando la librería oficial de Google para Angular. Inspirado en el mapa interactivo de Starbucks, logré replicar ese efecto de interactividad en un proyecto de e-commerce.
+
+En este proyecto, creé una página llamada "Locations" donde integré Google Maps. Utilicé Tailwind para el layout y enfoqué mi atención en la integración más que en el diseño. Implementé un servicio en Angular para manejar las ubicaciones y conectarme a una API que genera ubicaciones aleatorias. La clave fue generar una API Key a través de Google Cloud Console y habilitar la API de Maps JavaScript. Con Signals, una nueva característica de Angular, configuré el centro del mapa y el nivel de zoom.
+
+Lo más emocionante fue añadir marcadores al mapa usando el componente MapAdvancedMarker y generar un Map ID para los marcadores avanzados. Esto me permitió implementar interacción entre la lista de ubicaciones y el mapa, logrando así una experiencia de usuario fluida y eficiente. A pesar de que la documentación no es muy visible, esta herramienta es poderosa y mantenida por el equipo de Angular.
+
+Si te interesa profundizar más en esta integración, te invito a ver el video completo aquí: [https://youtu.be/e4urW6Ud3WU](https://youtu.be/e4urW6Ud3WU). ¡No olvides suscribirte, dejar un like y compartir con amigos desarrolladores interesados en Angular!

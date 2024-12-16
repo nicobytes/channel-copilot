@@ -31,16 +31,14 @@ poetry init
 # Run
 ```py
 python main.py audio
-python main.py transcribe ./data/2025-11-29-v19
-python main.py summary ./data/2025-11-29-v19
-python main.py youtube ./data/2025-11-29-v19
-python main.py tweet ./data/2025-11-29-v19 https://youtu.be/1PN1RSMKeuM "Developers"
-python main.py thread ./data/2025-11-29-v19 https://youtu.be/1PN1RSMKeuM "Developers"
-python main.py linkedin ./data/2025-11-29-v19 https://youtu.be/1PN1RSMKeuM "Developers" "text" "video"
-python main.py blog ./data/2025-11-29-v19
+python main.py transcribe ./data/2024-12-15-link
+python main.py summary ./data/2024-12-15-link
+python main.py youtube ./data/2024-12-15-link
+python main.py tweet ./data/2024-12-15-link https://youtu.be/sRcJhC7J-Xs "Developers"
+python main.py thread ./data/2024-12-15-link https://youtu.be/sRcJhC7J-Xs "Developers"
+python main.py linkedin ./data/2024-12-15-link https://youtu.be/sRcJhC7J-Xs "Developers" "text" "video"
+python main.py blog ./data/2024-12-15-link   
 ``` 
-
-python main.py transcribe ./data/2024-10-25-maps
 
 # TODOs
 

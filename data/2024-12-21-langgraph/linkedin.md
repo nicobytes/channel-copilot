@@ -1,0 +1,7 @@
+¿Te gustaría explorar el fascinante mundo de los sistemas multiagentes en Python? Hoy quiero invitarte a conocer el sistema de grafos o nodos de Langrath, una herramienta esencial para este propósito. En mi último video, te enseño cómo configurar un entorno de desarrollo flexible con Conda y Poetry, permitiéndonos superar las limitaciones de otros frameworks.
+
+Un punto clave en estos sistemas es el estado compartido entre nodos o agentes, que facilita la colaboración y el intercambio de información. Aunque aún no hemos implementado inteligencia artificial, hemos creado nodos que interactúan con un estado básico, sentando las bases para proyectos más avanzados.
+
+Además, utilizamos Langrath CLI para gestionar y visualizar nuestro sistema de grafos. Esta potente herramienta nos ayuda a debuguear agentes y entender mejor las interacciones entre nodos, especialmente en sistemas complejos. Finalmente, integramos un endpoint de FastAPI para procesar solicitudes eficientemente. 
+
+Si eres desarrollador y te interesa seguir explorando cómo integrar modelos de IA en estos sistemas, te invito a ver mi video completo. ¡Espero que te inspire a experimentar con Langrath! [Ver video](https://youtu.be/fDCcDkKWabY)

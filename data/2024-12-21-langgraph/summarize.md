@@ -1,0 +1,9 @@
+Hoy quiero compartir contigo el fascinante mundo del sistema de grafos o nodos de Langrath, una herramienta esencial para crear sistemas multiagentes en Python. Comenzamos configurando nuestro entorno de desarrollo, que implica crear una estructura de carpetas personalizada y configurar un ambiente con Conda y Poetry para manejar dependencias. Este enfoque flexible nos permite adaptar la arquitectura de nuestro proyecto sin las restricciones típicas de otros frameworks.
+
+Un aspecto crucial de estos sistemas es el estado compartido entre los nodos o agentes, que permite la colaboración y el intercambio de información esencial para el funcionamiento del sistema multiagente. En este punto, hemos definido un estado básico y hemos creado nodos que interactúan con él, aunque sin implementar aún inteligencia artificial.
+
+Para gestionar y visualizar nuestro sistema de grafos, utilizamos el Langrath CLI, que nos permite debuguear agentes y ver gráficamente cómo fluyen las interacciones entre nodos. Esta herramienta es especialmente útil cuando trabajamos con sistemas complejos donde el debugging puede ser un desafío.
+
+Para cerrar, integramos nuestro sistema con un endpoint de FastAPI, permitiendo que nuestro agente procese solicitudes de manera eficiente. Aunque este ejemplo es sencillo, establece las bases para proyectos más complejos que pueden incluir lógica de inteligencia artificial en cada nodo.
+
+Si estás interesado en seguir explorando este tema y cómo integrar modelos de IA en estos sistemas, te invito a suscribirte a mi canal. Espero que esta introducción te haya sido útil y te motive a experimentar con Langrath. ¡Nos vemos en el próximo video!

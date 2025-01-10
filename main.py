@@ -118,7 +118,7 @@ def linkedin(path: str, link: str, target: str, format: str, type: str):
 
 @app.command()
 def blog(path: str):
-    file = open(f"./{path}/summarize.md", "r+")
+    file = open(f"./{path}/transcript.md", "r+")
     summary = file.read()
     result = blog_chain.invoke(
         {

@@ -16,6 +16,9 @@ class Settings(BaseSettings):
     open_ai_organization: str = os.getenv("OPENAI_ORGANIZATION", '')
     open_ai_proxy: str = os.getenv("OPENAI_PROXY", '')
 
+    # Deepseek
+    deepseek_api_key: str = os.getenv("DEEPSEEK_API_KEY")
+
 
 settings = Settings()
 

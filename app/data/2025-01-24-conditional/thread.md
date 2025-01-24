@@ -1,0 +1,5 @@
+1/3 🚀 En mi nuevo video, exploro cómo implementar Conditional Edge en Langrath. Esta herramienta permite bifurcaciones en sistemas de agentes, rompiendo el flujo lineal tradicional y posibilitando decisiones y procesos en paralelo. 🌐 #Innovación #Desarrollo https://youtu.be/4hBTpEFOfEs
+
+2/3 🛠️ Usé un notebook para transformar un sistema de agentes lineal en uno con Conditional Edge. Este nodo decide el siguiente paso sin devolver un estado. Además, se puede combinar con modelos de lenguaje para decisiones sofisticadas. 🤖 #AI #Programación
+
+3/3 🔗 Langrath se integra fácilmente con librerías como Lanching, ofreciendo flexibilidad sin depender de una sola. Pronto mostraré cómo conectar sistemas a modelos de lenguaje para mejorar su robustez. ¡No olvides suscribirte! 📺 #Tech https://youtu.be/4hBTpEFOfEs

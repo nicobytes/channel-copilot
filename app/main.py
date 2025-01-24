@@ -1,4 +1,4 @@
-import settings
+from settings import settings
 import typer
 from transcript.audio import get_audio
 from transcript.whisper import get_transcribe

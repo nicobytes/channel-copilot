@@ -31,13 +31,13 @@ poetry init
 # Run
 ```py
 python main.py audio
-python main.py transcribe ./data/2025-01-24-conditional
-python main.py summary ./data/2025-01-24-conditional
-python main.py youtube ./data/2025-01-24-conditional
-python main.py tweet ./data/2025-01-24-conditional https://youtu.be/4hBTpEFOfEs "Developers"
-python main.py thread ./data/2025-01-24-conditional https://youtu.be/4hBTpEFOfEs "Developers"
-python main.py linkedin ./data/2025-01-24-conditional https://youtu.be/4hBTpEFOfEs "Developers" "text" "video"
-python main.py blog ./data/2025-01-24-conditional  
+python main.py transcribe ./data/2025-01-29-llm
+python main.py summary ./data/2025-01-29-llm
+python main.py youtube ./data/2025-01-29-llm
+python main.py tweet ./data/2025-01-29-llm https://youtu.be/37n8lnE6nd4 "Developers"
+python main.py thread ./data/2025-01-29-llm https://youtu.be/37n8lnE6nd4 "Developers"
+python main.py linkedin ./data/2025-01-29-llm https://youtu.be/37n8lnE6nd4 "Developers" "text" "video"
+python main.py blog ./data/2025-01-29-llm  
 ``` 
 
 # TODOs

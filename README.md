@@ -47,3 +47,7 @@ python main.py blog ./data/2025-02-03-functions
 - [ ] improvements in generate tweets with summary, hasttags, include links, emojis etc
 - [ ] test generate images
 - [ ] chain to generate title, description and keywords
+
+
+04:05 gemma onic
+30:27 conductio

@@ -17,3 +17,21 @@ Acabo de sumergirme en su funcionamiento y las diferencias con la antigua Chat C
 
 ---  
 *¿Te gustó el contenido? Suscríbete para más deep-dives técnicos y actualizaciones de IA. 🚀*
+
+
+📢 ¡Nuevo curso avanzado de Angular en Platzi! 🚀
+
+
+Junto a Platzi, hemos creado un curso con lo más reciente del framework, incluyendo:
+
+
+✅ Nuevas APIs de Signals
+✅ Configuración de SSR
+✅ Apps sin Zone.js (Zoneless)
+✅ Mejores prácticas en desarrollo
+✅ Gestión de entornos
+
+
+Este curso tiene todo lo que necesitas para sacarle el máximo provecho #Angular. 🔥 
+
+https://platzi.com/cursos/angular-avanzado/

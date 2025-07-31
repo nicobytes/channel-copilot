@@ -1,7 +1,5 @@
-# Load environment variables from .env file
 set dotenv-load
 
-# Run all the Python commands in sequence
 run:
     echo $FOLDER
     echo $YOUTUBE_LINK

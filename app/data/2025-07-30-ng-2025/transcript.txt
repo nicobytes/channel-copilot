@@ -1,0 +1,1246 @@
+Angular ha sido uno de los frameworks que recientemente ha lanzado de forma continua
+bastantes innovaciones en el ecosistema del desarrollo web
+y se mantiene en la vanguardia.
+Sin embargo, también tiene esta característica de que es retrocompatible
+como a ciertas cosas del anterior Angular,
+como por ejemplo los módulos, la sintaxis,
+y sin miedo el nuevo equipo ha traído cosas muy interesantes y nuevas para el ecosistema.
+Entonces, por eso, en este video quiero hacer como una recapitulación
+del estado actual de Angular en este año
+y voy a tocar muchos features que pueden estar en preview,
+puede que ya se hayan lanzado,
+así que va a ser un video bastante interesante
+de como un recap y el estado actual de Angular.
+Así que veamos cuál es el estado actual de Angular
+y vaya de estas características de por sí merecen un video en particular,
+pero la verdad es que es un resumen de todo lo que nos trae Angular.
+Varias de esas características posiblemente tú las vas a entregar mucho más a fondo
+o te actualices acerca de estas cosas interesantes
+que están surgiendo en el ecosistema
+de Angular.
+Lo primero que te voy a mencionar es que si Angular ahora oficialmente tiene una mascota
+y de por sí la comunidad, como varias cosas y varios cambios internos que ha hecho,
+ha lanzado unos RFCs, unos Request for Comments,
+así como lo hizo para la sintaxis,
+así como lo hizo para ciertos features específicos de Hydration,
+pues también nos lanzan un RFC para escoger la mascota oficial.
+Así que eso está muy bonito.
+Por ahora esta es la primera opción, la que está ganando.
+Ya de por sí creo que se cerró el RFC,
+para ver todos los comentarios, propuestas que ven de la comunidad
+y ahora van a reunir todo eso y pues lanzarlo.
+Recordemos que también otras partes del ecosistema
+también tienen su mascota,
+como Fibers, como la mascotita del pajarito de Flutter.
+Así que está simplemente curioso e interesante
+que ya Angular va a tener una mascota oficial
+dentro de todo el ecosistema
+y también lo tiene Go, por ejemplo,
+que también es una de las tecnologías de Google.
+Así que simplemente es un muy dato curioso
+y muy bonito para la comunidad.
+Pero ahora sí empecemos con realmente lo que nos interesa
+y es cómo estas nuevas características traen funcionalidad
+y entregan valor a las aplicaciones que nosotros creamos.
+Y lo primero que hay que notar en Angular
+es obviamente en estos últimos años
+el nuevo sistema de reactividad.
+Creo que es una de las cosas que son más profundas y transversales
+y a mí realmente me sorprendió la manera en que el equipo lo tomó
+y cómo también lo implementó.
+Porque normalmente estos cambios fundamentales
+de cimientos del framework
+son muy complicados de hacer.
+Sin embargo, de una forma muy proactiva
+y de una forma casi, digamos que sin tanto dolor,
+obviamente hay que hacer refactorización de código,
+acoger las nuevas APIs,
+pero no creí que fuera en teoría tan sencillo
+cambiar una de las cosas tan fundamentales.
+Y realmente no lo es,
+pero el equipo de Angular precisamente
+ha trabajado en hacer lo más smooth,
+lo más como sin fricción posible.
+Entonces, la nueva reactividad,
+que hablemos un poquito de cuál es la antigua reactividad,
+la que ha habido en el curso de Angular,
+es la de que no se había hecho nada de cambio.
+Entonces, en particular,
+en el curso de Angular,
+básicamente para resumir,
+teníamos a Songy S,
+que casi que estaba escuchando los cambios
+que ocurrían en el navegador,
+cualquier cambio asíncrono,
+una promise,
+cualquier cosa del browser en específico,
+como que empezaba a leer un cambio,
+pero no se sabía de dónde viene el cambio.
+Ese es el cambio fundamental con Songy S
+o con la detección de cambios
+en las pasadas versiones de Angular.
+De por sí,
+siempre se le había criticado un poco
+su forma del two-data binding,
+cómo reaccionaba a cambios,
+que parecía ser como demasiado para un framework,
+y así lo hacía antes con Songy S.
+Básicamente, Songy S como que
+sabía que algo podía haber cambiado,
+luego detectaba el Angular chain detection,
+que es como ya el algoritmo
+para que Angular pueda reconocer algún cambio,
+y recorría todo el árbol del DOM.
+No ejecutaba un cambio per se
+en cada uno de esos nodos del DOM,
+pero va y chequeaba,
+oye, tú fuiste el componente que cambió,
+que me envió este cambio,
+y ese es el que va a actualizar y renderizar.
+Realmente no es muy diferente al virtual DOM de React,
+el virtual DOM de React es más óptimo,
+pero tiene sus similaridades.
+Los dos tienen un DOM
+y los dos literalmente tienen que recorrer el árbol
+para detectar en dónde estuvo.
+Sin embargo, con Signals ya no tenemos a Songy S
+como de forma,
+como un escuchador general,
+sino que funciona como una técnica de reactividad granular.
+Aquí es donde viene Signals,
+donde literalmente nos dicen, bueno,
+este componente fue el que introdujo el cambio,
+se corre el Angular chain detection,
+no hay que recorrer ningún árbol,
+simplemente ya se sabe cuál nodo fue el que cambió,
+y va y se ejecuta y se actualiza ese nodo
+en específico de nuestro DOM.
+Entonces, realmente esto mejora mucho
+el rendimiento de nuestras aplicaciones,
+y Signals se está convirtiendo en una herramienta,
+y en general,
+en una herramienta de reactividad general.
+Y, por último,
+también es importante que se ponga en cuenta
+que el framework de los frameworks
+que se han creado
+se está convirtiendo en una transversal reactiva
+para los frameworks.
+Por ejemplo, frameworks como Quick, Solid,
+de por sí Solid fue no el que lo creó,
+pero sí el que popularizó
+o dio una API mucho más sencilla
+como de empezar a trabajar esto dentro de un framework.
+Y de ahí, de por sí el equipo de Solid y Angular
+estuvieron hablando mucho
+para ver cómo llevaban este patrón,
+o básicamente se hablaron los dos equipos
+y Angular se inspiró mucho en cómo lo hacía Solid.
+Pero Vue ya también lo tenía hace rato,
+lo llama de otra forma,
+y pre-react lo tiene.
+No react, sino pre-react,
+que es como esta versión light de react.
+Entonces, esta forma,
+esta reactividad granular
+se está convirtiendo
+como en una pieza fundamental
+de cualquier framework,
+y eso está bien
+porque como patrón mental
+podemos llevarnos este modelo de reactividad
+y trabajarlo en otros frameworks.
+Si yo me voy a Solid,
+me voy a encontrar con Signals.
+Si yo me voy a Quick,
+me voy a encontrar con Signals.
+Pero el único que todavía no lo ha implementado per se
+es que,
+es React,
+pero bueno,
+ese es otro cuento.
+La mayoría de los frameworks
+ahorita tienen esa forma reactiva
+de forma transversal en el frontend.
+Y solo para recordarte
+un momento cómo funciona un Signal.
+Signals básicamente es una variable más,
+pero ahora tiene propiedades de reactividad.
+Entonces, cada vez que asignamos un valor,
+esto es un Signal de forma explícita.
+Por ejemplo,
+yo agrego o asigno un valor,
+pero no como una variable per se,
+sino que utilizo ciertas primitivas reactivas,
+como Signals o Computed,
+que eso hace parte del modelo de reactividad
+o el nuevo modelo de reactividad.
+Y simplemente puedo empezar a obtener el valor.
+Por ejemplo, aquí hago una pregunta,
+este if,
+entonces para obtener el valor,
+ejecuto la función.
+Sin embargo,
+cada vez que ese valor cambie,
+en automático las funciones que están suscritas a ese valor,
+entonces van a recibir una notificación de cambio.
+Eso es muy, muy interesante,
+muy light de por si,
+muy,
+la API es bastante sencilla,
+pero bastante poderosa
+y trae muchas innovaciones a nuestra aplicación,
+sobre todo en el momento de rendimiento.
+Sin embargo,
+con todo este nuevo modelo de reactividad,
+también han salido nuevas primitivas reactivas.
+Sin embargo,
+todas se basan como en los cimientos
+de la reactividad en Angular.
+En este caso,
+nosotros tenemos tres primitivas reactivas,
+que es el Signal,
+Computed y el Effect,
+pero a partir de ellos se están creando
+patrones de reactividad bastante interesantes
+que Angular está empezando a implementar
+para dar solución a varios de estos casos.
+Entonces, por ejemplo,
+tenemos el Linkedin Signal,
+que vamos a ver cómo funciona.
+Entonces, por ejemplo,
+tenemos estas nuevas primitivas,
+el Linkedin Signal,
+en donde precisamente nos ayudan
+a resolver varios de esos patrones de reactividad.
+Por ejemplo, básicamente un Linkedin Signal
+es un Computed,
+pero que yo puedo modificar.
+Normalmente los Computed no se pueden modificar,
+no les puedo hacer un Set,
+solo derivan el estado de la dependencia
+que se dijo de forma explícita,
+pero un Linkedin sí yo lo puedo hacer,
+entonces es muy útil para poder modificar.
+Por ejemplo, si tú tienes un Input
+y necesitas modificar el valor,
+pues simplemente lo pones como un Linkedin y ya.
+Este patrón se puede repetir varias veces
+y literalmente ahora tenemos el Linkedin Signal.
+Entonces, por ejemplo,
+acá tenemos como que el Linkedin Signal
+depende de otro Signal,
+que es como un Array,
+y yo puedo empezar a saber cuál es ese elemento.
+El Selected Option se deriva de un Linkedin Signal
+y yo le puedo correr un Set sin mayor dificultad.
+Puedo modificar su valor sin ningún error,
+sin ninguna dificultad,
+y este igual reacciona dependiendo de otro Signal.
+Eso es muy interesante
+y estos patrones promueven más el uso de Signals
+dentro de Angular como aplicativo
+y recordemos que eso tiene gran beneficio
+en el rendimiento de las aplicaciones.
+Y este modelo de reactividad permea
+o está permeando a todo Angular,
+entonces cada vez vemos que tenemos menos RXDS,
+que es este patrón basado en Observables,
+pero también entonces tenemos Signals casi en todo.
+Entonces tenemos los Signal Inputs
+que ya llegaron de la aplicación,
+ya llegaron desde casi la versión 18 o 17,
+en donde simplemente todos estos modelos de reactividad
+ya empiezan a cambiar de patrón y ya implementan Signals.
+También tenemos los Signal Queries,
+entonces podemos empezar a hacer ciertas derivaciones
+o escuchar reactivamente a nuestras aplicaciones de frontend,
+que normalmente todas las aplicaciones de frontend
+necesitan escuchar de forma reactiva cambios
+para ser muy interactivas,
+que es como el beneficio de hacer este tipo
+o de usar este tipo de frameworks,
+pero ahora con Signals se hacen de forma explícita
+o de forma declarativa,
+lo cual es una gran característica.
+Entonces podemos decir que con todos estos nuevos patrones
+tenemos un nuevo paradigma
+y es que en lugar de gestionar el estado de la aplicación
+con base a eventos,
+simplemente Angular lo hace por ti.
+Entonces podemos tener un Signal,
+pero a partir de ese Signal podemos tener declarado
+un Computer o un Linkedin,
+y a partir de esos también podemos tener
+declarados otros y todos funcionan de forma reactiva
+y con un gran rendimiento.
+Esto hace que no nos toque,
+digamos para implementar un modelo de estado
+o gestión de estado,
+no tenga que ser tan complejo
+o estados sencillos como un estado y un componente
+son más sencillos de manejar
+tanto a nivel global como local
+y eso trae beneficios de performance muy interesantes
+y una forma mucho más como liviana
+o una forma más declarativa básicamente
+de hacer aplicaciones reactivas,
+en este caso con Angular.
+Sin embargo, a Signals le falta algo.
+Y es el asincronismo.
+Todo funciona como de forma muy declarativa,
+todo tiene que tener un valor inicial, etc.
+Pero ¿qué pasa con los valores que son asincrónicos?
+Que yo necesito hacer un fetching de datos,
+que eso es lo más cotidiano en un running,
+necesitamos hacer fetching,
+conectarnos a servidores, a una API,
+obtener esos datos y mirar el estado.
+Pues precisamente ya tenemos una forma de ver
+cómo nosotros con Signal igual
+trabajamos con estos datos asincrónicos.
+Y lo que propone el framework es algo llamado el
+HTTP resource,
+que sería un reemplazo a lo que nosotros conocemos
+como el HTTP client,
+que si tú vienes de Angular,
+recuerdas que obviamente acá tenemos un subscribe
+y si tenemos un subscribe es un observable
+y si tenemos un observable,
+normalmente eso dentro de Angular tiene RxJS.
+Cada vez salimos menos de RxJS.
+Yo tengo un video en mi canal exactamente hablando
+de cómo funciona este resource,
+pero echémosle un repaso.
+Entonces, ¿cómo funcionaría el asincronismo
+sobre todo para hacer fetching de datos?
+Pues tenemos el userResource que viene de una otra
+de estas primitivas, que en este caso se llamaría resource,
+en donde también sus inputs o la forma en la que esta
+va a reaccionar, por ejemplo, tenemos params
+que define un userId y ese userId igual es un signal.
+Entonces puede ser un parámetro, un queryParam,
+puede ser algo que venga por la ruta, puede ser un input
+y simplemente va a reaccionar cada vez que este signal
+cambio, pues ejecuta ese fetching de forma reactiva
+sin tener que hacerlo con programación imperativa.
+Si no, muy, muy declarativo.
+Luego tenemos el fetchUser y aquí de pronto tenemos
+uno de esos primeros cambios que ya no tendríamos RxJS.
+Lo podemos hacer, de por sí también está el RxResource
+si queremos conectarlo a nuestros servicios
+que ya tenían este patrón, pero si no podemos hacer
+un fetching normal, como una promise normal de JavaScript
+y resolver el valor.
+Fíjate que en userResource ahí no he ejecutado todavía,
+eso no se ejecuta todavía.
+Él se va a ejecutar de forma reactiva cuando userId
+cambie o tenga un valor inicial.
+Así que la forma de obtener el cambio, de obtener el valor
+es simplemente hacer un userResource.value
+y pues al final, una vez obtenido el valor, digamos que acá tenemos
+la información del usuario, puedo tener el firstName
+y con base en ello puedo tener un computed.
+Así que toda la forma de reactividad es bastante declarativa.
+Angular se encarga casi de hacer todo por ti
+y a ti simplemente te toca armar como los bloques
+de forma apropiada y los cambios ocurren de forma reactiva
+y muy bien controlados.
+Entonces, por ejemplo, acá nosotros en el userResource
+también podemos saber si es loading, si falló, si no falló, el valor
+y eso está muy interesante porque casi que otros frameworks
+necesitan como de librerías per se, como no sé si has manejado
+React Query o Angular Query, una librería muy popular
+en donde normalmente tendrías que hacer esto por tu cuenta
+o básicamente a ti te toca hacer un isLoading para saber
+si el fetch ya salió o no y crear estados demás,
+pero el userResource ya tiene todo ese estado.
+Entonces no nos toca crear esto, simplemente se declara y se usa.
+Y todo esto nos lleva a que al final vamos a tener aplicaciones
+que ya no necesiten de SonJS, simplemente confiamos en Signals
+para poder hacer toda la parte de reacción de cambios como motor.
+Bien, ¿qué tiene esto como ventaja?
+Bueno, al final lo que hemos venido hablando,
+que una aplicación en Angular sin zonas, pues tiene mejor rendimiento,
+básicamente tenemos mejor CoreVert Vitals y es mejor hacer el debugging.
+Normalmente en SonJS es un poquito más complicado hacer debugging
+del asincronismo de Angular, pero en esta forma,
+como es bastante declarativo, también es bastante sencillo
+y Angular de por sí está construyendo herramientas dentro del Angular DevTools
+para hacer ese debugging basado en Signals bastante bien.
+¿Y qué tenemos que hacer para eso?
+Pues al final tendríamos que obviamente ya no, o sea,
+acoger el modelo reactivo de Signals.
+Tendríamos que utilizar Signals en los inputs, en nuestras variables,
+los Query Signals.
+Normalmente estos componentes vienen con la estrategia de OnPush.
+Entonces como que antes de borrar SonJS dentro de tu aplicación,
+lo recomendado obviamente es pues acoger este patrón de reactividad.
+Una vez hecho eso y estés seguro que, no sé, tus componentes todos son OnPush
+y que todo está utilizando Signals y no el patrón viejo de reactividad,
+pues entonces podríamos simplemente en nuestro app config habilitar
+Provides Only S Chain Detection, que básicamente es que ya no utilizaríamos SonJS
+sino es una aplicación sin zonas y podríamos empezar ya a tener una aplicación
+que no necesita SonJS para reaccionar a los cambios.
+Y cerrando como todo el capítulo de reactividad, ahora vamos a entrar en otro campo
+que Angular ha estado trabajando fuertemente y es Server Side Rendering.
+Server Side Rendering es muy interesante poder empezar a jugar con Server Side Rendering en Angular,
+sobre todo porque veníamos de cosas como Angular Universal,
+que si bien daban un soporte, no era el mejor de experiencia,
+pero realmente ahorita con el nuevo Server Side Rendering de Angular
+reconstruyeron todo el motor, reconstruyeron todo y realmente funciona mucho mejor
+y ahora podemos tener aplicaciones que corren del lado del servidor en Angular
+mucho, mucho más sencillo.
+Ahora, realmente, ¿cómo implementamos esto dentro de Angular?
+En Angular simplemente si queremos crear una aplicación nueva,
+que utilice Server Side Rendering, pues le ponemos en Gnu y le ponemos como este flag de SSR,
+pero si tú ya tienes una aplicación, una aplicación que ya están dando
+y aún así quieres poner Server Side Rendering, simplemente tienes que ejecutar el comando ngadd
+y angular-sccr y él hace las configuraciones por ti.
+Ahora, la pregunta fundamental es ¿tu aplicación necesita Server Side Rendering?
+Básicamente la decisión o el driver de esa decisión están dos features,
+uno es rendimiento,
+¿Quieres mejorar los tiempos de carga de tu aplicación?
+o ¿Quieres mejorar el posicionamiento de motores de búsqueda?
+Si quieres mejorar el rendimiento es por esta característica en especial,
+normalmente una aplicación que se renderiza por el lado del cliente tarda más en renderizarse,
+obviamente esto depende de la conexión también de nuestro cliente,
+pero en estadística dura mucho más, porque normalmente JavaScript pasa por cuatro procesos,
+descargar, parsear, ejecutar y compilar.
+No sé si ese es el orden, pero son esos cuatro procesos.
+Entonces, en hacer todo ese proceso y montar toda la aplicación para que el usuario vaya viendo algo,
+pues tarda más, versus si la aplicación ya viene renderizada desde el lado del servidor.
+Como ya viene renderizada desde el servidor, pues se ahorra como todo ese proceso
+y lo que hay es un proceso de high ration, en el cual desde el servidor se le pasa un estado al browser
+para que ya vuelva interactiva la aplicación, o eso así al menos lo resuelve Angular.
+Ahora, ¿en cuándo sí y cuándo no?
+De nuevo, si quieres mejorar tiempos de carga y si quieres mejorar posicionamientos motores de búsqueda,
+entonces, por ejemplo, un e-commerce.
+Un e-commerce necesita obviamente estar indexado en motores de búsqueda como Google, como Bing,
+entonces sería muy bueno aplicar una técnica de server-side rendering.
+Ahora, en Angular venimos desde el mundo de Enterprise, está muy ligado al mundo de Enterprise,
+entonces normalmente hay aplicaciones como el de back office, como administrativas, con muchos formularios, con dashboards.
+Ahora, realmente esas aplicaciones son muy importantes, porque si no, no se van a poder vender.
+¿Por qué esas aplicaciones necesitan volverse server-side rendering?
+De nuevo, todo depende de ti.
+Si quieres mejorar tiempos de carga, esa es una gran solución.
+Tienes que saber que esa solución tiene un trade-off, es decir, ya no un servidor de archivos estáticos ya no es suficiente,
+necesitarías de un servidor de Node.
+Cambiar tu aplicación a que en vez de tener archivos estáticos, ahora sí necesitas un servidor de Node,
+porque el renderizado lo haría un servidor, un servidor de Node.
+Entonces no es sólo un cambio como tan sencillo,
+también hay que cambiar en cierta parte la forma en que vas a ejecutar tu aplicación en servidores.
+Entonces esa parte es vital.
+Entonces, de pronto para dashboards o aplicativos que son más como administrativos,
+yo seguiría manteniéndolos como una single-page application sin server-side rendering,
+pero si el performance es crucial, inclusive en esos aspectos, o el posicionamiento es vital,
+pues ahí es donde server-side rendering juega una gran opción para ti.
+Sin embargo, también hay otra gran opción.
+Y es que, últimamente, Angular está trabajando con el equipo de Genkit para hacer esta integración.
+Genkit es un nuevo framework, una nueva forma de hacer AI dentro de Google en específico.
+Google tiene como ahorita dos tecnologías insignias para hacer cosas con AI.
+Una es Genkit, bueno, obviamente tiene los modelos bases, Gemini, Gemma, etc.
+Pero herramientas o frameworks o herramientas de genesis,
+sobre ellos está Genkit y el ADK, que es el Google Agent Development Kit.
+Entonces, para cosas un poco más complejas, pues yo creo que el Google Development Kit es más indicado.
+Pero para flujos como mucho más sencillos y que no necesiten como una arquitectura multiagente,
+pues Genkit está siendo la opción.
+Y hay una opción muy interesante de cómo implementar Genkit o estos endpoints con IA dentro de Angular.
+Básicamente, Genkit funciona de forma a un flujo.
+O su forma de trabajar es a partir de un flujo.
+Un flujo normalmente en AI tiene tools, tiene memoria, que es lo que normalmente conocemos como un agente.
+Un agente tiene que tener acceso al estado, memoria, tiene que tener tools, etc.
+Y esto Genkit lo define como un flujo.
+Entonces, por ejemplo, digamos que yo tengo un feature de AI dentro de mi aplicación.
+Entonces tengo aquí el menú Suggestion y aquí es donde yo empiezo.
+Y aquí es donde yo empiezo precisamente a ver cómo funciona.
+Entonces defino el flujo, defino como cuáles son sus inputs, a qué modelos van a, digamos que a ejecutar.
+Y de cierta manera si tengo conexión a alguna otra tool.
+Y Genkit tiene una integración con Express.
+Entonces si tú estás haciendo server-side rendering, normalmente lo corres en un servidor de Node con Express.
+O así viene por defecto el server-side rendering de Angular.
+Cuando tú lo activas, te pone un servidor de Excel.
+Y aquí tienes el servidor de Excel con Express, que es el que ejecutaría como todo ese render.
+Bien, se puede en otros motores que no sean Node.
+Se puede poner en el de Cloudflare, por ejemplo.
+Se puede poner en Boom.
+En otros motores que no sean dependientes de Node.
+Pero obviamente aquí cambia un poco.
+Pero si estamos corriendo todo en Node, pues podemos utilizar Express.
+Así lo entrega por defecto Angular.
+Y basado en ello, Genkit tiene una integración con Express.
+Entonces quiere decir que ese flujo que creamos.
+Literalmente yo lo puedo poner como un request más.
+Entonces nosotros vamos a tener una aplicación que ahora también puede ejecutar endpoints que ejecutan AI.
+Si quieres más información acerca de esto, te invito a que entres a angular.dev.ai
+Acá básicamente encuentras como la documentación para hacer esto.
+Aquí es donde encuentras como Genkit, que es Genkit.
+Y cómo se hace o cómo se integraría con una aplicación de Angular.
+Por ejemplo, vamos a ver este starter kit.
+Acá es la documentación de Genkit.
+Aquí podemos ver que Genkit, si bien no es directamente algo creado para Angular.
+Se conecta muy bien con Angular.
+Pero uno lo podría utilizar en tu servidor de Express, en una aplicación de Node, etc.
+Entonces, por ejemplo, acá vemos cómo es que ellos hacen flujos, etc.
+Entonces acá vemos el flujo, el modelo, cómo se ejecuta.
+Acá vemos cómo se hace un deployment utilizando las Cloud Functions.
+Al final puede funcionar como una Cloud Function.
+Puede utilizar Cloud Run, puede utilizar Node, etc.
+Acá hay una sección, vamos a ver si la encuentro por acá.
+O si acá está en el buscador, Angular.
+Acá está cómo integraríamos Genkit en Angular.
+Obviamente necesitamos server-side rendering.
+Y acá es donde te mencionaba que acá es donde nosotros creamos como un flujo.
+Y luego con Express lo integramos.
+Acá podemos ver un ejemplo directamente en el repositorio de Angular en examples.
+Acá podemos ver ya cómo funcionaría.
+Si tú lo ves bien, al final vamos a ver si encontramos.
+Vamos a ver si encontramos acá, agent-chat.
+Esta es la UI, pero quiero encontrar es el flujo.
+Busquemos el archivo de server.
+Vamos a ir acá a server.
+Fíjate que acá en server, y vamos a hacer un poquito más de zoom.
+Acá tenemos un como flows.
+Fíjate que este es como te entregaría Angular.
+Una aplicación que se renderiza por el servidor utilizando Express.
+Entonces, basados en ellos, se utiliza Genkit.
+Y acá se expone un endpoint que se puede consumir como un endpoint en Angular.
+Específico de Angular.
+Entonces tendríamos casi una aplicación que es frontend.
+Pero como se corre del lado del servidor, entonces podríamos también exponer endpoints.
+Entonces acá tenemos el chatflow.
+Y si nosotros miramos chatflow, vamos a ver en dónde está esa carpeta.
+Dónde tenemos chatflow.
+A ver si esto está acá.
+Debe estar un poquito más atrás.
+Acá tenemos flujos.
+Fíjate que acá es donde se implementaron todos esos flujos.
+Acá tenemos un ejemplo de varios flujos que se están haciendo.
+Y esa sería la manera.
+De nuevo, esto literalmente merecería todo un video en general.
+Y si te suscribes a mi canal, vas a tener este video en donde voy a hacer una integración de Angular con Genkit.
+Pero esa es otra de las bondades en la cual podríamos integrar ya AI dentro de nuestros productos.
+No sólo utilizar AI para escribir códigos, sino de forma más fácil de pronto integrar AI.
+Como simplemente con Genkit y utilizando los modelos de Google.
+Y siguiendo por la línea de...
+Todo esto del server-side rendering.
+Angular tiene una gran opción que es empezar a configurar de forma...
+Por ruta.
+La forma de o la estrategia de renderizado.
+Si bien escogemos server-side rendering, tampoco debería ser una camisa de fuerza.
+Una camisa de fuerza en la que, ok, ya todo es server-side rendering.
+No.
+Hay de pronto situaciones en las que tú dices, ok, sí quiero que estas partes vengan renderizadas por el lado del servidor.
+Pero estas otras por el lado del cliente.
+Un caso, por ejemplo, rápido es, ok.
+El home, el login, el...
+No, el home.
+Quiero que se renderice muy rápido y que sea...
+Y que esté indexado en motores de búsqueda.
+Entonces, pues, a esas rutas les aplico server-side rendering.
+Pero, ¿qué pasa con las que no?
+Por ejemplo, el login.
+El login no necesito que esté indexado en un motor de búsqueda.
+Entonces, el login podría perfectamente...
+O el dashboard que carga gráficas.
+Y normalmente, cuando cargamos gráficas, necesitamos de librerías que casi que corren desde el lado del cliente.
+Es decir, utilizan canvas o cosas así.
+O SVGs para hacer los renders.
+Entonces, casi que ese tipo de rutas, podríamos decirle, ah, realmente no necesito que tú vengas renderizado del servidor.
+Y esa ruta quiero que venga todavía renderizada del cliente.
+Y ese tipo de granularidad la podemos lograr en Angular.
+¿Cómo? Vamos a ver.
+Entonces, si tú ya manejas tu aplicación con server-side rendering, lo que puedes hacer es definir una nueva...
+Digamos, un nuevo archivo que se llama app-routes.server.tl.
+Y ahí lo que le dices es, ok, mira, este path viene renderizado desde el cliente.
+O el path about viene renderizado desde un prerender, que sería como un sitio estático.
+O profile viene, ese sí quiero que sea server.
+Entonces, literalmente con esta opción tú puedes decirle a Angular, mira, estos paths yo quiero que sean server, estos otros no.
+Y mantener aún así la... como el control sobre qué quiero renderizar desde el cliente o qué quiero renderizar desde el servidor.
+Y esto también nos lleva a otra de esas grandes características que ha estado lanzando Angular.
+Y es Hydration y Incremental Hydration.
+De nuevo, Hydration es como la forma en la que si ya hacemos server-side rendering, si bien ganamos rendimiento, no queremos que la aplicación quede interactiva.
+Entonces, hay un proceso como de pasar ese estado para que luego ya se interactúe desde el browser.
+Eso en muy resumen es Hydration.
+Pero han estado implementando el Incremental Hydration.
+Y veamos un poco eso.
+Este tipo de releases.
+Si nosotros nos recordamos, en la versión 17 lanzaron el Full Hydration.
+Es decir, podríamos hacer server-side rendering y una vez que tenemos el estado del servidor, como que hay un proceso para transmitir ese estado al browser y que la aplicación como que cobre vida.
+Pero luego tenemos que en la versión 18 lanzaron el Even Replay.
+¿Qué es el Even Replay?
+Básicamente en ese momento en el que se hace la transición de estado entre el servidor y el cliente.
+Básicamente el usuario podría estar haciendo clics en la aplicación.
+Como ya está visualmente ya está cargada, digamos que el usuario empieza a agregar cosas en un carrito de compras, en el botón.
+Pero como todavía la aplicación no cobra vida, como que no puede leer esos clics y pues podría perder esos clics del usuario.
+El Even Replay básicamente es como grabar esos clics o esas interacciones en lo que se hace esa transferencia de estado.
+Y una vez ya la aplicación esté viva, digámoslo en el browser, se hace una reanudación de esos clics o de esos eventos.
+Eso es lo que es el Even Replay y fue lanzado en la versión 18.
+Luego en la versión 19 tenemos el Incremental High Version.
+Que básicamente es una forma de decir, ok mira, yo necesito que, ok si bien ya una vez te paso todo ese estado desde el servidor.
+Y quiero que cobres vida de esa aplicación, pues del lado del browser no necesito que cobres vida de toda la aplicación.
+De pronto solo de ciertos elementos.
+Eso hace que el proceso de carga sea más rápido.
+¿Por qué?
+Porque el tiempo de ejecución de JavaScript será mucho menor.
+Entonces, básicamente ¿qué pasa?
+Que simplemente se hace High Duration de los elementos que realmente están siendo interactuados.
+Entonces no tengo que hacer un High Duration de toda la aplicación, sino los elementos que realmente van a ser utilizados o a las que se les hace clic.
+Una forma de definirlo es desde el siguiente.
+Entonces por ejemplo nosotros tenemos el Defer.
+Defer es la forma en la nueva sintaxis de declarar como componentes de una aplicación.
+Defer es la forma en la que se van a cargar de forma diferida.
+La sintaxis es hermosa básicamente.
+Si tú haces esto en cualquier otro framework.
+O sea te invito a que hagas carga diferida en cualquier otro framework.
+Y el que lo hace mejor es Angular.
+Puede que obviamente ellos lo hayan hecho primero.
+Y pues Angular tiene la ventaja de que vio como lo hacían los demás.
+Entonces digamos que lo implementó de alguna mejor manera.
+Pero la sintaxis de hacer carga diferida de componentes es Defer.
+Y ya.
+Eso es hermoso básicamente.
+Pero también aparte de ese Defer podríamos decirle.
+Y si tenemos una estrategia de Server Server Rendering.
+Podríamos decirle ok mira quiero que te hidrates.
+Que este componente se hidrate.
+Que cobre vida después de que me lo mandes desde el Server.
+Cuando después ya la aplicación esté montada.
+Digamos ese sería como el By Default.
+El Idle.
+Pero digamos que yo puedo cambiar esa técnica de High Duration.
+Le puedo decir mira solo quiero que hidrates este componente.
+Es decir le pongas vida.
+Si y solo si.
+Hay interacción en él.
+Entonces no tenemos que hacer un proceso de High Duration de toda la aplicación.
+Darle vida a toda la aplicación.
+Sino que solo se van ejecutando las partes que realmente son necesarias.
+O por las que el usuario va mostrando interactividad.
+Y eso también nos lleva a que Angular está cambiando su Approach.
+Para hacer a Angular en sí mucho más sencillo de entender.
+Y ahí es donde cobra vida los Stannons Components.
+Y que ya tenemos aplicaciones y módulos.
+De por sí los módulos siempre han causado como un conflicto en la curva de aprendizaje.
+Y si tú ves otros ecosistemas como Vue o como Next.
+Como que este concepto de módulo no existe.
+Bien.
+Entonces cuando vas a Angular dices como tengo que aprender este nuevo concepto.
+Y realmente no está mal.
+Es un concepto de arquitectura interesante.
+Sin embargo si causa como fricción al iniciar.
+Angular por detrás básicamente va a manejar ciertas cosas en forma modular.
+Pero como que nos quita ese peso cognitivo.
+De pensar como nosotros deberíamos modularizar nuestra aplicación.
+Y se vuelve light.
+Eso también hace que nosotros tengamos menos archivos de configuración.
+Por ejemplo si yo comparo una aplicación.
+No sé en versión 17, versión 15.
+Teníamos mucho más archivos de configuración.
+Y pues teníamos módulos y demás.
+Y a medida de las versiones hemos quitado más archivos de configuración.
+Lo que hace que de nuevo el peso cognitivo para cualquier desarrollador sea.
+Ok.
+Entonces la configuración es muy potente.
+Pero también es como fácil de entender lo que está haciendo.
+Entonces nos quitamos un poco ese peso de los módulos.
+Y ahora tenemos de por sí en la versión 19.
+Tenemos Standalone By Default.
+¿Qué significa esto?
+Que normalmente cuando nosotros tenemos un Standalone Component.
+Standalone Component.
+Necesitamos decirle Standalone True de forma explícita.
+Pero a partir de la 19 eso se cambia.
+Es decir ahora tenemos el Standalone.
+O sea cualquier componente por defecto en Angular.
+Va a ser Standalone.
+Y si quieres que no sea Standalone.
+Y seguir trabajando con módulos.
+Lo que hace es de forma explícita colocarle Standalone False.
+Eso es desde la versión 19.
+Es la forma en la que Angular está tratando los componentes.
+Ahora entremos en el mundo del testing.
+¿Cómo está el ecosistema de Angular relacionado con el testing?
+Este si ha venido cambiando.
+Digamos todavía no de forma tan opinionada.
+Angular ha estado mostrando como algunos experimentos.
+Algunos que no ha finalizado.
+Algunos que como que ya reemplazaron.
+Entonces vamos a ver cómo funciona.
+Porque al final esto es muy interesante.
+Y también muy vital en el mundo del desarrollo de software.
+Si bien Unit Testing ya casi se está viendo delegado por AI.
+Casi que la mayoría de Unit Testing las está escribiendo Cursor.
+Copilot.
+Y está bien.
+Obviamente si bien no se autocompletan código.
+Necesitan las herramientas para que eso pueda funcionar.
+Un ambiente para correrlo.
+Un framework de pruebas.
+Etcétera.
+Vamos a ver cómo funciona esto en Angular.
+Para eso hay que entender bien el ecosistema.
+Entonces por ejemplo teníamos.
+O así viene configurado Angular por defecto.
+Que es Karma y Jasmine.
+Que son dos cosas diferentes.
+Se complementan.
+Karma fue creado por el equipo de Angular.
+Como un ambiente en donde se ejecutan las pruebas.
+El Test Runner.
+Sin embargo otra cosa muy diferente es Jasmine.
+Jasmine es el framework para escribir las pruebas.
+Que una cosa muy interesante.
+De los frameworks de pruebas.
+Es que todos se parecen.
+O sea realmente no es algo así como tan opinionado.
+Como React, Vue, Angular.
+Que cambian drásticamente como se acercan al problema.
+Realmente si vemos Jasmine, Jess o Vites por ejemplo.
+Todos tienen un Describe.
+Todos tienen un Need.
+Todos tienen un Before All.
+Before Each.
+O sea literalmente en eso se parecen un montón.
+Así que realmente no va a haber un cambio tan brusco.
+En cuanto a si cambiamos de una herramienta a otra.
+Obviamente por detrás funcionan de otro modo.
+Pero la forma de su sintaxis es igual.
+Lo importante aquí entender es.
+El Test Runner.
+En donde se ejecutan esas pruebas.
+Y a favor de Angular.
+El creó Karma.
+Que es un ambiente para correr las pruebas.
+Basadas en un Browser.
+¿Por qué esto es importante?
+¿Y por qué es vital?
+Porque las pruebas corren contra algo.
+Y normalmente para correr las pruebas.
+Lo podemos ejecutar en Node.
+Normalmente se pueden ejecutar en Node.
+Pero hay ciertas APIs del Browser.
+No sé.
+Imagínate que estás trabajando con Glocalization.
+Con APIs del Browser.
+Que necesitan correrse realmente en un Browser.
+Para que veamos que esa prueba.
+Pues se está ejecutando bien.
+Y no correrlas con Node.
+Porque con Node.
+Pues básicamente no tenemos el navegador.
+Entonces sería como un ambiente.
+Si lo corremos en Node.
+Es básicamente como un ambiente.
+No tan parecido al que la aplicación.
+Realmente va a correr.
+Entonces Karma es un Test Runner.
+Pero que utiliza un Browser.
+Para correr esas pruebas.
+Eso está muy bien.
+Sin embargo.
+Karma ha estado deprecado.
+Karma ya como que no tiene tanto empuje.
+Y el equipo de Angular.
+Ya dijo que no lo iba a mantener.
+De por sí lo que están probando.
+Es cambiar Karma.
+Ya no mantener Karma.
+Lo deprecan.
+Y probar el Web Test Runner.
+Que es un digamos que un proyecto.
+Que no es desde el equipo de Angular.
+Es desde otro.
+Este otro equipo.
+En el cual tienen también.
+Como este mismo Runner.
+Pero que corren las pruebas.
+Basadas en un Browser.
+Bien.
+Entonces como las corran en un Browser.
+Como que las pruebas son más fieles.
+A lo que podría ser.
+No correrlas con este tipo de herramientas.
+Sin embargo.
+Pues utilizamos el mismo.
+United Framework.
+Que en este caso es Jasmine.
+Entonces el equipo ha estado.
+Como dando esta opción.
+Como de reemplazo.
+En vez de utilizar Karma.
+Pues poder configurar Web Test Runner.
+Y ese sería el reemplazo.
+Si queremos mantener Jasmine.
+Sin embargo.
+Si bien.
+Esto.
+Y está muy bien.
+Que digamos que Angular.
+Haya tenido esa iniciativa.
+De crear Karma.
+O de crear.
+O de correr Web Test Runner.
+Realmente esto ha cambiado.
+El mundo del Testing.
+Ha cambiado mucho.
+Y ahorita por ejemplo.
+Tenemos Yes.
+Yes es el Framework.
+Más popular para escribir pruebas.
+Y Yes como que junta las dos cosas.
+O sea.
+No trabaja por separado.
+El ambiente.
+Del Framework de Testing.
+Sino que realmente.
+El.
+Es un.
+Un link.
+Que es un.
+Un link.
+Que es un link.
+Que es un link.
+Que es un link.
+Entonces.
+Es un Test Runner.
+Pero también.
+Es la forma.
+En la que escribimos pruebas.
+Entonces es nuestra Tool.
+Pero también.
+Nuestro ambiente.
+Lo malo de Yes.
+Es que.
+Corre sobre Node.
+Es decir.
+No tiene un Browser.
+Real.
+Al que se está ejecutando.
+Esas pruebas.
+Tiene.
+Es literalmente.
+Se ejecuta con Node.
+Entonces.
+Claro.
+Yes.
+Obviamente.
+Se mantiene agnóstico.
+Porque con Yes.
+No solo se escriben pruebas.
+Para Frontend.
+Se escriben prueba.
+Para APIs.
+Para Node.
+browser. Sin embargo, para
+solucionar esto, la comunidad ha creado
+muchos plugins, el JSTOM
+para poder como que
+Jest se ejecute de forma emulada
+o con muchos mockings
+pues todo lo que es por parte del browser
+su ambiente de ejecución
+sigue siendo Node, pero
+con ciertos plugins y demás como que uno
+puede emular API del browser
+no es la mejor manera, sigue siendo
+la mejor manera realmente no
+emularlo sino como ejecutarlo en un browser
+tipo Karma, tipo WebTestWarner
+pero como que ahí no
+ha habido mucha elección
+si uno configura bien Jest
+puede igual ejecutar esos
+mocks en esa simulación y funciona muy bien
+y de por sí la API de Jest es bastante
+buena, pero sin embargo también
+tendríamos que hablar de BitTest
+ahí también habría que hablar de que Jest
+o de que Angular ha estado
+o nos mandó un experimento
+en el cual ya funcionaba bien
+pues Angular y Jest
+pero realmente no han
+terminado con ese experimento
+de por sí si tú quieres utilizar
+Angular y Jest como que la mejor
+manera es utilizar
+unas opciones de la comunidad porque
+de forma nativa Angular no lo soporta
+hay que utilizar como algunas otras opciones
+si quieres más adelante en mi canal
+voy a hacer un video de cómo configurar
+apropiadamente Jest y Angular utilizando
+como esas opciones de la comunidad
+o NX que ya tiene un
+runner básicamente o bien
+la configuración con Jest y Angular
+pero casi que el equipo de Angular
+estaba trabajando
+como en esta forma
+de integración pero
+no les gusta mucho de nuevo
+esta forma simulada de correr
+APIs del browser o que sólo
+se ejecute Node y están viendo
+es BitTest como que
+descartaron ese experimento de Jest
+o no sé si lo van a descartar realmente
+creo que le van a poner
+más prioridad a frameworks
+modernos como BitTest que
+soporta los dos modos no hay que
+hacer como mocking, simulaciones
+plugins, BitTest por
+defecto puede correr en Node
+en un ambiente de Node o tiene un ambiente
+de browser y ya entonces
+como que esto viene soportado no hay que
+tener plugins no hay que hacer configuraciones
+sino que ya viene
+soportado dentro de BitTest
+y otra vez BitTest une las dos
+cosas es el test runner
+pero también es el framework con el que escribimos pruebas
+obviamente tiene el describe
+el lead, el after each
+todo eso pero sigue siendo
+como que las dos herramientas ya no tenemos
+dos cosas como el runner y el
+framework de pruebas tenemos solo una cosa
+lo bueno de BitTest es que tiene
+los dos ambientes puedes ejecutar solo cosas
+estrictamente para Node
+o puedes ejecutar cosas directamente
+con un browser con un ambiente
+de browser con lo cual
+tus unidades correrían mucho mejor
+en este ambiente y ahí es donde Angular
+se está enfocando mucho
+realmente creo que ya lanzaron un experimento
+ese primer experimento funciona bastante bien
+yo creo que para las siguientes versiones ya va a estar
+más estable pero parece que
+la opción por defecto ya
+no va a ser
+Karma, Jasmine
+sino BitTest y ya
+bien y JS lo que hicieras configurar
+como que van a dejar estos plugins de la comunidad
+pero como que por defecto Angular le va a dar su
+portantativo a BitTest
+entonces como para resumir rápidamente todo ese ambiente
+de testing creo que lo más importante es
+el ambiente o entender en qué ambiente se corre
+JS utiliza Node para correr las pruebas
+claro puedes hacer plugins cosas de la comunidad para emular
+los APIs del browser pero pues no corren en el browser
+per se siguen corriendo Node
+WebTestRunner si corre en un browser
+como que ahí levanta un browser
+y empieza a ejecutar las pruebas allí
+ahí es donde pues este tipo de
+runners modernos funcionan bien
+pero BitTest tiene los dos puede correr Node
+y puede correr browser y por ejemplo hablando
+de aplicaciones que ahora tenemos como
+servers and rendering que son aplicaciones
+que se ejecutan en el servidor pero que también
+luego se hidratan con el browser pues
+esa parece ser una buena opción porque yo podría
+ejecutar un browser y luego se hidratan con el browser
+y ejecutar pues ciertas pruebas que sí que está bien
+que corran bajo el ambiente de Node pero ciertas otras pruebas
+que sí corran en un ambiente que yo necesito ya
+un browser para probar APIs para probar
+cierto tipo de simulaciones
+ahora si lo quieres probar tú BitTest
+básicamente tienes que ir a tu archivo
+angular.json y en el apartado de test
+lo que le das es angular slash build unit test
+y fíjate que en el runner pone BitTest
+bien posiblemente luego si realmente le van a dar
+soporte a JS que no es un software que se puede
+no se sabe estuvieron trabajando en eso
+pero como que lo cambiaron por BitTest
+luego podríamos tener como runner JS
+o como runner web page de runner
+bueno en fin pero por ahorita
+si lo quieres probar con BitTest que es como
+la opción que está teniendo Angular
+esta sería la configuración que necesitarías
+y si lo quieres con JS ya toca
+otro tipo de cosas para que realmente
+corra bien de nuevo te prometo un video
+en mi canal acerca de eso
+pero si no sería como por
+estas opciones de la comunidad y en
+el mundo del end to end porque no sólo es
+unit testing hacer pruebas unitarias
+también está el mundo del end to end testing
+ellos también habían creado así como
+crearon Karma también habían creado
+otra herramienta llamada Protactor que es
+literalmente un framework end to end para
+para Angular en ese momento para Angular
+JS obviamente el ecosistema de
+end to end ha cambiado un montón
+tenemos herramientas mucho más fuertes
+y más posicionadas en la industria como
+Playwright como Cypress como Stellanion
+como Puppeteer por ejemplo para
+realmente correr muy buenas pruebas end to end
+y Protactor también Angular ya lo deprecó
+lo que sí nos da es un si tú le corres
+si tú quieres empezar a hacer o agregar
+pruebas end to end ellos sí ya tienen
+como la implementación lista con
+Playwright con Cypress con Puppeteer
+entonces aquí sí ya ellos te dan
+opciones tú le das ng end to end y tú
+escoges la opción del framework con la
+cual quieres escoger tus end to end
+entonces aquí si ya realmente se son
+agnósticos pues obviamente hay más
+herramientas de end to end pero soportan
+las más comunes de nuevo Playwright es
+ahorita lo Playwright y Cypress es lo más
+común creo que ya con que nos soportan
+esas dos está perfecto
+en unit testing como que se están
+yendo por bits y ya pero en end to end
+si podemos escoger cualquiera de estas
+opciones ahora en las perspectivas
+optimizadas de la par bamboo del
+de mi lista de
+cada publicaciones que's
+en ese asistente estoy dando
+hay queinguar
+aounding
+ótico
+california
+ya si lo clics
+y limita
+ruquillas
+lo que lo que un poco debullían
+Firebird
+en el SAR
+vale
+memory leak, cuál es el patrón de reactividad. Angular DevTools está volviendo
+en esa herramienta y recientemente Angular nos ha mostrado algunas
+características que vienen, que todavía no han sido lanzadas, pero otras
+ya, en donde hacer debugging con el DevTools es una
+maravilla. Sin embargo, hay una cosa muy interesante.
+Pues Angular, al ser un equipo de Google, también trabaja
+con un equipo que se llama Aurora, que es como el equipo dentro de
+Google Chrome para trabajar con frameworks. Digamos que es un equipo intermedio
+para trabajar con Ness, para trabajar con Vue, para trabajar con Angular
+y como que implementar mejor herramientas
+de debugging dentro de los frameworks y dentro de Google Chrome.
+Y obviamente hay una cercanía entre el equipo de Angular y el equipo de Aurora o el equipo
+de Google Chrome, en donde tenemos como resultado que literalmente
+ya tenemos dentro de Google Chrome sin necesidad de instalar
+alguna herramienta, algún DevTools.
+De por sí, esto ya venía en el DevTools, pero de nuevo, sin necesidad de instalar
+ningún plugin, nada. Directamente en Google Chrome,
+en sus versiones de, pues en las DevTools, ya viene un track
+literalmente para ver cómo se comporta el rendimiento de una aplicación de Angular.
+Entonces, si tu aplicación es Angular y abres el DevTools,
+vas a encontrar un apartado en donde puedes directamente
+hacer literalmente decir, hey, este es el profiling o
+esto está pasando con mi aplicación de Angular.
+Y poder debuguear. Esto, por ejemplo, Chrome no lo tiene para, no sé,
+para React, para Vue. Te toca como instalar la
+DevTools de Vue, la DevTools de React, para poder hacer
+debugging de aplicaciones de React. En Angular no, con la
+DevTools y sin instalar nada, ya viene. Obviamente hay algunas otras
+características más avanzadas que vas a encontrar en la DevTools, entonces
+igual se sugiere instalar DevTools y aprovechar
+como un montón de características más.
+Pero está muy bien que ahora ya venga incorporado en el framework.
+Y tú dirás, bueno, ok, está muy bien, está excelente
+que hayan tantas cosas nuevas, que Angular esté
+pushando tantas cosas reactivas,
+hypersegrendering, hydration, debugging,
+un montón de cosas de lo que hablaba antes del video, pero ok, ¿cómo yo
+puedo empezar a utilizar esto? A mí me parece que también una de las grandes ventajas
+de Angular es la migración.
+Y soportadas por el mismo equipo, o sea, no son desarrolladas por otro equipo,
+por la comunidad, el mismo equipo dice, ok, voy a cambiar esto, pero te doy
+una opción para que migres como todo tu código
+legacy o tu anterior a esta nueva forma. Y tenemos un montón de migraciones
+que realmente funcionan muy, muy bien. Y si tú estás
+probando aplicaciones, déjame en los comentarios cuál de estas migraciones
+has ejecutado. Pero, por ejemplo, puedes, si tienes aplicaciones,
+con módulos y quieres cambiar el standalone, tienes una migración para hacer
+esto y te lo cambia de forma automática. Si aún así quieres
+por, no sé, porque en tu equipo todavía tienen ciertas
+cosas de módulos y cambiarlo a standalone se les
+rompe algunas unités que ahorita no tienen tiempo de ejecutar, igual
+también hay una migración para mantenerlo, pero como el by default
+en la versión 19 es standalone por defecto, entonces
+hay una migración que lo que hace es a todos tus componentes
+que sean modulares, les agrega el standalone false
+y todos los otros componentes ya los dejan por defecto. Entonces, de nuevo, Angular
+se preocupa de nuevo por la retrocompatibilidad. Bien, si
+quieres cambiar, pues listo, tengo una migración para ti para que puedas solucionar tu
+caso. ¿Quieres mantener la vieja sintaxis? Por ejemplo, el ngif, el ngifor,
+ya ellos dijeron que lo iban a marcar como deprecated, sin embargo, obviamente
+tú todavía tienes tus versiones, van a darle un tiempo.
+Obvio, razonable para hacer como ese ajuste, pero
+Angular también te dice, bueno, mira, no tienes que ir a tu código que no se puede
+tener 5,000 componentes, 500 componentes y
+empezar a cambiar la sintaxis de cada una, es horrible. Entonces, pues ellos te dan
+una migración y te lo cambian de forma automática y estas migraciones han sido muy
+probadas dentro del equipo interno de Google. Google utiliza mucho Angular,
+Gemini está hecho en Angular, todo el AI Studio,
+todo el Gemini, el chat como
+tal con el que todo el mundo interactúa, ese está hecho en Angular,
+Fiverr está hecho en Angular, o sea, la UI, la parte Google Console, Google Cloud,
+toda la UI también está hecha en Angular. Entonces, en Angular utilizan mucho Angular,
+digo, en Google utilizan mucho Angular y estas migraciones ellos mismos también
+la han probado dentro de sus equipos. Entonces, realmente son migraciones muy,
+muy probadas que te recomiendo las pruebas. Si quieres cambiar la sintaxis, si quieres probar
+si no se trata de surfing de tecnología, no te metas en este punto, no tienes una
+es una de las cosas muy interesantes de Google que te seguirán dando todo lo que
+se está esperando porque el pikós тоже lo está pasando tan bien lo estamos entendiendo
+también aquí. Pero, llevando en cuenta que muchas filas evil swap a las bouquets,
+quieres unsafeas de ver si es legal o no y ahí vienes, a ver combalar la hopping 3 con
+la button y el bluetooth, no te مrade que no te mCh Strange este por que este plato
+en la versión 18 y buscas migrations
+pues vas a ver que migraciones
+puedes ejecutar en esa versión
+en específico, entonces pues tienes la migración
+del standalone, del control
+flow, del no inject function, del lazy
+loaded routers, bien
+y si estás, no sé, en la versión
+17, que por ejemplo la versión 17
+tiene la página viejita
+igual aquí puedes buscar las migraciones
+de esa versión
+migrations, o creo que en la
+versión, pues
+en la 17 para atrás, que tienen este
+website, creo que están en otro
+lado, pero bueno, básicamente
+pues ya, cada una de las
+documentaciones tiene un apartado de migraciones
+y puedes saber pues cuál
+tienes que ejecutar
+dependiendo de la versión en la
+que estés, si de nuevo nos vamos
+a, aquí por defecto me dejan la 20
+pero si yo me voy a la 18
+y corro migrations, me voy a encontrar con las
+migraciones que puede ejecutar
+en la versión 19, entonces hay más
+hay new input, new output
+queries assignals
+este que limpia, este que hace
+self-closing tags, etc.
+entonces, como dependiendo de la versión
+yo puedo literalmente
+pues saber qué
+migraciones puedo ejecutar, cómo las ejecuto
+acá están bien documentadas
+como qué hace cada una
+por ejemplo esta del inject
+que lo que hace es pues como
+ahora ya no recibimos el inject desde
+el constructor, sino con la
+función inject de esta manera
+migrar todo esto manual pues obviamente
+es muy complejo y además
+que pues si tenemos muchos servicios
+cientos de servicios en aplicaciones
+grandes pues migrar esto manualmente
+puede dar algún error pero
+simplemente con correr este comando
+el te hace la migración
+lo mismo va a pasar con signallimpulse
+entonces si tienes un input como este
+pero ya lo quieres pasar a signall
+entonces pues corres esta migración
+y ya entonces el tiene migraciones
+preparadas para afrontar
+todas estas nuevas características
+y listo eso es todo por este video
+realmente creo que me quedo bastante
+extenso, pero quería como hacer
+como un recap de lo que yo veo
+como el estado general, lo que han
+venido lanzando, lo nuevo
+desde diferentes puntos
+de vista, literalmente desde el punto de
+vista de reactividad, desde el testing
+server-side rendering, debugging
+etcétera, de nuevo cada
+una de estas cositas merece un video
+en particular y prometo estar como
+subiendo esos en específico
+pero al menos te quedo como un overview para que
+de pronto si te quedaste picado
+o integrado en alguna de estas en
+específico, pues empieces a buscar ya en documentación
+en la comunidad, en más videos
+obviamente de otros creadores de contenido
+en YouTube, en donde te puedan
+dar guía de cómo ya
+hacer de todas estas características
+de las cuales te hablé
+pues te diga, ok, estoy interesado en
+esto y pues ir más a fondo
+yo prometo también subir contenido
+relacionado, pero de nuevo, este
+es el estado de Angular, lo que
+viene, lo que ha venido trabajando
+y me parece que es un futuro
+bastante sorprendente, Angular
+va a haber para muchos, sigue habiendo
+mucha oferta laboral y
+sigue habiendo una comunidad muy fuerte
+y Angular, de nuevo, a mi parecer
+dentro del nuevo liderazgo
+es uno de los que ha cambiado
+cimientos claves como
+quitar módulos, como cambiar el modelo
+de reactividad, como cambiar la sintaxis
+y le ha jugado en
+buena forma, la percepción ahorita
+de Angular
+ya no es como tan
+como antes la teníamos, donde uff
+es un poco complejo, donde es
+un poco
+digamos pesado entrar, sino que
+ya se ha vuelto como que la nueva
+forma, el renacimiento de Angular
+ha venido desde una
+o la comunidad lo ha tomado de muy buena
+manera, tanto así que tenemos
+una nueva documentación, un nuevo
+logo para representar como ese nuevo
+cambio, va a haber una nueva mascota
+y eso, como que
+todo eso se traduce a que realmente están
+pasando cosas muy interesantes dentro
+del framework, para si bien
+respetar como todo lo que ya venía
+trabajando, pero asumir todos
+estos nuevos cambios, no solo para
+pues aprovechar como las nuevas
+innovaciones del mundo
+de la web en general
+sino también como hacer la experiencia
+para los desarrolladores mucho
+más fáciles, entonces tenemos aplicaciones
+que son realmente potentes
+para el usuario
+final, quien las usa, pero también
+una experiencia de desarrollo bastante
+fuerte, así que eso ha sido todo por
+este video, espero les haya gustado
+si quedó largo, bueno pues
+ese es el estado de Angular y nos
+vemos en la próxima, suscríbanse

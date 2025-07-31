@@ -1,7 +1,7 @@
 from settings import settings
 import typer
 from transcript.audio import get_audio
-from transcript.whisper import get_transcribe
+from transcript.whisper import get_transcribe, save_file
 from chains.summary_chain import summary_chain
 from chains.youtube_chain import youtube_chain
 from chains.thread_chain import thread_chain
@@ -24,11 +24,9 @@ def audio():
 @app.command()
 def transcribe(path: str):
     file_path = "./input/audio.wav"
-    transcript = get_transcribe(file_path, "large")
-    path = f"./{path}/transcript.md"
-    with open(path, "w") as file:
-        file.write(transcript)
-        print(transcript)
+    results = get_transcribe(file_path, "large")
+    save_file(results, f"./{path}", "txt")
+    save_file(results, f"./{path}", "srt")
 
 
 @app.command()

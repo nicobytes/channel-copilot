@@ -1,0 +1,4984 @@
+1
+00:00:00,000 --> 00:00:04,460
+Angular ha sido uno de los frameworks que recientemente ha lanzado de forma continua
+
+2
+00:00:04,460 --> 00:00:07,300
+bastantes innovaciones en el ecosistema del desarrollo web
+
+3
+00:00:07,300 --> 00:00:08,980
+y se mantiene en la vanguardia.
+
+4
+00:00:09,400 --> 00:00:13,360
+Sin embargo, también tiene esta característica de que es retrocompatible
+
+5
+00:00:13,360 --> 00:00:16,100
+como a ciertas cosas del anterior Angular,
+
+6
+00:00:16,500 --> 00:00:18,280
+como por ejemplo los módulos, la sintaxis,
+
+7
+00:00:18,660 --> 00:00:23,100
+y sin miedo el nuevo equipo ha traído cosas muy interesantes y nuevas para el ecosistema.
+
+8
+00:00:23,360 --> 00:00:26,440
+Entonces, por eso, en este video quiero hacer como una recapitulación
+
+9
+00:00:26,440 --> 00:00:29,060
+del estado actual de Angular en este año
+
+10
+00:00:29,060 --> 00:00:33,100
+y voy a tocar muchos features que pueden estar en preview,
+
+11
+00:00:33,240 --> 00:00:34,440
+puede que ya se hayan lanzado,
+
+12
+00:00:34,780 --> 00:00:36,420
+así que va a ser un video bastante interesante
+
+13
+00:00:36,420 --> 00:00:39,560
+de como un recap y el estado actual de Angular.
+
+14
+00:00:39,900 --> 00:00:42,380
+Así que veamos cuál es el estado actual de Angular
+
+15
+00:00:42,380 --> 00:00:46,120
+y vaya de estas características de por sí merecen un video en particular,
+
+16
+00:00:46,500 --> 00:00:49,700
+pero la verdad es que es un resumen de todo lo que nos trae Angular.
+
+17
+00:00:50,320 --> 00:00:53,800
+Varias de esas características posiblemente tú las vas a entregar mucho más a fondo
+
+18
+00:00:53,800 --> 00:00:57,100
+o te actualices acerca de estas cosas interesantes
+
+19
+00:00:57,100 --> 00:00:58,580
+que están surgiendo en el ecosistema
+
+20
+00:00:58,580 --> 00:00:58,800
+de Angular.
+
+21
+00:00:59,060 --> 00:01:05,060
+Lo primero que te voy a mencionar es que si Angular ahora oficialmente tiene una mascota
+
+22
+00:01:05,060 --> 00:01:09,560
+y de por sí la comunidad, como varias cosas y varios cambios internos que ha hecho,
+
+23
+00:01:09,560 --> 00:01:12,720
+ha lanzado unos RFCs, unos Request for Comments,
+
+24
+00:01:12,840 --> 00:01:14,580
+así como lo hizo para la sintaxis,
+
+25
+00:01:14,780 --> 00:01:18,240
+así como lo hizo para ciertos features específicos de Hydration,
+
+26
+00:01:18,640 --> 00:01:22,100
+pues también nos lanzan un RFC para escoger la mascota oficial.
+
+27
+00:01:22,540 --> 00:01:23,760
+Así que eso está muy bonito.
+
+28
+00:01:23,920 --> 00:01:26,560
+Por ahora esta es la primera opción, la que está ganando.
+
+29
+00:01:27,280 --> 00:01:29,040
+Ya de por sí creo que se cerró el RFC,
+
+30
+00:01:29,060 --> 00:01:31,780
+para ver todos los comentarios, propuestas que ven de la comunidad
+
+31
+00:01:31,780 --> 00:01:34,120
+y ahora van a reunir todo eso y pues lanzarlo.
+
+32
+00:01:34,480 --> 00:01:37,260
+Recordemos que también otras partes del ecosistema
+
+33
+00:01:37,260 --> 00:01:39,340
+también tienen su mascota,
+
+34
+00:01:39,420 --> 00:01:42,780
+como Fibers, como la mascotita del pajarito de Flutter.
+
+35
+00:01:43,120 --> 00:01:45,140
+Así que está simplemente curioso e interesante
+
+36
+00:01:45,140 --> 00:01:48,480
+que ya Angular va a tener una mascota oficial
+
+37
+00:01:48,480 --> 00:01:50,360
+dentro de todo el ecosistema
+
+38
+00:01:50,360 --> 00:01:52,480
+y también lo tiene Go, por ejemplo,
+
+39
+00:01:52,580 --> 00:01:54,360
+que también es una de las tecnologías de Google.
+
+40
+00:01:54,760 --> 00:01:57,300
+Así que simplemente es un muy dato curioso
+
+41
+00:01:57,300 --> 00:01:59,040
+y muy bonito para la comunidad.
+
+42
+00:01:59,060 --> 00:02:02,500
+Pero ahora sí empecemos con realmente lo que nos interesa
+
+43
+00:02:02,500 --> 00:02:05,400
+y es cómo estas nuevas características traen funcionalidad
+
+44
+00:02:05,400 --> 00:02:07,920
+y entregan valor a las aplicaciones que nosotros creamos.
+
+45
+00:02:08,280 --> 00:02:10,040
+Y lo primero que hay que notar en Angular
+
+46
+00:02:10,040 --> 00:02:12,780
+es obviamente en estos últimos años
+
+47
+00:02:12,780 --> 00:02:14,440
+el nuevo sistema de reactividad.
+
+48
+00:02:14,640 --> 00:02:18,560
+Creo que es una de las cosas que son más profundas y transversales
+
+49
+00:02:18,560 --> 00:02:22,340
+y a mí realmente me sorprendió la manera en que el equipo lo tomó
+
+50
+00:02:22,340 --> 00:02:24,800
+y cómo también lo implementó.
+
+51
+00:02:24,940 --> 00:02:27,460
+Porque normalmente estos cambios fundamentales
+
+52
+00:02:27,460 --> 00:02:28,900
+de cimientos del framework
+
+53
+00:02:28,900 --> 00:02:30,680
+son muy complicados de hacer.
+
+54
+00:02:31,140 --> 00:02:33,340
+Sin embargo, de una forma muy proactiva
+
+55
+00:02:33,340 --> 00:02:36,180
+y de una forma casi, digamos que sin tanto dolor,
+
+56
+00:02:36,340 --> 00:02:38,420
+obviamente hay que hacer refactorización de código,
+
+57
+00:02:38,680 --> 00:02:39,980
+acoger las nuevas APIs,
+
+58
+00:02:40,560 --> 00:02:43,540
+pero no creí que fuera en teoría tan sencillo
+
+59
+00:02:43,540 --> 00:02:45,820
+cambiar una de las cosas tan fundamentales.
+
+60
+00:02:45,960 --> 00:02:46,920
+Y realmente no lo es,
+
+61
+00:02:47,040 --> 00:02:48,600
+pero el equipo de Angular precisamente
+
+62
+00:02:48,600 --> 00:02:51,200
+ha trabajado en hacer lo más smooth,
+
+63
+00:02:51,320 --> 00:02:53,000
+lo más como sin fricción posible.
+
+64
+00:02:53,440 --> 00:02:55,240
+Entonces, la nueva reactividad,
+
+65
+00:02:55,240 --> 00:02:58,080
+que hablemos un poquito de cuál es la antigua reactividad,
+
+66
+00:02:58,900 --> 00:03:00,280
+la que ha habido en el curso de Angular,
+
+67
+00:03:00,280 --> 00:03:01,720
+es la de que no se había hecho nada de cambio.
+
+68
+00:03:01,720 --> 00:03:02,760
+Entonces, en particular,
+
+69
+00:03:02,760 --> 00:03:03,900
+en el curso de Angular,
+
+70
+00:03:03,900 --> 00:03:05,220
+básicamente para resumir,
+
+71
+00:03:05,220 --> 00:03:06,460
+teníamos a Songy S,
+
+72
+00:03:06,460 --> 00:03:08,400
+que casi que estaba escuchando los cambios
+
+73
+00:03:08,400 --> 00:03:09,660
+que ocurrían en el navegador,
+
+74
+00:03:09,660 --> 00:03:10,860
+cualquier cambio asíncrono,
+
+75
+00:03:10,860 --> 00:03:11,860
+una promise,
+
+76
+00:03:11,860 --> 00:03:14,480
+cualquier cosa del browser en específico,
+
+77
+00:03:14,480 --> 00:03:17,220
+como que empezaba a leer un cambio,
+
+78
+00:03:17,220 --> 00:03:19,540
+pero no se sabía de dónde viene el cambio.
+
+79
+00:03:19,540 --> 00:03:22,200
+Ese es el cambio fundamental con Songy S
+
+80
+00:03:22,200 --> 00:03:24,120
+o con la detección de cambios
+
+81
+00:03:24,120 --> 00:03:26,140
+en las pasadas versiones de Angular.
+
+82
+00:03:26,140 --> 00:03:26,960
+De por sí,
+
+83
+00:03:26,960 --> 00:03:28,460
+siempre se le había criticado un poco
+
+84
+00:03:28,460 --> 00:03:30,760
+su forma del two-data binding,
+
+85
+00:03:30,760 --> 00:03:32,100
+cómo reaccionaba a cambios,
+
+86
+00:03:32,100 --> 00:03:35,840
+que parecía ser como demasiado para un framework,
+
+87
+00:03:35,840 --> 00:03:38,000
+y así lo hacía antes con Songy S.
+
+88
+00:03:38,000 --> 00:03:40,460
+Básicamente, Songy S como que
+
+89
+00:03:40,460 --> 00:03:42,260
+sabía que algo podía haber cambiado,
+
+90
+00:03:42,260 --> 00:03:44,660
+luego detectaba el Angular chain detection,
+
+91
+00:03:44,660 --> 00:03:46,060
+que es como ya el algoritmo
+
+92
+00:03:46,060 --> 00:03:48,720
+para que Angular pueda reconocer algún cambio,
+
+93
+00:03:48,720 --> 00:03:50,720
+y recorría todo el árbol del DOM.
+
+94
+00:03:52,080 --> 00:03:54,580
+No ejecutaba un cambio per se
+
+95
+00:03:54,580 --> 00:03:56,920
+en cada uno de esos nodos del DOM,
+
+96
+00:03:56,960 --> 00:03:58,460
+pero va y chequeaba,
+
+97
+00:03:58,460 --> 00:04:01,340
+oye, tú fuiste el componente que cambió,
+
+98
+00:04:01,340 --> 00:04:02,720
+que me envió este cambio,
+
+99
+00:04:02,720 --> 00:04:05,040
+y ese es el que va a actualizar y renderizar.
+
+100
+00:04:05,040 --> 00:04:08,080
+Realmente no es muy diferente al virtual DOM de React,
+
+101
+00:04:08,080 --> 00:04:10,520
+el virtual DOM de React es más óptimo,
+
+102
+00:04:10,520 --> 00:04:12,260
+pero tiene sus similaridades.
+
+103
+00:04:12,260 --> 00:04:14,200
+Los dos tienen un DOM
+
+104
+00:04:14,200 --> 00:04:16,840
+y los dos literalmente tienen que recorrer el árbol
+
+105
+00:04:16,840 --> 00:04:19,020
+para detectar en dónde estuvo.
+
+106
+00:04:19,020 --> 00:04:23,520
+Sin embargo, con Signals ya no tenemos a Songy S
+
+107
+00:04:23,520 --> 00:04:24,820
+como de forma,
+
+108
+00:04:25,780 --> 00:04:26,720
+como un escuchador general,
+
+109
+00:04:26,720 --> 00:04:31,720
+sino que funciona como una técnica de reactividad granular.
+
+110
+00:04:31,720 --> 00:04:33,600
+Aquí es donde viene Signals,
+
+111
+00:04:33,600 --> 00:04:35,720
+donde literalmente nos dicen, bueno,
+
+112
+00:04:35,720 --> 00:04:39,100
+este componente fue el que introdujo el cambio,
+
+113
+00:04:39,100 --> 00:04:41,100
+se corre el Angular chain detection,
+
+114
+00:04:41,100 --> 00:04:42,720
+no hay que recorrer ningún árbol,
+
+115
+00:04:42,720 --> 00:04:45,480
+simplemente ya se sabe cuál nodo fue el que cambió,
+
+116
+00:04:45,480 --> 00:04:47,720
+y va y se ejecuta y se actualiza ese nodo
+
+117
+00:04:47,720 --> 00:04:49,720
+en específico de nuestro DOM.
+
+118
+00:04:49,720 --> 00:04:51,720
+Entonces, realmente esto mejora mucho
+
+119
+00:04:51,720 --> 00:04:53,720
+el rendimiento de nuestras aplicaciones,
+
+120
+00:04:53,720 --> 00:04:55,540
+y Signals se está convirtiendo en una herramienta,
+
+121
+00:04:55,540 --> 00:04:56,540
+y en general,
+
+122
+00:04:56,540 --> 00:04:58,540
+en una herramienta de reactividad general.
+
+123
+00:04:58,540 --> 00:04:59,540
+Y, por último,
+
+124
+00:04:59,540 --> 00:05:00,540
+también es importante que se ponga en cuenta
+
+125
+00:05:00,540 --> 00:05:01,540
+que el framework de los frameworks
+
+126
+00:05:01,540 --> 00:05:02,540
+que se han creado
+
+127
+00:05:02,540 --> 00:05:03,540
+se está convirtiendo en una transversal reactiva
+
+128
+00:05:03,540 --> 00:05:04,540
+para los frameworks.
+
+129
+00:05:04,540 --> 00:05:05,540
+Por ejemplo, frameworks como Quick, Solid,
+
+130
+00:05:05,540 --> 00:05:06,540
+de por sí Solid fue no el que lo creó,
+
+131
+00:05:06,540 --> 00:05:07,540
+pero sí el que popularizó
+
+132
+00:05:07,540 --> 00:05:08,540
+o dio una API mucho más sencilla
+
+133
+00:05:08,540 --> 00:05:11,540
+como de empezar a trabajar esto dentro de un framework.
+
+134
+00:05:11,540 --> 00:05:13,540
+Y de ahí, de por sí el equipo de Solid y Angular
+
+135
+00:05:13,540 --> 00:05:14,540
+estuvieron hablando mucho
+
+136
+00:05:14,540 --> 00:05:17,540
+para ver cómo llevaban este patrón,
+
+137
+00:05:17,540 --> 00:05:19,540
+o básicamente se hablaron los dos equipos
+
+138
+00:05:19,540 --> 00:05:22,540
+y Angular se inspiró mucho en cómo lo hacía Solid.
+
+139
+00:05:22,540 --> 00:05:23,540
+Pero Vue ya también lo tenía hace rato,
+
+140
+00:05:23,540 --> 00:05:24,540
+lo llama de otra forma,
+
+141
+00:05:24,540 --> 00:05:26,540
+y pre-react lo tiene.
+
+142
+00:05:26,540 --> 00:05:27,540
+No react, sino pre-react,
+
+143
+00:05:27,540 --> 00:05:30,540
+que es como esta versión light de react.
+
+144
+00:05:30,540 --> 00:05:32,540
+Entonces, esta forma,
+
+145
+00:05:32,540 --> 00:05:33,540
+esta reactividad granular
+
+146
+00:05:33,540 --> 00:05:34,540
+se está convirtiendo
+
+147
+00:05:34,540 --> 00:05:36,540
+como en una pieza fundamental
+
+148
+00:05:36,540 --> 00:05:37,540
+de cualquier framework,
+
+149
+00:05:37,540 --> 00:05:38,540
+y eso está bien
+
+150
+00:05:38,540 --> 00:05:39,540
+porque como patrón mental
+
+151
+00:05:39,540 --> 00:05:42,540
+podemos llevarnos este modelo de reactividad
+
+152
+00:05:42,540 --> 00:05:44,540
+y trabajarlo en otros frameworks.
+
+153
+00:05:44,540 --> 00:05:46,540
+Si yo me voy a Solid,
+
+154
+00:05:46,540 --> 00:05:48,540
+me voy a encontrar con Signals.
+
+155
+00:05:48,540 --> 00:05:49,540
+Si yo me voy a Quick,
+
+156
+00:05:49,540 --> 00:05:50,540
+me voy a encontrar con Signals.
+
+157
+00:05:50,540 --> 00:05:53,540
+Pero el único que todavía no lo ha implementado per se
+
+158
+00:05:53,540 --> 00:05:54,540
+es que,
+
+159
+00:05:54,540 --> 00:05:55,540
+es React,
+
+160
+00:05:55,540 --> 00:05:56,540
+pero bueno,
+
+161
+00:05:56,540 --> 00:05:57,540
+ese es otro cuento.
+
+162
+00:05:57,540 --> 00:05:58,540
+La mayoría de los frameworks
+
+163
+00:05:58,540 --> 00:06:01,540
+ahorita tienen esa forma reactiva
+
+164
+00:06:01,540 --> 00:06:04,540
+de forma transversal en el frontend.
+
+165
+00:06:04,540 --> 00:06:05,540
+Y solo para recordarte
+
+166
+00:06:05,540 --> 00:06:07,540
+un momento cómo funciona un Signal.
+
+167
+00:06:07,540 --> 00:06:09,540
+Signals básicamente es una variable más,
+
+168
+00:06:09,540 --> 00:06:11,540
+pero ahora tiene propiedades de reactividad.
+
+169
+00:06:11,540 --> 00:06:13,540
+Entonces, cada vez que asignamos un valor,
+
+170
+00:06:13,540 --> 00:06:15,540
+esto es un Signal de forma explícita.
+
+171
+00:06:15,540 --> 00:06:16,540
+Por ejemplo,
+
+172
+00:06:16,540 --> 00:06:18,540
+yo agrego o asigno un valor,
+
+173
+00:06:18,540 --> 00:06:20,540
+pero no como una variable per se,
+
+174
+00:06:20,540 --> 00:06:23,540
+sino que utilizo ciertas primitivas reactivas,
+
+175
+00:06:23,540 --> 00:06:25,540
+como Signals o Computed,
+
+176
+00:06:25,540 --> 00:06:27,540
+que eso hace parte del modelo de reactividad
+
+177
+00:06:27,540 --> 00:06:29,540
+o el nuevo modelo de reactividad.
+
+178
+00:06:29,540 --> 00:06:31,540
+Y simplemente puedo empezar a obtener el valor.
+
+179
+00:06:31,540 --> 00:06:33,540
+Por ejemplo, aquí hago una pregunta,
+
+180
+00:06:33,540 --> 00:06:34,540
+este if,
+
+181
+00:06:34,540 --> 00:06:36,540
+entonces para obtener el valor,
+
+182
+00:06:36,540 --> 00:06:37,540
+ejecuto la función.
+
+183
+00:06:37,540 --> 00:06:38,540
+Sin embargo,
+
+184
+00:06:38,540 --> 00:06:40,540
+cada vez que ese valor cambie,
+
+185
+00:06:40,540 --> 00:06:43,540
+en automático las funciones que están suscritas a ese valor,
+
+186
+00:06:43,540 --> 00:06:45,540
+entonces van a recibir una notificación de cambio.
+
+187
+00:06:45,540 --> 00:06:47,540
+Eso es muy, muy interesante,
+
+188
+00:06:47,540 --> 00:06:48,540
+muy light de por si,
+
+189
+00:06:48,540 --> 00:06:49,540
+muy,
+
+190
+00:06:49,540 --> 00:06:51,540
+la API es bastante sencilla,
+
+191
+00:06:51,540 --> 00:06:52,540
+pero bastante poderosa
+
+192
+00:06:52,540 --> 00:06:54,540
+y trae muchas innovaciones a nuestra aplicación,
+
+193
+00:06:54,540 --> 00:06:56,540
+sobre todo en el momento de rendimiento.
+
+194
+00:06:56,540 --> 00:06:57,540
+Sin embargo,
+
+195
+00:06:57,540 --> 00:06:59,540
+con todo este nuevo modelo de reactividad,
+
+196
+00:06:59,540 --> 00:07:01,540
+también han salido nuevas primitivas reactivas.
+
+197
+00:07:01,540 --> 00:07:02,540
+Sin embargo,
+
+198
+00:07:02,540 --> 00:07:04,540
+todas se basan como en los cimientos
+
+199
+00:07:04,540 --> 00:07:06,540
+de la reactividad en Angular.
+
+200
+00:07:06,540 --> 00:07:07,540
+En este caso,
+
+201
+00:07:07,540 --> 00:07:09,540
+nosotros tenemos tres primitivas reactivas,
+
+202
+00:07:09,540 --> 00:07:10,540
+que es el Signal,
+
+203
+00:07:10,540 --> 00:07:11,540
+Computed y el Effect,
+
+204
+00:07:11,540 --> 00:07:13,540
+pero a partir de ellos se están creando
+
+205
+00:07:13,540 --> 00:07:15,540
+patrones de reactividad bastante interesantes
+
+206
+00:07:15,540 --> 00:07:18,540
+que Angular está empezando a implementar
+
+207
+00:07:18,540 --> 00:07:20,540
+para dar solución a varios de estos casos.
+
+208
+00:07:20,540 --> 00:07:21,540
+Entonces, por ejemplo,
+
+209
+00:07:21,540 --> 00:07:22,540
+tenemos el Linkedin Signal,
+
+210
+00:07:22,540 --> 00:07:24,540
+que vamos a ver cómo funciona.
+
+211
+00:07:24,540 --> 00:07:25,540
+Entonces, por ejemplo,
+
+212
+00:07:25,540 --> 00:07:27,540
+tenemos estas nuevas primitivas,
+
+213
+00:07:27,540 --> 00:07:28,540
+el Linkedin Signal,
+
+214
+00:07:28,540 --> 00:07:30,540
+en donde precisamente nos ayudan
+
+215
+00:07:30,540 --> 00:07:33,540
+a resolver varios de esos patrones de reactividad.
+
+216
+00:07:33,540 --> 00:07:35,540
+Por ejemplo, básicamente un Linkedin Signal
+
+217
+00:07:35,540 --> 00:07:36,540
+es un Computed,
+
+218
+00:07:36,540 --> 00:07:38,540
+pero que yo puedo modificar.
+
+219
+00:07:38,540 --> 00:07:41,540
+Normalmente los Computed no se pueden modificar,
+
+220
+00:07:41,540 --> 00:07:42,540
+no les puedo hacer un Set,
+
+221
+00:07:42,540 --> 00:07:46,540
+solo derivan el estado de la dependencia
+
+222
+00:07:46,540 --> 00:07:48,540
+que se dijo de forma explícita,
+
+223
+00:07:48,540 --> 00:07:49,540
+pero un Linkedin sí yo lo puedo hacer,
+
+224
+00:07:49,540 --> 00:07:50,540
+entonces es muy útil para poder modificar.
+
+225
+00:07:50,540 --> 00:07:52,540
+Por ejemplo, si tú tienes un Input
+
+226
+00:07:52,540 --> 00:07:53,540
+y necesitas modificar el valor,
+
+227
+00:07:53,540 --> 00:07:56,540
+pues simplemente lo pones como un Linkedin y ya.
+
+228
+00:07:56,540 --> 00:07:58,540
+Este patrón se puede repetir varias veces
+
+229
+00:07:58,540 --> 00:08:01,540
+y literalmente ahora tenemos el Linkedin Signal.
+
+230
+00:08:01,540 --> 00:08:02,540
+Entonces, por ejemplo,
+
+231
+00:08:02,540 --> 00:08:05,540
+acá tenemos como que el Linkedin Signal
+
+232
+00:08:05,540 --> 00:08:06,540
+depende de otro Signal,
+
+233
+00:08:06,540 --> 00:08:08,540
+que es como un Array,
+
+234
+00:08:08,540 --> 00:08:11,540
+y yo puedo empezar a saber cuál es ese elemento.
+
+235
+00:08:11,540 --> 00:08:15,540
+El Selected Option se deriva de un Linkedin Signal
+
+236
+00:08:15,540 --> 00:08:18,540
+y yo le puedo correr un Set sin mayor dificultad.
+
+237
+00:08:18,540 --> 00:08:20,540
+Puedo modificar su valor sin ningún error,
+
+238
+00:08:20,540 --> 00:08:21,540
+sin ninguna dificultad,
+
+239
+00:08:21,540 --> 00:08:24,540
+y este igual reacciona dependiendo de otro Signal.
+
+240
+00:08:24,540 --> 00:08:25,540
+Eso es muy interesante
+
+241
+00:08:25,540 --> 00:08:28,540
+y estos patrones promueven más el uso de Signals
+
+242
+00:08:28,540 --> 00:08:30,540
+dentro de Angular como aplicativo
+
+243
+00:08:30,540 --> 00:08:32,540
+y recordemos que eso tiene gran beneficio
+
+244
+00:08:32,540 --> 00:08:34,540
+en el rendimiento de las aplicaciones.
+
+245
+00:08:34,540 --> 00:08:36,540
+Y este modelo de reactividad permea
+
+246
+00:08:36,540 --> 00:08:38,540
+o está permeando a todo Angular,
+
+247
+00:08:38,540 --> 00:08:41,540
+entonces cada vez vemos que tenemos menos RXDS,
+
+248
+00:08:41,540 --> 00:08:43,540
+que es este patrón basado en Observables,
+
+249
+00:08:43,540 --> 00:08:47,540
+pero también entonces tenemos Signals casi en todo.
+
+250
+00:08:47,540 --> 00:08:48,540
+Entonces tenemos los Signal Inputs
+
+251
+00:08:48,540 --> 00:08:49,540
+que ya llegaron de la aplicación,
+
+252
+00:08:49,540 --> 00:08:52,540
+ya llegaron desde casi la versión 18 o 17,
+
+253
+00:08:52,540 --> 00:08:56,540
+en donde simplemente todos estos modelos de reactividad
+
+254
+00:08:56,540 --> 00:09:00,540
+ya empiezan a cambiar de patrón y ya implementan Signals.
+
+255
+00:09:00,540 --> 00:09:02,540
+También tenemos los Signal Queries,
+
+256
+00:09:02,540 --> 00:09:06,540
+entonces podemos empezar a hacer ciertas derivaciones
+
+257
+00:09:06,540 --> 00:09:09,540
+o escuchar reactivamente a nuestras aplicaciones de frontend,
+
+258
+00:09:09,540 --> 00:09:11,540
+que normalmente todas las aplicaciones de frontend
+
+259
+00:09:11,540 --> 00:09:13,540
+necesitan escuchar de forma reactiva cambios
+
+260
+00:09:13,540 --> 00:09:15,540
+para ser muy interactivas,
+
+261
+00:09:15,540 --> 00:09:17,540
+que es como el beneficio de hacer este tipo
+
+262
+00:09:17,540 --> 00:09:18,540
+o de usar este tipo de frameworks,
+
+263
+00:09:18,540 --> 00:09:21,540
+pero ahora con Signals se hacen de forma explícita
+
+264
+00:09:21,540 --> 00:09:23,540
+o de forma declarativa,
+
+265
+00:09:23,540 --> 00:09:26,540
+lo cual es una gran característica.
+
+266
+00:09:26,540 --> 00:09:28,540
+Entonces podemos decir que con todos estos nuevos patrones
+
+267
+00:09:28,540 --> 00:09:29,540
+tenemos un nuevo paradigma
+
+268
+00:09:29,540 --> 00:09:32,540
+y es que en lugar de gestionar el estado de la aplicación
+
+269
+00:09:32,540 --> 00:09:33,540
+con base a eventos,
+
+270
+00:09:33,540 --> 00:09:35,540
+simplemente Angular lo hace por ti.
+
+271
+00:09:35,540 --> 00:09:37,540
+Entonces podemos tener un Signal,
+
+272
+00:09:37,540 --> 00:09:39,540
+pero a partir de ese Signal podemos tener declarado
+
+273
+00:09:39,540 --> 00:09:40,540
+un Computer o un Linkedin,
+
+274
+00:09:40,540 --> 00:09:42,540
+y a partir de esos también podemos tener
+
+275
+00:09:42,540 --> 00:09:46,540
+declarados otros y todos funcionan de forma reactiva
+
+276
+00:09:46,540 --> 00:09:47,540
+y con un gran rendimiento.
+
+277
+00:09:47,540 --> 00:09:49,540
+Esto hace que no nos toque,
+
+278
+00:09:49,540 --> 00:09:51,540
+digamos para implementar un modelo de estado
+
+279
+00:09:51,540 --> 00:09:52,540
+o gestión de estado,
+
+280
+00:09:52,540 --> 00:09:54,540
+no tenga que ser tan complejo
+
+281
+00:09:54,540 --> 00:09:58,540
+o estados sencillos como un estado y un componente
+
+282
+00:09:58,540 --> 00:10:00,540
+son más sencillos de manejar
+
+283
+00:10:00,540 --> 00:10:02,540
+tanto a nivel global como local
+
+284
+00:10:02,540 --> 00:10:05,540
+y eso trae beneficios de performance muy interesantes
+
+285
+00:10:05,540 --> 00:10:08,540
+y una forma mucho más como liviana
+
+286
+00:10:08,540 --> 00:10:11,540
+o una forma más declarativa básicamente
+
+287
+00:10:11,540 --> 00:10:13,540
+de hacer aplicaciones reactivas,
+
+288
+00:10:13,540 --> 00:10:14,540
+en este caso con Angular.
+
+289
+00:10:14,540 --> 00:10:16,540
+Sin embargo, a Signals le falta algo.
+
+290
+00:10:16,540 --> 00:10:18,540
+Y es el asincronismo.
+
+291
+00:10:18,540 --> 00:10:20,540
+Todo funciona como de forma muy declarativa,
+
+292
+00:10:20,540 --> 00:10:22,540
+todo tiene que tener un valor inicial, etc.
+
+293
+00:10:22,540 --> 00:10:25,540
+Pero ¿qué pasa con los valores que son asincrónicos?
+
+294
+00:10:25,540 --> 00:10:27,540
+Que yo necesito hacer un fetching de datos,
+
+295
+00:10:27,540 --> 00:10:29,540
+que eso es lo más cotidiano en un running,
+
+296
+00:10:29,540 --> 00:10:30,540
+necesitamos hacer fetching,
+
+297
+00:10:30,540 --> 00:10:33,540
+conectarnos a servidores, a una API,
+
+298
+00:10:33,540 --> 00:10:35,540
+obtener esos datos y mirar el estado.
+
+299
+00:10:35,540 --> 00:10:38,540
+Pues precisamente ya tenemos una forma de ver
+
+300
+00:10:38,540 --> 00:10:40,540
+cómo nosotros con Signal igual
+
+301
+00:10:40,540 --> 00:10:42,540
+trabajamos con estos datos asincrónicos.
+
+302
+00:10:42,540 --> 00:10:45,540
+Y lo que propone el framework es algo llamado el
+
+303
+00:10:45,540 --> 00:10:46,540
+HTTP resource,
+
+304
+00:10:46,540 --> 00:10:49,540
+que sería un reemplazo a lo que nosotros conocemos
+
+305
+00:10:49,540 --> 00:10:50,540
+como el HTTP client,
+
+306
+00:10:50,540 --> 00:10:52,540
+que si tú vienes de Angular,
+
+307
+00:10:52,540 --> 00:10:55,540
+recuerdas que obviamente acá tenemos un subscribe
+
+308
+00:10:55,540 --> 00:10:57,540
+y si tenemos un subscribe es un observable
+
+309
+00:10:57,540 --> 00:10:58,540
+y si tenemos un observable,
+
+310
+00:10:58,540 --> 00:11:01,540
+normalmente eso dentro de Angular tiene RxJS.
+
+311
+00:11:01,540 --> 00:11:04,540
+Cada vez salimos menos de RxJS.
+
+312
+00:11:04,540 --> 00:11:06,540
+Yo tengo un video en mi canal exactamente hablando
+
+313
+00:11:06,540 --> 00:11:08,540
+de cómo funciona este resource,
+
+314
+00:11:08,540 --> 00:11:10,540
+pero echémosle un repaso.
+
+315
+00:11:10,540 --> 00:11:12,540
+Entonces, ¿cómo funcionaría el asincronismo
+
+316
+00:11:12,540 --> 00:11:14,540
+sobre todo para hacer fetching de datos?
+
+317
+00:11:14,540 --> 00:11:17,540
+Pues tenemos el userResource que viene de una otra
+
+318
+00:11:17,540 --> 00:11:20,540
+de estas primitivas, que en este caso se llamaría resource,
+
+319
+00:11:20,540 --> 00:11:23,540
+en donde también sus inputs o la forma en la que esta
+
+320
+00:11:23,540 --> 00:11:25,540
+va a reaccionar, por ejemplo, tenemos params
+
+321
+00:11:25,540 --> 00:11:29,540
+que define un userId y ese userId igual es un signal.
+
+322
+00:11:29,540 --> 00:11:32,540
+Entonces puede ser un parámetro, un queryParam,
+
+323
+00:11:32,540 --> 00:11:34,540
+puede ser algo que venga por la ruta, puede ser un input
+
+324
+00:11:34,540 --> 00:11:37,540
+y simplemente va a reaccionar cada vez que este signal
+
+325
+00:11:37,540 --> 00:11:40,540
+cambio, pues ejecuta ese fetching de forma reactiva
+
+326
+00:11:40,540 --> 00:11:43,540
+sin tener que hacerlo con programación imperativa.
+
+327
+00:11:43,540 --> 00:11:45,540
+Si no, muy, muy declarativo.
+
+328
+00:11:45,540 --> 00:11:47,540
+Luego tenemos el fetchUser y aquí de pronto tenemos
+
+329
+00:11:47,540 --> 00:11:50,540
+uno de esos primeros cambios que ya no tendríamos RxJS.
+
+330
+00:11:50,540 --> 00:11:54,540
+Lo podemos hacer, de por sí también está el RxResource
+
+331
+00:11:54,540 --> 00:11:56,540
+si queremos conectarlo a nuestros servicios
+
+332
+00:11:56,540 --> 00:11:59,540
+que ya tenían este patrón, pero si no podemos hacer
+
+333
+00:11:59,540 --> 00:12:02,540
+un fetching normal, como una promise normal de JavaScript
+
+334
+00:12:02,540 --> 00:12:04,540
+y resolver el valor.
+
+335
+00:12:04,540 --> 00:12:08,540
+Fíjate que en userResource ahí no he ejecutado todavía,
+
+336
+00:12:08,540 --> 00:12:10,540
+eso no se ejecuta todavía.
+
+337
+00:12:10,540 --> 00:12:13,540
+Él se va a ejecutar de forma reactiva cuando userId
+
+338
+00:12:13,540 --> 00:12:15,540
+cambie o tenga un valor inicial.
+
+339
+00:12:15,540 --> 00:12:18,540
+Así que la forma de obtener el cambio, de obtener el valor
+
+340
+00:12:18,540 --> 00:12:22,540
+es simplemente hacer un userResource.value
+
+341
+00:12:22,540 --> 00:12:26,540
+y pues al final, una vez obtenido el valor, digamos que acá tenemos
+
+342
+00:12:26,540 --> 00:12:28,540
+la información del usuario, puedo tener el firstName
+
+343
+00:12:28,540 --> 00:12:31,540
+y con base en ello puedo tener un computed.
+
+344
+00:12:31,540 --> 00:12:36,540
+Así que toda la forma de reactividad es bastante declarativa.
+
+345
+00:12:36,540 --> 00:12:38,540
+Angular se encarga casi de hacer todo por ti
+
+346
+00:12:38,540 --> 00:12:42,540
+y a ti simplemente te toca armar como los bloques
+
+347
+00:12:42,540 --> 00:12:46,540
+de forma apropiada y los cambios ocurren de forma reactiva
+
+348
+00:12:46,540 --> 00:12:48,540
+y muy bien controlados.
+
+349
+00:12:48,540 --> 00:12:51,540
+Entonces, por ejemplo, acá nosotros en el userResource
+
+350
+00:12:51,540 --> 00:12:55,540
+también podemos saber si es loading, si falló, si no falló, el valor
+
+351
+00:12:55,540 --> 00:12:58,540
+y eso está muy interesante porque casi que otros frameworks
+
+352
+00:12:58,540 --> 00:13:01,540
+necesitan como de librerías per se, como no sé si has manejado
+
+353
+00:13:01,540 --> 00:13:05,540
+React Query o Angular Query, una librería muy popular
+
+354
+00:13:05,540 --> 00:13:08,540
+en donde normalmente tendrías que hacer esto por tu cuenta
+
+355
+00:13:08,540 --> 00:13:11,540
+o básicamente a ti te toca hacer un isLoading para saber
+
+356
+00:13:11,540 --> 00:13:14,540
+si el fetch ya salió o no y crear estados demás,
+
+357
+00:13:14,540 --> 00:13:17,540
+pero el userResource ya tiene todo ese estado.
+
+358
+00:13:17,540 --> 00:13:21,540
+Entonces no nos toca crear esto, simplemente se declara y se usa.
+
+359
+00:13:21,540 --> 00:13:24,540
+Y todo esto nos lleva a que al final vamos a tener aplicaciones
+
+360
+00:13:24,540 --> 00:13:28,540
+que ya no necesiten de SonJS, simplemente confiamos en Signals
+
+361
+00:13:28,540 --> 00:13:32,540
+para poder hacer toda la parte de reacción de cambios como motor.
+
+362
+00:13:32,540 --> 00:13:34,540
+Bien, ¿qué tiene esto como ventaja?
+
+363
+00:13:34,540 --> 00:13:36,540
+Bueno, al final lo que hemos venido hablando,
+
+364
+00:13:36,540 --> 00:13:41,540
+que una aplicación en Angular sin zonas, pues tiene mejor rendimiento,
+
+365
+00:13:41,540 --> 00:13:46,540
+básicamente tenemos mejor CoreVert Vitals y es mejor hacer el debugging.
+
+366
+00:13:46,540 --> 00:13:49,540
+Normalmente en SonJS es un poquito más complicado hacer debugging
+
+367
+00:13:49,540 --> 00:13:52,540
+del asincronismo de Angular, pero en esta forma,
+
+368
+00:13:52,540 --> 00:13:55,540
+como es bastante declarativo, también es bastante sencillo
+
+369
+00:13:55,540 --> 00:13:59,540
+y Angular de por sí está construyendo herramientas dentro del Angular DevTools
+
+370
+00:13:59,540 --> 00:14:03,540
+para hacer ese debugging basado en Signals bastante bien.
+
+371
+00:14:03,540 --> 00:14:05,540
+¿Y qué tenemos que hacer para eso?
+
+372
+00:14:05,540 --> 00:14:08,540
+Pues al final tendríamos que obviamente ya no, o sea,
+
+373
+00:14:08,540 --> 00:14:10,540
+acoger el modelo reactivo de Signals.
+
+374
+00:14:10,540 --> 00:14:13,540
+Tendríamos que utilizar Signals en los inputs, en nuestras variables,
+
+375
+00:14:13,540 --> 00:14:15,540
+los Query Signals.
+
+376
+00:14:15,540 --> 00:14:19,540
+Normalmente estos componentes vienen con la estrategia de OnPush.
+
+377
+00:14:19,540 --> 00:14:23,540
+Entonces como que antes de borrar SonJS dentro de tu aplicación,
+
+378
+00:14:23,540 --> 00:14:27,540
+lo recomendado obviamente es pues acoger este patrón de reactividad.
+
+379
+00:14:27,540 --> 00:14:32,540
+Una vez hecho eso y estés seguro que, no sé, tus componentes todos son OnPush
+
+380
+00:14:32,540 --> 00:14:35,540
+y que todo está utilizando Signals y no el patrón viejo de reactividad,
+
+381
+00:14:35,540 --> 00:14:39,540
+pues entonces podríamos simplemente en nuestro app config habilitar
+
+382
+00:14:39,540 --> 00:14:46,540
+Provides Only S Chain Detection, que básicamente es que ya no utilizaríamos SonJS
+
+383
+00:14:46,540 --> 00:14:50,540
+sino es una aplicación sin zonas y podríamos empezar ya a tener una aplicación
+
+384
+00:14:50,540 --> 00:14:54,540
+que no necesita SonJS para reaccionar a los cambios.
+
+385
+00:14:54,540 --> 00:14:59,540
+Y cerrando como todo el capítulo de reactividad, ahora vamos a entrar en otro campo
+
+386
+00:14:59,540 --> 00:15:03,540
+que Angular ha estado trabajando fuertemente y es Server Side Rendering.
+
+387
+00:15:03,540 --> 00:15:08,540
+Server Side Rendering es muy interesante poder empezar a jugar con Server Side Rendering en Angular,
+
+388
+00:15:08,540 --> 00:15:11,540
+sobre todo porque veníamos de cosas como Angular Universal,
+
+389
+00:15:11,540 --> 00:15:15,540
+que si bien daban un soporte, no era el mejor de experiencia,
+
+390
+00:15:15,540 --> 00:15:19,540
+pero realmente ahorita con el nuevo Server Side Rendering de Angular
+
+391
+00:15:19,540 --> 00:15:25,540
+reconstruyeron todo el motor, reconstruyeron todo y realmente funciona mucho mejor
+
+392
+00:15:25,540 --> 00:15:29,540
+y ahora podemos tener aplicaciones que corren del lado del servidor en Angular
+
+393
+00:15:29,540 --> 00:15:31,540
+mucho, mucho más sencillo.
+
+394
+00:15:31,540 --> 00:15:34,540
+Ahora, realmente, ¿cómo implementamos esto dentro de Angular?
+
+395
+00:15:34,540 --> 00:15:37,540
+En Angular simplemente si queremos crear una aplicación nueva,
+
+396
+00:15:37,540 --> 00:15:43,540
+que utilice Server Side Rendering, pues le ponemos en Gnu y le ponemos como este flag de SSR,
+
+397
+00:15:43,540 --> 00:15:47,540
+pero si tú ya tienes una aplicación, una aplicación que ya están dando
+
+398
+00:15:47,540 --> 00:15:52,540
+y aún así quieres poner Server Side Rendering, simplemente tienes que ejecutar el comando ngadd
+
+399
+00:15:52,540 --> 00:15:56,540
+y angular-sccr y él hace las configuraciones por ti.
+
+400
+00:15:56,540 --> 00:16:00,540
+Ahora, la pregunta fundamental es ¿tu aplicación necesita Server Side Rendering?
+
+401
+00:16:00,540 --> 00:16:05,540
+Básicamente la decisión o el driver de esa decisión están dos features,
+
+402
+00:16:05,540 --> 00:16:06,540
+uno es rendimiento,
+
+403
+00:16:06,540 --> 00:16:09,540
+¿Quieres mejorar los tiempos de carga de tu aplicación?
+
+404
+00:16:09,540 --> 00:16:12,540
+o ¿Quieres mejorar el posicionamiento de motores de búsqueda?
+
+405
+00:16:12,540 --> 00:16:16,540
+Si quieres mejorar el rendimiento es por esta característica en especial,
+
+406
+00:16:16,540 --> 00:16:21,540
+normalmente una aplicación que se renderiza por el lado del cliente tarda más en renderizarse,
+
+407
+00:16:21,540 --> 00:16:24,540
+obviamente esto depende de la conexión también de nuestro cliente,
+
+408
+00:16:24,540 --> 00:16:29,540
+pero en estadística dura mucho más, porque normalmente JavaScript pasa por cuatro procesos,
+
+409
+00:16:29,540 --> 00:16:32,540
+descargar, parsear, ejecutar y compilar.
+
+410
+00:16:32,540 --> 00:16:35,540
+No sé si ese es el orden, pero son esos cuatro procesos.
+
+411
+00:16:35,540 --> 00:16:41,540
+Entonces, en hacer todo ese proceso y montar toda la aplicación para que el usuario vaya viendo algo,
+
+412
+00:16:41,540 --> 00:16:46,540
+pues tarda más, versus si la aplicación ya viene renderizada desde el lado del servidor.
+
+413
+00:16:46,540 --> 00:16:50,540
+Como ya viene renderizada desde el servidor, pues se ahorra como todo ese proceso
+
+414
+00:16:50,540 --> 00:16:57,540
+y lo que hay es un proceso de high ration, en el cual desde el servidor se le pasa un estado al browser
+
+415
+00:16:57,540 --> 00:17:01,540
+para que ya vuelva interactiva la aplicación, o eso así al menos lo resuelve Angular.
+
+416
+00:17:01,540 --> 00:17:04,540
+Ahora, ¿en cuándo sí y cuándo no?
+
+417
+00:17:04,540 --> 00:17:11,540
+De nuevo, si quieres mejorar tiempos de carga y si quieres mejorar posicionamientos motores de búsqueda,
+
+418
+00:17:11,540 --> 00:17:12,540
+entonces, por ejemplo, un e-commerce.
+
+419
+00:17:12,540 --> 00:17:16,540
+Un e-commerce necesita obviamente estar indexado en motores de búsqueda como Google, como Bing,
+
+420
+00:17:16,540 --> 00:17:20,540
+entonces sería muy bueno aplicar una técnica de server-side rendering.
+
+421
+00:17:20,540 --> 00:17:25,540
+Ahora, en Angular venimos desde el mundo de Enterprise, está muy ligado al mundo de Enterprise,
+
+422
+00:17:25,540 --> 00:17:32,540
+entonces normalmente hay aplicaciones como el de back office, como administrativas, con muchos formularios, con dashboards.
+
+423
+00:17:32,540 --> 00:17:34,540
+Ahora, realmente esas aplicaciones son muy importantes, porque si no, no se van a poder vender.
+
+424
+00:17:34,540 --> 00:17:37,540
+¿Por qué esas aplicaciones necesitan volverse server-side rendering?
+
+425
+00:17:37,540 --> 00:17:39,540
+De nuevo, todo depende de ti.
+
+426
+00:17:39,540 --> 00:17:42,540
+Si quieres mejorar tiempos de carga, esa es una gran solución.
+
+427
+00:17:42,540 --> 00:17:48,540
+Tienes que saber que esa solución tiene un trade-off, es decir, ya no un servidor de archivos estáticos ya no es suficiente,
+
+428
+00:17:48,540 --> 00:17:50,540
+necesitarías de un servidor de Node.
+
+429
+00:17:50,540 --> 00:17:55,540
+Cambiar tu aplicación a que en vez de tener archivos estáticos, ahora sí necesitas un servidor de Node,
+
+430
+00:17:55,540 --> 00:17:59,540
+porque el renderizado lo haría un servidor, un servidor de Node.
+
+431
+00:17:59,540 --> 00:18:02,540
+Entonces no es sólo un cambio como tan sencillo,
+
+432
+00:18:02,540 --> 00:18:07,540
+también hay que cambiar en cierta parte la forma en que vas a ejecutar tu aplicación en servidores.
+
+433
+00:18:07,540 --> 00:18:09,540
+Entonces esa parte es vital.
+
+434
+00:18:09,540 --> 00:18:14,540
+Entonces, de pronto para dashboards o aplicativos que son más como administrativos,
+
+435
+00:18:14,540 --> 00:18:20,540
+yo seguiría manteniéndolos como una single-page application sin server-side rendering,
+
+436
+00:18:20,540 --> 00:18:26,540
+pero si el performance es crucial, inclusive en esos aspectos, o el posicionamiento es vital,
+
+437
+00:18:26,540 --> 00:18:30,540
+pues ahí es donde server-side rendering juega una gran opción para ti.
+
+438
+00:18:30,540 --> 00:18:32,540
+Sin embargo, también hay otra gran opción.
+
+439
+00:18:32,540 --> 00:18:41,540
+Y es que, últimamente, Angular está trabajando con el equipo de Genkit para hacer esta integración.
+
+440
+00:18:41,540 --> 00:18:48,540
+Genkit es un nuevo framework, una nueva forma de hacer AI dentro de Google en específico.
+
+441
+00:18:48,540 --> 00:18:54,540
+Google tiene como ahorita dos tecnologías insignias para hacer cosas con AI.
+
+442
+00:18:54,540 --> 00:19:00,540
+Una es Genkit, bueno, obviamente tiene los modelos bases, Gemini, Gemma, etc.
+
+443
+00:19:00,540 --> 00:19:02,540
+Pero herramientas o frameworks o herramientas de genesis,
+
+444
+00:19:02,540 --> 00:19:08,540
+sobre ellos está Genkit y el ADK, que es el Google Agent Development Kit.
+
+445
+00:19:08,540 --> 00:19:14,540
+Entonces, para cosas un poco más complejas, pues yo creo que el Google Development Kit es más indicado.
+
+446
+00:19:14,540 --> 00:19:19,540
+Pero para flujos como mucho más sencillos y que no necesiten como una arquitectura multiagente,
+
+447
+00:19:19,540 --> 00:19:21,540
+pues Genkit está siendo la opción.
+
+448
+00:19:21,540 --> 00:19:28,540
+Y hay una opción muy interesante de cómo implementar Genkit o estos endpoints con IA dentro de Angular.
+
+449
+00:19:28,540 --> 00:19:30,540
+Básicamente, Genkit funciona de forma a un flujo.
+
+450
+00:19:30,540 --> 00:19:35,540
+O su forma de trabajar es a partir de un flujo.
+
+451
+00:19:35,540 --> 00:19:42,540
+Un flujo normalmente en AI tiene tools, tiene memoria, que es lo que normalmente conocemos como un agente.
+
+452
+00:19:42,540 --> 00:19:47,540
+Un agente tiene que tener acceso al estado, memoria, tiene que tener tools, etc.
+
+453
+00:19:47,540 --> 00:19:51,540
+Y esto Genkit lo define como un flujo.
+
+454
+00:19:51,540 --> 00:19:55,540
+Entonces, por ejemplo, digamos que yo tengo un feature de AI dentro de mi aplicación.
+
+455
+00:19:55,540 --> 00:19:59,540
+Entonces tengo aquí el menú Suggestion y aquí es donde yo empiezo.
+
+456
+00:19:59,540 --> 00:20:02,540
+Y aquí es donde yo empiezo precisamente a ver cómo funciona.
+
+457
+00:20:02,540 --> 00:20:10,540
+Entonces defino el flujo, defino como cuáles son sus inputs, a qué modelos van a, digamos que a ejecutar.
+
+458
+00:20:10,540 --> 00:20:14,540
+Y de cierta manera si tengo conexión a alguna otra tool.
+
+459
+00:20:14,540 --> 00:20:16,540
+Y Genkit tiene una integración con Express.
+
+460
+00:20:16,540 --> 00:20:23,540
+Entonces si tú estás haciendo server-side rendering, normalmente lo corres en un servidor de Node con Express.
+
+461
+00:20:23,540 --> 00:20:26,540
+O así viene por defecto el server-side rendering de Angular.
+
+462
+00:20:26,540 --> 00:20:29,540
+Cuando tú lo activas, te pone un servidor de Excel.
+
+463
+00:20:29,540 --> 00:20:33,540
+Y aquí tienes el servidor de Excel con Express, que es el que ejecutaría como todo ese render.
+
+464
+00:20:33,540 --> 00:20:36,540
+Bien, se puede en otros motores que no sean Node.
+
+465
+00:20:36,540 --> 00:20:39,540
+Se puede poner en el de Cloudflare, por ejemplo.
+
+466
+00:20:39,540 --> 00:20:40,540
+Se puede poner en Boom.
+
+467
+00:20:40,540 --> 00:20:42,540
+En otros motores que no sean dependientes de Node.
+
+468
+00:20:42,540 --> 00:20:44,540
+Pero obviamente aquí cambia un poco.
+
+469
+00:20:44,540 --> 00:20:48,540
+Pero si estamos corriendo todo en Node, pues podemos utilizar Express.
+
+470
+00:20:48,540 --> 00:20:50,540
+Así lo entrega por defecto Angular.
+
+471
+00:20:50,540 --> 00:20:56,540
+Y basado en ello, Genkit tiene una integración con Express.
+
+472
+00:20:56,540 --> 00:20:58,540
+Entonces quiere decir que ese flujo que creamos.
+
+473
+00:20:58,540 --> 00:21:02,540
+Literalmente yo lo puedo poner como un request más.
+
+474
+00:21:02,540 --> 00:21:09,540
+Entonces nosotros vamos a tener una aplicación que ahora también puede ejecutar endpoints que ejecutan AI.
+
+475
+00:21:09,540 --> 00:21:15,540
+Si quieres más información acerca de esto, te invito a que entres a angular.dev.ai
+
+476
+00:21:15,540 --> 00:21:18,540
+Acá básicamente encuentras como la documentación para hacer esto.
+
+477
+00:21:18,540 --> 00:21:21,540
+Aquí es donde encuentras como Genkit, que es Genkit.
+
+478
+00:21:21,540 --> 00:21:24,540
+Y cómo se hace o cómo se integraría con una aplicación de Angular.
+
+479
+00:21:24,540 --> 00:21:26,540
+Por ejemplo, vamos a ver este starter kit.
+
+480
+00:21:26,540 --> 00:21:28,540
+Acá es la documentación de Genkit.
+
+481
+00:21:28,540 --> 00:21:33,540
+Aquí podemos ver que Genkit, si bien no es directamente algo creado para Angular.
+
+482
+00:21:33,540 --> 00:21:35,540
+Se conecta muy bien con Angular.
+
+483
+00:21:35,540 --> 00:21:39,540
+Pero uno lo podría utilizar en tu servidor de Express, en una aplicación de Node, etc.
+
+484
+00:21:39,540 --> 00:21:44,540
+Entonces, por ejemplo, acá vemos cómo es que ellos hacen flujos, etc.
+
+485
+00:21:44,540 --> 00:21:48,540
+Entonces acá vemos el flujo, el modelo, cómo se ejecuta.
+
+486
+00:21:48,540 --> 00:21:51,540
+Acá vemos cómo se hace un deployment utilizando las Cloud Functions.
+
+487
+00:21:51,540 --> 00:21:54,540
+Al final puede funcionar como una Cloud Function.
+
+488
+00:21:54,540 --> 00:21:57,540
+Puede utilizar Cloud Run, puede utilizar Node, etc.
+
+489
+00:21:58,540 --> 00:22:01,540
+Acá hay una sección, vamos a ver si la encuentro por acá.
+
+490
+00:22:01,540 --> 00:22:03,540
+O si acá está en el buscador, Angular.
+
+491
+00:22:03,540 --> 00:22:07,540
+Acá está cómo integraríamos Genkit en Angular.
+
+492
+00:22:07,540 --> 00:22:10,540
+Obviamente necesitamos server-side rendering.
+
+493
+00:22:10,540 --> 00:22:14,540
+Y acá es donde te mencionaba que acá es donde nosotros creamos como un flujo.
+
+494
+00:22:14,540 --> 00:22:18,540
+Y luego con Express lo integramos.
+
+495
+00:22:18,540 --> 00:22:23,540
+Acá podemos ver un ejemplo directamente en el repositorio de Angular en examples.
+
+496
+00:22:23,540 --> 00:22:25,540
+Acá podemos ver ya cómo funcionaría.
+
+497
+00:22:25,540 --> 00:22:27,540
+Si tú lo ves bien, al final vamos a ver si encontramos.
+
+498
+00:22:27,540 --> 00:22:29,540
+Vamos a ver si encontramos acá, agent-chat.
+
+499
+00:22:29,540 --> 00:22:33,540
+Esta es la UI, pero quiero encontrar es el flujo.
+
+500
+00:22:33,540 --> 00:22:35,540
+Busquemos el archivo de server.
+
+501
+00:22:35,540 --> 00:22:37,540
+Vamos a ir acá a server.
+
+502
+00:22:37,540 --> 00:22:41,540
+Fíjate que acá en server, y vamos a hacer un poquito más de zoom.
+
+503
+00:22:41,540 --> 00:22:43,540
+Acá tenemos un como flows.
+
+504
+00:22:43,540 --> 00:22:46,540
+Fíjate que este es como te entregaría Angular.
+
+505
+00:22:46,540 --> 00:22:50,540
+Una aplicación que se renderiza por el servidor utilizando Express.
+
+506
+00:22:50,540 --> 00:22:53,540
+Entonces, basados en ellos, se utiliza Genkit.
+
+507
+00:22:53,540 --> 00:22:57,540
+Y acá se expone un endpoint que se puede consumir como un endpoint en Angular.
+
+508
+00:22:57,540 --> 00:22:59,540
+Específico de Angular.
+
+509
+00:22:59,540 --> 00:23:02,540
+Entonces tendríamos casi una aplicación que es frontend.
+
+510
+00:23:02,540 --> 00:23:08,540
+Pero como se corre del lado del servidor, entonces podríamos también exponer endpoints.
+
+511
+00:23:08,540 --> 00:23:10,540
+Entonces acá tenemos el chatflow.
+
+512
+00:23:10,540 --> 00:23:14,540
+Y si nosotros miramos chatflow, vamos a ver en dónde está esa carpeta.
+
+513
+00:23:14,540 --> 00:23:18,540
+Dónde tenemos chatflow.
+
+514
+00:23:18,540 --> 00:23:19,540
+A ver si esto está acá.
+
+515
+00:23:19,540 --> 00:23:20,540
+Debe estar un poquito más atrás.
+
+516
+00:23:20,540 --> 00:23:21,540
+Acá tenemos flujos.
+
+517
+00:23:21,540 --> 00:23:24,540
+Fíjate que acá es donde se implementaron todos esos flujos.
+
+518
+00:23:24,540 --> 00:23:27,540
+Acá tenemos un ejemplo de varios flujos que se están haciendo.
+
+519
+00:23:27,540 --> 00:23:29,540
+Y esa sería la manera.
+
+520
+00:23:29,540 --> 00:23:34,540
+De nuevo, esto literalmente merecería todo un video en general.
+
+521
+00:23:34,540 --> 00:23:40,540
+Y si te suscribes a mi canal, vas a tener este video en donde voy a hacer una integración de Angular con Genkit.
+
+522
+00:23:40,540 --> 00:23:46,540
+Pero esa es otra de las bondades en la cual podríamos integrar ya AI dentro de nuestros productos.
+
+523
+00:23:46,540 --> 00:23:51,540
+No sólo utilizar AI para escribir códigos, sino de forma más fácil de pronto integrar AI.
+
+524
+00:23:51,540 --> 00:23:55,540
+Como simplemente con Genkit y utilizando los modelos de Google.
+
+525
+00:23:55,540 --> 00:23:57,540
+Y siguiendo por la línea de...
+
+526
+00:23:57,540 --> 00:23:59,540
+Todo esto del server-side rendering.
+
+527
+00:23:59,540 --> 00:24:03,540
+Angular tiene una gran opción que es empezar a configurar de forma...
+
+528
+00:24:03,540 --> 00:24:04,540
+Por ruta.
+
+529
+00:24:04,540 --> 00:24:07,540
+La forma de o la estrategia de renderizado.
+
+530
+00:24:07,540 --> 00:24:11,540
+Si bien escogemos server-side rendering, tampoco debería ser una camisa de fuerza.
+
+531
+00:24:11,540 --> 00:24:14,540
+Una camisa de fuerza en la que, ok, ya todo es server-side rendering.
+
+532
+00:24:14,540 --> 00:24:15,540
+No.
+
+533
+00:24:15,540 --> 00:24:22,540
+Hay de pronto situaciones en las que tú dices, ok, sí quiero que estas partes vengan renderizadas por el lado del servidor.
+
+534
+00:24:22,540 --> 00:24:24,540
+Pero estas otras por el lado del cliente.
+
+535
+00:24:24,540 --> 00:24:26,540
+Un caso, por ejemplo, rápido es, ok.
+
+536
+00:24:26,540 --> 00:24:28,540
+El home, el login, el...
+
+537
+00:24:28,540 --> 00:24:29,540
+No, el home.
+
+538
+00:24:29,540 --> 00:24:32,540
+Quiero que se renderice muy rápido y que sea...
+
+539
+00:24:32,540 --> 00:24:34,540
+Y que esté indexado en motores de búsqueda.
+
+540
+00:24:34,540 --> 00:24:38,540
+Entonces, pues, a esas rutas les aplico server-side rendering.
+
+541
+00:24:38,540 --> 00:24:39,540
+Pero, ¿qué pasa con las que no?
+
+542
+00:24:39,540 --> 00:24:40,540
+Por ejemplo, el login.
+
+543
+00:24:40,540 --> 00:24:44,540
+El login no necesito que esté indexado en un motor de búsqueda.
+
+544
+00:24:44,540 --> 00:24:46,540
+Entonces, el login podría perfectamente...
+
+545
+00:24:46,540 --> 00:24:48,540
+O el dashboard que carga gráficas.
+
+546
+00:24:48,540 --> 00:24:55,540
+Y normalmente, cuando cargamos gráficas, necesitamos de librerías que casi que corren desde el lado del cliente.
+
+547
+00:24:55,540 --> 00:24:57,540
+Es decir, utilizan canvas o cosas así.
+
+548
+00:24:57,540 --> 00:24:59,540
+O SVGs para hacer los renders.
+
+549
+00:24:59,540 --> 00:25:06,540
+Entonces, casi que ese tipo de rutas, podríamos decirle, ah, realmente no necesito que tú vengas renderizado del servidor.
+
+550
+00:25:06,540 --> 00:25:10,540
+Y esa ruta quiero que venga todavía renderizada del cliente.
+
+551
+00:25:10,540 --> 00:25:14,540
+Y ese tipo de granularidad la podemos lograr en Angular.
+
+552
+00:25:14,540 --> 00:25:15,540
+¿Cómo? Vamos a ver.
+
+553
+00:25:15,540 --> 00:25:20,540
+Entonces, si tú ya manejas tu aplicación con server-side rendering, lo que puedes hacer es definir una nueva...
+
+554
+00:25:20,540 --> 00:25:24,540
+Digamos, un nuevo archivo que se llama app-routes.server.tl.
+
+555
+00:25:25,540 --> 00:25:30,540
+Y ahí lo que le dices es, ok, mira, este path viene renderizado desde el cliente.
+
+556
+00:25:30,540 --> 00:25:36,540
+O el path about viene renderizado desde un prerender, que sería como un sitio estático.
+
+557
+00:25:36,540 --> 00:25:40,540
+O profile viene, ese sí quiero que sea server.
+
+558
+00:25:40,540 --> 00:25:48,540
+Entonces, literalmente con esta opción tú puedes decirle a Angular, mira, estos paths yo quiero que sean server, estos otros no.
+
+559
+00:25:48,540 --> 00:25:54,540
+Y mantener aún así la... como el control sobre qué quiero renderizar desde el cliente o qué quiero renderizar desde el servidor.
+
+560
+00:25:55,540 --> 00:26:00,540
+Y esto también nos lleva a otra de esas grandes características que ha estado lanzando Angular.
+
+561
+00:26:00,540 --> 00:26:03,540
+Y es Hydration y Incremental Hydration.
+
+562
+00:26:03,540 --> 00:26:12,540
+De nuevo, Hydration es como la forma en la que si ya hacemos server-side rendering, si bien ganamos rendimiento, no queremos que la aplicación quede interactiva.
+
+563
+00:26:12,540 --> 00:26:17,540
+Entonces, hay un proceso como de pasar ese estado para que luego ya se interactúe desde el browser.
+
+564
+00:26:17,540 --> 00:26:20,540
+Eso en muy resumen es Hydration.
+
+565
+00:26:20,540 --> 00:26:23,540
+Pero han estado implementando el Incremental Hydration.
+
+566
+00:26:23,540 --> 00:26:24,540
+Y veamos un poco eso.
+
+567
+00:26:25,540 --> 00:26:26,540
+Este tipo de releases.
+
+568
+00:26:26,540 --> 00:26:30,540
+Si nosotros nos recordamos, en la versión 17 lanzaron el Full Hydration.
+
+569
+00:26:30,540 --> 00:26:40,540
+Es decir, podríamos hacer server-side rendering y una vez que tenemos el estado del servidor, como que hay un proceso para transmitir ese estado al browser y que la aplicación como que cobre vida.
+
+570
+00:26:40,540 --> 00:26:44,540
+Pero luego tenemos que en la versión 18 lanzaron el Even Replay.
+
+571
+00:26:44,540 --> 00:26:46,540
+¿Qué es el Even Replay?
+
+572
+00:26:46,540 --> 00:26:51,540
+Básicamente en ese momento en el que se hace la transición de estado entre el servidor y el cliente.
+
+573
+00:26:51,540 --> 00:26:55,540
+Básicamente el usuario podría estar haciendo clics en la aplicación.
+
+574
+00:26:55,540 --> 00:27:02,540
+Como ya está visualmente ya está cargada, digamos que el usuario empieza a agregar cosas en un carrito de compras, en el botón.
+
+575
+00:27:02,540 --> 00:27:09,540
+Pero como todavía la aplicación no cobra vida, como que no puede leer esos clics y pues podría perder esos clics del usuario.
+
+576
+00:27:09,540 --> 00:27:17,540
+El Even Replay básicamente es como grabar esos clics o esas interacciones en lo que se hace esa transferencia de estado.
+
+577
+00:27:17,540 --> 00:27:24,540
+Y una vez ya la aplicación esté viva, digámoslo en el browser, se hace una reanudación de esos clics o de esos eventos.
+
+578
+00:27:24,540 --> 00:27:28,540
+Eso es lo que es el Even Replay y fue lanzado en la versión 18.
+
+579
+00:27:28,540 --> 00:27:32,540
+Luego en la versión 19 tenemos el Incremental High Version.
+
+580
+00:27:32,540 --> 00:27:42,540
+Que básicamente es una forma de decir, ok mira, yo necesito que, ok si bien ya una vez te paso todo ese estado desde el servidor.
+
+581
+00:27:42,540 --> 00:27:49,540
+Y quiero que cobres vida de esa aplicación, pues del lado del browser no necesito que cobres vida de toda la aplicación.
+
+582
+00:27:49,540 --> 00:27:51,540
+De pronto solo de ciertos elementos.
+
+583
+00:27:51,540 --> 00:27:53,540
+Eso hace que el proceso de carga sea más rápido.
+
+584
+00:27:53,540 --> 00:27:54,540
+¿Por qué?
+
+585
+00:27:54,540 --> 00:27:57,540
+Porque el tiempo de ejecución de JavaScript será mucho menor.
+
+586
+00:27:57,540 --> 00:27:59,540
+Entonces, básicamente ¿qué pasa?
+
+587
+00:27:59,540 --> 00:28:05,540
+Que simplemente se hace High Duration de los elementos que realmente están siendo interactuados.
+
+588
+00:28:05,540 --> 00:28:14,540
+Entonces no tengo que hacer un High Duration de toda la aplicación, sino los elementos que realmente van a ser utilizados o a las que se les hace clic.
+
+589
+00:28:14,540 --> 00:28:17,540
+Una forma de definirlo es desde el siguiente.
+
+590
+00:28:17,540 --> 00:28:20,540
+Entonces por ejemplo nosotros tenemos el Defer.
+
+591
+00:28:20,540 --> 00:28:23,540
+Defer es la forma en la nueva sintaxis de declarar como componentes de una aplicación.
+
+592
+00:28:23,540 --> 00:28:26,540
+Defer es la forma en la que se van a cargar de forma diferida.
+
+593
+00:28:26,540 --> 00:28:28,540
+La sintaxis es hermosa básicamente.
+
+594
+00:28:28,540 --> 00:28:31,540
+Si tú haces esto en cualquier otro framework.
+
+595
+00:28:31,540 --> 00:28:34,540
+O sea te invito a que hagas carga diferida en cualquier otro framework.
+
+596
+00:28:34,540 --> 00:28:36,540
+Y el que lo hace mejor es Angular.
+
+597
+00:28:36,540 --> 00:28:39,540
+Puede que obviamente ellos lo hayan hecho primero.
+
+598
+00:28:39,540 --> 00:28:43,540
+Y pues Angular tiene la ventaja de que vio como lo hacían los demás.
+
+599
+00:28:43,540 --> 00:28:46,540
+Entonces digamos que lo implementó de alguna mejor manera.
+
+600
+00:28:46,540 --> 00:28:51,540
+Pero la sintaxis de hacer carga diferida de componentes es Defer.
+
+601
+00:28:51,540 --> 00:28:52,540
+Y ya.
+
+602
+00:28:52,540 --> 00:28:54,540
+Eso es hermoso básicamente.
+
+603
+00:28:54,540 --> 00:28:57,540
+Pero también aparte de ese Defer podríamos decirle.
+
+604
+00:28:57,540 --> 00:29:00,540
+Y si tenemos una estrategia de Server Server Rendering.
+
+605
+00:29:00,540 --> 00:29:03,540
+Podríamos decirle ok mira quiero que te hidrates.
+
+606
+00:29:03,540 --> 00:29:04,540
+Que este componente se hidrate.
+
+607
+00:29:04,540 --> 00:29:07,540
+Que cobre vida después de que me lo mandes desde el Server.
+
+608
+00:29:07,540 --> 00:29:10,540
+Cuando después ya la aplicación esté montada.
+
+609
+00:29:10,540 --> 00:29:12,540
+Digamos ese sería como el By Default.
+
+610
+00:29:12,540 --> 00:29:13,540
+El Idle.
+
+611
+00:29:13,540 --> 00:29:17,540
+Pero digamos que yo puedo cambiar esa técnica de High Duration.
+
+612
+00:29:17,540 --> 00:29:20,540
+Le puedo decir mira solo quiero que hidrates este componente.
+
+613
+00:29:20,540 --> 00:29:21,540
+Es decir le pongas vida.
+
+614
+00:29:21,540 --> 00:29:23,540
+Si y solo si.
+
+615
+00:29:23,540 --> 00:29:25,540
+Hay interacción en él.
+
+616
+00:29:25,540 --> 00:29:30,540
+Entonces no tenemos que hacer un proceso de High Duration de toda la aplicación.
+
+617
+00:29:30,540 --> 00:29:32,540
+Darle vida a toda la aplicación.
+
+618
+00:29:32,540 --> 00:29:35,540
+Sino que solo se van ejecutando las partes que realmente son necesarias.
+
+619
+00:29:35,540 --> 00:29:38,540
+O por las que el usuario va mostrando interactividad.
+
+620
+00:29:38,540 --> 00:29:42,540
+Y eso también nos lleva a que Angular está cambiando su Approach.
+
+621
+00:29:42,540 --> 00:29:46,540
+Para hacer a Angular en sí mucho más sencillo de entender.
+
+622
+00:29:46,540 --> 00:29:49,540
+Y ahí es donde cobra vida los Stannons Components.
+
+623
+00:29:49,540 --> 00:29:51,540
+Y que ya tenemos aplicaciones y módulos.
+
+624
+00:29:51,540 --> 00:29:56,540
+De por sí los módulos siempre han causado como un conflicto en la curva de aprendizaje.
+
+625
+00:29:56,540 --> 00:29:59,540
+Y si tú ves otros ecosistemas como Vue o como Next.
+
+626
+00:29:59,540 --> 00:30:02,540
+Como que este concepto de módulo no existe.
+
+627
+00:30:02,540 --> 00:30:03,540
+Bien.
+
+628
+00:30:03,540 --> 00:30:06,540
+Entonces cuando vas a Angular dices como tengo que aprender este nuevo concepto.
+
+629
+00:30:06,540 --> 00:30:08,540
+Y realmente no está mal.
+
+630
+00:30:08,540 --> 00:30:10,540
+Es un concepto de arquitectura interesante.
+
+631
+00:30:10,540 --> 00:30:13,540
+Sin embargo si causa como fricción al iniciar.
+
+632
+00:30:13,540 --> 00:30:17,540
+Angular por detrás básicamente va a manejar ciertas cosas en forma modular.
+
+633
+00:30:17,540 --> 00:30:19,540
+Pero como que nos quita ese peso cognitivo.
+
+634
+00:30:19,540 --> 00:30:23,540
+De pensar como nosotros deberíamos modularizar nuestra aplicación.
+
+635
+00:30:23,540 --> 00:30:24,540
+Y se vuelve light.
+
+636
+00:30:24,540 --> 00:30:28,540
+Eso también hace que nosotros tengamos menos archivos de configuración.
+
+637
+00:30:28,540 --> 00:30:31,540
+Por ejemplo si yo comparo una aplicación.
+
+638
+00:30:31,540 --> 00:30:34,540
+No sé en versión 17, versión 15.
+
+639
+00:30:34,540 --> 00:30:37,540
+Teníamos mucho más archivos de configuración.
+
+640
+00:30:37,540 --> 00:30:39,540
+Y pues teníamos módulos y demás.
+
+641
+00:30:39,540 --> 00:30:44,540
+Y a medida de las versiones hemos quitado más archivos de configuración.
+
+642
+00:30:44,540 --> 00:30:47,540
+Lo que hace que de nuevo el peso cognitivo para cualquier desarrollador sea.
+
+643
+00:30:47,540 --> 00:30:48,540
+Ok.
+
+644
+00:30:48,540 --> 00:30:50,540
+Entonces la configuración es muy potente.
+
+645
+00:30:50,540 --> 00:30:52,540
+Pero también es como fácil de entender lo que está haciendo.
+
+646
+00:30:52,540 --> 00:30:55,540
+Entonces nos quitamos un poco ese peso de los módulos.
+
+647
+00:30:55,540 --> 00:30:57,540
+Y ahora tenemos de por sí en la versión 19.
+
+648
+00:30:57,540 --> 00:30:59,540
+Tenemos Standalone By Default.
+
+649
+00:30:59,540 --> 00:31:01,540
+¿Qué significa esto?
+
+650
+00:31:01,540 --> 00:31:04,540
+Que normalmente cuando nosotros tenemos un Standalone Component.
+
+651
+00:31:04,540 --> 00:31:06,540
+Standalone Component.
+
+652
+00:31:06,540 --> 00:31:09,540
+Necesitamos decirle Standalone True de forma explícita.
+
+653
+00:31:09,540 --> 00:31:12,540
+Pero a partir de la 19 eso se cambia.
+
+654
+00:31:12,540 --> 00:31:15,540
+Es decir ahora tenemos el Standalone.
+
+655
+00:31:15,540 --> 00:31:17,540
+O sea cualquier componente por defecto en Angular.
+
+656
+00:31:17,540 --> 00:31:19,540
+Va a ser Standalone.
+
+657
+00:31:19,540 --> 00:31:21,540
+Y si quieres que no sea Standalone.
+
+658
+00:31:21,540 --> 00:31:23,540
+Y seguir trabajando con módulos.
+
+659
+00:31:23,540 --> 00:31:27,540
+Lo que hace es de forma explícita colocarle Standalone False.
+
+660
+00:31:27,540 --> 00:31:29,540
+Eso es desde la versión 19.
+
+661
+00:31:29,540 --> 00:31:33,540
+Es la forma en la que Angular está tratando los componentes.
+
+662
+00:31:33,540 --> 00:31:35,540
+Ahora entremos en el mundo del testing.
+
+663
+00:31:35,540 --> 00:31:38,540
+¿Cómo está el ecosistema de Angular relacionado con el testing?
+
+664
+00:31:38,540 --> 00:31:40,540
+Este si ha venido cambiando.
+
+665
+00:31:40,540 --> 00:31:44,540
+Digamos todavía no de forma tan opinionada.
+
+666
+00:31:44,540 --> 00:31:46,540
+Angular ha estado mostrando como algunos experimentos.
+
+667
+00:31:46,540 --> 00:31:48,540
+Algunos que no ha finalizado.
+
+668
+00:31:48,540 --> 00:31:50,540
+Algunos que como que ya reemplazaron.
+
+669
+00:31:50,540 --> 00:31:52,540
+Entonces vamos a ver cómo funciona.
+
+670
+00:31:52,540 --> 00:31:54,540
+Porque al final esto es muy interesante.
+
+671
+00:31:54,540 --> 00:31:57,540
+Y también muy vital en el mundo del desarrollo de software.
+
+672
+00:31:57,540 --> 00:32:01,540
+Si bien Unit Testing ya casi se está viendo delegado por AI.
+
+673
+00:32:01,540 --> 00:32:05,540
+Casi que la mayoría de Unit Testing las está escribiendo Cursor.
+
+674
+00:32:05,540 --> 00:32:06,540
+Copilot.
+
+675
+00:32:06,540 --> 00:32:07,540
+Y está bien.
+
+676
+00:32:07,540 --> 00:32:10,540
+Obviamente si bien no se autocompletan código.
+
+677
+00:32:10,540 --> 00:32:13,540
+Necesitan las herramientas para que eso pueda funcionar.
+
+678
+00:32:13,540 --> 00:32:15,540
+Un ambiente para correrlo.
+
+679
+00:32:15,540 --> 00:32:17,540
+Un framework de pruebas.
+
+680
+00:32:17,540 --> 00:32:18,540
+Etcétera.
+
+681
+00:32:18,540 --> 00:32:20,540
+Vamos a ver cómo funciona esto en Angular.
+
+682
+00:32:20,540 --> 00:32:22,540
+Para eso hay que entender bien el ecosistema.
+
+683
+00:32:22,540 --> 00:32:24,540
+Entonces por ejemplo teníamos.
+
+684
+00:32:24,540 --> 00:32:26,540
+O así viene configurado Angular por defecto.
+
+685
+00:32:26,540 --> 00:32:27,540
+Que es Karma y Jasmine.
+
+686
+00:32:27,540 --> 00:32:29,540
+Que son dos cosas diferentes.
+
+687
+00:32:29,540 --> 00:32:30,540
+Se complementan.
+
+688
+00:32:30,540 --> 00:32:32,540
+Karma fue creado por el equipo de Angular.
+
+689
+00:32:32,540 --> 00:32:35,540
+Como un ambiente en donde se ejecutan las pruebas.
+
+690
+00:32:35,540 --> 00:32:37,540
+El Test Runner.
+
+691
+00:32:37,540 --> 00:32:40,540
+Sin embargo otra cosa muy diferente es Jasmine.
+
+692
+00:32:40,540 --> 00:32:43,540
+Jasmine es el framework para escribir las pruebas.
+
+693
+00:32:43,540 --> 00:32:44,540
+Que una cosa muy interesante.
+
+694
+00:32:44,540 --> 00:32:45,540
+De los frameworks de pruebas.
+
+695
+00:32:45,540 --> 00:32:46,540
+Es que todos se parecen.
+
+696
+00:32:46,540 --> 00:32:49,540
+O sea realmente no es algo así como tan opinionado.
+
+697
+00:32:49,540 --> 00:32:51,540
+Como React, Vue, Angular.
+
+698
+00:32:51,540 --> 00:32:54,540
+Que cambian drásticamente como se acercan al problema.
+
+699
+00:32:54,540 --> 00:32:58,540
+Realmente si vemos Jasmine, Jess o Vites por ejemplo.
+
+700
+00:32:58,540 --> 00:33:00,540
+Todos tienen un Describe.
+
+701
+00:33:00,540 --> 00:33:01,540
+Todos tienen un Need.
+
+702
+00:33:01,540 --> 00:33:03,540
+Todos tienen un Before All.
+
+703
+00:33:03,540 --> 00:33:04,540
+Before Each.
+
+704
+00:33:04,540 --> 00:33:07,540
+O sea literalmente en eso se parecen un montón.
+
+705
+00:33:07,540 --> 00:33:10,540
+Así que realmente no va a haber un cambio tan brusco.
+
+706
+00:33:10,540 --> 00:33:13,540
+En cuanto a si cambiamos de una herramienta a otra.
+
+707
+00:33:13,540 --> 00:33:16,540
+Obviamente por detrás funcionan de otro modo.
+
+708
+00:33:16,540 --> 00:33:19,540
+Pero la forma de su sintaxis es igual.
+
+709
+00:33:19,540 --> 00:33:21,540
+Lo importante aquí entender es.
+
+710
+00:33:21,540 --> 00:33:23,540
+El Test Runner.
+
+711
+00:33:23,540 --> 00:33:25,540
+En donde se ejecutan esas pruebas.
+
+712
+00:33:25,540 --> 00:33:26,540
+Y a favor de Angular.
+
+713
+00:33:26,540 --> 00:33:28,540
+El creó Karma.
+
+714
+00:33:28,540 --> 00:33:31,540
+Que es un ambiente para correr las pruebas.
+
+715
+00:33:31,540 --> 00:33:32,540
+Basadas en un Browser.
+
+716
+00:33:32,540 --> 00:33:34,540
+¿Por qué esto es importante?
+
+717
+00:33:34,540 --> 00:33:35,540
+¿Y por qué es vital?
+
+718
+00:33:35,540 --> 00:33:38,540
+Porque las pruebas corren contra algo.
+
+719
+00:33:38,540 --> 00:33:40,540
+Y normalmente para correr las pruebas.
+
+720
+00:33:40,540 --> 00:33:42,540
+Lo podemos ejecutar en Node.
+
+721
+00:33:42,540 --> 00:33:44,540
+Normalmente se pueden ejecutar en Node.
+
+722
+00:33:44,540 --> 00:33:46,540
+Pero hay ciertas APIs del Browser.
+
+723
+00:33:46,540 --> 00:33:47,540
+No sé.
+
+724
+00:33:47,540 --> 00:33:50,540
+Imagínate que estás trabajando con Glocalization.
+
+725
+00:33:50,540 --> 00:33:52,540
+Con APIs del Browser.
+
+726
+00:33:52,540 --> 00:33:55,540
+Que necesitan correrse realmente en un Browser.
+
+727
+00:33:55,540 --> 00:33:57,540
+Para que veamos que esa prueba.
+
+728
+00:33:57,540 --> 00:33:59,540
+Pues se está ejecutando bien.
+
+729
+00:33:59,540 --> 00:34:01,540
+Y no correrlas con Node.
+
+730
+00:34:01,540 --> 00:34:02,540
+Porque con Node.
+
+731
+00:34:02,540 --> 00:34:04,540
+Pues básicamente no tenemos el navegador.
+
+732
+00:34:04,540 --> 00:34:06,540
+Entonces sería como un ambiente.
+
+733
+00:34:06,540 --> 00:34:07,540
+Si lo corremos en Node.
+
+734
+00:34:07,540 --> 00:34:09,540
+Es básicamente como un ambiente.
+
+735
+00:34:09,540 --> 00:34:11,540
+No tan parecido al que la aplicación.
+
+736
+00:34:11,540 --> 00:34:13,540
+Realmente va a correr.
+
+737
+00:34:13,540 --> 00:34:15,540
+Entonces Karma es un Test Runner.
+
+738
+00:34:15,540 --> 00:34:16,540
+Pero que utiliza un Browser.
+
+739
+00:34:16,540 --> 00:34:17,540
+Para correr esas pruebas.
+
+740
+00:34:17,540 --> 00:34:18,540
+Eso está muy bien.
+
+741
+00:34:18,540 --> 00:34:19,540
+Sin embargo.
+
+742
+00:34:19,540 --> 00:34:21,540
+Karma ha estado deprecado.
+
+743
+00:34:21,540 --> 00:34:23,540
+Karma ya como que no tiene tanto empuje.
+
+744
+00:34:23,540 --> 00:34:24,540
+Y el equipo de Angular.
+
+745
+00:34:24,540 --> 00:34:26,540
+Ya dijo que no lo iba a mantener.
+
+746
+00:34:26,540 --> 00:34:27,540
+De por sí lo que están probando.
+
+747
+00:34:27,540 --> 00:34:29,540
+Es cambiar Karma.
+
+748
+00:34:29,540 --> 00:34:31,540
+Ya no mantener Karma.
+
+749
+00:34:31,540 --> 00:34:32,540
+Lo deprecan.
+
+750
+00:34:32,540 --> 00:34:34,540
+Y probar el Web Test Runner.
+
+751
+00:34:34,540 --> 00:34:37,540
+Que es un digamos que un proyecto.
+
+752
+00:34:37,540 --> 00:34:39,540
+Que no es desde el equipo de Angular.
+
+753
+00:34:39,540 --> 00:34:40,540
+Es desde otro.
+
+754
+00:34:40,540 --> 00:34:42,540
+Este otro equipo.
+
+755
+00:34:42,540 --> 00:34:43,540
+En el cual tienen también.
+
+756
+00:34:43,540 --> 00:34:45,540
+Como este mismo Runner.
+
+757
+00:34:45,540 --> 00:34:47,540
+Pero que corren las pruebas.
+
+758
+00:34:47,540 --> 00:34:48,540
+Basadas en un Browser.
+
+759
+00:34:48,540 --> 00:34:49,540
+Bien.
+
+760
+00:34:49,540 --> 00:34:50,540
+Entonces como las corran en un Browser.
+
+761
+00:34:50,540 --> 00:34:52,540
+Como que las pruebas son más fieles.
+
+762
+00:34:52,540 --> 00:34:53,540
+A lo que podría ser.
+
+763
+00:34:53,540 --> 00:34:56,540
+No correrlas con este tipo de herramientas.
+
+764
+00:34:56,540 --> 00:34:57,540
+Sin embargo.
+
+765
+00:34:57,540 --> 00:34:58,540
+Pues utilizamos el mismo.
+
+766
+00:34:58,540 --> 00:34:59,540
+United Framework.
+
+767
+00:34:59,540 --> 00:35:00,540
+Que en este caso es Jasmine.
+
+768
+00:35:00,540 --> 00:35:02,540
+Entonces el equipo ha estado.
+
+769
+00:35:02,540 --> 00:35:03,540
+Como dando esta opción.
+
+770
+00:35:03,540 --> 00:35:04,540
+Como de reemplazo.
+
+771
+00:35:04,540 --> 00:35:05,540
+En vez de utilizar Karma.
+
+772
+00:35:05,540 --> 00:35:07,540
+Pues poder configurar Web Test Runner.
+
+773
+00:35:07,540 --> 00:35:08,540
+Y ese sería el reemplazo.
+
+774
+00:35:08,540 --> 00:35:10,540
+Si queremos mantener Jasmine.
+
+775
+00:35:10,540 --> 00:35:11,540
+Sin embargo.
+
+776
+00:35:11,540 --> 00:35:12,540
+Si bien.
+
+777
+00:35:12,540 --> 00:35:13,540
+Esto.
+
+778
+00:35:13,540 --> 00:35:14,540
+Y está muy bien.
+
+779
+00:35:14,540 --> 00:35:15,540
+Que digamos que Angular.
+
+780
+00:35:15,540 --> 00:35:16,540
+Haya tenido esa iniciativa.
+
+781
+00:35:16,540 --> 00:35:17,540
+De crear Karma.
+
+782
+00:35:17,540 --> 00:35:18,540
+O de crear.
+
+783
+00:35:18,540 --> 00:35:19,540
+O de correr Web Test Runner.
+
+784
+00:35:19,540 --> 00:35:20,540
+Realmente esto ha cambiado.
+
+785
+00:35:20,540 --> 00:35:21,540
+El mundo del Testing.
+
+786
+00:35:21,540 --> 00:35:22,540
+Ha cambiado mucho.
+
+787
+00:35:22,540 --> 00:35:23,540
+Y ahorita por ejemplo.
+
+788
+00:35:23,540 --> 00:35:24,540
+Tenemos Yes.
+
+789
+00:35:24,540 --> 00:35:25,540
+Yes es el Framework.
+
+790
+00:35:25,540 --> 00:35:26,540
+Más popular para escribir pruebas.
+
+791
+00:35:26,540 --> 00:35:27,540
+Y Yes como que junta las dos cosas.
+
+792
+00:35:27,540 --> 00:35:28,540
+O sea.
+
+793
+00:35:28,540 --> 00:35:29,540
+No trabaja por separado.
+
+794
+00:35:29,540 --> 00:35:30,540
+El ambiente.
+
+795
+00:35:30,540 --> 00:35:31,540
+Del Framework de Testing.
+
+796
+00:35:31,540 --> 00:35:32,540
+Sino que realmente.
+
+797
+00:35:32,540 --> 00:35:33,540
+El.
+
+798
+00:35:33,540 --> 00:35:34,540
+Es un.
+
+799
+00:35:34,540 --> 00:35:35,540
+Un link.
+
+800
+00:35:35,540 --> 00:35:36,540
+Que es un.
+
+801
+00:35:36,540 --> 00:35:37,540
+Un link.
+
+802
+00:35:37,540 --> 00:35:38,540
+Que es un link.
+
+803
+00:35:38,540 --> 00:35:39,540
+Que es un link.
+
+804
+00:35:39,540 --> 00:35:40,540
+Que es un link.
+
+805
+00:35:40,540 --> 00:35:41,540
+Entonces.
+
+806
+00:35:41,540 --> 00:35:42,540
+Es un Test Runner.
+
+807
+00:35:42,540 --> 00:35:43,540
+Pero también.
+
+808
+00:35:43,540 --> 00:35:44,540
+Es la forma.
+
+809
+00:35:44,540 --> 00:35:45,540
+En la que escribimos pruebas.
+
+810
+00:35:45,540 --> 00:35:46,540
+Entonces es nuestra Tool.
+
+811
+00:35:46,540 --> 00:35:47,540
+Pero también.
+
+812
+00:35:47,540 --> 00:35:48,540
+Nuestro ambiente.
+
+813
+00:35:48,540 --> 00:35:49,540
+Lo malo de Yes.
+
+814
+00:35:49,540 --> 00:35:50,540
+Es que.
+
+815
+00:35:50,540 --> 00:35:51,540
+Corre sobre Node.
+
+816
+00:35:51,540 --> 00:35:52,540
+Es decir.
+
+817
+00:35:52,540 --> 00:35:53,540
+No tiene un Browser.
+
+818
+00:35:53,540 --> 00:35:54,540
+Real.
+
+819
+00:35:54,540 --> 00:35:55,540
+Al que se está ejecutando.
+
+820
+00:35:55,540 --> 00:35:56,540
+Esas pruebas.
+
+821
+00:35:56,540 --> 00:35:57,540
+Tiene.
+
+822
+00:35:57,540 --> 00:35:58,540
+Es literalmente.
+
+823
+00:35:58,540 --> 00:35:59,540
+Se ejecuta con Node.
+
+824
+00:35:59,540 --> 00:36:00,540
+Entonces.
+
+825
+00:36:00,540 --> 00:36:01,540
+Claro.
+
+826
+00:36:01,540 --> 00:36:02,540
+Yes.
+
+827
+00:36:02,540 --> 00:36:03,540
+Obviamente.
+
+828
+00:36:03,540 --> 00:36:04,540
+Se mantiene agnóstico.
+
+829
+00:36:04,540 --> 00:36:05,540
+Porque con Yes.
+
+830
+00:36:05,540 --> 00:36:06,540
+No solo se escriben pruebas.
+
+831
+00:36:06,540 --> 00:36:07,540
+Para Frontend.
+
+832
+00:36:07,540 --> 00:36:08,540
+Se escriben prueba.
+
+833
+00:36:08,540 --> 00:36:09,540
+Para APIs.
+
+834
+00:36:09,540 --> 00:36:10,540
+Para Node.
+
+835
+00:36:10,540 --> 00:36:12,240
+browser. Sin embargo, para
+
+836
+00:36:12,240 --> 00:36:14,440
+solucionar esto, la comunidad ha creado
+
+837
+00:36:14,440 --> 00:36:16,460
+muchos plugins, el JSTOM
+
+838
+00:36:16,460 --> 00:36:18,000
+para poder como que
+
+839
+00:36:18,000 --> 00:36:20,580
+Jest se ejecute de forma emulada
+
+840
+00:36:20,580 --> 00:36:22,200
+o con muchos mockings
+
+841
+00:36:22,200 --> 00:36:24,340
+pues todo lo que es por parte del browser
+
+842
+00:36:24,340 --> 00:36:26,580
+su ambiente de ejecución
+
+843
+00:36:26,580 --> 00:36:28,360
+sigue siendo Node, pero
+
+844
+00:36:28,360 --> 00:36:30,440
+con ciertos plugins y demás como que uno
+
+845
+00:36:30,440 --> 00:36:32,160
+puede emular API del browser
+
+846
+00:36:32,160 --> 00:36:34,180
+no es la mejor manera, sigue siendo
+
+847
+00:36:34,180 --> 00:36:36,080
+la mejor manera realmente no
+
+848
+00:36:36,080 --> 00:36:38,240
+emularlo sino como ejecutarlo en un browser
+
+849
+00:36:38,240 --> 00:36:40,300
+tipo Karma, tipo WebTestWarner
+
+850
+00:36:40,300 --> 00:36:42,160
+pero como que ahí no
+
+851
+00:36:42,160 --> 00:36:44,340
+ha habido mucha elección
+
+852
+00:36:44,340 --> 00:36:45,860
+si uno configura bien Jest
+
+853
+00:36:45,860 --> 00:36:47,800
+puede igual ejecutar esos
+
+854
+00:36:47,800 --> 00:36:49,940
+mocks en esa simulación y funciona muy bien
+
+855
+00:36:49,940 --> 00:36:52,080
+y de por sí la API de Jest es bastante
+
+856
+00:36:52,080 --> 00:36:53,980
+buena, pero sin embargo también
+
+857
+00:36:53,980 --> 00:36:55,380
+tendríamos que hablar de BitTest
+
+858
+00:36:55,380 --> 00:36:57,980
+ahí también habría que hablar de que Jest
+
+859
+00:36:57,980 --> 00:36:59,440
+o de que Angular ha estado
+
+860
+00:36:59,440 --> 00:37:01,900
+o nos mandó un experimento
+
+861
+00:37:01,900 --> 00:37:03,840
+en el cual ya funcionaba bien
+
+862
+00:37:03,840 --> 00:37:05,360
+pues Angular y Jest
+
+863
+00:37:05,360 --> 00:37:07,820
+pero realmente no han
+
+864
+00:37:07,820 --> 00:37:09,520
+terminado con ese experimento
+
+865
+00:37:09,520 --> 00:37:11,180
+de por sí si tú quieres utilizar
+
+866
+00:37:11,180 --> 00:37:13,520
+Angular y Jest como que la mejor
+
+867
+00:37:13,520 --> 00:37:14,520
+manera es utilizar
+
+868
+00:37:14,520 --> 00:37:17,180
+unas opciones de la comunidad porque
+
+869
+00:37:17,180 --> 00:37:19,180
+de forma nativa Angular no lo soporta
+
+870
+00:37:19,180 --> 00:37:21,580
+hay que utilizar como algunas otras opciones
+
+871
+00:37:21,580 --> 00:37:23,240
+si quieres más adelante en mi canal
+
+872
+00:37:23,240 --> 00:37:25,100
+voy a hacer un video de cómo configurar
+
+873
+00:37:25,100 --> 00:37:27,220
+apropiadamente Jest y Angular utilizando
+
+874
+00:37:27,220 --> 00:37:28,620
+como esas opciones de la comunidad
+
+875
+00:37:28,620 --> 00:37:31,060
+o NX que ya tiene un
+
+876
+00:37:31,060 --> 00:37:33,020
+runner básicamente o bien
+
+877
+00:37:33,020 --> 00:37:35,160
+la configuración con Jest y Angular
+
+878
+00:37:35,160 --> 00:37:37,220
+pero casi que el equipo de Angular
+
+879
+00:37:37,220 --> 00:37:39,200
+estaba trabajando
+
+880
+00:37:39,200 --> 00:37:41,380
+como en esta forma
+
+881
+00:37:41,380 --> 00:37:42,920
+de integración pero
+
+882
+00:37:42,920 --> 00:37:44,980
+no les gusta mucho de nuevo
+
+883
+00:37:44,980 --> 00:37:47,200
+esta forma simulada de correr
+
+884
+00:37:47,200 --> 00:37:49,080
+APIs del browser o que sólo
+
+885
+00:37:49,080 --> 00:37:51,120
+se ejecute Node y están viendo
+
+886
+00:37:51,120 --> 00:37:53,100
+es BitTest como que
+
+887
+00:37:53,100 --> 00:37:55,320
+descartaron ese experimento de Jest
+
+888
+00:37:55,320 --> 00:37:57,300
+o no sé si lo van a descartar realmente
+
+889
+00:37:57,300 --> 00:37:59,200
+creo que le van a poner
+
+890
+00:37:59,200 --> 00:38:01,180
+más prioridad a frameworks
+
+891
+00:38:01,180 --> 00:38:03,060
+modernos como BitTest que
+
+892
+00:38:03,060 --> 00:38:05,140
+soporta los dos modos no hay que
+
+893
+00:38:05,140 --> 00:38:07,020
+hacer como mocking, simulaciones
+
+894
+00:38:07,020 --> 00:38:09,040
+plugins, BitTest por
+
+895
+00:38:09,200 --> 00:38:11,200
+defecto puede correr en Node
+
+896
+00:38:11,200 --> 00:38:13,200
+en un ambiente de Node o tiene un ambiente
+
+897
+00:38:13,200 --> 00:38:15,000
+de browser y ya entonces
+
+898
+00:38:15,000 --> 00:38:17,180
+como que esto viene soportado no hay que
+
+899
+00:38:17,180 --> 00:38:19,700
+tener plugins no hay que hacer configuraciones
+
+900
+00:38:19,700 --> 00:38:21,000
+sino que ya viene
+
+901
+00:38:21,000 --> 00:38:23,120
+soportado dentro de BitTest
+
+902
+00:38:23,120 --> 00:38:25,320
+y otra vez BitTest une las dos
+
+903
+00:38:25,320 --> 00:38:27,100
+cosas es el test runner
+
+904
+00:38:27,100 --> 00:38:29,480
+pero también es el framework con el que escribimos pruebas
+
+905
+00:38:29,480 --> 00:38:31,160
+obviamente tiene el describe
+
+906
+00:38:31,160 --> 00:38:33,100
+el lead, el after each
+
+907
+00:38:33,100 --> 00:38:34,640
+todo eso pero sigue siendo
+
+908
+00:38:34,640 --> 00:38:36,920
+como que las dos herramientas ya no tenemos
+
+909
+00:38:36,920 --> 00:38:39,180
+dos cosas como el runner y el
+
+910
+00:38:39,180 --> 00:38:41,060
+framework de pruebas tenemos solo una cosa
+
+911
+00:38:41,060 --> 00:38:42,840
+lo bueno de BitTest es que tiene
+
+912
+00:38:42,840 --> 00:38:45,240
+los dos ambientes puedes ejecutar solo cosas
+
+913
+00:38:45,240 --> 00:38:46,760
+estrictamente para Node
+
+914
+00:38:46,760 --> 00:38:49,220
+o puedes ejecutar cosas directamente
+
+915
+00:38:49,220 --> 00:38:51,080
+con un browser con un ambiente
+
+916
+00:38:51,080 --> 00:38:52,500
+de browser con lo cual
+
+917
+00:38:52,500 --> 00:38:54,760
+tus unidades correrían mucho mejor
+
+918
+00:38:54,760 --> 00:38:56,840
+en este ambiente y ahí es donde Angular
+
+919
+00:38:56,840 --> 00:38:58,220
+se está enfocando mucho
+
+920
+00:38:58,220 --> 00:39:01,080
+realmente creo que ya lanzaron un experimento
+
+921
+00:39:01,080 --> 00:39:03,180
+ese primer experimento funciona bastante bien
+
+922
+00:39:03,180 --> 00:39:05,120
+yo creo que para las siguientes versiones ya va a estar
+
+923
+00:39:05,120 --> 00:39:06,800
+más estable pero parece que
+
+924
+00:39:06,800 --> 00:39:09,060
+la opción por defecto ya
+
+925
+00:39:09,180 --> 00:39:10,180
+no va a ser
+
+926
+00:39:10,180 --> 00:39:12,580
+Karma, Jasmine
+
+927
+00:39:12,580 --> 00:39:14,380
+sino BitTest y ya
+
+928
+00:39:14,380 --> 00:39:17,360
+bien y JS lo que hicieras configurar
+
+929
+00:39:17,360 --> 00:39:20,360
+como que van a dejar estos plugins de la comunidad
+
+930
+00:39:20,360 --> 00:39:22,380
+pero como que por defecto Angular le va a dar su
+
+931
+00:39:22,380 --> 00:39:23,940
+portantativo a BitTest
+
+932
+00:39:23,940 --> 00:39:26,600
+entonces como para resumir rápidamente todo ese ambiente
+
+933
+00:39:26,600 --> 00:39:29,480
+de testing creo que lo más importante es
+
+934
+00:39:29,480 --> 00:39:32,340
+el ambiente o entender en qué ambiente se corre
+
+935
+00:39:32,340 --> 00:39:35,440
+JS utiliza Node para correr las pruebas
+
+936
+00:39:35,440 --> 00:39:39,140
+claro puedes hacer plugins cosas de la comunidad para emular
+
+937
+00:39:39,140 --> 00:39:42,480
+los APIs del browser pero pues no corren en el browser
+
+938
+00:39:42,480 --> 00:39:44,480
+per se siguen corriendo Node
+
+939
+00:39:44,480 --> 00:39:46,600
+WebTestRunner si corre en un browser
+
+940
+00:39:46,600 --> 00:39:48,680
+como que ahí levanta un browser
+
+941
+00:39:48,680 --> 00:39:50,320
+y empieza a ejecutar las pruebas allí
+
+942
+00:39:50,320 --> 00:39:53,300
+ahí es donde pues este tipo de
+
+943
+00:39:53,300 --> 00:39:55,020
+runners modernos funcionan bien
+
+944
+00:39:55,020 --> 00:39:57,180
+pero BitTest tiene los dos puede correr Node
+
+945
+00:39:57,180 --> 00:39:59,180
+y puede correr browser y por ejemplo hablando
+
+946
+00:39:59,180 --> 00:40:01,060
+de aplicaciones que ahora tenemos como
+
+947
+00:40:01,060 --> 00:40:03,200
+servers and rendering que son aplicaciones
+
+948
+00:40:03,200 --> 00:40:05,140
+que se ejecutan en el servidor pero que también
+
+949
+00:40:05,140 --> 00:40:07,080
+luego se hidratan con el browser pues
+
+950
+00:40:07,080 --> 00:40:08,860
+esa parece ser una buena opción porque yo podría
+
+951
+00:40:08,860 --> 00:40:09,120
+ejecutar un browser y luego se hidratan con el browser
+
+952
+00:40:09,140 --> 00:40:11,580
+y ejecutar pues ciertas pruebas que sí que está bien
+
+953
+00:40:11,580 --> 00:40:14,360
+que corran bajo el ambiente de Node pero ciertas otras pruebas
+
+954
+00:40:14,360 --> 00:40:16,720
+que sí corran en un ambiente que yo necesito ya
+
+955
+00:40:16,720 --> 00:40:19,440
+un browser para probar APIs para probar
+
+956
+00:40:19,440 --> 00:40:21,020
+cierto tipo de simulaciones
+
+957
+00:40:21,020 --> 00:40:23,620
+ahora si lo quieres probar tú BitTest
+
+958
+00:40:23,620 --> 00:40:25,360
+básicamente tienes que ir a tu archivo
+
+959
+00:40:25,360 --> 00:40:28,060
+angular.json y en el apartado de test
+
+960
+00:40:28,060 --> 00:40:31,860
+lo que le das es angular slash build unit test
+
+961
+00:40:31,860 --> 00:40:34,380
+y fíjate que en el runner pone BitTest
+
+962
+00:40:34,380 --> 00:40:38,180
+bien posiblemente luego si realmente le van a dar
+
+963
+00:40:38,180 --> 00:40:39,120
+soporte a JS que no es un software que se puede
+
+964
+00:40:39,140 --> 00:40:41,020
+no se sabe estuvieron trabajando en eso
+
+965
+00:40:41,020 --> 00:40:42,940
+pero como que lo cambiaron por BitTest
+
+966
+00:40:42,940 --> 00:40:46,900
+luego podríamos tener como runner JS
+
+967
+00:40:46,900 --> 00:40:48,840
+o como runner web page de runner
+
+968
+00:40:48,840 --> 00:40:50,640
+bueno en fin pero por ahorita
+
+969
+00:40:50,640 --> 00:40:52,460
+si lo quieres probar con BitTest que es como
+
+970
+00:40:52,460 --> 00:40:54,380
+la opción que está teniendo Angular
+
+971
+00:40:54,380 --> 00:40:56,960
+esta sería la configuración que necesitarías
+
+972
+00:40:56,960 --> 00:40:58,840
+y si lo quieres con JS ya toca
+
+973
+00:40:58,840 --> 00:41:00,720
+otro tipo de cosas para que realmente
+
+974
+00:41:00,720 --> 00:41:02,740
+corra bien de nuevo te prometo un video
+
+975
+00:41:02,740 --> 00:41:03,880
+en mi canal acerca de eso
+
+976
+00:41:03,880 --> 00:41:06,880
+pero si no sería como por
+
+977
+00:41:06,880 --> 00:41:08,860
+estas opciones de la comunidad y en
+
+978
+00:41:08,860 --> 00:41:11,100
+el mundo del end to end porque no sólo es
+
+979
+00:41:11,100 --> 00:41:13,460
+unit testing hacer pruebas unitarias
+
+980
+00:41:13,460 --> 00:41:15,860
+también está el mundo del end to end testing
+
+981
+00:41:15,860 --> 00:41:17,960
+ellos también habían creado así como
+
+982
+00:41:17,960 --> 00:41:20,140
+crearon Karma también habían creado
+
+983
+00:41:20,140 --> 00:41:22,100
+otra herramienta llamada Protactor que es
+
+984
+00:41:22,100 --> 00:41:23,860
+literalmente un framework end to end para
+
+985
+00:41:23,860 --> 00:41:25,960
+para Angular en ese momento para Angular
+
+986
+00:41:25,960 --> 00:41:28,900
+JS obviamente el ecosistema de
+
+987
+00:41:28,900 --> 00:41:30,320
+end to end ha cambiado un montón
+
+988
+00:41:30,320 --> 00:41:33,160
+tenemos herramientas mucho más fuertes
+
+989
+00:41:33,160 --> 00:41:35,520
+y más posicionadas en la industria como
+
+990
+00:41:35,520 --> 00:41:38,580
+Playwright como Cypress como Stellanion
+
+991
+00:41:38,860 --> 00:41:40,800
+como Puppeteer por ejemplo para
+
+992
+00:41:40,800 --> 00:41:43,420
+realmente correr muy buenas pruebas end to end
+
+993
+00:41:43,420 --> 00:41:46,240
+y Protactor también Angular ya lo deprecó
+
+994
+00:41:46,240 --> 00:41:49,200
+lo que sí nos da es un si tú le corres
+
+995
+00:41:49,200 --> 00:41:51,580
+si tú quieres empezar a hacer o agregar
+
+996
+00:41:51,580 --> 00:41:53,860
+pruebas end to end ellos sí ya tienen
+
+997
+00:41:53,860 --> 00:41:57,240
+como la implementación lista con
+
+998
+00:41:57,240 --> 00:42:00,220
+Playwright con Cypress con Puppeteer
+
+999
+00:42:00,220 --> 00:42:02,380
+entonces aquí sí ya ellos te dan
+
+1000
+00:42:02,380 --> 00:42:06,280
+opciones tú le das ng end to end y tú
+
+1001
+00:42:06,280 --> 00:42:08,140
+escoges la opción del framework con la
+
+1002
+00:42:08,140 --> 00:42:10,140
+cual quieres escoger tus end to end
+
+1003
+00:42:10,140 --> 00:42:13,260
+entonces aquí si ya realmente se son
+
+1004
+00:42:13,260 --> 00:42:16,020
+agnósticos pues obviamente hay más
+
+1005
+00:42:16,020 --> 00:42:17,920
+herramientas de end to end pero soportan
+
+1006
+00:42:17,920 --> 00:42:20,560
+las más comunes de nuevo Playwright es
+
+1007
+00:42:20,560 --> 00:42:22,660
+ahorita lo Playwright y Cypress es lo más
+
+1008
+00:42:22,660 --> 00:42:25,520
+común creo que ya con que nos soportan
+
+1009
+00:42:25,520 --> 00:42:27,960
+esas dos está perfecto
+
+1010
+00:42:27,960 --> 00:42:30,080
+en unit testing como que se están
+
+1011
+00:42:30,080 --> 00:42:33,980
+yendo por bits y ya pero en end to end
+
+1012
+00:42:33,980 --> 00:42:35,680
+si podemos escoger cualquiera de estas
+
+1013
+00:42:35,680 --> 00:42:38,140
+opciones ahora en las perspectivas
+
+1014
+00:42:38,140 --> 00:42:41,600
+optimizadas de la par bamboo del
+
+1015
+00:42:41,600 --> 00:42:44,240
+de mi lista de
+
+1016
+00:42:44,240 --> 00:42:46,100
+cada publicaciones que's
+
+1017
+00:42:46,100 --> 00:42:48,780
+en ese asistente estoy dando
+
+1018
+00:42:48,780 --> 00:42:50,380
+hay queinguar
+
+1019
+00:42:50,380 --> 00:42:53,020
+aounding
+
+1020
+00:42:53,020 --> 00:42:55,680
+ótico
+
+1021
+00:42:55,680 --> 00:42:57,900
+california
+
+1022
+00:42:57,900 --> 00:42:59,520
+ya si lo clics
+
+1023
+00:42:59,520 --> 00:43:01,020
+y limita
+
+1024
+00:43:01,020 --> 00:43:02,520
+ruquillas
+
+1025
+00:43:02,520 --> 00:43:04,700
+lo que lo que un poco debullían
+
+1026
+00:43:04,700 --> 00:43:05,900
+Firebird
+
+1027
+00:43:05,900 --> 00:43:07,040
+en el SAR
+
+1028
+00:43:07,040 --> 00:43:07,940
+vale
+
+1029
+00:43:07,940 --> 00:43:12,060
+memory leak, cuál es el patrón de reactividad. Angular DevTools está volviendo
+
+1030
+00:43:12,060 --> 00:43:15,980
+en esa herramienta y recientemente Angular nos ha mostrado algunas
+
+1031
+00:43:15,980 --> 00:43:20,020
+características que vienen, que todavía no han sido lanzadas, pero otras
+
+1032
+00:43:20,020 --> 00:43:24,080
+ya, en donde hacer debugging con el DevTools es una
+
+1033
+00:43:24,080 --> 00:43:27,320
+maravilla. Sin embargo, hay una cosa muy interesante.
+
+1034
+00:43:28,360 --> 00:43:32,120
+Pues Angular, al ser un equipo de Google, también trabaja
+
+1035
+00:43:32,120 --> 00:43:35,900
+con un equipo que se llama Aurora, que es como el equipo dentro de
+
+1036
+00:43:35,900 --> 00:43:40,020
+Google Chrome para trabajar con frameworks. Digamos que es un equipo intermedio
+
+1037
+00:43:40,020 --> 00:43:43,480
+para trabajar con Ness, para trabajar con Vue, para trabajar con Angular
+
+1038
+00:43:43,480 --> 00:43:47,380
+y como que implementar mejor herramientas
+
+1039
+00:43:47,380 --> 00:43:51,400
+de debugging dentro de los frameworks y dentro de Google Chrome.
+
+1040
+00:43:52,000 --> 00:43:55,800
+Y obviamente hay una cercanía entre el equipo de Angular y el equipo de Aurora o el equipo
+
+1041
+00:43:55,800 --> 00:44:00,140
+de Google Chrome, en donde tenemos como resultado que literalmente
+
+1042
+00:44:00,140 --> 00:44:03,520
+ya tenemos dentro de Google Chrome sin necesidad de instalar
+
+1043
+00:44:03,520 --> 00:44:05,640
+alguna herramienta, algún DevTools.
+
+1044
+00:44:05,900 --> 00:44:09,980
+De por sí, esto ya venía en el DevTools, pero de nuevo, sin necesidad de instalar
+
+1045
+00:44:09,980 --> 00:44:13,380
+ningún plugin, nada. Directamente en Google Chrome,
+
+1046
+00:44:14,000 --> 00:44:17,780
+en sus versiones de, pues en las DevTools, ya viene un track
+
+1047
+00:44:17,780 --> 00:44:21,740
+literalmente para ver cómo se comporta el rendimiento de una aplicación de Angular.
+
+1048
+00:44:22,060 --> 00:44:25,760
+Entonces, si tu aplicación es Angular y abres el DevTools,
+
+1049
+00:44:25,920 --> 00:44:29,560
+vas a encontrar un apartado en donde puedes directamente
+
+1050
+00:44:29,560 --> 00:44:33,840
+hacer literalmente decir, hey, este es el profiling o
+
+1051
+00:44:33,840 --> 00:44:35,700
+esto está pasando con mi aplicación de Angular.
+
+1052
+00:44:35,900 --> 00:44:40,020
+Y poder debuguear. Esto, por ejemplo, Chrome no lo tiene para, no sé,
+
+1053
+00:44:40,120 --> 00:44:43,960
+para React, para Vue. Te toca como instalar la
+
+1054
+00:44:43,960 --> 00:44:47,720
+DevTools de Vue, la DevTools de React, para poder hacer
+
+1055
+00:44:47,720 --> 00:44:51,720
+debugging de aplicaciones de React. En Angular no, con la
+
+1056
+00:44:51,720 --> 00:44:55,640
+DevTools y sin instalar nada, ya viene. Obviamente hay algunas otras
+
+1057
+00:44:55,640 --> 00:44:59,360
+características más avanzadas que vas a encontrar en la DevTools, entonces
+
+1058
+00:44:59,360 --> 00:45:03,700
+igual se sugiere instalar DevTools y aprovechar
+
+1059
+00:45:03,700 --> 00:45:05,840
+como un montón de características más.
+
+1060
+00:45:05,900 --> 00:45:09,480
+Pero está muy bien que ahora ya venga incorporado en el framework.
+
+1061
+00:45:10,520 --> 00:45:13,740
+Y tú dirás, bueno, ok, está muy bien, está excelente
+
+1062
+00:45:13,740 --> 00:45:17,820
+que hayan tantas cosas nuevas, que Angular esté
+
+1063
+00:45:17,820 --> 00:45:21,040
+pushando tantas cosas reactivas,
+
+1064
+00:45:21,240 --> 00:45:25,260
+hypersegrendering, hydration, debugging,
+
+1065
+00:45:25,740 --> 00:45:29,700
+un montón de cosas de lo que hablaba antes del video, pero ok, ¿cómo yo
+
+1066
+00:45:29,700 --> 00:45:33,880
+puedo empezar a utilizar esto? A mí me parece que también una de las grandes ventajas
+
+1067
+00:45:33,880 --> 00:45:35,880
+de Angular es la migración.
+
+1068
+00:45:35,900 --> 00:45:41,820
+Y soportadas por el mismo equipo, o sea, no son desarrolladas por otro equipo,
+
+1069
+00:45:41,940 --> 00:45:46,160
+por la comunidad, el mismo equipo dice, ok, voy a cambiar esto, pero te doy
+
+1070
+00:45:46,160 --> 00:45:49,880
+una opción para que migres como todo tu código
+
+1071
+00:45:49,880 --> 00:45:54,100
+legacy o tu anterior a esta nueva forma. Y tenemos un montón de migraciones
+
+1072
+00:45:54,100 --> 00:45:58,020
+que realmente funcionan muy, muy bien. Y si tú estás
+
+1073
+00:45:58,020 --> 00:46:01,980
+probando aplicaciones, déjame en los comentarios cuál de estas migraciones
+
+1074
+00:46:01,980 --> 00:46:05,880
+has ejecutado. Pero, por ejemplo, puedes, si tienes aplicaciones,
+
+1075
+00:46:05,900 --> 00:46:10,020
+con módulos y quieres cambiar el standalone, tienes una migración para hacer
+
+1076
+00:46:10,020 --> 00:46:14,040
+esto y te lo cambia de forma automática. Si aún así quieres
+
+1077
+00:46:14,040 --> 00:46:18,180
+por, no sé, porque en tu equipo todavía tienen ciertas
+
+1078
+00:46:18,180 --> 00:46:22,000
+cosas de módulos y cambiarlo a standalone se les
+
+1079
+00:46:22,000 --> 00:46:25,800
+rompe algunas unités que ahorita no tienen tiempo de ejecutar, igual
+
+1080
+00:46:25,800 --> 00:46:29,860
+también hay una migración para mantenerlo, pero como el by default
+
+1081
+00:46:29,860 --> 00:46:33,940
+en la versión 19 es standalone por defecto, entonces
+
+1082
+00:46:33,940 --> 00:46:37,700
+hay una migración que lo que hace es a todos tus componentes
+
+1083
+00:46:37,700 --> 00:46:41,680
+que sean modulares, les agrega el standalone false
+
+1084
+00:46:41,680 --> 00:46:45,960
+y todos los otros componentes ya los dejan por defecto. Entonces, de nuevo, Angular
+
+1085
+00:46:45,960 --> 00:46:49,740
+se preocupa de nuevo por la retrocompatibilidad. Bien, si
+
+1086
+00:46:49,740 --> 00:46:53,940
+quieres cambiar, pues listo, tengo una migración para ti para que puedas solucionar tu
+
+1087
+00:46:53,940 --> 00:46:57,800
+caso. ¿Quieres mantener la vieja sintaxis? Por ejemplo, el ngif, el ngifor,
+
+1088
+00:46:58,200 --> 00:47:01,700
+ya ellos dijeron que lo iban a marcar como deprecated, sin embargo, obviamente
+
+1089
+00:47:01,700 --> 00:47:03,920
+tú todavía tienes tus versiones, van a darle un tiempo.
+
+1090
+00:47:03,940 --> 00:47:08,000
+Obvio, razonable para hacer como ese ajuste, pero
+
+1091
+00:47:08,000 --> 00:47:11,980
+Angular también te dice, bueno, mira, no tienes que ir a tu código que no se puede
+
+1092
+00:47:11,980 --> 00:47:15,860
+tener 5,000 componentes, 500 componentes y
+
+1093
+00:47:15,860 --> 00:47:19,880
+empezar a cambiar la sintaxis de cada una, es horrible. Entonces, pues ellos te dan
+
+1094
+00:47:19,880 --> 00:47:24,020
+una migración y te lo cambian de forma automática y estas migraciones han sido muy
+
+1095
+00:47:24,020 --> 00:47:27,900
+probadas dentro del equipo interno de Google. Google utiliza mucho Angular,
+
+1096
+00:47:28,400 --> 00:47:31,640
+Gemini está hecho en Angular, todo el AI Studio,
+
+1097
+00:47:31,640 --> 00:47:33,820
+todo el Gemini, el chat como
+
+1098
+00:47:33,940 --> 00:47:37,840
+tal con el que todo el mundo interactúa, ese está hecho en Angular,
+
+1099
+00:47:37,840 --> 00:47:43,420
+Fiverr está hecho en Angular, o sea, la UI, la parte Google Console, Google Cloud,
+
+1100
+00:47:43,420 --> 00:47:48,880
+toda la UI también está hecha en Angular. Entonces, en Angular utilizan mucho Angular,
+
+1101
+00:47:48,880 --> 00:47:54,460
+digo, en Google utilizan mucho Angular y estas migraciones ellos mismos también
+
+1102
+00:47:54,460 --> 00:47:58,060
+la han probado dentro de sus equipos. Entonces, realmente son migraciones muy,
+
+1103
+00:47:58,060 --> 00:48:03,160
+muy probadas que te recomiendo las pruebas. Si quieres cambiar la sintaxis, si quieres probar
+
+1104
+00:48:03,160 --> 00:48:14,240
+si no se trata de surfing de tecnología, no te metas en este punto, no tienes una
+
+1105
+00:48:14,640 --> 00:48:17,720
+es una de las cosas muy interesantes de Google que te seguirán dando todo lo que
+
+1106
+00:48:17,720 --> 00:48:21,040
+se está esperando porque el pikós тоже lo está pasando tan bien lo estamos entendiendo
+
+1107
+00:48:21,040 --> 00:48:26,800
+también aquí. Pero, llevando en cuenta que muchas filas evil swap a las bouquets,
+
+1108
+00:48:26,800 --> 00:48:28,580
+quieres unsafeas de ver si es legal o no y ahí vienes, a ver combalar la hopping 3 con
+
+1109
+00:48:28,580 --> 00:48:32,940
+la button y el bluetooth, no te مrade que no te mCh Strange este por que este plato
+
+1110
+00:48:32,940 --> 00:48:35,200
+en la versión 18 y buscas migrations
+
+1111
+00:48:35,200 --> 00:48:37,020
+pues vas a ver que migraciones
+
+1112
+00:48:37,020 --> 00:48:38,780
+puedes ejecutar en esa versión
+
+1113
+00:48:38,780 --> 00:48:41,000
+en específico, entonces pues tienes la migración
+
+1114
+00:48:41,000 --> 00:48:42,960
+del standalone, del control
+
+1115
+00:48:42,960 --> 00:48:44,940
+flow, del no inject function, del lazy
+
+1116
+00:48:44,940 --> 00:48:46,580
+loaded routers, bien
+
+1117
+00:48:46,580 --> 00:48:48,840
+y si estás, no sé, en la versión
+
+1118
+00:48:48,840 --> 00:48:50,940
+17, que por ejemplo la versión 17
+
+1119
+00:48:50,940 --> 00:48:52,820
+tiene la página viejita
+
+1120
+00:48:52,820 --> 00:48:54,900
+igual aquí puedes buscar las migraciones
+
+1121
+00:48:54,900 --> 00:48:56,220
+de esa versión
+
+1122
+00:48:56,220 --> 00:48:58,780
+migrations, o creo que en la
+
+1123
+00:48:58,780 --> 00:49:00,880
+versión, pues
+
+1124
+00:49:00,880 --> 00:49:02,840
+en la 17 para atrás, que tienen este
+
+1125
+00:49:02,840 --> 00:49:04,860
+website, creo que están en otro
+
+1126
+00:49:04,860 --> 00:49:06,540
+lado, pero bueno, básicamente
+
+1127
+00:49:06,540 --> 00:49:08,740
+pues ya, cada una de las
+
+1128
+00:49:08,740 --> 00:49:10,740
+documentaciones tiene un apartado de migraciones
+
+1129
+00:49:10,740 --> 00:49:12,760
+y puedes saber pues cuál
+
+1130
+00:49:12,760 --> 00:49:13,920
+tienes que ejecutar
+
+1131
+00:49:13,920 --> 00:49:16,880
+dependiendo de la versión en la
+
+1132
+00:49:16,880 --> 00:49:18,840
+que estés, si de nuevo nos vamos
+
+1133
+00:49:18,840 --> 00:49:20,740
+a, aquí por defecto me dejan la 20
+
+1134
+00:49:20,740 --> 00:49:22,180
+pero si yo me voy a la 18
+
+1135
+00:49:22,180 --> 00:49:24,860
+y corro migrations, me voy a encontrar con las
+
+1136
+00:49:24,860 --> 00:49:26,680
+migraciones que puede ejecutar
+
+1137
+00:49:26,680 --> 00:49:28,980
+en la versión 19, entonces hay más
+
+1138
+00:49:28,980 --> 00:49:30,840
+hay new input, new output
+
+1139
+00:49:30,840 --> 00:49:32,340
+queries assignals
+
+1140
+00:49:32,340 --> 00:49:34,420
+este que limpia, este que hace
+
+1141
+00:49:34,420 --> 00:49:36,200
+self-closing tags, etc.
+
+1142
+00:49:36,400 --> 00:49:38,860
+entonces, como dependiendo de la versión
+
+1143
+00:49:38,860 --> 00:49:40,720
+yo puedo literalmente
+
+1144
+00:49:40,720 --> 00:49:42,520
+pues saber qué
+
+1145
+00:49:42,520 --> 00:49:44,980
+migraciones puedo ejecutar, cómo las ejecuto
+
+1146
+00:49:44,980 --> 00:49:47,100
+acá están bien documentadas
+
+1147
+00:49:47,100 --> 00:49:48,820
+como qué hace cada una
+
+1148
+00:49:48,820 --> 00:49:50,820
+por ejemplo esta del inject
+
+1149
+00:49:50,820 --> 00:49:52,780
+que lo que hace es pues como
+
+1150
+00:49:52,780 --> 00:49:54,660
+ahora ya no recibimos el inject desde
+
+1151
+00:49:54,660 --> 00:49:56,720
+el constructor, sino con la
+
+1152
+00:49:56,720 --> 00:49:58,100
+función inject de esta manera
+
+1153
+00:49:58,100 --> 00:50:00,440
+migrar todo esto manual pues obviamente
+
+1154
+00:50:00,440 --> 00:50:02,280
+es muy complejo y además
+
+1155
+00:50:02,340 --> 00:50:05,800
+que pues si tenemos muchos servicios
+
+1156
+00:50:05,800 --> 00:50:07,540
+cientos de servicios en aplicaciones
+
+1157
+00:50:07,540 --> 00:50:09,560
+grandes pues migrar esto manualmente
+
+1158
+00:50:09,560 --> 00:50:11,060
+puede dar algún error pero
+
+1159
+00:50:11,060 --> 00:50:12,940
+simplemente con correr este comando
+
+1160
+00:50:12,940 --> 00:50:14,420
+el te hace la migración
+
+1161
+00:50:14,420 --> 00:50:16,100
+lo mismo va a pasar con signallimpulse
+
+1162
+00:50:16,100 --> 00:50:18,280
+entonces si tienes un input como este
+
+1163
+00:50:18,280 --> 00:50:20,680
+pero ya lo quieres pasar a signall
+
+1164
+00:50:20,680 --> 00:50:22,660
+entonces pues corres esta migración
+
+1165
+00:50:22,660 --> 00:50:24,320
+y ya entonces el tiene migraciones
+
+1166
+00:50:24,320 --> 00:50:26,340
+preparadas para afrontar
+
+1167
+00:50:26,340 --> 00:50:28,200
+todas estas nuevas características
+
+1168
+00:50:28,200 --> 00:50:30,680
+y listo eso es todo por este video
+
+1169
+00:50:30,680 --> 00:50:32,340
+realmente creo que me quedo bastante
+
+1170
+00:50:32,340 --> 00:50:34,360
+extenso, pero quería como hacer
+
+1171
+00:50:34,360 --> 00:50:36,460
+como un recap de lo que yo veo
+
+1172
+00:50:36,460 --> 00:50:38,280
+como el estado general, lo que han
+
+1173
+00:50:38,280 --> 00:50:40,100
+venido lanzando, lo nuevo
+
+1174
+00:50:40,100 --> 00:50:42,320
+desde diferentes puntos
+
+1175
+00:50:42,320 --> 00:50:44,380
+de vista, literalmente desde el punto de
+
+1176
+00:50:44,380 --> 00:50:46,380
+vista de reactividad, desde el testing
+
+1177
+00:50:46,380 --> 00:50:48,160
+server-side rendering, debugging
+
+1178
+00:50:48,160 --> 00:50:50,180
+etcétera, de nuevo cada
+
+1179
+00:50:50,180 --> 00:50:52,380
+una de estas cositas merece un video
+
+1180
+00:50:52,380 --> 00:50:54,220
+en particular y prometo estar como
+
+1181
+00:50:54,220 --> 00:50:56,000
+subiendo esos en específico
+
+1182
+00:50:56,000 --> 00:50:58,400
+pero al menos te quedo como un overview para que
+
+1183
+00:50:58,400 --> 00:51:00,100
+de pronto si te quedaste picado
+
+1184
+00:51:00,100 --> 00:51:02,140
+o integrado en alguna de estas en
+
+1185
+00:51:02,140 --> 00:51:04,580
+específico, pues empieces a buscar ya en documentación
+
+1186
+00:51:04,580 --> 00:51:06,080
+en la comunidad, en más videos
+
+1187
+00:51:06,080 --> 00:51:08,400
+obviamente de otros creadores de contenido
+
+1188
+00:51:08,400 --> 00:51:10,620
+en YouTube, en donde te puedan
+
+1189
+00:51:10,620 --> 00:51:12,120
+dar guía de cómo ya
+
+1190
+00:51:12,120 --> 00:51:14,380
+hacer de todas estas características
+
+1191
+00:51:14,380 --> 00:51:16,000
+de las cuales te hablé
+
+1192
+00:51:16,000 --> 00:51:18,320
+pues te diga, ok, estoy interesado en
+
+1193
+00:51:18,320 --> 00:51:20,060
+esto y pues ir más a fondo
+
+1194
+00:51:20,060 --> 00:51:22,300
+yo prometo también subir contenido
+
+1195
+00:51:22,300 --> 00:51:24,160
+relacionado, pero de nuevo, este
+
+1196
+00:51:24,160 --> 00:51:26,100
+es el estado de Angular, lo que
+
+1197
+00:51:26,100 --> 00:51:28,080
+viene, lo que ha venido trabajando
+
+1198
+00:51:28,080 --> 00:51:29,960
+y me parece que es un futuro
+
+1199
+00:51:29,960 --> 00:51:31,960
+bastante sorprendente, Angular
+
+1200
+00:51:31,960 --> 00:51:33,840
+va a haber para muchos, sigue habiendo
+
+1201
+00:51:33,840 --> 00:51:35,840
+mucha oferta laboral y
+
+1202
+00:51:35,840 --> 00:51:38,000
+sigue habiendo una comunidad muy fuerte
+
+1203
+00:51:38,000 --> 00:51:39,960
+y Angular, de nuevo, a mi parecer
+
+1204
+00:51:39,960 --> 00:51:42,300
+dentro del nuevo liderazgo
+
+1205
+00:51:42,300 --> 00:51:44,280
+es uno de los que ha cambiado
+
+1206
+00:51:44,280 --> 00:51:46,080
+cimientos claves como
+
+1207
+00:51:46,080 --> 00:51:48,000
+quitar módulos, como cambiar el modelo
+
+1208
+00:51:48,000 --> 00:51:50,040
+de reactividad, como cambiar la sintaxis
+
+1209
+00:51:50,040 --> 00:51:52,000
+y le ha jugado en
+
+1210
+00:51:52,000 --> 00:51:54,240
+buena forma, la percepción ahorita
+
+1211
+00:51:54,240 --> 00:51:55,200
+de Angular
+
+1212
+00:51:55,200 --> 00:51:57,320
+ya no es como tan
+
+1213
+00:51:57,320 --> 00:51:59,940
+como antes la teníamos, donde uff
+
+1214
+00:51:59,940 --> 00:52:01,940
+es un poco complejo, donde es
+
+1215
+00:52:01,960 --> 00:52:02,360
+un poco
+
+1216
+00:52:02,360 --> 00:52:05,700
+digamos pesado entrar, sino que
+
+1217
+00:52:05,700 --> 00:52:07,800
+ya se ha vuelto como que la nueva
+
+1218
+00:52:07,800 --> 00:52:09,760
+forma, el renacimiento de Angular
+
+1219
+00:52:09,760 --> 00:52:11,620
+ha venido desde una
+
+1220
+00:52:11,620 --> 00:52:13,940
+o la comunidad lo ha tomado de muy buena
+
+1221
+00:52:13,940 --> 00:52:15,540
+manera, tanto así que tenemos
+
+1222
+00:52:15,540 --> 00:52:18,100
+una nueva documentación, un nuevo
+
+1223
+00:52:18,100 --> 00:52:19,960
+logo para representar como ese nuevo
+
+1224
+00:52:19,960 --> 00:52:22,220
+cambio, va a haber una nueva mascota
+
+1225
+00:52:22,220 --> 00:52:24,140
+y eso, como que
+
+1226
+00:52:24,140 --> 00:52:25,840
+todo eso se traduce a que realmente están
+
+1227
+00:52:25,840 --> 00:52:27,880
+pasando cosas muy interesantes dentro
+
+1228
+00:52:27,880 --> 00:52:30,040
+del framework, para si bien
+
+1229
+00:52:30,040 --> 00:52:31,940
+respetar como todo lo que ya venía
+
+1230
+00:52:31,960 --> 00:52:33,920
+trabajando, pero asumir todos
+
+1231
+00:52:33,920 --> 00:52:36,040
+estos nuevos cambios, no solo para
+
+1232
+00:52:36,040 --> 00:52:38,020
+pues aprovechar como las nuevas
+
+1233
+00:52:38,020 --> 00:52:39,560
+innovaciones del mundo
+
+1234
+00:52:39,560 --> 00:52:41,880
+de la web en general
+
+1235
+00:52:41,880 --> 00:52:44,120
+sino también como hacer la experiencia
+
+1236
+00:52:44,120 --> 00:52:46,020
+para los desarrolladores mucho
+
+1237
+00:52:46,020 --> 00:52:47,980
+más fáciles, entonces tenemos aplicaciones
+
+1238
+00:52:47,980 --> 00:52:50,020
+que son realmente potentes
+
+1239
+00:52:50,020 --> 00:52:51,880
+para el usuario
+
+1240
+00:52:51,880 --> 00:52:54,060
+final, quien las usa, pero también
+
+1241
+00:52:54,060 --> 00:52:55,980
+una experiencia de desarrollo bastante
+
+1242
+00:52:55,980 --> 00:52:58,020
+fuerte, así que eso ha sido todo por
+
+1243
+00:52:58,020 --> 00:52:59,440
+este video, espero les haya gustado
+
+1244
+00:52:59,440 --> 00:53:01,660
+si quedó largo, bueno pues
+
+1245
+00:53:01,960 --> 00:53:04,020
+ese es el estado de Angular y nos
+
+1246
+00:53:04,020 --> 00:53:05,420
+vemos en la próxima, suscríbanse
+

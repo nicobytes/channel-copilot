@@ -5,13 +5,9 @@ set dotenv-load
 run:
     echo $FOLDER
     echo $YOUTUBE_LINK
-    python main.py audio
-    python main.py transcribe $FOLDER
-    python main.py summary $FOLDER
-    python main.py youtube $FOLDER
-    python main.py tweet $FOLDER $YOUTUBE_LINK "Developers"
-    python main.py thread $FOLDER $YOUTUBE_LINK "Developers"
-    python main.py linkedin $FOLDER $YOUTUBE_LINK "Developers" "text" "video"
+    cd app && python main.py audio
+    cd app && python main.py transcribe $FOLDER
+    cd app && python main.py summary $FOLDER
 
 audio:
     echo $FOLDER

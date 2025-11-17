@@ -1,0 +1,732 @@
+1
+00:00:00,000 --> 00:00:04,020
+Si tienes una aplicación en Angular y activas el Server Side Rendering,
+
+2
+00:00:04,440 --> 00:00:08,340
+puedes empezar a tener problemas con las APIs que corren en el navegador,
+
+3
+00:00:08,580 --> 00:00:11,680
+así como Glocalization, Local Storage, y esto ¿por qué?
+
+4
+00:00:11,980 --> 00:00:15,540
+Porque al final, recuerda que cuando activas el Server Side Rendering,
+
+5
+00:00:16,020 --> 00:00:17,980
+todo eso corre en un servidor de Node.
+
+6
+00:00:18,540 --> 00:00:22,560
+Y el servidor de Node no tiene Glocalization, no tiene Local Storage,
+
+7
+00:00:22,800 --> 00:00:25,860
+porque son APIs que van desde el lado del cliente.
+
+8
+00:00:26,060 --> 00:00:29,820
+Entonces, en este video te voy a enseñar cuál es la mejor manera en Angular
+
+9
+00:00:29,820 --> 00:00:31,400
+de manejarlo.
+
+10
+00:00:31,880 --> 00:00:34,040
+Si bien en Angular ya teníamos algunas opciones,
+
+11
+00:00:34,260 --> 00:00:37,720
+hay dos nuevos métodos en el Angular moderno que te voy a enseñar.
+
+12
+00:00:37,760 --> 00:00:40,460
+Entonces, imagina que tienes un componente como este,
+
+13
+00:00:40,720 --> 00:00:43,900
+Locations Component, que al final es una página que rende
+
+14
+00:00:43,900 --> 00:00:48,780
+en ciertas locaciones de acuerdo a la latitud y longitud de nuestro usuario.
+
+15
+00:00:49,140 --> 00:00:52,500
+Y lo más típico que podrías tener es, ok, pues tengo un Engine Unit,
+
+16
+00:00:52,500 --> 00:00:57,380
+y luego ahí, una vez ya cargo la página, el componente,
+
+17
+00:00:57,780 --> 00:00:59,640
+pues puedo hacer como esta llamada,
+
+18
+00:00:59,820 --> 00:01:03,460
+a Navigator, Glocalization, y obtener la locación.
+
+19
+00:01:04,120 --> 00:01:07,120
+Si bien puede funcionar cuando tenemos aplicaciones en Angular,
+
+20
+00:01:07,500 --> 00:01:09,520
+cuando activas el modo de Server Side Rendering,
+
+21
+00:01:09,820 --> 00:01:13,500
+esta parte no tiene sentido en el servidor de Node,
+
+22
+00:01:13,600 --> 00:01:15,980
+porque un servidor de Node no tiene esta API,
+
+23
+00:01:16,320 --> 00:01:20,320
+así como no tiene otras como Local Storage o el Canvas, por ejemplo,
+
+24
+00:01:20,320 --> 00:01:24,220
+para hacer Rendering, porque ya son dos modos de correr la aplicación.
+
+25
+00:01:24,440 --> 00:01:29,340
+Uno, el Server Side Rendering, y otro, precisamente este de unas APIs
+
+26
+00:01:29,820 --> 00:01:33,320
+que no tienen acceso o solo tienen sentido llamar o ejecutar
+
+27
+00:01:33,320 --> 00:01:35,820
+cuando ya corren del lado del browser.
+
+28
+00:01:35,820 --> 00:01:39,320
+Entonces, ¿cómo se maneja esta dualidad básicamente en Angular?
+
+29
+00:01:39,320 --> 00:01:42,320
+¿Y cuál es la forma moderna de hacerlo?
+
+30
+00:01:42,320 --> 00:01:45,820
+Vamos a ver primero qué pasa y cuál es el error que nos arroja
+
+31
+00:01:45,820 --> 00:01:50,320
+cuando nosotros intentamos correr esto en una aplicación con Server Side Rendering.
+
+32
+00:01:50,320 --> 00:01:54,320
+Veamos que acá tengo un simple e-commerce que al final hace Server Side Rendering.
+
+33
+00:01:54,320 --> 00:01:56,820
+Entonces, si nosotros vamos acá a ver el código fuente,
+
+34
+00:01:56,820 --> 00:01:58,820
+vamos a ver que realmente hay contenido.
+
+35
+00:01:58,820 --> 00:01:59,820
+Si tú activas el código fuente, si tú activas el código fuente,
+
+36
+00:01:59,820 --> 00:02:03,320
+si tú activas Server Side Rendering o básicamente no tienes Server Side Rendering,
+
+37
+00:02:03,320 --> 00:02:05,320
+normalmente esto es una página en blanco.
+
+38
+00:02:05,320 --> 00:02:11,320
+Esto no tiene nada de contenido porque precisamente no hay nada renderizado desde el servidor.
+
+39
+00:02:11,320 --> 00:02:15,320
+Puede que una vez llegue y tú acá le des inspeccionar encuentres contenido,
+
+40
+00:02:15,320 --> 00:02:17,320
+pero es porque el browser lo está renderizando.
+
+41
+00:02:17,320 --> 00:02:21,320
+Una forma de nuevo de probarlo es darle clic secundario,
+
+42
+00:02:21,320 --> 00:02:24,320
+ver código fuente y ver si hay contenido o no.
+
+43
+00:02:24,320 --> 00:02:28,820
+Esto facilita el performance, también facilita el posicionamiento de motores de búsqueda.
+
+44
+00:02:28,820 --> 00:02:31,320
+Pero, ¿qué pasa con ese location?
+
+45
+00:02:31,320 --> 00:02:36,320
+Fíjate que acá realmente sí funciona de alguna manera, sí lo obtiene,
+
+46
+00:02:36,320 --> 00:02:41,320
+sin embargo, vamos a tener algún problema desde el lado de Node.js.
+
+47
+00:02:41,320 --> 00:02:43,320
+Si nosotros vamos a ver nuestra terminal,
+
+48
+00:02:43,320 --> 00:02:47,320
+fíjate que por acá en nuestra terminal empezamos a tener algunos errores
+
+49
+00:02:47,320 --> 00:02:51,320
+porque cuando entramos a locations, a esa ruta en específica,
+
+50
+00:02:51,320 --> 00:02:54,320
+pues él dice, ok, pues voy a ingresar.
+
+51
+00:02:54,320 --> 00:02:58,820
+Y como el rendering lo hace Node, pues se pierde y esa API del Navigation,
+
+52
+00:02:58,820 --> 00:02:59,820
+no existe.
+
+53
+00:02:59,820 --> 00:03:03,820
+¿Cómo evitamos y cuál es la manera efectiva en el Angular actual,
+
+54
+00:03:03,820 --> 00:03:05,820
+en el Angular moderno de hacerlo?
+
+55
+00:03:05,820 --> 00:03:06,820
+Vamos a ver.
+
+56
+00:03:06,820 --> 00:03:09,820
+En el Angular moderno, en las APIs actuales,
+
+57
+00:03:09,820 --> 00:03:12,820
+hay dos maneras o las dos mejores maneras de arreglar este problema
+
+58
+00:03:12,820 --> 00:03:18,820
+y saber cuándo correr efectivamente código que necesitamos que sólo corra en el browser
+
+59
+00:03:18,820 --> 00:03:21,820
+y cuándo realmente manejar sólo el servidor.
+
+60
+00:03:21,820 --> 00:03:23,820
+Realmente hay dos features.
+
+61
+00:03:23,820 --> 00:03:27,820
+Una y la más interesante creo que es el nuevo método, el After Next Render,
+
+62
+00:03:28,820 --> 00:03:34,820
+que es diseñado para esto, para que sólo se ejecute cuando necesitamos APIs del navegador.
+
+63
+00:03:34,820 --> 00:03:37,820
+Y la otra es hacerlo por defecto con Servered Routes,
+
+64
+00:03:37,820 --> 00:03:41,820
+es decir, nosotros por cada ruta podríamos definir una estrategia de rendering.
+
+65
+00:03:41,820 --> 00:03:44,820
+Vamos a ver en código esto qué significa.
+
+66
+00:03:44,820 --> 00:03:49,820
+La primera y más sencilla es que desde la versión 19 o 20 de Angular
+
+67
+00:03:49,820 --> 00:03:55,820
+tenemos una estrategia o un archivo en específico que se llama AppRouteServer.
+
+68
+00:03:55,820 --> 00:03:58,820
+Ese define, es diferente a las rutas normales de Android,
+
+69
+00:03:58,820 --> 00:04:02,820
+las que tenemos en Angular, fíjate que estas serían las rutas que yo tengo en esta aplicación,
+
+70
+00:04:02,820 --> 00:04:05,820
+tengo cierto pad con el load component,
+
+71
+00:04:05,820 --> 00:04:09,820
+pero si tú ya activas Servered Servered Rendering vas a tener este archivo extra.
+
+72
+00:04:09,820 --> 00:04:14,820
+Y este archivo extra no define qué componente debe cargar con cierta ruta,
+
+73
+00:04:14,820 --> 00:04:17,820
+sino define la estrategia de renderizado.
+
+74
+00:04:17,820 --> 00:04:22,820
+Fíjate que por defecto él dice todo lo voy a renderizar por el lado del servidor,
+
+75
+00:04:22,820 --> 00:04:25,820
+pero también existe otra que se llama Prerendering
+
+76
+00:04:25,820 --> 00:04:28,820
+y finalmente hay una muy interesante,
+
+77
+00:04:28,820 --> 00:04:30,820
+que sería la de Client.
+
+78
+00:04:30,820 --> 00:04:34,820
+Es decir, yo puedo definir con cierta ruta, con cierto criterio,
+
+79
+00:04:34,820 --> 00:04:37,820
+cómo se va a renderizar ese pad.
+
+80
+00:04:37,820 --> 00:04:41,820
+Por ejemplo, si Location directamente es una página muy interactiva,
+
+81
+00:04:41,820 --> 00:04:44,820
+no quiero nada de Servered Servered Rendering,
+
+82
+00:04:44,820 --> 00:04:45,820
+pues puedo escoger Client.
+
+83
+00:04:45,820 --> 00:04:51,820
+Es decir, aquí literalmente esa página en específico sólo se renderiza con el browser,
+
+84
+00:04:51,820 --> 00:04:54,820
+no va a ser ningún Servered Servered Rendering.
+
+85
+00:04:54,820 --> 00:04:57,820
+Entonces, por ejemplo, vamos a ver la diferencia.
+
+86
+00:04:57,820 --> 00:04:59,820
+Si nosotros vemos el navegador,
+
+87
+00:04:59,820 --> 00:05:02,820
+si inspeccionamos el código directamente de Locations,
+
+88
+00:05:02,820 --> 00:05:06,820
+vamos a ir a ver código fuente y vamos a ver que no hay nada de contenido.
+
+89
+00:05:06,820 --> 00:05:12,820
+Significa que realmente todo el pad de Locations sólo se renderiza por el lado del cliente.
+
+90
+00:05:12,820 --> 00:05:16,820
+Sin embargo, otras páginas, digamos como la de Home,
+
+91
+00:05:16,820 --> 00:05:19,820
+si yo le hago ver código fuente, acá veo todo el contenido,
+
+92
+00:05:19,820 --> 00:05:21,820
+no veo una página en vacío.
+
+93
+00:05:21,820 --> 00:05:26,820
+Significa que yo puedo definir la estrategia de acuerdo al pad en específico.
+
+94
+00:05:26,820 --> 00:05:29,820
+Acá entonces me podría solucionar el problema,
+
+95
+00:05:29,820 --> 00:05:33,820
+porque definitivamente entonces si Locations sólo carga desde el cliente,
+
+96
+00:05:33,820 --> 00:05:37,820
+pues puedo llamar a las APIs del browser sin ningún problema.
+
+97
+00:05:37,820 --> 00:05:45,820
+El beneficio o el tradeoff básicamente es que perderías como toda esta parte del Servered Servered Rendering
+
+98
+00:05:45,820 --> 00:05:48,820
+en Location, en ese pad en específico.
+
+99
+00:05:48,820 --> 00:05:51,820
+Entonces, esta es una opción, una opción bastante válida,
+
+100
+00:05:51,820 --> 00:05:54,820
+pero vamos a ver que también hay un método muy interesante
+
+101
+00:05:54,820 --> 00:05:56,820
+que nos ayudaría a afrontar esto.
+
+102
+00:05:56,820 --> 00:05:59,820
+Y no perder el Servered Servered Rendering porque puede que,
+
+103
+00:05:59,820 --> 00:06:04,820
+si bien Locations utiliza la API del navegador,
+
+104
+00:06:04,820 --> 00:06:07,820
+puedo que yo sí quiera renderizar otras secciones,
+
+105
+00:06:07,820 --> 00:06:09,820
+como el header, el footer, etc.
+
+106
+00:06:09,820 --> 00:06:12,820
+No quiero perder todo el contenido.
+
+107
+00:06:12,820 --> 00:06:15,820
+Recuerda que acá en Locations todo el pad perdió todo el contenido
+
+108
+00:06:15,820 --> 00:06:18,820
+porque ahora sólo se renderiza desde el browser.
+
+109
+00:06:18,820 --> 00:06:24,820
+Ahora vamos a ver cuál es esa otra forma que es hacer usándolo el After Next Render.
+
+110
+00:06:24,820 --> 00:06:25,820
+Si tú te vas a la docencia,
+
+111
+00:06:25,820 --> 00:06:27,820
+si tú te vas a la documentación directa de Angular
+
+112
+00:06:27,820 --> 00:06:30,820
+en todo lo que es el ciclo de vida del componente,
+
+113
+00:06:30,820 --> 00:06:34,820
+nosotros tenemos como lo más habitual que es el ngOnInit,
+
+114
+00:06:34,820 --> 00:06:36,820
+el ngOnChange, etc.
+
+115
+00:06:36,820 --> 00:06:41,820
+Sin embargo, hay dos nuevos métodos que cumplen con la función
+
+116
+00:06:41,820 --> 00:06:43,820
+un poco más asociado al rendering.
+
+117
+00:06:43,820 --> 00:06:48,820
+Esta, por ejemplo, va más asociada a la detección de cambios,
+
+118
+00:06:48,820 --> 00:06:52,820
+pero esta en específico va más asociada al rendering.
+
+119
+00:06:52,820 --> 00:06:55,820
+Y esta After Next Render es la que más se utiliza.
+
+120
+00:06:55,820 --> 00:07:01,820
+Es decir, acá nos dice que esto sólo corre una vez cada vez que todos los componentes
+
+121
+00:07:01,820 --> 00:07:06,820
+ya han sido renderizados desde el cliente y ya los tenemos disponibles en el DOM.
+
+122
+00:07:06,820 --> 00:07:10,820
+Y está esta otra que es After Every Render, esta corre cada vez.
+
+123
+00:07:10,820 --> 00:07:13,820
+Entonces cada vez que un componente es renderizado va y me refresca.
+
+124
+00:07:13,820 --> 00:07:17,820
+Acá vamos a utilizar esta porque yo sólo lo quiero una vez.
+
+125
+00:07:17,820 --> 00:07:22,820
+Una vez cargado el componente, traigo la geolocalización y renderizo mi mapa,
+
+126
+00:07:22,820 --> 00:07:23,820
+renderizo mi lógica.
+
+127
+00:07:23,820 --> 00:07:24,820
+Pero precisamente necesito una vez.
+
+128
+00:07:24,820 --> 00:07:28,820
+Precisamente necesito esta función, After Next Render.
+
+129
+00:07:28,820 --> 00:07:30,820
+Entonces voy a volver aquí a este archivo.
+
+130
+00:07:30,820 --> 00:07:35,820
+Le voy a decir que Locations sí quiero que sea renderizado desde el servidor,
+
+131
+00:07:35,820 --> 00:07:42,820
+pero luego me voy a mover aquí a mi componente y entonces esto ya no lo hago en el EngineInit.
+
+132
+00:07:42,820 --> 00:07:48,820
+¿Cuál es la manera de correr efectivamente este nuevo hook, este nuevo método?
+
+133
+00:07:48,820 --> 00:07:54,820
+Realmente tendríamos que ponerlo en el constructor y poner el método After.
+
+134
+00:07:54,820 --> 00:07:55,820
+Next Render.
+
+135
+00:07:55,820 --> 00:08:01,820
+Y ahí es donde de forma segura entonces llamamos a APIs que vengan del navegador.
+
+136
+00:08:01,820 --> 00:08:04,820
+Acá ya no necesitaríamos al EngineInit.
+
+137
+00:08:04,820 --> 00:08:07,820
+Entonces pues lo quitamos acá de esta manera.
+
+138
+00:08:07,820 --> 00:08:09,820
+Y esta sería la forma.
+
+139
+00:08:09,820 --> 00:08:11,820
+De esta forma no nos va a fallar.
+
+140
+00:08:11,820 --> 00:08:20,820
+Seguimos soportando serverless rendering, pero sabemos que obtener la geolocalización corre en esta parte en específico.
+
+141
+00:08:20,820 --> 00:08:23,820
+Entonces acá yo podría llamar a una API como...
+
+142
+00:08:24,820 --> 00:08:26,820
+LocalStorage, por ejemplo.
+
+143
+00:08:26,820 --> 00:08:27,820
+Yo puedo llamar LocalStorage.
+
+144
+00:08:27,820 --> 00:08:31,820
+Que LocalStorage también viene desde el navegador.
+
+145
+00:08:31,820 --> 00:08:34,820
+Es decir, LocalStorage no tiene sentido correrlo en Node.
+
+146
+00:08:34,820 --> 00:08:36,820
+¿Por qué? Pues esa API no existe.
+
+147
+00:08:36,820 --> 00:08:45,820
+Y otras APIs que pues están bajo y que sólo corren cuando ya están en el browser y no tienen sentido correrlo en el servidor de Node.
+
+148
+00:08:45,820 --> 00:08:53,820
+Entonces esta es la función que deberíamos nosotros ejecutar si queremos realmente correr algo que sólo queremos que corra del lado del navegador.
+
+149
+00:08:53,820 --> 00:08:55,820
+En este caso, Locations.
+
+150
+00:08:55,820 --> 00:09:01,820
+Entonces si vas a tu navegador te vas a dar cuenta que si haces el...
+
+151
+00:09:01,820 --> 00:09:03,820
+Ver código fuente, vas a ver que tiene contenido.
+
+152
+00:09:03,820 --> 00:09:09,820
+Es decir, no perdemos el contenido que fue renderizado desde el servidor que en este caso es el menú.
+
+153
+00:09:09,820 --> 00:09:11,820
+El OpenMenu, ahí están los links.
+
+154
+00:09:11,820 --> 00:09:16,820
+Y por acá por ejemplo sale este P que es el tamaño o número de elementos.
+
+155
+00:09:16,820 --> 00:09:21,820
+Pero esos elementos que sí pueden ser renderizados del lado del server salen sin ningún problema.
+
+156
+00:09:21,820 --> 00:09:22,820
+Y todo lo que está dentro del server, salen sin ningún problema.
+
+157
+00:09:22,820 --> 00:09:29,820
+Y todo lo que está dentro de esa función AfterNodeRender sólo se ejecuta una vez ya esté aquí corriendo en nuestro browser.
+
+158
+00:09:29,820 --> 00:09:34,820
+Sólo tendría sentido correrlo cuando ya está ejecutándose en el navegador del usuario.
+
+159
+00:09:34,820 --> 00:09:38,820
+Entonces para afrontar ese tipo de desafíos tienes dos opciones.
+
+160
+00:09:38,820 --> 00:09:42,820
+Una es renderizar toda la página desde el modo que tú elijas.
+
+161
+00:09:42,820 --> 00:09:44,820
+Puedes elegir Server-Serv Rendering.
+
+162
+00:09:44,820 --> 00:09:50,820
+Puedes elegir directamente que una ruta completa sea renderizada sólo por el client.
+
+163
+00:09:50,820 --> 00:09:51,820
+O AfterProVendering.
+
+164
+00:09:51,820 --> 00:09:52,820
+Cualquier.
+
+165
+00:09:52,820 --> 00:09:53,820
+Esas opciones.
+
+166
+00:09:53,820 --> 00:10:00,820
+Pero recuerda que ahí el objetivo es que toda esa página se renderiza completita con el modo de render que hayas elegido.
+
+167
+00:10:00,820 --> 00:10:04,820
+Lo que yo te aconsejo es que si son sólo piezas pequeñas,
+
+168
+00:10:04,820 --> 00:10:10,820
+como precisamente esas llamadas chiquiticas, a local storage, a navigator, a todas esas APIs del browser,
+
+169
+00:10:10,820 --> 00:10:16,820
+pues utilices el AfterNodeRender que es el método más adecuado para manejar este tipo de cosas.
+
+170
+00:10:16,820 --> 00:10:21,820
+Antes normalmente lo que hacíamos es tener unos if que nos daba Angular con isPlatform.
+
+171
+00:10:21,820 --> 00:10:27,820
+Y entonces hacíamos un if de si está corriendo en el servidor o si está corriendo en el browser.
+
+172
+00:10:27,820 --> 00:10:34,820
+Y también lo corríamos con cosas como el AfterViewInit, que es otro hook de Angular para saber si ya todavía ha sido cargado.
+
+173
+00:10:34,820 --> 00:10:42,820
+Pero realmente ahora la forma correcta es simplemente en vez de preguntar detener if es el AfterNodeRender.
+
+174
+00:10:42,820 --> 00:10:50,820
+Todo lo que metas allí básicamente Angular o le dice a Angular, hey, ese trozo de código no lo ejecutes en el servidor, ejecútalo cuando la aplicación ya está.
+
+175
+00:10:50,820 --> 00:10:55,820
+Cuando la aplicación ya ha sido cargada la primera vez y ya está viva en el navegador.
+
+176
+00:10:55,820 --> 00:10:59,820
+Entonces esa API tiene sentido y no va a dar ningún problema.
+
+177
+00:10:59,820 --> 00:11:02,820
+Entonces esa es la forma moderna de enfrentar ese tipo de problemas.
+
+178
+00:11:02,820 --> 00:11:05,820
+Y listo. Esto ha sido todo por el video de hoy.
+
+179
+00:11:05,820 --> 00:11:12,820
+Recuerda dejar tu comentario. Dime en los comentarios qué otras APIs del navegador sueles usar y que te ha dado problemas con Server-Shared Rendering.
+
+180
+00:11:12,820 --> 00:11:19,820
+Ya tienes una solución de por si tienes dos opciones que son muy interesantes y es la forma como moderna de atajar el problema.
+
+181
+00:11:19,820 --> 00:11:21,820
+Déjame en los comentarios qué otra API del navegador.
+
+182
+00:11:21,820 --> 00:11:29,820
+Hay ya muchas APIs del lado del navegador, así que tienen bastante sentido una vez tú estás trabajando con proyectos que tengan Server-Shared Rendering.
+
+183
+00:11:29,820 --> 00:11:31,820
+Así que nos vemos en la próxima.
+

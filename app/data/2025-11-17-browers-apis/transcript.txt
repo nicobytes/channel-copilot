@@ -1,0 +1,183 @@
+Si tienes una aplicación en Angular y activas el Server Side Rendering,
+puedes empezar a tener problemas con las APIs que corren en el navegador,
+así como Glocalization, Local Storage, y esto ¿por qué?
+Porque al final, recuerda que cuando activas el Server Side Rendering,
+todo eso corre en un servidor de Node.
+Y el servidor de Node no tiene Glocalization, no tiene Local Storage,
+porque son APIs que van desde el lado del cliente.
+Entonces, en este video te voy a enseñar cuál es la mejor manera en Angular
+de manejarlo.
+Si bien en Angular ya teníamos algunas opciones,
+hay dos nuevos métodos en el Angular moderno que te voy a enseñar.
+Entonces, imagina que tienes un componente como este,
+Locations Component, que al final es una página que rende
+en ciertas locaciones de acuerdo a la latitud y longitud de nuestro usuario.
+Y lo más típico que podrías tener es, ok, pues tengo un Engine Unit,
+y luego ahí, una vez ya cargo la página, el componente,
+pues puedo hacer como esta llamada,
+a Navigator, Glocalization, y obtener la locación.
+Si bien puede funcionar cuando tenemos aplicaciones en Angular,
+cuando activas el modo de Server Side Rendering,
+esta parte no tiene sentido en el servidor de Node,
+porque un servidor de Node no tiene esta API,
+así como no tiene otras como Local Storage o el Canvas, por ejemplo,
+para hacer Rendering, porque ya son dos modos de correr la aplicación.
+Uno, el Server Side Rendering, y otro, precisamente este de unas APIs
+que no tienen acceso o solo tienen sentido llamar o ejecutar
+cuando ya corren del lado del browser.
+Entonces, ¿cómo se maneja esta dualidad básicamente en Angular?
+¿Y cuál es la forma moderna de hacerlo?
+Vamos a ver primero qué pasa y cuál es el error que nos arroja
+cuando nosotros intentamos correr esto en una aplicación con Server Side Rendering.
+Veamos que acá tengo un simple e-commerce que al final hace Server Side Rendering.
+Entonces, si nosotros vamos acá a ver el código fuente,
+vamos a ver que realmente hay contenido.
+Si tú activas el código fuente, si tú activas el código fuente,
+si tú activas Server Side Rendering o básicamente no tienes Server Side Rendering,
+normalmente esto es una página en blanco.
+Esto no tiene nada de contenido porque precisamente no hay nada renderizado desde el servidor.
+Puede que una vez llegue y tú acá le des inspeccionar encuentres contenido,
+pero es porque el browser lo está renderizando.
+Una forma de nuevo de probarlo es darle clic secundario,
+ver código fuente y ver si hay contenido o no.
+Esto facilita el performance, también facilita el posicionamiento de motores de búsqueda.
+Pero, ¿qué pasa con ese location?
+Fíjate que acá realmente sí funciona de alguna manera, sí lo obtiene,
+sin embargo, vamos a tener algún problema desde el lado de Node.js.
+Si nosotros vamos a ver nuestra terminal,
+fíjate que por acá en nuestra terminal empezamos a tener algunos errores
+porque cuando entramos a locations, a esa ruta en específica,
+pues él dice, ok, pues voy a ingresar.
+Y como el rendering lo hace Node, pues se pierde y esa API del Navigation,
+no existe.
+¿Cómo evitamos y cuál es la manera efectiva en el Angular actual,
+en el Angular moderno de hacerlo?
+Vamos a ver.
+En el Angular moderno, en las APIs actuales,
+hay dos maneras o las dos mejores maneras de arreglar este problema
+y saber cuándo correr efectivamente código que necesitamos que sólo corra en el browser
+y cuándo realmente manejar sólo el servidor.
+Realmente hay dos features.
+Una y la más interesante creo que es el nuevo método, el After Next Render,
+que es diseñado para esto, para que sólo se ejecute cuando necesitamos APIs del navegador.
+Y la otra es hacerlo por defecto con Servered Routes,
+es decir, nosotros por cada ruta podríamos definir una estrategia de rendering.
+Vamos a ver en código esto qué significa.
+La primera y más sencilla es que desde la versión 19 o 20 de Angular
+tenemos una estrategia o un archivo en específico que se llama AppRouteServer.
+Ese define, es diferente a las rutas normales de Android,
+las que tenemos en Angular, fíjate que estas serían las rutas que yo tengo en esta aplicación,
+tengo cierto pad con el load component,
+pero si tú ya activas Servered Servered Rendering vas a tener este archivo extra.
+Y este archivo extra no define qué componente debe cargar con cierta ruta,
+sino define la estrategia de renderizado.
+Fíjate que por defecto él dice todo lo voy a renderizar por el lado del servidor,
+pero también existe otra que se llama Prerendering
+y finalmente hay una muy interesante,
+que sería la de Client.
+Es decir, yo puedo definir con cierta ruta, con cierto criterio,
+cómo se va a renderizar ese pad.
+Por ejemplo, si Location directamente es una página muy interactiva,
+no quiero nada de Servered Servered Rendering,
+pues puedo escoger Client.
+Es decir, aquí literalmente esa página en específico sólo se renderiza con el browser,
+no va a ser ningún Servered Servered Rendering.
+Entonces, por ejemplo, vamos a ver la diferencia.
+Si nosotros vemos el navegador,
+si inspeccionamos el código directamente de Locations,
+vamos a ir a ver código fuente y vamos a ver que no hay nada de contenido.
+Significa que realmente todo el pad de Locations sólo se renderiza por el lado del cliente.
+Sin embargo, otras páginas, digamos como la de Home,
+si yo le hago ver código fuente, acá veo todo el contenido,
+no veo una página en vacío.
+Significa que yo puedo definir la estrategia de acuerdo al pad en específico.
+Acá entonces me podría solucionar el problema,
+porque definitivamente entonces si Locations sólo carga desde el cliente,
+pues puedo llamar a las APIs del browser sin ningún problema.
+El beneficio o el tradeoff básicamente es que perderías como toda esta parte del Servered Servered Rendering
+en Location, en ese pad en específico.
+Entonces, esta es una opción, una opción bastante válida,
+pero vamos a ver que también hay un método muy interesante
+que nos ayudaría a afrontar esto.
+Y no perder el Servered Servered Rendering porque puede que,
+si bien Locations utiliza la API del navegador,
+puedo que yo sí quiera renderizar otras secciones,
+como el header, el footer, etc.
+No quiero perder todo el contenido.
+Recuerda que acá en Locations todo el pad perdió todo el contenido
+porque ahora sólo se renderiza desde el browser.
+Ahora vamos a ver cuál es esa otra forma que es hacer usándolo el After Next Render.
+Si tú te vas a la docencia,
+si tú te vas a la documentación directa de Angular
+en todo lo que es el ciclo de vida del componente,
+nosotros tenemos como lo más habitual que es el ngOnInit,
+el ngOnChange, etc.
+Sin embargo, hay dos nuevos métodos que cumplen con la función
+un poco más asociado al rendering.
+Esta, por ejemplo, va más asociada a la detección de cambios,
+pero esta en específico va más asociada al rendering.
+Y esta After Next Render es la que más se utiliza.
+Es decir, acá nos dice que esto sólo corre una vez cada vez que todos los componentes
+ya han sido renderizados desde el cliente y ya los tenemos disponibles en el DOM.
+Y está esta otra que es After Every Render, esta corre cada vez.
+Entonces cada vez que un componente es renderizado va y me refresca.
+Acá vamos a utilizar esta porque yo sólo lo quiero una vez.
+Una vez cargado el componente, traigo la geolocalización y renderizo mi mapa,
+renderizo mi lógica.
+Pero precisamente necesito una vez.
+Precisamente necesito esta función, After Next Render.
+Entonces voy a volver aquí a este archivo.
+Le voy a decir que Locations sí quiero que sea renderizado desde el servidor,
+pero luego me voy a mover aquí a mi componente y entonces esto ya no lo hago en el EngineInit.
+¿Cuál es la manera de correr efectivamente este nuevo hook, este nuevo método?
+Realmente tendríamos que ponerlo en el constructor y poner el método After.
+Next Render.
+Y ahí es donde de forma segura entonces llamamos a APIs que vengan del navegador.
+Acá ya no necesitaríamos al EngineInit.
+Entonces pues lo quitamos acá de esta manera.
+Y esta sería la forma.
+De esta forma no nos va a fallar.
+Seguimos soportando serverless rendering, pero sabemos que obtener la geolocalización corre en esta parte en específico.
+Entonces acá yo podría llamar a una API como...
+LocalStorage, por ejemplo.
+Yo puedo llamar LocalStorage.
+Que LocalStorage también viene desde el navegador.
+Es decir, LocalStorage no tiene sentido correrlo en Node.
+¿Por qué? Pues esa API no existe.
+Y otras APIs que pues están bajo y que sólo corren cuando ya están en el browser y no tienen sentido correrlo en el servidor de Node.
+Entonces esta es la función que deberíamos nosotros ejecutar si queremos realmente correr algo que sólo queremos que corra del lado del navegador.
+En este caso, Locations.
+Entonces si vas a tu navegador te vas a dar cuenta que si haces el...
+Ver código fuente, vas a ver que tiene contenido.
+Es decir, no perdemos el contenido que fue renderizado desde el servidor que en este caso es el menú.
+El OpenMenu, ahí están los links.
+Y por acá por ejemplo sale este P que es el tamaño o número de elementos.
+Pero esos elementos que sí pueden ser renderizados del lado del server salen sin ningún problema.
+Y todo lo que está dentro del server, salen sin ningún problema.
+Y todo lo que está dentro de esa función AfterNodeRender sólo se ejecuta una vez ya esté aquí corriendo en nuestro browser.
+Sólo tendría sentido correrlo cuando ya está ejecutándose en el navegador del usuario.
+Entonces para afrontar ese tipo de desafíos tienes dos opciones.
+Una es renderizar toda la página desde el modo que tú elijas.
+Puedes elegir Server-Serv Rendering.
+Puedes elegir directamente que una ruta completa sea renderizada sólo por el client.
+O AfterProVendering.
+Cualquier.
+Esas opciones.
+Pero recuerda que ahí el objetivo es que toda esa página se renderiza completita con el modo de render que hayas elegido.
+Lo que yo te aconsejo es que si son sólo piezas pequeñas,
+como precisamente esas llamadas chiquiticas, a local storage, a navigator, a todas esas APIs del browser,
+pues utilices el AfterNodeRender que es el método más adecuado para manejar este tipo de cosas.
+Antes normalmente lo que hacíamos es tener unos if que nos daba Angular con isPlatform.
+Y entonces hacíamos un if de si está corriendo en el servidor o si está corriendo en el browser.
+Y también lo corríamos con cosas como el AfterViewInit, que es otro hook de Angular para saber si ya todavía ha sido cargado.
+Pero realmente ahora la forma correcta es simplemente en vez de preguntar detener if es el AfterNodeRender.
+Todo lo que metas allí básicamente Angular o le dice a Angular, hey, ese trozo de código no lo ejecutes en el servidor, ejecútalo cuando la aplicación ya está.
+Cuando la aplicación ya ha sido cargada la primera vez y ya está viva en el navegador.
+Entonces esa API tiene sentido y no va a dar ningún problema.
+Entonces esa es la forma moderna de enfrentar ese tipo de problemas.
+Y listo. Esto ha sido todo por el video de hoy.
+Recuerda dejar tu comentario. Dime en los comentarios qué otras APIs del navegador sueles usar y que te ha dado problemas con Server-Shared Rendering.
+Ya tienes una solución de por si tienes dos opciones que son muy interesantes y es la forma como moderna de atajar el problema.
+Déjame en los comentarios qué otra API del navegador.
+Hay ya muchas APIs del lado del navegador, así que tienen bastante sentido una vez tú estás trabajando con proyectos que tengan Server-Shared Rendering.
+Así que nos vemos en la próxima.

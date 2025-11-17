@@ -31,7 +31,7 @@ def transcribe(path: str):
 
 @app.command()
 def summary(path: str):
-    file = open(f"./{path}/transcript.md", "r+")
+    file = open(f"./{path}/transcript.txt", "r+")
     transcript = file.read()
     summary = summary_chain.invoke({
         "transcript": transcript,

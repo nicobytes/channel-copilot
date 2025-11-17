@@ -8,13 +8,16 @@ from langchain_openai.chat_models.base import BaseChatOpenAI
 
 prompt = hub.pull("nicobutes/linkedin")
 
-#model = ChatOpenAI(model="gpt-4o")
+model = ChatOpenAI(model="gpt-4o")
+'''	
 model = BaseChatOpenAI(
     model='deepseek-reasoner', 
     openai_api_key=settings.deepseek_api_key, 
     openai_api_base='https://api.deepseek.com',
     max_tokens=1024
 )
+'''
+
 
 output_parser = StrOutputParser()
 

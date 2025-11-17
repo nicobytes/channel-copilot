@@ -5,7 +5,7 @@ from langchain import hub
 
 prompt = hub.pull("nicobutes/dalle")
 
-model = ChatOpenAI(model="gpt-4-0125-preview")
+model = ChatOpenAI(model="gpt-4o")
 output_parser = StrOutputParser()
 
 dalle_chain = (

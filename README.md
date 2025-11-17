@@ -20,10 +20,9 @@ poetry install
 ```sh
 conda create --name channel python=3.10
 conda activate channel
-conda install pytorch torchvision torchaudio pytorch-cuda=11.7 -c pytorch -c nvidia
 conda install -c conda-forge poetry
 conda install -c conda-forge ffmpeg
-conda env export > environment.yml
+conda env export --from-history --file env.yml
 poetry init
 
 ```

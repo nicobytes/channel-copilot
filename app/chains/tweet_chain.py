@@ -8,7 +8,7 @@ from langchain_openai.chat_models.base import BaseChatOpenAI
 
 prompt = hub.pull("nicobutes/youtube-tweet")
 
-model = ChatOpenAI(model="gpt-4o")
+model = ChatOpenAI(model="gpt-5.1")
 '''
 model = BaseChatOpenAI(
     model='deepseek-reasoner', 

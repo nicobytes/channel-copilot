@@ -15,5 +15,8 @@ transcribe:
     echo $FOLDER
     cd app && python main.py transcribe $FOLDER
 
-summary:
-    cd app && python main.py summary $FOLDER
+linkedin:
+    cd app && python main.py linkedin $FOLDER $YOUTUBE_LINK "Developers" "text" "video"
+
+tweet:
+    cd app && python main.py tweet $FOLDER $YOUTUBE_LINK "Developers"

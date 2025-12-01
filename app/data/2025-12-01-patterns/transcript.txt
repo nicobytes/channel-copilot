@@ -1,0 +1,485 @@
+Si estás construyendo agentes de inteligencia artificial, ya habrás notado que ya hay bastantes opciones en el mercado
+como frameworks para implementar agentes de inteligencia artificial o workflows.
+Realmente ahorita hay un debate en que si es un agente o que es un workflow,
+pero detrás de ello hay unos patrones que son bastante sólidos, que no importa el framework,
+estos patrones como que se repiten a través de diferentes tipos de tecnologías.
+Así que si aprendes esos patrones vas a poder identificar, notar y cómo se implementa en el framework que tú elijas.
+Por eso en este video voy a hablar de esos patrones, los patrones más importantes
+y qué arquitecturas se han construido que son muy interesantes y vitales que se han implementado para construir agentes.
+Así que empecemos.
+Para ello voy a basarme en el ya mítico blowpost que hizo Anthropic de cómo construir agentes efectivos
+y ahí es donde explican toda esta serie de patrones.
+Acá explican cuál es la forma de implementarlos, cómo deberían ser, cómo funcionan
+y al final cada uno de los frameworks.
+Los frameworks que ahorita existen en la industria casi que se basan en estos patrones que describe muy bien este artículo.
+Ahora, antes de iniciar directamente con las diferentes patrones y arquitecturas
+hay que entender algo muy sencillo y que creo que ya todos tenemos en nuestra cabeza
+y es que nosotros al final tenemos un nodo o un large language model
+que al final le enviamos un input y él transforma eso y tiene un output.
+Básicamente un large language model es un cerebro muy inteligente
+y de pronto podemos empezar a darle acciones, como darle articulaciones para que haga algo.
+Por ejemplo, lo podríamos hacer por medio de un retrieval, una técnica de rack
+para aumentar la información que tiene ese large language model
+con algunas condiciones, con program engineering, etc.
+También podemos empezar a darle tools para que acceda a nuestros sistemas, haga acciones per se.
+Esto también podríamos conectarlo con un MCP y al final también tenemos memoria, ¿no?
+Como que tenemos un historial, etc.
+Entonces esto es lo básico, básicamente.
+Un large language model que tiene este tipo de artefactos para empezar a manipular,
+lo que nosotros empezamos a darle de int y lo que esperamos de output.
+Eso es como el nodo principal.
+Sin embargo, en una arquitectura o en nuestros patrones de agentes
+vamos a ver que podemos tener múltiples para que empiecen a colaborar precisamente con un solo fin.
+Entonces, si lo vemos ya en acción, un large language model con ese input y ese output es algo así.
+En este momento estoy utilizando el gestor gráfico de Landgraf
+que también es un gran framework para desarrollar agentes y tiene este entorno gráfico.
+No es el único, hay otros frameworks que también lo tienen.
+Por ejemplo, el Google ADK también lo tiene.
+Pero, a ver, mandémosle algo.
+Entonces, si yo le envío un hola, recordemos que acá lo que yo voy a llamar nodo 1
+es una conexión a un large language model con un system prompt,
+puede tener una técnica de rack, puede tener un function calling, etc.
+Pero es un nodo que tiene una conexión a un large language model con una técnica en particular.
+Puede tener un rack, etc.
+Entonces acá vemos la respuesta y vemos si se entera o no.
+Entonces, yo tengo aquí la acción sencilla, un large language model,
+que a veces con esto es suficiente.
+A veces, implementar todo este tipo de patrones y arquitecturas puede ser un poco sobre ingeniería,
+pero ya vamos a hablar un poco más de eso.
+Ahora, ¿cuáles son esos patrones que nos define Anthropic en ese artículo?
+Realmente son varios, acá yo más o menos intento organizarlos.
+Por ejemplo está el de chaining, que es como ya tener varias llamadas a un large language model
+pero se comportan de forma serializada.
+Luego está el routing.
+luego está algo llamado un orchestrator, etc.
+Estos son precisamente los patrones que él empieza a definir en este artículo,
+como estas bases.
+Y algo muy divertido de este artículo en específico es que Entropic empezó diciendo,
+oigan, miren, realmente estos son los principios o los patrones que ustedes necesitan
+para construir agentes realmente efectivos.
+Y no necesitan de framework, un simple script de Python o un simple script de JavaScript
+podría hacerlo, ¿no?
+Como con la arquitectura y estructuras de datos que ya conocemos de la programación convencional,
+podemos lograr este tipo de arquitecturas, este tipo de patrones.
+Sin embargo, realmente desde mi punto de vista, esto es como sobrevalorar el problema.
+Realmente sí se necesita ciertas estructuras, cierta ayuda de un framework
+para que realmente se haga de la forma correcta.
+Obviamente lo puedes hacer con código nativo, a vainila, sin ninguna ayuda,
+pero realmente yo te recomiendo utilizar un framework.
+Y es tanto así que varios frameworks ya utilizan este artículo o estos patrones como apoyo.
+Es decir, dicen, mira, tú quieres implementar este patrón en nuestro framework,
+acá está la documentación.
+Por ejemplo, el de Cloudflare.
+Cloudflare Agents tiene su propia forma de hacer agentes dentro de su infraestructura
+y acá está una sección de Patterns en donde volvemos a repetir.
+Te dicen, mira, así se hace un Prontaining, así se hace un Routing, así se hace un Parallelization.
+¿Bien?
+Otros frameworks.
+Por ejemplo, el de Trigger.
+Acá te dice cómo hacer un Prontaining, un Routing, Parallelization, Orchestration.
+Acá, por ejemplo, hay libros ya.
+Mastra también es un gran framework para construir agentes y te dice,
+te da un libro en donde también te explica un poco acerca de estos patrones.
+El otro más común, por ejemplo, es el de AISDK de Bersel,
+que lo trabaja más como workflows,
+pero estamos hablando otra vez casi de los mismos patrones.
+Secuencial, Parallelizar, Orquestar, Routing.
+Por ejemplo, Microsoft también lo tiene.
+Microsoft Agent Framework, un nuevo framework que también ellos están lanzando
+y que va a ser el reemplazo de este Mandatee Claremont y de Auto Agent que ellos tenían.
+Acá te dicen, mira, acá también tenemos estos patrones.
+Entonces, vas a notar que estos patrones se repiten sin importar el framework que estás manejando.
+Es por eso que es muy importante entender estos patrones.
+Y por eso decidí hacer este video, para explicarte cada uno de esos patrones,
+de qué trata, cuáles son sus casos de uso, cómo yo los usaría,
+para que tú luego los definas.
+No importa el framework, puede que elijas uno de Python, uno de JavaScript, lo que sea.
+Al final, todos están utilizando al fondo un poco de estos patrones
+y ya ves tú cómo lo implementas o si al final lo quieres hacer con Vanilla en Python directamente o en JavaScript.
+Yo te recomiendo un framework, pero al final los patrones son patrones, son agnósticos al framework.
+Eso es bastante importante para empezar a entenderlos.
+Y hay unas arquitecturas ya de agentes o de workflows
+que también se empezaron a crear.
+¿Qué es lo que se está haciendo?
+¿Qué es lo que se está haciendo?
+¿Qué es lo que se está haciendo?
+¿Qué es lo que se está haciendo?
+establecidos que utilizan estos patrones y son los que te voy a decir al final del vídeo así que empecemos
+el patrón más sencillo a utilizar es el de chaining de por sí de ahí salió
+launching que es como unas cadenas como un pylon encadenado
+básicamente este patrón se trata de algo que ya conocemos en estructura de datos de programación que es como
+la entrada de uno o la salida de un elemento es la entrada del otro y se encadenan esto es
+estructura de datos de programación
+acá por ejemplo tú tienes un tenemos dos llamadas dos nodos que se conectan a un language model
+acá tenemos una arquitectura que también puede ser híbrida puede ser multi
+multimodelo es decir yo puedo en este nodo el nodo extractor
+puede estar conectado a un cloud a un modelo open source por ejemplo pero el de conversation puede ser un
+gpt4 por ejemplo esto se puede en este tipo de arquitecturas cada nodo cada
+llamada a la
+lengua model puede ser específico puede utilizar un modelo que realmente suple las necesidades que necesita
+por ejemplo esto es uno clásico en el cual lo que nosotros tenemos es un inicio que puede ser el historial de una conversación
+recordemos que pues la lengua model no sólo viven en un chat
+también viven en otro tipo de interfaces que no sólo son un chat
+pero pues lo que más hemos visto son chats para implementar este tipo de patrones entonces normalmente puede haber lo que sea puede ser un
+archivo puede ser un
+pull request para hacer un code review lo que sea o puede ser el historial de una conversación lo inicia
+luego podemos tener un nuevo extractor el nuevo extractor digamos que en este caso lo que hace es
+extraer cómo la
+información que hay dentro de la conversación
+si el usuario ya me dejó algunos detalles su teléfono su nombre y luego si lo pasa al nodo de conversación
+entonces vemos cómo se puede hacer un shane o sea como que antes de llamar a una operación a un nodo en particular
+pues yo llamo otro ocu
+Y así podría encadenar y encadenar muchos, como un PyLamp.
+Por ejemplo, también algo que se utiliza mucho este tipo de patrón es para generar contenido de redes sociales.
+Por ejemplo, algo sencillo podría ser que yo tengo un nodo que evalúa como lo que me envía el usuario,
+hago un post, hago el tweet o hago el LinkedIn y luego puedo tener un nodo que se encargue específicamente de generar la imagen.
+En este caso yo podría utilizar un modelo específicamente, puede ser de Hugging Face, uno de Meta, algún otro,
+y decirle que con base a ese tweet generado, pues al texto me genere una imagen que represente ese tweet.
+Entonces podría entrar dentro de un Shaining, dentro de una arquitectura Shaining.
+Vamos a darle una acción, por ejemplo, si yo acá le digo hola, hola, soy Nicolás Molina y mi...
+email es nicolás, arroba, digamos, gmail.com.
+Entonces vamos a ver que acá va a cruzar algo que tiene chévere este entorno gráfico,
+es que me va mostrando un poco como cada nodo interactúa.
+De nuevo, ya varios frameworks tienen también su entorno gráfico para hacer debugging,
+entonces esto lo puedes encontrar en otros ecosistemas.
+Pero fíjate que acá yo tengo mi nuevo extractor que tiene un PROM en específico,
+un System PROM en específico para leer.
+Y aquí me trajo la información.
+Puede que me conecte a un modelo como GPT-4, como Cloud,
+o unos modelos que son específicamente para extraer información,
+que no son un Lar Language Model como tal,
+pero sí son específicos para una tarea muy particular.
+Entonces ahí es donde también me permite utilizar una arquitectura multimodelos.
+O puedo utilizar un Lar Language Model, que pues son multimodal, son multitarea,
+y le pido con apunta de System PROM, pues que me extraiga información.
+Por ejemplo, aquí me extrajo la información del nombre del usuario,
+porque yo se lo dije, ¿no?
+Le dije hola, yo soy Nicolás Molina.
+Y luego siguió al Conversation, que es un Lar Language Model o un nodo en específico
+que recibe esa información y puede que en su contexto, en su memoria,
+como ya obtuvo el nombre, pues yo pueda utilizar esa información en el nodo de conversación.
+Por ejemplo, podría decirle, oye, contéstale de esta manera,
+recuerda que este usuario tiene este email, para que lo tenga como en su contexto.
+Eso también se puede hacer.
+También podría ser una técnica de, pues lee todo el historial, etc.
+Este es un patrón muy interesante, muy útil y de los más sencillos que se pueden utilizar
+para implementarlo en tus agentes.
+Ahora, también hay que tener en cuenta una desventaja que tiene este patrón,
+o no desventaja per se, sino que debido a que los modelos van incrementando,
+van incrementando su capacidad de razonamiento.
+Por ejemplo, ahorita ya tenemos Gemini 3, Tynkin,
+y estos modelos que tienen por defecto razonamiento,
+una cadena de pensamiento, Chain of Thought,
+a veces simplemente no necesitamos un chaining,
+podemos con un buen prompt y con buenos steps decirle, mira,
+por ejemplo, para el de los tweets, para el que genera como todo un resumen,
+le puedo dar toda una cadena de pensamiento y decirle, no,
+primero haz esto y luego haz lo segundo y luego haz lo tercero
+y luego genérame una imagen de acuerdo al punto 3,
+entonces a punta de System Prompt yo también podría generar este chaining.
+Sin embargo, depende mucho de tu sistema, a veces realmente,
+a veces realmente, a veces realmente,
+a veces realmente, a veces realmente, a veces realmente,
+más complicado sea la tarea que quieres resolver,
+puede que el System Prompt pueda empezar a ser demasiado lento
+y entonces puedas mejor utilizar una técnica de dividir y vencer,
+entonces mejor tienes dos llamadas a la Language Model
+con dos prompts diferentes encargados y los encadenas.
+Depende de tu caso de uso, ya es parte de la iteración
+si te sirven dos llamadas por separado y hacer chaining
+o simplemente un buen prompt utilizando una cadena de pensamiento.
+Vamos a pasar de lleno
+a nuestro segundo round,
+pero antes de que nos acompañen,
+vamos a hacer una pequeña reflexión sobre los temas que habíamos hablado antes de que nos habíamos hablado
+patrón que es el de routing. Ahora, el de routing al final es muy utilizado
+en customer support, todo lo que es servicio al cliente, y básicamente lo que hace es que
+tenemos un nodo especializado en detectar o en derivar.
+Entonces podemos tener otros nodos, o vamos a empezar a llamarlos
+agentes, entonces los agentes que son especializados en una tarea
+en específico. Por ejemplo, en hacer booking, es decir, poder hacer reservas
+dentro de un sistema, de acuerdo a unas reglas, de acuerdo a unos horarios, pero
+hay otro agente especializado en resolver preguntas frecuentes. Tengo
+varios PDFs, lo alimenté con esos PDFs, con los manuales
+y es especializado en ello. Entonces, si yo tengo un agente
+de soporte, necesito empezar a hacer derivaciones. Oiga, la persona
+lo que quiere es empezar a, de pronto, ir a ese knowledge base,
+a esa base de conocimiento y resolverlo con base a esos manuales, o
+quiere agendar una cita dentro de nuestro sistema. Entonces hay que hacer una derivación y ahí es
+donde el patrón de routing
+nos ayuda. Vamos a ver cómo se implementa o cómo funcionaría un poco en vivo
+en Landgraf. Entonces aquí tenemos básicamente varios de estas cosas.
+Acá tenemos de nuevo como un nodo extractor. El nodo extractor podría
+empezar a hacer esa función de derivación. De nuevo, es un
+language model con un modelo en específico, en el cual yo le envío
+la historia de la conversación, algunos insights para saber cómo tomar la decisión.
+Pero fíjate que ese nodo en específico no envía una
+respuesta al usuario final. No construye la respuesta hacia el usuario.
+Solo sabe a qué agente derivarlo y el agente ya toma la
+conversación y pues resuelve. Pero no responde hacia el usuario, solo
+deriva. Entonces, por ejemplo, si yo en cambio, entonces si yo le digo
+un hola, ¿cómo estás? En teoría debería
+el agente, el que toma la conversación, debería ser
+conversation. Vamos a ver si lo hace. Ahí extrajo datos, luego
+fa conversation. Fíjate que no se fue a hacer un booking porque
+no es necesario. Literalmente el agente especializado como en seguir
+la conversación es ese. Pero si yo le empiezo a decir cosas
+como quiero una cita
+para mañana, digamos.
+Entonces, como que aquí ya hay una intención de appointment, de booking,
+entonces él debería llevarlo al booking. Y bueno, y acá
+tenemos un sistema que empieza a hacer todo el
+agendamiento. Por ejemplo, aquí me podría contestar, vamos a ver
+qué me contestó aquí en el chat. Me dice, esto es un prototipo que tengo
+para agendamiento de citas. Entonces, como el que lo tomó fue el agente de citas,
+empieza a preguntar, oye, mira, pues, por favor dime tu
+nombre completo, la hora en que prefieres, el nombre del doctor, etc. Pero lo importante
+de este patrón es que empezó a hacer derivación de acuerdo a un
+agente especializado.
+Vamos a entrar a otro que es muy interesante, que es el de paralelización.
+Este otro patrón es muy interesante porque lo que me permite
+es correr varios de la language model al mismo tiempo.
+A diferencia, por ejemplo, del de chaining, como que yo tengo que esperar
+la respuesta de uno para luego ejecutar otro. En el de routing,
+básicamente se ejecuta uno o el otro, pero no los dos.
+Se ejecuta el de booking o el de conversation. No los dos. Paralelización
+permite correr en paralelo.
+Realmente yo puedo empezar a correr tareas en paralelo y luego tengo que
+tener un aggregator que básicamente une todas las respuestas de los nodos
+que se o los agentes que se corrieron en paralelo y construye una respuesta
+final. Vamos a verlo en acción. Entonces imagínate ahora este caso.
+Tenemos un agente que hace code review. Bien, en code review, si bien
+podríamos en un solo prompt poner todo, como que reglas de seguridad,
+reglas de mantenimiento, reglas de performance. Aquí, por ejemplo,
+por rapidez y por tener prompt, podemos poner un agente que hace un code review.
+Si somos especializados en cada tema, podríamos tener un prompt específico
+para evaluar la seguridad del código. Otro para la mantenibilidad
+y, por ejemplo, otro para el performance. Bien, en este caso, yo no
+quiero escoger uno o el otro. Quiero realmente ejecutar todos
+y quiero ejecutar todos en paralelo. Es decir, que todos se vayan a ejecutar
+al mismo tiempo y luego voy a tener un aggregator que es el que
+mira todas las respuestas, como que recolecta todas las respuestas
+que yo haya tenido de cada uno de los agentes.
+Entonces, yo voy a crear un agente y construyo una respuesta final.
+Entonces, así funciona. Entonces, por ejemplo, digamos que acá ya no sería
+mi start o mi input como tal, no sería un texto, un historial, puede ser código.
+Entonces, voy a enviarle acá código. Entonces, no sé, voy a enviarle un if.
+Y voy a enviarle un pedazo de código. Vamos a ver cuál me pongo por acá.
+Aquí me traje un pedazo de código que tengo por ahí. Acá está.
+Son unas tools que tengo literalmente. Y este es el código. Vamos a ver
+qué hace con este código.
+Entonces, yo lo envío y puedo ver precisamente cómo él empieza
+en paralelo a ser los dos. Es decir, está haciendo security y
+mantenibility. Y luego el aggregator suma las respuestas de los dos
+hasta que todos terminen. Porque ahí sí todos tienen que terminar al mismo tiempo
+para enviar solo y consolidar todo en una respuesta final. Pero tengo el aggregator
+que es el que me consolida todas las respuestas y lo envía hacia el usuario.
+Entonces, por ejemplo, si yo me voy acá, bueno, acá literalmente ya tengo la respuesta.
+Vamos a abrirlo un poco por acá. Y acá tengo el final review.
+Yo puedo ver de alguna manera, puedo ver que acá el security tengo sus respuestas,
+pero también tengo el de mantenibility. Y luego pues tengo el aggregator que al final
+resume todo y me construye una respuesta final.
+Y mira, aquí deberíamos hacer esto. Acá hay unos security actions, etc.
+Acá entonces tenemos un patrón muy interesante que es ejecutar varios nodos en paralelo.
+Recuerda, aquí no es que se ejecutó uno o el otro, todos se ejecutan al mismo tiempo.
+Yo puedo tener cinco agentes en paralelo, revisando cada uno algo en específico.
+Luego el aggregator va a esperar que cada uno pues acabe con su trabajo y envía
+consolida. El aggregator también tiene su propio prompt. Un poco la debilidad
+de este tipo de arquitecturas es que cada nodo, cada agente es una llamada
+y pues como es una llamada con tokens, pues cuesta dinero. Entonces aquí el aggregator
+también tiene su propio prompt para consolidar toda la información y enviar una respuesta
+en un tono, en un output format, etc. Pero tiene una llamada, una language model
+para enviarla como el consolidado final. Pero así funciona el de parallelization.
+Ahora vámonos por uno de los patrones más complejos que es el orchestrator.
+Este actúa como si fuera un project manager. Es decir, tiene varios workers, varios trabajadores,
+varios agentes. Sabe cuál es la especialidad de cada uno de ellos. Y aquí también tiene
+la especialidad de cada uno, pero él va a analizar y va a delegar las tareas.
+Entonces tiene un poquito de routing y parallelization. ¿Por qué? Porque al final
+yo no, el de routing no elige solo uno, puede elegir varios y tiene parallelization
+porque de esos varios que elija los ejecuta en paralelo, los ejecuta en simultáneo.
+Entonces lo interesante de este patrón es que, de nuevo, es como un project manager
+que define de acuerdo a la tarea que le envíen cuál agente es el mejor.
+Esta vez no ejecuta todos, ejecuta cuál es el mejor. Yo creo que de acuerdo a, y de nuevo,
+todo esto es un system prompt, mi agente decide cuál es el que, bueno, yo tengo que darle
+el contexto de cuáles son mis agentes, cuáles son mis tareas dentro de todo mi sistema de grafo,
+todo mi sistema de agentes. Pero al final él sabría, oye, creo que para lo que me están diciendo
+tengo que utilizar este agente y este otro. Y esos dos son los que yo ejecuto en paralelo
+y de nuevo tengo que elegir cuál es el mejor. Y entonces yo tengo que elegir cuál es el mejor.
+Tengo un patrón que es el aggregator que al final, pues, todos los nodos, todos los agentes
+que el project manager eligió ejecutar, pues, espera la respuesta de cada uno y consolidé
+una respuesta final. Veámoslo de nuevo en ejecución. Entonces acá tenemos el orchestrator.
+Fíjate que el orchestrator tenemos, de nuevo, nodo 1, nodo 2, nodo 3, agente 1, agente 2,
+agente 3, cada uno especializado en algo en particular. Y acá yo voy a enviar algo.
+Por ejemplo, le envío un hola. Este ejemplo sí lo hice randómico, es decir,
+él simplemente de forma randómica va a elegir qué nodo ejecutar. Entonces aquí, por ejemplo,
+el orchestrator, que sería nuestro project manager, eligió por alguna razón, porque dentro de su
+system prompt, dentro de la tarea, dentro de su conocimiento, decidió que el nodo 2 y 3 o agente
+2 y 3 eran los ideales para contestar o atender a esta solicitud. Fíjate que no eligió todos,
+eligió solo dos de los tres que tenía disponibles. Esos los ejecuta en paralelo y luego le agrega
+el nodo 1. Entonces el orchestrator consolida la respuesta y la envía o produce el informe o hace
+las interacciones en tu sistema, lo que sea. Pero elige los que él crea conveniente para desarrollar
+esa tarea en particular. Ejecutémoslo otra vez a ver si tengo otra respuesta. Hola, bla, bla, bla.
+Vamos a ver qué elige esta vez. Entonces acá tengo, acá eligió el nodo 1 y nodo 2. En el otro me eligió
+el nodo 3 y el nodo 2. Fíjate que estos ya son otros nodos. A veces elige solo uno. A veces simplemente dice,
+pues realmente solo necesito un agente. Entonces elijo ese en particular. Casi que lo vuelve un
+shaming, ¿no? Pero de nuevo, él es el que tiene la potestad de decir, ok, realmente solo necesito 1,
+2, 3. Los pongo a ejecutar en paralelo y el agregador pues al final consolida esa respuesta
+final. De por sí, esto me hace recordar a este paper que ya es viejito del 2023, en donde antes
+que existieran los modelos multimodal y todo este tipo de cosas y una arquitectura,
+agentes per se, ya existía algo similar que fue expuesto aquí por Microsoft en un paper llamado
+Hugging GPT, en donde literalmente nos dicen, oigan, pues nosotros podríamos tener un planner
+como alguien que analice la tarea, sepa qué modelo correr, elijo cuál es el modelo adecuado y luego
+pues crea una respuesta final. Acá vemos un poco cómo él lo hace en varios, digamos, fases, ¿no?
+Hace una tarea de planning que sería el orchestrator, luego selecciona,
+cuál es el modelo, cuál es ese agente que necesita ejecutar para resolver esa tarea,
+luego las ejecuta per se y luego hace la parte de response generation, que es como ese agregador.
+Entonces aquí ya teníamos un bostezo, un primer prototipo que fue muy bien explicado en este
+paper de Microsoft, ya es un poquito viejito, pero creo que es muy útil para este tipo de patrones.
+Y ahora llegamos a nuestro último patrón, el patrón de evaluator. ¿Qué significa?
+El evaluator optimizer, que es como el nombre completo, significa que yo puedo poner a un
+language model a juzgar otro language model o la respuesta que produzca, básicamente,
+debido también a unas reglas, a un system plan que nosotros le pongamos, etc.
+¿Cómo funciona? Básicamente yo le produzco mi agente que puede tener arquitectura,
+puede tener parallelization, puede tener lo que sea. Recordemos que estos son los patrones,
+pero yo puedo combinar varios de ellos, puedo tener un routing, un chaining, un evaluator, un orchestrator y varios.
+Y yo puedo mostrar uno gráficamente como se vería. Pero al final, el evaluator yo puedo poner algo llamado
+un jurado, que también se conoce como la language model as judge, que es básicamente que él mismo juzga la respuesta.
+Y si no le parece, si no cumple con un criterio, lo devuelve al sistema hasta que produzca esa información.
+De por sí este loop es el vital ahorita en los agentes. Y te voy a decir cuál es el patrón real que básicamente
+utiliza este loop para ir mejorando.
+Entonces, el loop es el patrón real que se utiliza para que el agente pueda tener una respuesta,
+y el agente pueda tener una respuesta hasta que resuelva la tarea en particular.
+Ese loop es muy potente porque le da características más de workflow de agente que él,
+hasta que básicamente no solucione el problema y no cumpla con un criterio, no devuelve la información.
+También hay que ser delicados con este patrón porque se puede quedar en un loop infinito y al final esto consume recursos,
+consume tokens, consume dinero. Vamos a verlo cómo se ve gráficamente.
+Entonces, acá tengo una arquitectura Evaluator Observations.
+Básicamente yo tengo un nodo o un agente o una arquitectura de agentes que son la que me hace la parte de generación.
+Y luego básicamente tengo aquí un Evaluator Node que básicamente evalúa el resultado de esa generación
+y con base en ello va a evaluar si realmente cumple con las reglas, si es eficiente, las reglas que tú pongas
+porque al final también es un System Prompt.
+Tú colocas las reglas de qué es bueno, qué es malo, qué es lo que tú esperas, cuál es la respuesta correcta,
+y él va a evaluarlo.
+Normalmente aquí se utiliza una técnica de Structured Output para colocar un True o False o un Rango
+si realmente tiene como la aprobación necesaria.
+Si no, básicamente se devuelve al ciclo y le pasa ese feedback.
+Eso es importante porque no solo lo puede devolver, tendríamos que pasarle un feedback en qué falló para que lo trate de volver a pulir.
+Acá tengo un ejemplo y es un generador de bromas que realmente un Language Model es muy...
+malo para generar como chistes y los chistes son muy subjetivos, pero vamos a intentarlo.
+Bien, entonces acá por ejemplo este agente genera bromas y por ende yo aquí tengo un generador de bromas súper sencillo
+y acá le puedo decir qué Topic, entonces por ejemplo yo quiero un Topic y le voy a tratar de sesgarlo a que me genere un...
+como un chiste aburrido.
+Por ende mi Evaluator Node tiene unas reglas muy especiales.
+Por ende mi Evaluator Node tiene unas reglas muy especiales.
+Por ende mi Evaluator Node tiene unas reglas muy especiales.
+Por ende mi Evaluator Node tiene unas reglas muy especiales.
+Por ende mi Evaluator Node tiene unas reglas muy especiales.
+Dice que un chiste debería ser de más de dos párrafos y además de eso debería ser divertido, que es difícil evaluar que es divertido,
+entonces normalmente tú podrías utilizar un FewShop para colocarle algunos ejemplos,
+pero la más sencilla es, en este caso, en este ejemplo, es que le coloque que al menos sea de dos párrafos,
+o sea no puede ser de una línea, que obviamente hay chistes buenos de una sola línea, pero en fin, es un ejemplo
+y el Evaluator va como con esas reglas que de nuevo las colocas tú con un chiste,
+vas a evaluarlo y si no cumple entonces va a ir a devolverlo, obtiene ese feedback y lo pule, lo mejora, genera una nueva versión.
+Entonces vamos a ver cómo funciona, vamos a darle, pues enviarlo, ahí pasa por el Generator, pasa por el Evaluator,
+fíjate que lo devolvió al Generator y fue otra vez al Evaluator y se terminó el ciclo.
+Entonces aquí cumplimos con un ciclo de una iteración, esto es delicado porque a veces tenemos reglas muy brutas,
+a veces esto se puede quedar en un ciclo infinito, porque, no sé, colocamos algo muy estricto en el nuevo Evaluator
+o algo que nunca va a pasar y entonces se queda ahí en un ciclo. Normalmente también un buen patrón es colocarle un límite de ciclos, de loops,
+más de cinco, más de seis, ya sálgase de forma forzada porque no cumplió con el objetivo.
+Pero miremos un poco la traza, a ver qué pasó. Entonces en la primera iteración, acá vemos que generó un chiste,
+acá yo tengo un System Prompt para generar un chiste.
+De acuerdo al Topic que me den, en este caso el Topic es un chiste aburrido.
+Entonces dice, ¿por qué el libro estaba aburrido? Porque tiene muchas páginas sin emoción.
+Sí, este chiste no es muy bueno realmente. Entonces fíjate que pasa por el Evaluator,
+yo tengo un Prompt allí que según yo, según un Prompt es de nuevo, según tú lo decides, según tu caso tú decides y también diseñas tú ese Prompt.
+¿Cuáles son mis reglas? ¿Cumplió o no con el objetivo que debería hacer?
+De pronto con algunos Few Shots, etcétera. Pero aquí yo le puse que debería ser más de dos párrafos, algo así, le puse algunas reglas.
+Entonces dice el chiste, como no pasó, él genera un Feedback.
+Ey, si no pasas, si al final no cumples con la regla del Evaluator, dame un Feedback para que yo se lo devuelva al Generator
+y con base a ese Feedback, pues él genere una nueva versión.
+Entonces aquí este fue el Feedback que le dio. El chiste es corto y sólo tiene dos líneas,
+por lo que no cumple con el requisito de ser más de dos párrafos. Esa fue una regla que yo le coloqué.
+Para mejorarlo podrías extender la historia, bla, bla, bla, bla.
+Entonces aquí le dio Feedback basado en una regla que yo mismo le puse.
+Ok, entonces volvió al Generator, tomó en cuenta ese Feedback del Evaluator y vuelve a generar una nueva versión.
+Entonces acá está una nueva versión del chiste. El libro estaba tan aburrido que si las arañas querían hacerse de la araña en sus páginas, algo así.
+En fin.
+Acá ya generó un chiste que cumple un poco más con lo que se espera, con lo que el Evaluator espera que cumpla.
+Entonces él aplica el Feedback, vuelve a pasar por el Evaluator, ya no hay Feedback porque ya está todo bien
+y acá tenemos una bandera que básicamente le dice que es divertido.
+Y luego finalmente pues ya retorna con el chiste final, con el proceso final.
+Así es que funciona el Evaluator, que es uno de los patrones más sencillos pero aún así muy sofisticados
+porque se utilizaron la LARP Web Model para evaluarlo.
+Recuerda que las reglas dependen de tu caso, así que también ese Prompt que haga la evaluación de la respuesta final también debe estar muy bien ajustado.
+Esos son, esos son los patrones que se utilizan hoy en día para construir agentes.
+Tú puedes construir esos agentes manual o puedes hacer con Vanilla.
+De nuevo, estas estructuras de datos ya las teníamos en nuestros lenguajes de programación como Python, Java, JavaScript, en la cual podíamos encadenar, orquestar, ejecutar tareas en paralelo.
+Toda esta teoría pues ya la teníamos pero ahora está aplicada pues en agentes de IAI y en donde el que toma la decisión casi que son las LARP Language Model.
+Por ejemplo, el Orquestator, el que decide qué nodo ejecutar es un LARP Language Model, es nuestro cerebro.
+Y luego pues ya cumple con el patrón de orquestarlos, de ejecutarlos, etc.
+Por ejemplo, en este caso estoy utilizando Langraph y él se encarga como de toda esa orquestación, pues toda la parte de saber cómo hacerlo.
+Pero al final la parte de ingeniería es muy fácil.
+Entonces, el Orquestator, el que decide qué nodo ejecutar es un LARP Language Model.
+Así que elashed zhacって유�
+elu huaren
+tutOkay
+Robo
+mucho más potentes. Déjame mostrarte una cómo funciona, una que tiene el Landgraf de ejemplo,
+de ver cómo funcionaría un agente que genera contenido. Vamos a ver.
+Entonces, por ejemplo, tenemos este agente y vemos acá ya patrones mucho más complejos,
+vemos ya, podemos definir un poco qué es lo que está haciendo, por ejemplo, acá podría estar haciendo
+un routing o un parallelization, pero vemos exactamente cómo pasa, cuáles son los nodos,
+por ejemplo, acá ya genera el contenido, luego acá podemos tener un evaluator,
+casi que hay un loop aquí para condensar el post, luego hay un agente que busca imágenes,
+las valida, las rankea, luego tiene un human in the loop, luego acá tenemos algo para reescribirlo,
+en fin, fíjate que así ya se ve orquestar o básicamente utilizar no solo un patrón,
+sino ya varios de estos, varios en chaining, varios en routing, etc.
+Y acá es donde también entramos en un patrón interno.
+Es interesante que por si lo podemos ver por acá, que si no estoy mal era el tercero,
+que es un subgrafo, es decir, un agente que puede tener algo muy interesante,
+es decir, este agente en particular puede tener su propia técnica.
+Si yo lo expando, tiene una técnica que está basado en un loop,
+podríamos decir que esto es un, vamos a hacerle un poquito más de zoom,
+podríamos decir que este agente en particular tiene el patrón de un react loop
+o pues el evaluator optimizador.
+Y evaluator que tiene un ciclo que se repite y hasta que no cumpla, pues no acaba.
+Entonces fíjate que en este tipo de arquitecturas, si bien acá lo tenemos como si fuera un routing,
+internamente cada uno de estos nodos puede manejar una propuesta, una arquitectura en particular.
+Ahora, si ya vimos todos estos patrones, ¿cómo se utilizan esos patrones en la industria?
+Pues al final, de nuevo, todo depende de tu caso en particular.
+Hay uno que es como la arquitectura más...
+más sólida, que se llama react, que es un patrón que une la parte de reasoning y acting
+y básicamente es una mezcla de orchestrator con evaluator.
+No per se, no divide en agentes, utiliza literalmente las características de la language model para hacer call functions,
+pero se puede ver algo así.
+Básicamente lo que hace es entender el contexto y la tarea inicial,
+a ese language model le damos una serie de tools y él es el que decide,
+con medio de iteración,
+cuántas veces llamar, cuáles tools hay que llamar, en qué momento hay que llamar,
+si le falta una iteración más para resolver la tarea, hasta que finalmente la resuelve y produce una respuesta.
+Es más, a veces la respuesta puede ser para pedir más información.
+Hey, necesito más información porque la información que me diste no es suficiente.
+Necesito más información.
+Entonces, como que yo le puedo decir al usuario, dame más contexto, dame más cosas,
+y luego vuelve a entrar y ya con la nueva información puede ejecutar todo este loop.
+Entonces es muy interesante.
+Pero recuerda que hay que tener mucho cuidado con estos patrones.
+Ahora, ¿a qué me refiero que hay que tener cuidado con estos patrones?
+Al final, como en el mundo de ingeniería de software, también podemos caer en sobreingeniería.
+Es decir, empezar a optimizar donde no hay que optimizar,
+a colocar arquitecturas muy complejas en donde posiblemente un React architecture o simplemente un loop
+o un buen prompt puede solucionarlo con muy buenas tools.
+Entonces hay que hacer mucha iteración y realmente saber si tu agente necesita una arquitectura,
+un simple chaining o simplemente un buen prompt y ya.
+Entonces todo depende de tu caso de uso, de qué tan complejo sea tu agente.
+Realmente hay agentes que pueden ser muy, muy complejos.
+Entonces a veces necesitamos como una arquitectura muy amplia.
+Pero de pronto para el caso que tú necesites, con un patrón sencillo y potente a la vez como un React,
+todo está bien.
+Así que eso es hasta aquí el video.
+Espero que te haya gustado.
+Espero que hayas disfrutado de este contenido acerca de agentes.
+Así que suscríbete y espero empezar a ahondar en cada una de estas arquitecturas un poco más a fondo.
+Un orchestrator, un React agent, cómo lo incorporamos, etc.
+Hablar más de agentes y ver cómo lo llevamos a producción.
+Así que suscríbete a este canal y nos vemos en la próxima.

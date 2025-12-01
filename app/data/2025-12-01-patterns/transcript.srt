@@ -1,0 +1,1940 @@
+1
+00:00:00,000 --> 00:00:05,600
+Si estás construyendo agentes de inteligencia artificial, ya habrás notado que ya hay bastantes opciones en el mercado
+
+2
+00:00:05,600 --> 00:00:09,980
+como frameworks para implementar agentes de inteligencia artificial o workflows.
+
+3
+00:00:10,420 --> 00:00:13,200
+Realmente ahorita hay un debate en que si es un agente o que es un workflow,
+
+4
+00:00:13,660 --> 00:00:17,960
+pero detrás de ello hay unos patrones que son bastante sólidos, que no importa el framework,
+
+5
+00:00:18,120 --> 00:00:22,060
+estos patrones como que se repiten a través de diferentes tipos de tecnologías.
+
+6
+00:00:22,360 --> 00:00:28,160
+Así que si aprendes esos patrones vas a poder identificar, notar y cómo se implementa en el framework que tú elijas.
+
+7
+00:00:28,160 --> 00:00:32,840
+Por eso en este video voy a hablar de esos patrones, los patrones más importantes
+
+8
+00:00:32,840 --> 00:00:39,900
+y qué arquitecturas se han construido que son muy interesantes y vitales que se han implementado para construir agentes.
+
+9
+00:00:40,020 --> 00:00:40,940
+Así que empecemos.
+
+10
+00:00:41,120 --> 00:00:47,880
+Para ello voy a basarme en el ya mítico blowpost que hizo Anthropic de cómo construir agentes efectivos
+
+11
+00:00:47,880 --> 00:00:50,940
+y ahí es donde explican toda esta serie de patrones.
+
+12
+00:00:51,060 --> 00:00:55,580
+Acá explican cuál es la forma de implementarlos, cómo deberían ser, cómo funcionan
+
+13
+00:00:55,580 --> 00:00:58,140
+y al final cada uno de los frameworks.
+
+14
+00:00:58,160 --> 00:01:03,500
+Los frameworks que ahorita existen en la industria casi que se basan en estos patrones que describe muy bien este artículo.
+
+15
+00:01:03,600 --> 00:01:07,660
+Ahora, antes de iniciar directamente con las diferentes patrones y arquitecturas
+
+16
+00:01:07,660 --> 00:01:11,440
+hay que entender algo muy sencillo y que creo que ya todos tenemos en nuestra cabeza
+
+17
+00:01:11,440 --> 00:01:15,640
+y es que nosotros al final tenemos un nodo o un large language model
+
+18
+00:01:15,640 --> 00:01:19,520
+que al final le enviamos un input y él transforma eso y tiene un output.
+
+19
+00:01:19,680 --> 00:01:22,600
+Básicamente un large language model es un cerebro muy inteligente
+
+20
+00:01:22,600 --> 00:01:28,080
+y de pronto podemos empezar a darle acciones, como darle articulaciones para que haga algo.
+
+21
+00:01:28,160 --> 00:01:32,380
+Por ejemplo, lo podríamos hacer por medio de un retrieval, una técnica de rack
+
+22
+00:01:32,380 --> 00:01:35,180
+para aumentar la información que tiene ese large language model
+
+23
+00:01:35,180 --> 00:01:38,020
+con algunas condiciones, con program engineering, etc.
+
+24
+00:01:38,540 --> 00:01:43,180
+También podemos empezar a darle tools para que acceda a nuestros sistemas, haga acciones per se.
+
+25
+00:01:43,580 --> 00:01:48,000
+Esto también podríamos conectarlo con un MCP y al final también tenemos memoria, ¿no?
+
+26
+00:01:48,000 --> 00:01:49,960
+Como que tenemos un historial, etc.
+
+27
+00:01:50,480 --> 00:01:52,660
+Entonces esto es lo básico, básicamente.
+
+28
+00:01:52,660 --> 00:01:58,040
+Un large language model que tiene este tipo de artefactos para empezar a manipular,
+
+29
+00:01:58,160 --> 00:02:01,860
+lo que nosotros empezamos a darle de int y lo que esperamos de output.
+
+30
+00:02:02,100 --> 00:02:03,860
+Eso es como el nodo principal.
+
+31
+00:02:04,460 --> 00:02:07,900
+Sin embargo, en una arquitectura o en nuestros patrones de agentes
+
+32
+00:02:07,900 --> 00:02:13,920
+vamos a ver que podemos tener múltiples para que empiecen a colaborar precisamente con un solo fin.
+
+33
+00:02:15,080 --> 00:02:20,080
+Entonces, si lo vemos ya en acción, un large language model con ese input y ese output es algo así.
+
+34
+00:02:20,500 --> 00:02:23,340
+En este momento estoy utilizando el gestor gráfico de Landgraf
+
+35
+00:02:23,340 --> 00:02:27,840
+que también es un gran framework para desarrollar agentes y tiene este entorno gráfico.
+
+36
+00:02:28,160 --> 00:02:30,460
+No es el único, hay otros frameworks que también lo tienen.
+
+37
+00:02:30,460 --> 00:02:34,460
+Por ejemplo, el Google ADK también lo tiene.
+
+38
+00:02:34,460 --> 00:02:36,160
+Pero, a ver, mandémosle algo.
+
+39
+00:02:36,160 --> 00:02:40,660
+Entonces, si yo le envío un hola, recordemos que acá lo que yo voy a llamar nodo 1
+
+40
+00:02:40,660 --> 00:02:44,460
+es una conexión a un large language model con un system prompt,
+
+41
+00:02:44,460 --> 00:02:48,660
+puede tener una técnica de rack, puede tener un function calling, etc.
+
+42
+00:02:48,660 --> 00:02:53,660
+Pero es un nodo que tiene una conexión a un large language model con una técnica en particular.
+
+43
+00:02:53,660 --> 00:02:55,160
+Puede tener un rack, etc.
+
+44
+00:02:55,160 --> 00:02:58,140
+Entonces acá vemos la respuesta y vemos si se entera o no.
+
+45
+00:02:58,140 --> 00:03:01,040
+Entonces, yo tengo aquí la acción sencilla, un large language model,
+
+46
+00:03:01,040 --> 00:03:03,040
+que a veces con esto es suficiente.
+
+47
+00:03:03,040 --> 00:03:08,040
+A veces, implementar todo este tipo de patrones y arquitecturas puede ser un poco sobre ingeniería,
+
+48
+00:03:08,040 --> 00:03:10,040
+pero ya vamos a hablar un poco más de eso.
+
+49
+00:03:10,040 --> 00:03:16,040
+Ahora, ¿cuáles son esos patrones que nos define Anthropic en ese artículo?
+
+50
+00:03:16,040 --> 00:03:19,040
+Realmente son varios, acá yo más o menos intento organizarlos.
+
+51
+00:03:19,040 --> 00:03:24,040
+Por ejemplo está el de chaining, que es como ya tener varias llamadas a un large language model
+
+52
+00:03:24,040 --> 00:03:27,040
+pero se comportan de forma serializada.
+
+53
+00:03:27,040 --> 00:03:28,040
+Luego está el routing.
+
+54
+00:03:28,140 --> 00:03:30,420
+luego está algo llamado un orchestrator, etc.
+
+55
+00:03:30,720 --> 00:03:35,860
+Estos son precisamente los patrones que él empieza a definir en este artículo,
+
+56
+00:03:35,980 --> 00:03:36,700
+como estas bases.
+
+57
+00:03:37,040 --> 00:03:41,840
+Y algo muy divertido de este artículo en específico es que Entropic empezó diciendo,
+
+58
+00:03:42,000 --> 00:03:47,440
+oigan, miren, realmente estos son los principios o los patrones que ustedes necesitan
+
+59
+00:03:47,440 --> 00:03:50,120
+para construir agentes realmente efectivos.
+
+60
+00:03:50,120 --> 00:03:56,100
+Y no necesitan de framework, un simple script de Python o un simple script de JavaScript
+
+61
+00:03:56,100 --> 00:03:57,420
+podría hacerlo, ¿no?
+
+62
+00:03:57,420 --> 00:04:01,640
+Como con la arquitectura y estructuras de datos que ya conocemos de la programación convencional,
+
+63
+00:04:02,140 --> 00:04:06,060
+podemos lograr este tipo de arquitecturas, este tipo de patrones.
+
+64
+00:04:06,560 --> 00:04:10,920
+Sin embargo, realmente desde mi punto de vista, esto es como sobrevalorar el problema.
+
+65
+00:04:11,140 --> 00:04:15,560
+Realmente sí se necesita ciertas estructuras, cierta ayuda de un framework
+
+66
+00:04:15,560 --> 00:04:18,140
+para que realmente se haga de la forma correcta.
+
+67
+00:04:18,700 --> 00:04:22,660
+Obviamente lo puedes hacer con código nativo, a vainila, sin ninguna ayuda,
+
+68
+00:04:23,120 --> 00:04:25,540
+pero realmente yo te recomiendo utilizar un framework.
+
+69
+00:04:25,540 --> 00:04:30,960
+Y es tanto así que varios frameworks ya utilizan este artículo o estos patrones como apoyo.
+
+70
+00:04:31,320 --> 00:04:35,500
+Es decir, dicen, mira, tú quieres implementar este patrón en nuestro framework,
+
+71
+00:04:35,820 --> 00:04:36,780
+acá está la documentación.
+
+72
+00:04:37,000 --> 00:04:38,700
+Por ejemplo, el de Cloudflare.
+
+73
+00:04:38,880 --> 00:04:42,780
+Cloudflare Agents tiene su propia forma de hacer agentes dentro de su infraestructura
+
+74
+00:04:42,780 --> 00:04:46,780
+y acá está una sección de Patterns en donde volvemos a repetir.
+
+75
+00:04:47,040 --> 00:04:53,700
+Te dicen, mira, así se hace un Prontaining, así se hace un Routing, así se hace un Parallelization.
+
+76
+00:04:53,700 --> 00:04:54,160
+¿Bien?
+
+77
+00:04:54,600 --> 00:04:55,460
+Otros frameworks.
+
+78
+00:04:55,540 --> 00:04:56,620
+Por ejemplo, el de Trigger.
+
+79
+00:04:56,780 --> 00:05:01,040
+Acá te dice cómo hacer un Prontaining, un Routing, Parallelization, Orchestration.
+
+80
+00:05:01,600 --> 00:05:03,440
+Acá, por ejemplo, hay libros ya.
+
+81
+00:05:03,820 --> 00:05:07,500
+Mastra también es un gran framework para construir agentes y te dice,
+
+82
+00:05:08,300 --> 00:05:11,880
+te da un libro en donde también te explica un poco acerca de estos patrones.
+
+83
+00:05:12,420 --> 00:05:16,720
+El otro más común, por ejemplo, es el de AISDK de Bersel,
+
+84
+00:05:16,960 --> 00:05:18,440
+que lo trabaja más como workflows,
+
+85
+00:05:18,860 --> 00:05:21,240
+pero estamos hablando otra vez casi de los mismos patrones.
+
+86
+00:05:21,800 --> 00:05:25,120
+Secuencial, Parallelizar, Orquestar, Routing.
+
+87
+00:05:25,540 --> 00:05:27,100
+Por ejemplo, Microsoft también lo tiene.
+
+88
+00:05:27,480 --> 00:05:30,860
+Microsoft Agent Framework, un nuevo framework que también ellos están lanzando
+
+89
+00:05:30,860 --> 00:05:36,480
+y que va a ser el reemplazo de este Mandatee Claremont y de Auto Agent que ellos tenían.
+
+90
+00:05:37,220 --> 00:05:40,220
+Acá te dicen, mira, acá también tenemos estos patrones.
+
+91
+00:05:40,320 --> 00:05:44,580
+Entonces, vas a notar que estos patrones se repiten sin importar el framework que estás manejando.
+
+92
+00:05:44,780 --> 00:05:47,220
+Es por eso que es muy importante entender estos patrones.
+
+93
+00:05:47,460 --> 00:05:51,440
+Y por eso decidí hacer este video, para explicarte cada uno de esos patrones,
+
+94
+00:05:51,440 --> 00:05:55,020
+de qué trata, cuáles son sus casos de uso, cómo yo los usaría,
+
+95
+00:05:55,020 --> 00:05:57,060
+para que tú luego los definas.
+
+96
+00:05:57,220 --> 00:06:01,760
+No importa el framework, puede que elijas uno de Python, uno de JavaScript, lo que sea.
+
+97
+00:06:02,120 --> 00:06:05,500
+Al final, todos están utilizando al fondo un poco de estos patrones
+
+98
+00:06:05,500 --> 00:06:12,220
+y ya ves tú cómo lo implementas o si al final lo quieres hacer con Vanilla en Python directamente o en JavaScript.
+
+99
+00:06:12,660 --> 00:06:17,100
+Yo te recomiendo un framework, pero al final los patrones son patrones, son agnósticos al framework.
+
+100
+00:06:17,520 --> 00:06:19,720
+Eso es bastante importante para empezar a entenderlos.
+
+101
+00:06:20,240 --> 00:06:23,140
+Y hay unas arquitecturas ya de agentes o de workflows
+
+102
+00:06:23,140 --> 00:06:24,780
+que también se empezaron a crear.
+
+103
+00:06:24,780 --> 00:06:24,880
+¿Qué es lo que se está haciendo?
+
+104
+00:06:24,880 --> 00:06:24,920
+¿Qué es lo que se está haciendo?
+
+105
+00:06:24,920 --> 00:06:25,000
+¿Qué es lo que se está haciendo?
+
+106
+00:06:25,000 --> 00:06:27,000
+¿Qué es lo que se está haciendo?
+
+107
+00:06:27,000 --> 00:06:32,600
+establecidos que utilizan estos patrones y son los que te voy a decir al final del vídeo así que empecemos
+
+108
+00:06:32,640 --> 00:06:37,520
+el patrón más sencillo a utilizar es el de chaining de por sí de ahí salió
+
+109
+00:06:37,800 --> 00:06:42,560
+launching que es como unas cadenas como un pylon encadenado
+
+110
+00:06:42,840 --> 00:06:48,440
+básicamente este patrón se trata de algo que ya conocemos en estructura de datos de programación que es como
+
+111
+00:06:48,440 --> 00:06:54,260
+la entrada de uno o la salida de un elemento es la entrada del otro y se encadenan esto es
+
+112
+00:06:54,260 --> 00:06:56,260
+estructura de datos de programación
+
+113
+00:06:56,460 --> 00:07:02,620
+acá por ejemplo tú tienes un tenemos dos llamadas dos nodos que se conectan a un language model
+
+114
+00:07:03,040 --> 00:07:06,660
+acá tenemos una arquitectura que también puede ser híbrida puede ser multi
+
+115
+00:07:07,200 --> 00:07:10,740
+multimodelo es decir yo puedo en este nodo el nodo extractor
+
+116
+00:07:11,180 --> 00:07:18,320
+puede estar conectado a un cloud a un modelo open source por ejemplo pero el de conversation puede ser un
+
+117
+00:07:18,660 --> 00:07:23,020
+gpt4 por ejemplo esto se puede en este tipo de arquitecturas cada nodo cada
+
+118
+00:07:23,360 --> 00:07:24,080
+llamada a la
+
+119
+00:07:24,080 --> 00:07:30,400
+lengua model puede ser específico puede utilizar un modelo que realmente suple las necesidades que necesita
+
+120
+00:07:30,400 --> 00:07:37,480
+por ejemplo esto es uno clásico en el cual lo que nosotros tenemos es un inicio que puede ser el historial de una conversación
+
+121
+00:07:38,100 --> 00:07:41,880
+recordemos que pues la lengua model no sólo viven en un chat
+
+122
+00:07:42,120 --> 00:07:45,600
+también viven en otro tipo de interfaces que no sólo son un chat
+
+123
+00:07:45,780 --> 00:07:52,500
+pero pues lo que más hemos visto son chats para implementar este tipo de patrones entonces normalmente puede haber lo que sea puede ser un
+
+124
+00:07:52,500 --> 00:07:53,980
+archivo puede ser un
+
+125
+00:07:53,980 --> 00:07:59,300
+pull request para hacer un code review lo que sea o puede ser el historial de una conversación lo inicia
+
+126
+00:07:59,620 --> 00:08:04,640
+luego podemos tener un nuevo extractor el nuevo extractor digamos que en este caso lo que hace es
+
+127
+00:08:05,080 --> 00:08:06,440
+extraer cómo la
+
+128
+00:08:06,440 --> 00:08:08,440
+información que hay dentro de la conversación
+
+129
+00:08:08,580 --> 00:08:15,600
+si el usuario ya me dejó algunos detalles su teléfono su nombre y luego si lo pasa al nodo de conversación
+
+130
+00:08:16,360 --> 00:08:21,960
+entonces vemos cómo se puede hacer un shane o sea como que antes de llamar a una operación a un nodo en particular
+
+131
+00:08:22,440 --> 00:08:23,620
+pues yo llamo otro ocu
+
+132
+00:08:23,620 --> 00:08:27,680
+Y así podría encadenar y encadenar muchos, como un PyLamp.
+
+133
+00:08:28,040 --> 00:08:32,760
+Por ejemplo, también algo que se utiliza mucho este tipo de patrón es para generar contenido de redes sociales.
+
+134
+00:08:33,360 --> 00:08:39,480
+Por ejemplo, algo sencillo podría ser que yo tengo un nodo que evalúa como lo que me envía el usuario,
+
+135
+00:08:40,300 --> 00:08:46,800
+hago un post, hago el tweet o hago el LinkedIn y luego puedo tener un nodo que se encargue específicamente de generar la imagen.
+
+136
+00:08:46,800 --> 00:08:54,080
+En este caso yo podría utilizar un modelo específicamente, puede ser de Hugging Face, uno de Meta, algún otro,
+
+137
+00:08:54,580 --> 00:09:01,160
+y decirle que con base a ese tweet generado, pues al texto me genere una imagen que represente ese tweet.
+
+138
+00:09:01,540 --> 00:09:06,740
+Entonces podría entrar dentro de un Shaining, dentro de una arquitectura Shaining.
+
+139
+00:09:06,740 --> 00:09:16,740
+Vamos a darle una acción, por ejemplo, si yo acá le digo hola, hola, soy Nicolás Molina y mi...
+
+140
+00:09:16,800 --> 00:09:21,480
+email es nicolás, arroba, digamos, gmail.com.
+
+141
+00:09:21,860 --> 00:09:28,700
+Entonces vamos a ver que acá va a cruzar algo que tiene chévere este entorno gráfico,
+
+142
+00:09:28,780 --> 00:09:32,120
+es que me va mostrando un poco como cada nodo interactúa.
+
+143
+00:09:32,400 --> 00:09:36,540
+De nuevo, ya varios frameworks tienen también su entorno gráfico para hacer debugging,
+
+144
+00:09:36,780 --> 00:09:39,420
+entonces esto lo puedes encontrar en otros ecosistemas.
+
+145
+00:09:39,820 --> 00:09:44,120
+Pero fíjate que acá yo tengo mi nuevo extractor que tiene un PROM en específico,
+
+146
+00:09:44,840 --> 00:09:46,780
+un System PROM en específico para leer.
+
+147
+00:09:46,800 --> 00:09:47,380
+Y aquí me trajo la información.
+
+148
+00:09:47,660 --> 00:09:51,040
+Puede que me conecte a un modelo como GPT-4, como Cloud,
+
+149
+00:09:51,340 --> 00:09:54,340
+o unos modelos que son específicamente para extraer información,
+
+150
+00:09:54,540 --> 00:09:56,420
+que no son un Lar Language Model como tal,
+
+151
+00:09:56,880 --> 00:10:00,100
+pero sí son específicos para una tarea muy particular.
+
+152
+00:10:00,660 --> 00:10:04,600
+Entonces ahí es donde también me permite utilizar una arquitectura multimodelos.
+
+153
+00:10:04,700 --> 00:10:08,460
+O puedo utilizar un Lar Language Model, que pues son multimodal, son multitarea,
+
+154
+00:10:08,620 --> 00:10:11,900
+y le pido con apunta de System PROM, pues que me extraiga información.
+
+155
+00:10:12,060 --> 00:10:16,740
+Por ejemplo, aquí me extrajo la información del nombre del usuario,
+
+156
+00:10:16,800 --> 00:10:17,880
+porque yo se lo dije, ¿no?
+
+157
+00:10:17,880 --> 00:10:19,260
+Le dije hola, yo soy Nicolás Molina.
+
+158
+00:10:19,640 --> 00:10:25,420
+Y luego siguió al Conversation, que es un Lar Language Model o un nodo en específico
+
+159
+00:10:25,420 --> 00:10:29,400
+que recibe esa información y puede que en su contexto, en su memoria,
+
+160
+00:10:29,400 --> 00:10:35,100
+como ya obtuvo el nombre, pues yo pueda utilizar esa información en el nodo de conversación.
+
+161
+00:10:35,460 --> 00:10:39,280
+Por ejemplo, podría decirle, oye, contéstale de esta manera,
+
+162
+00:10:39,640 --> 00:10:43,620
+recuerda que este usuario tiene este email, para que lo tenga como en su contexto.
+
+163
+00:10:44,440 --> 00:10:45,440
+Eso también se puede hacer.
+
+164
+00:10:45,440 --> 00:10:49,440
+También podría ser una técnica de, pues lee todo el historial, etc.
+
+165
+00:10:49,740 --> 00:10:54,360
+Este es un patrón muy interesante, muy útil y de los más sencillos que se pueden utilizar
+
+166
+00:10:54,360 --> 00:10:56,000
+para implementarlo en tus agentes.
+
+167
+00:10:56,220 --> 00:10:59,280
+Ahora, también hay que tener en cuenta una desventaja que tiene este patrón,
+
+168
+00:10:59,480 --> 00:11:04,020
+o no desventaja per se, sino que debido a que los modelos van incrementando,
+
+169
+00:11:04,160 --> 00:11:06,540
+van incrementando su capacidad de razonamiento.
+
+170
+00:11:06,680 --> 00:11:09,180
+Por ejemplo, ahorita ya tenemos Gemini 3, Tynkin,
+
+171
+00:11:09,540 --> 00:11:12,700
+y estos modelos que tienen por defecto razonamiento,
+
+172
+00:11:12,700 --> 00:11:14,880
+una cadena de pensamiento, Chain of Thought,
+
+173
+00:11:15,440 --> 00:11:17,860
+a veces simplemente no necesitamos un chaining,
+
+174
+00:11:18,260 --> 00:11:21,760
+podemos con un buen prompt y con buenos steps decirle, mira,
+
+175
+00:11:22,400 --> 00:11:26,120
+por ejemplo, para el de los tweets, para el que genera como todo un resumen,
+
+176
+00:11:26,560 --> 00:11:28,980
+le puedo dar toda una cadena de pensamiento y decirle, no,
+
+177
+00:11:29,100 --> 00:11:32,740
+primero haz esto y luego haz lo segundo y luego haz lo tercero
+
+178
+00:11:32,740 --> 00:11:36,320
+y luego genérame una imagen de acuerdo al punto 3,
+
+179
+00:11:36,780 --> 00:11:40,780
+entonces a punta de System Prompt yo también podría generar este chaining.
+
+180
+00:11:40,980 --> 00:11:44,560
+Sin embargo, depende mucho de tu sistema, a veces realmente,
+
+181
+00:11:44,560 --> 00:11:44,640
+a veces realmente, a veces realmente,
+
+182
+00:11:44,640 --> 00:11:45,420
+a veces realmente, a veces realmente, a veces realmente,
+
+183
+00:11:45,600 --> 00:11:48,240
+más complicado sea la tarea que quieres resolver,
+
+184
+00:11:48,340 --> 00:11:52,840
+puede que el System Prompt pueda empezar a ser demasiado lento
+
+185
+00:11:53,040 --> 00:11:56,320
+y entonces puedas mejor utilizar una técnica de dividir y vencer,
+
+186
+00:11:56,520 --> 00:11:59,960
+entonces mejor tienes dos llamadas a la Language Model
+
+187
+00:12:00,160 --> 00:12:03,300
+con dos prompts diferentes encargados y los encadenas.
+
+188
+00:12:03,500 --> 00:12:06,440
+Depende de tu caso de uso, ya es parte de la iteración
+
+189
+00:12:06,660 --> 00:12:09,660
+si te sirven dos llamadas por separado y hacer chaining
+
+190
+00:12:09,680 --> 00:12:13,140
+o simplemente un buen prompt utilizando una cadena de pensamiento.
+
+191
+00:12:13,340 --> 00:12:14,700
+Vamos a pasar de lleno
+
+192
+00:12:14,700 --> 00:12:15,320
+a nuestro segundo round,
+
+193
+00:12:15,320 --> 00:12:15,360
+pero antes de que nos acompañen,
+
+194
+00:12:15,360 --> 00:12:15,420
+vamos a hacer una pequeña reflexión sobre los temas que habíamos hablado antes de que nos habíamos hablado
+
+195
+00:12:15,420 --> 00:12:19,740
+patrón que es el de routing. Ahora, el de routing al final es muy utilizado
+
+196
+00:12:19,740 --> 00:12:23,440
+en customer support, todo lo que es servicio al cliente, y básicamente lo que hace es que
+
+197
+00:12:23,440 --> 00:12:27,460
+tenemos un nodo especializado en detectar o en derivar.
+
+198
+00:12:27,860 --> 00:12:31,320
+Entonces podemos tener otros nodos, o vamos a empezar a llamarlos
+
+199
+00:12:31,320 --> 00:12:35,260
+agentes, entonces los agentes que son especializados en una tarea
+
+200
+00:12:35,260 --> 00:12:39,480
+en específico. Por ejemplo, en hacer booking, es decir, poder hacer reservas
+
+201
+00:12:39,480 --> 00:12:43,280
+dentro de un sistema, de acuerdo a unas reglas, de acuerdo a unos horarios, pero
+
+202
+00:12:43,280 --> 00:12:47,000
+hay otro agente especializado en resolver preguntas frecuentes. Tengo
+
+203
+00:12:47,000 --> 00:12:51,180
+varios PDFs, lo alimenté con esos PDFs, con los manuales
+
+204
+00:12:51,180 --> 00:12:55,340
+y es especializado en ello. Entonces, si yo tengo un agente
+
+205
+00:12:55,340 --> 00:12:59,280
+de soporte, necesito empezar a hacer derivaciones. Oiga, la persona
+
+206
+00:12:59,280 --> 00:13:03,260
+lo que quiere es empezar a, de pronto, ir a ese knowledge base,
+
+207
+00:13:03,340 --> 00:13:07,200
+a esa base de conocimiento y resolverlo con base a esos manuales, o
+
+208
+00:13:07,200 --> 00:13:11,280
+quiere agendar una cita dentro de nuestro sistema. Entonces hay que hacer una derivación y ahí es
+
+209
+00:13:11,280 --> 00:13:12,960
+donde el patrón de routing
+
+210
+00:13:13,280 --> 00:13:17,500
+nos ayuda. Vamos a ver cómo se implementa o cómo funcionaría un poco en vivo
+
+211
+00:13:17,500 --> 00:13:21,460
+en Landgraf. Entonces aquí tenemos básicamente varios de estas cosas.
+
+212
+00:13:21,760 --> 00:13:25,380
+Acá tenemos de nuevo como un nodo extractor. El nodo extractor podría
+
+213
+00:13:25,380 --> 00:13:29,040
+empezar a hacer esa función de derivación. De nuevo, es un
+
+214
+00:13:29,040 --> 00:13:32,980
+language model con un modelo en específico, en el cual yo le envío
+
+215
+00:13:32,980 --> 00:13:37,420
+la historia de la conversación, algunos insights para saber cómo tomar la decisión.
+
+216
+00:13:37,740 --> 00:13:41,180
+Pero fíjate que ese nodo en específico no envía una
+
+217
+00:13:41,180 --> 00:13:45,120
+respuesta al usuario final. No construye la respuesta hacia el usuario.
+
+218
+00:13:45,360 --> 00:13:49,220
+Solo sabe a qué agente derivarlo y el agente ya toma la
+
+219
+00:13:49,220 --> 00:13:53,220
+conversación y pues resuelve. Pero no responde hacia el usuario, solo
+
+220
+00:13:53,220 --> 00:13:57,180
+deriva. Entonces, por ejemplo, si yo en cambio, entonces si yo le digo
+
+221
+00:13:57,180 --> 00:14:01,100
+un hola, ¿cómo estás? En teoría debería
+
+222
+00:14:01,100 --> 00:14:04,960
+el agente, el que toma la conversación, debería ser
+
+223
+00:14:04,960 --> 00:14:09,160
+conversation. Vamos a ver si lo hace. Ahí extrajo datos, luego
+
+224
+00:14:09,160 --> 00:14:13,120
+fa conversation. Fíjate que no se fue a hacer un booking porque
+
+225
+00:14:13,120 --> 00:14:17,000
+no es necesario. Literalmente el agente especializado como en seguir
+
+226
+00:14:17,000 --> 00:14:20,960
+la conversación es ese. Pero si yo le empiezo a decir cosas
+
+227
+00:14:20,960 --> 00:14:24,460
+como quiero una cita
+
+228
+00:14:24,460 --> 00:14:28,140
+para mañana, digamos.
+
+229
+00:14:28,960 --> 00:14:33,000
+Entonces, como que aquí ya hay una intención de appointment, de booking,
+
+230
+00:14:33,400 --> 00:14:37,060
+entonces él debería llevarlo al booking. Y bueno, y acá
+
+231
+00:14:37,060 --> 00:14:41,420
+tenemos un sistema que empieza a hacer todo el
+
+232
+00:14:41,420 --> 00:14:45,100
+agendamiento. Por ejemplo, aquí me podría contestar, vamos a ver
+
+233
+00:14:45,100 --> 00:14:48,980
+qué me contestó aquí en el chat. Me dice, esto es un prototipo que tengo
+
+234
+00:14:48,980 --> 00:14:53,300
+para agendamiento de citas. Entonces, como el que lo tomó fue el agente de citas,
+
+235
+00:14:53,680 --> 00:14:56,980
+empieza a preguntar, oye, mira, pues, por favor dime tu
+
+236
+00:14:56,980 --> 00:15:01,280
+nombre completo, la hora en que prefieres, el nombre del doctor, etc. Pero lo importante
+
+237
+00:15:01,280 --> 00:15:05,000
+de este patrón es que empezó a hacer derivación de acuerdo a un
+
+238
+00:15:05,000 --> 00:15:05,980
+agente especializado.
+
+239
+00:15:07,060 --> 00:15:10,760
+Vamos a entrar a otro que es muy interesante, que es el de paralelización.
+
+240
+00:15:11,540 --> 00:15:14,860
+Este otro patrón es muy interesante porque lo que me permite
+
+241
+00:15:14,860 --> 00:15:19,120
+es correr varios de la language model al mismo tiempo.
+
+242
+00:15:19,720 --> 00:15:22,800
+A diferencia, por ejemplo, del de chaining, como que yo tengo que esperar
+
+243
+00:15:22,800 --> 00:15:26,620
+la respuesta de uno para luego ejecutar otro. En el de routing,
+
+244
+00:15:26,800 --> 00:15:30,440
+básicamente se ejecuta uno o el otro, pero no los dos.
+
+245
+00:15:30,760 --> 00:15:34,700
+Se ejecuta el de booking o el de conversation. No los dos. Paralelización
+
+246
+00:15:34,700 --> 00:15:36,580
+permite correr en paralelo.
+
+247
+00:15:37,060 --> 00:15:40,860
+Realmente yo puedo empezar a correr tareas en paralelo y luego tengo que
+
+248
+00:15:40,860 --> 00:15:45,120
+tener un aggregator que básicamente une todas las respuestas de los nodos
+
+249
+00:15:45,120 --> 00:15:49,100
+que se o los agentes que se corrieron en paralelo y construye una respuesta
+
+250
+00:15:49,100 --> 00:15:52,760
+final. Vamos a verlo en acción. Entonces imagínate ahora este caso.
+
+251
+00:15:52,960 --> 00:15:56,880
+Tenemos un agente que hace code review. Bien, en code review, si bien
+
+252
+00:15:56,880 --> 00:16:01,140
+podríamos en un solo prompt poner todo, como que reglas de seguridad,
+
+253
+00:16:01,420 --> 00:16:04,800
+reglas de mantenimiento, reglas de performance. Aquí, por ejemplo,
+
+254
+00:16:05,200 --> 00:16:07,040
+por rapidez y por tener prompt, podemos poner un agente que hace un code review.
+
+255
+00:16:07,060 --> 00:16:11,120
+Si somos especializados en cada tema, podríamos tener un prompt específico
+
+256
+00:16:11,120 --> 00:16:15,120
+para evaluar la seguridad del código. Otro para la mantenibilidad
+
+257
+00:16:15,120 --> 00:16:19,180
+y, por ejemplo, otro para el performance. Bien, en este caso, yo no
+
+258
+00:16:19,180 --> 00:16:22,920
+quiero escoger uno o el otro. Quiero realmente ejecutar todos
+
+259
+00:16:22,920 --> 00:16:27,440
+y quiero ejecutar todos en paralelo. Es decir, que todos se vayan a ejecutar
+
+260
+00:16:27,440 --> 00:16:31,060
+al mismo tiempo y luego voy a tener un aggregator que es el que
+
+261
+00:16:31,060 --> 00:16:34,680
+mira todas las respuestas, como que recolecta todas las respuestas
+
+262
+00:16:34,680 --> 00:16:37,040
+que yo haya tenido de cada uno de los agentes.
+
+263
+00:16:37,060 --> 00:16:39,040
+Entonces, yo voy a crear un agente y construyo una respuesta final.
+
+264
+00:16:39,700 --> 00:16:43,400
+Entonces, así funciona. Entonces, por ejemplo, digamos que acá ya no sería
+
+265
+00:16:43,400 --> 00:16:48,840
+mi start o mi input como tal, no sería un texto, un historial, puede ser código.
+
+266
+00:16:49,260 --> 00:16:53,320
+Entonces, voy a enviarle acá código. Entonces, no sé, voy a enviarle un if.
+
+267
+00:16:54,900 --> 00:16:58,200
+Y voy a enviarle un pedazo de código. Vamos a ver cuál me pongo por acá.
+
+268
+00:16:58,400 --> 00:17:01,420
+Aquí me traje un pedazo de código que tengo por ahí. Acá está.
+
+269
+00:17:01,560 --> 00:17:05,160
+Son unas tools que tengo literalmente. Y este es el código. Vamos a ver
+
+270
+00:17:05,160 --> 00:17:06,600
+qué hace con este código.
+
+271
+00:17:07,060 --> 00:17:11,520
+Entonces, yo lo envío y puedo ver precisamente cómo él empieza
+
+272
+00:17:11,520 --> 00:17:15,560
+en paralelo a ser los dos. Es decir, está haciendo security y
+
+273
+00:17:15,560 --> 00:17:19,640
+mantenibility. Y luego el aggregator suma las respuestas de los dos
+
+274
+00:17:19,640 --> 00:17:23,700
+hasta que todos terminen. Porque ahí sí todos tienen que terminar al mismo tiempo
+
+275
+00:17:23,700 --> 00:17:27,720
+para enviar solo y consolidar todo en una respuesta final. Pero tengo el aggregator
+
+276
+00:17:27,720 --> 00:17:31,580
+que es el que me consolida todas las respuestas y lo envía hacia el usuario.
+
+277
+00:17:31,580 --> 00:17:36,400
+Entonces, por ejemplo, si yo me voy acá, bueno, acá literalmente ya tengo la respuesta.
+
+278
+00:17:37,060 --> 00:17:41,560
+Vamos a abrirlo un poco por acá. Y acá tengo el final review.
+
+279
+00:17:41,780 --> 00:17:47,260
+Yo puedo ver de alguna manera, puedo ver que acá el security tengo sus respuestas,
+
+280
+00:17:47,460 --> 00:17:52,000
+pero también tengo el de mantenibility. Y luego pues tengo el aggregator que al final
+
+281
+00:17:52,000 --> 00:17:55,400
+resume todo y me construye una respuesta final.
+
+282
+00:17:55,840 --> 00:18:00,840
+Y mira, aquí deberíamos hacer esto. Acá hay unos security actions, etc.
+
+283
+00:18:01,520 --> 00:18:06,880
+Acá entonces tenemos un patrón muy interesante que es ejecutar varios nodos en paralelo.
+
+284
+00:18:07,440 --> 00:18:12,020
+Recuerda, aquí no es que se ejecutó uno o el otro, todos se ejecutan al mismo tiempo.
+
+285
+00:18:12,120 --> 00:18:16,940
+Yo puedo tener cinco agentes en paralelo, revisando cada uno algo en específico.
+
+286
+00:18:17,380 --> 00:18:22,020
+Luego el aggregator va a esperar que cada uno pues acabe con su trabajo y envía
+
+287
+00:18:22,020 --> 00:18:27,260
+consolida. El aggregator también tiene su propio prompt. Un poco la debilidad
+
+288
+00:18:27,260 --> 00:18:32,060
+de este tipo de arquitecturas es que cada nodo, cada agente es una llamada
+
+289
+00:18:32,060 --> 00:18:36,880
+y pues como es una llamada con tokens, pues cuesta dinero. Entonces aquí el aggregator
+
+290
+00:18:37,060 --> 00:18:43,800
+también tiene su propio prompt para consolidar toda la información y enviar una respuesta
+
+291
+00:18:43,800 --> 00:18:48,320
+en un tono, en un output format, etc. Pero tiene una llamada, una language model
+
+292
+00:18:48,320 --> 00:18:54,440
+para enviarla como el consolidado final. Pero así funciona el de parallelization.
+
+293
+00:18:54,900 --> 00:18:57,940
+Ahora vámonos por uno de los patrones más complejos que es el orchestrator.
+
+294
+00:18:58,500 --> 00:19:04,320
+Este actúa como si fuera un project manager. Es decir, tiene varios workers, varios trabajadores,
+
+295
+00:19:04,500 --> 00:19:07,040
+varios agentes. Sabe cuál es la especialidad de cada uno de ellos. Y aquí también tiene
+
+296
+00:19:07,040 --> 00:19:12,160
+la especialidad de cada uno, pero él va a analizar y va a delegar las tareas.
+
+297
+00:19:12,420 --> 00:19:16,380
+Entonces tiene un poquito de routing y parallelization. ¿Por qué? Porque al final
+
+298
+00:19:16,380 --> 00:19:22,520
+yo no, el de routing no elige solo uno, puede elegir varios y tiene parallelization
+
+299
+00:19:22,520 --> 00:19:26,940
+porque de esos varios que elija los ejecuta en paralelo, los ejecuta en simultáneo.
+
+300
+00:19:27,400 --> 00:19:32,460
+Entonces lo interesante de este patrón es que, de nuevo, es como un project manager
+
+301
+00:19:32,460 --> 00:19:37,020
+que define de acuerdo a la tarea que le envíen cuál agente es el mejor.
+
+302
+00:19:37,040 --> 00:19:44,100
+Esta vez no ejecuta todos, ejecuta cuál es el mejor. Yo creo que de acuerdo a, y de nuevo,
+
+303
+00:19:44,220 --> 00:19:49,660
+todo esto es un system prompt, mi agente decide cuál es el que, bueno, yo tengo que darle
+
+304
+00:19:49,660 --> 00:19:54,020
+el contexto de cuáles son mis agentes, cuáles son mis tareas dentro de todo mi sistema de grafo,
+
+305
+00:19:54,140 --> 00:20:00,180
+todo mi sistema de agentes. Pero al final él sabría, oye, creo que para lo que me están diciendo
+
+306
+00:20:00,180 --> 00:20:06,160
+tengo que utilizar este agente y este otro. Y esos dos son los que yo ejecuto en paralelo
+
+307
+00:20:06,160 --> 00:20:07,020
+y de nuevo tengo que elegir cuál es el mejor. Y entonces yo tengo que elegir cuál es el mejor.
+
+308
+00:20:07,020 --> 00:20:12,220
+Tengo un patrón que es el aggregator que al final, pues, todos los nodos, todos los agentes
+
+309
+00:20:12,220 --> 00:20:17,480
+que el project manager eligió ejecutar, pues, espera la respuesta de cada uno y consolidé
+
+310
+00:20:17,480 --> 00:20:22,300
+una respuesta final. Veámoslo de nuevo en ejecución. Entonces acá tenemos el orchestrator.
+
+311
+00:20:22,460 --> 00:20:27,760
+Fíjate que el orchestrator tenemos, de nuevo, nodo 1, nodo 2, nodo 3, agente 1, agente 2,
+
+312
+00:20:27,840 --> 00:20:32,940
+agente 3, cada uno especializado en algo en particular. Y acá yo voy a enviar algo.
+
+313
+00:20:32,940 --> 00:20:36,820
+Por ejemplo, le envío un hola. Este ejemplo sí lo hice randómico, es decir,
+
+314
+00:20:37,020 --> 00:20:42,420
+él simplemente de forma randómica va a elegir qué nodo ejecutar. Entonces aquí, por ejemplo,
+
+315
+00:20:42,940 --> 00:20:48,960
+el orchestrator, que sería nuestro project manager, eligió por alguna razón, porque dentro de su
+
+316
+00:20:48,960 --> 00:20:54,940
+system prompt, dentro de la tarea, dentro de su conocimiento, decidió que el nodo 2 y 3 o agente
+
+317
+00:20:54,940 --> 00:21:00,820
+2 y 3 eran los ideales para contestar o atender a esta solicitud. Fíjate que no eligió todos,
+
+318
+00:21:00,820 --> 00:21:06,980
+eligió solo dos de los tres que tenía disponibles. Esos los ejecuta en paralelo y luego le agrega
+
+319
+00:21:06,980 --> 00:21:10,860
+el nodo 1. Entonces el orchestrator consolida la respuesta y la envía o produce el informe o hace
+
+320
+00:21:10,860 --> 00:21:17,280
+las interacciones en tu sistema, lo que sea. Pero elige los que él crea conveniente para desarrollar
+
+321
+00:21:17,280 --> 00:21:23,460
+esa tarea en particular. Ejecutémoslo otra vez a ver si tengo otra respuesta. Hola, bla, bla, bla.
+
+322
+00:21:24,420 --> 00:21:30,460
+Vamos a ver qué elige esta vez. Entonces acá tengo, acá eligió el nodo 1 y nodo 2. En el otro me eligió
+
+323
+00:21:30,460 --> 00:21:36,720
+el nodo 3 y el nodo 2. Fíjate que estos ya son otros nodos. A veces elige solo uno. A veces simplemente dice,
+
+324
+00:21:36,980 --> 00:21:42,260
+pues realmente solo necesito un agente. Entonces elijo ese en particular. Casi que lo vuelve un
+
+325
+00:21:42,260 --> 00:21:48,820
+shaming, ¿no? Pero de nuevo, él es el que tiene la potestad de decir, ok, realmente solo necesito 1,
+
+326
+00:21:48,940 --> 00:21:54,960
+2, 3. Los pongo a ejecutar en paralelo y el agregador pues al final consolida esa respuesta
+
+327
+00:21:54,960 --> 00:22:01,540
+final. De por sí, esto me hace recordar a este paper que ya es viejito del 2023, en donde antes
+
+328
+00:22:01,540 --> 00:22:06,960
+que existieran los modelos multimodal y todo este tipo de cosas y una arquitectura,
+
+329
+00:22:06,980 --> 00:22:13,540
+agentes per se, ya existía algo similar que fue expuesto aquí por Microsoft en un paper llamado
+
+330
+00:22:13,540 --> 00:22:20,300
+Hugging GPT, en donde literalmente nos dicen, oigan, pues nosotros podríamos tener un planner
+
+331
+00:22:20,300 --> 00:22:26,900
+como alguien que analice la tarea, sepa qué modelo correr, elijo cuál es el modelo adecuado y luego
+
+332
+00:22:26,900 --> 00:22:32,960
+pues crea una respuesta final. Acá vemos un poco cómo él lo hace en varios, digamos, fases, ¿no?
+
+333
+00:22:32,960 --> 00:22:36,780
+Hace una tarea de planning que sería el orchestrator, luego selecciona,
+
+334
+00:22:36,980 --> 00:22:41,440
+cuál es el modelo, cuál es ese agente que necesita ejecutar para resolver esa tarea,
+
+335
+00:22:42,000 --> 00:22:48,020
+luego las ejecuta per se y luego hace la parte de response generation, que es como ese agregador.
+
+336
+00:22:48,020 --> 00:22:55,280
+Entonces aquí ya teníamos un bostezo, un primer prototipo que fue muy bien explicado en este
+
+337
+00:22:55,280 --> 00:23:01,700
+paper de Microsoft, ya es un poquito viejito, pero creo que es muy útil para este tipo de patrones.
+
+338
+00:23:02,040 --> 00:23:06,940
+Y ahora llegamos a nuestro último patrón, el patrón de evaluator. ¿Qué significa?
+
+339
+00:23:06,980 --> 00:23:11,940
+El evaluator optimizer, que es como el nombre completo, significa que yo puedo poner a un
+
+340
+00:23:11,940 --> 00:23:16,840
+language model a juzgar otro language model o la respuesta que produzca, básicamente,
+
+341
+00:23:17,320 --> 00:23:20,700
+debido también a unas reglas, a un system plan que nosotros le pongamos, etc.
+
+342
+00:23:21,020 --> 00:23:26,000
+¿Cómo funciona? Básicamente yo le produzco mi agente que puede tener arquitectura,
+
+343
+00:23:26,120 --> 00:23:30,500
+puede tener parallelization, puede tener lo que sea. Recordemos que estos son los patrones,
+
+344
+00:23:30,500 --> 00:23:36,340
+pero yo puedo combinar varios de ellos, puedo tener un routing, un chaining, un evaluator, un orchestrator y varios.
+
+345
+00:23:36,980 --> 00:23:43,060
+Y yo puedo mostrar uno gráficamente como se vería. Pero al final, el evaluator yo puedo poner algo llamado
+
+346
+00:23:43,060 --> 00:23:50,560
+un jurado, que también se conoce como la language model as judge, que es básicamente que él mismo juzga la respuesta.
+
+347
+00:23:50,780 --> 00:23:56,840
+Y si no le parece, si no cumple con un criterio, lo devuelve al sistema hasta que produzca esa información.
+
+348
+00:23:57,260 --> 00:24:04,100
+De por sí este loop es el vital ahorita en los agentes. Y te voy a decir cuál es el patrón real que básicamente
+
+349
+00:24:04,100 --> 00:24:06,860
+utiliza este loop para ir mejorando.
+
+350
+00:24:06,980 --> 00:24:11,400
+Entonces, el loop es el patrón real que se utiliza para que el agente pueda tener una respuesta,
+
+351
+00:24:11,400 --> 00:24:14,500
+y el agente pueda tener una respuesta hasta que resuelva la tarea en particular.
+
+352
+00:24:14,500 --> 00:24:19,060
+Ese loop es muy potente porque le da características más de workflow de agente que él,
+
+353
+00:24:19,060 --> 00:24:25,260
+hasta que básicamente no solucione el problema y no cumpla con un criterio, no devuelve la información.
+
+354
+00:24:25,260 --> 00:24:31,260
+También hay que ser delicados con este patrón porque se puede quedar en un loop infinito y al final esto consume recursos,
+
+355
+00:24:31,260 --> 00:24:35,500
+consume tokens, consume dinero. Vamos a verlo cómo se ve gráficamente.
+
+356
+00:24:35,500 --> 00:24:36,780
+Entonces, acá tengo una arquitectura Evaluator Observations.
+
+357
+00:24:36,780 --> 00:24:44,020
+Básicamente yo tengo un nodo o un agente o una arquitectura de agentes que son la que me hace la parte de generación.
+
+358
+00:24:44,020 --> 00:24:51,740
+Y luego básicamente tengo aquí un Evaluator Node que básicamente evalúa el resultado de esa generación
+
+359
+00:24:51,740 --> 00:24:57,660
+y con base en ello va a evaluar si realmente cumple con las reglas, si es eficiente, las reglas que tú pongas
+
+360
+00:24:57,660 --> 00:25:00,220
+porque al final también es un System Prompt.
+
+361
+00:25:00,220 --> 00:25:06,740
+Tú colocas las reglas de qué es bueno, qué es malo, qué es lo que tú esperas, cuál es la respuesta correcta,
+
+362
+00:25:06,780 --> 00:25:08,020
+y él va a evaluarlo.
+
+363
+00:25:08,020 --> 00:25:14,620
+Normalmente aquí se utiliza una técnica de Structured Output para colocar un True o False o un Rango
+
+364
+00:25:14,620 --> 00:25:18,020
+si realmente tiene como la aprobación necesaria.
+
+365
+00:25:18,020 --> 00:25:22,980
+Si no, básicamente se devuelve al ciclo y le pasa ese feedback.
+
+366
+00:25:22,980 --> 00:25:30,500
+Eso es importante porque no solo lo puede devolver, tendríamos que pasarle un feedback en qué falló para que lo trate de volver a pulir.
+
+367
+00:25:30,500 --> 00:25:36,620
+Acá tengo un ejemplo y es un generador de bromas que realmente un Language Model es muy...
+
+368
+00:25:36,780 --> 00:25:42,580
+malo para generar como chistes y los chistes son muy subjetivos, pero vamos a intentarlo.
+
+369
+00:25:42,580 --> 00:25:50,380
+Bien, entonces acá por ejemplo este agente genera bromas y por ende yo aquí tengo un generador de bromas súper sencillo
+
+370
+00:25:50,380 --> 00:26:00,020
+y acá le puedo decir qué Topic, entonces por ejemplo yo quiero un Topic y le voy a tratar de sesgarlo a que me genere un...
+
+371
+00:26:00,020 --> 00:26:02,020
+como un chiste aburrido.
+
+372
+00:26:02,020 --> 00:26:03,020
+Por ende mi Evaluator Node tiene unas reglas muy especiales.
+
+373
+00:26:03,020 --> 00:26:05,020
+Por ende mi Evaluator Node tiene unas reglas muy especiales.
+
+374
+00:26:05,020 --> 00:26:06,020
+Por ende mi Evaluator Node tiene unas reglas muy especiales.
+
+375
+00:26:06,020 --> 00:26:07,020
+Por ende mi Evaluator Node tiene unas reglas muy especiales.
+
+376
+00:26:07,020 --> 00:26:08,020
+Por ende mi Evaluator Node tiene unas reglas muy especiales.
+
+377
+00:26:08,020 --> 00:26:16,020
+Dice que un chiste debería ser de más de dos párrafos y además de eso debería ser divertido, que es difícil evaluar que es divertido,
+
+378
+00:26:16,020 --> 00:26:20,020
+entonces normalmente tú podrías utilizar un FewShop para colocarle algunos ejemplos,
+
+379
+00:26:20,020 --> 00:26:26,020
+pero la más sencilla es, en este caso, en este ejemplo, es que le coloque que al menos sea de dos párrafos,
+
+380
+00:26:26,020 --> 00:26:31,020
+o sea no puede ser de una línea, que obviamente hay chistes buenos de una sola línea, pero en fin, es un ejemplo
+
+381
+00:26:31,020 --> 00:26:36,020
+y el Evaluator va como con esas reglas que de nuevo las colocas tú con un chiste,
+
+382
+00:26:36,020 --> 00:26:46,020
+vas a evaluarlo y si no cumple entonces va a ir a devolverlo, obtiene ese feedback y lo pule, lo mejora, genera una nueva versión.
+
+383
+00:26:46,020 --> 00:26:54,020
+Entonces vamos a ver cómo funciona, vamos a darle, pues enviarlo, ahí pasa por el Generator, pasa por el Evaluator,
+
+384
+00:26:54,020 --> 00:26:59,020
+fíjate que lo devolvió al Generator y fue otra vez al Evaluator y se terminó el ciclo.
+
+385
+00:26:59,020 --> 00:27:06,020
+Entonces aquí cumplimos con un ciclo de una iteración, esto es delicado porque a veces tenemos reglas muy brutas,
+
+386
+00:27:06,020 --> 00:27:12,020
+a veces esto se puede quedar en un ciclo infinito, porque, no sé, colocamos algo muy estricto en el nuevo Evaluator
+
+387
+00:27:12,020 --> 00:27:21,020
+o algo que nunca va a pasar y entonces se queda ahí en un ciclo. Normalmente también un buen patrón es colocarle un límite de ciclos, de loops,
+
+388
+00:27:21,020 --> 00:27:26,020
+más de cinco, más de seis, ya sálgase de forma forzada porque no cumplió con el objetivo.
+
+389
+00:27:26,020 --> 00:27:33,020
+Pero miremos un poco la traza, a ver qué pasó. Entonces en la primera iteración, acá vemos que generó un chiste,
+
+390
+00:27:33,020 --> 00:27:36,020
+acá yo tengo un System Prompt para generar un chiste.
+
+391
+00:27:36,020 --> 00:27:41,020
+De acuerdo al Topic que me den, en este caso el Topic es un chiste aburrido.
+
+392
+00:27:41,020 --> 00:27:45,020
+Entonces dice, ¿por qué el libro estaba aburrido? Porque tiene muchas páginas sin emoción.
+
+393
+00:27:45,020 --> 00:27:51,020
+Sí, este chiste no es muy bueno realmente. Entonces fíjate que pasa por el Evaluator,
+
+394
+00:27:51,020 --> 00:28:00,020
+yo tengo un Prompt allí que según yo, según un Prompt es de nuevo, según tú lo decides, según tu caso tú decides y también diseñas tú ese Prompt.
+
+395
+00:28:00,020 --> 00:28:05,020
+¿Cuáles son mis reglas? ¿Cumplió o no con el objetivo que debería hacer?
+
+396
+00:28:05,020 --> 00:28:13,020
+De pronto con algunos Few Shots, etcétera. Pero aquí yo le puse que debería ser más de dos párrafos, algo así, le puse algunas reglas.
+
+397
+00:28:13,020 --> 00:28:17,020
+Entonces dice el chiste, como no pasó, él genera un Feedback.
+
+398
+00:28:17,020 --> 00:28:25,020
+Ey, si no pasas, si al final no cumples con la regla del Evaluator, dame un Feedback para que yo se lo devuelva al Generator
+
+399
+00:28:25,020 --> 00:28:28,020
+y con base a ese Feedback, pues él genere una nueva versión.
+
+400
+00:28:28,020 --> 00:28:32,020
+Entonces aquí este fue el Feedback que le dio. El chiste es corto y sólo tiene dos líneas,
+
+401
+00:28:32,020 --> 00:28:37,020
+por lo que no cumple con el requisito de ser más de dos párrafos. Esa fue una regla que yo le coloqué.
+
+402
+00:28:37,020 --> 00:28:40,020
+Para mejorarlo podrías extender la historia, bla, bla, bla, bla.
+
+403
+00:28:40,020 --> 00:28:45,020
+Entonces aquí le dio Feedback basado en una regla que yo mismo le puse.
+
+404
+00:28:45,020 --> 00:28:54,020
+Ok, entonces volvió al Generator, tomó en cuenta ese Feedback del Evaluator y vuelve a generar una nueva versión.
+
+405
+00:28:54,020 --> 00:29:01,020
+Entonces acá está una nueva versión del chiste. El libro estaba tan aburrido que si las arañas querían hacerse de la araña en sus páginas, algo así.
+
+406
+00:29:01,020 --> 00:29:02,020
+En fin.
+
+407
+00:29:02,020 --> 00:29:09,020
+Acá ya generó un chiste que cumple un poco más con lo que se espera, con lo que el Evaluator espera que cumpla.
+
+408
+00:29:09,020 --> 00:29:15,020
+Entonces él aplica el Feedback, vuelve a pasar por el Evaluator, ya no hay Feedback porque ya está todo bien
+
+409
+00:29:15,020 --> 00:29:19,020
+y acá tenemos una bandera que básicamente le dice que es divertido.
+
+410
+00:29:19,020 --> 00:29:25,020
+Y luego finalmente pues ya retorna con el chiste final, con el proceso final.
+
+411
+00:29:25,020 --> 00:29:31,020
+Así es que funciona el Evaluator, que es uno de los patrones más sencillos pero aún así muy sofisticados
+
+412
+00:29:31,020 --> 00:29:34,020
+porque se utilizaron la LARP Web Model para evaluarlo.
+
+413
+00:29:34,020 --> 00:29:42,020
+Recuerda que las reglas dependen de tu caso, así que también ese Prompt que haga la evaluación de la respuesta final también debe estar muy bien ajustado.
+
+414
+00:29:42,020 --> 00:29:46,020
+Esos son, esos son los patrones que se utilizan hoy en día para construir agentes.
+
+415
+00:29:46,020 --> 00:29:50,020
+Tú puedes construir esos agentes manual o puedes hacer con Vanilla.
+
+416
+00:29:50,020 --> 00:30:00,020
+De nuevo, estas estructuras de datos ya las teníamos en nuestros lenguajes de programación como Python, Java, JavaScript, en la cual podíamos encadenar, orquestar, ejecutar tareas en paralelo.
+
+417
+00:30:00,020 --> 00:30:10,020
+Toda esta teoría pues ya la teníamos pero ahora está aplicada pues en agentes de IAI y en donde el que toma la decisión casi que son las LARP Language Model.
+
+418
+00:30:10,020 --> 00:30:16,020
+Por ejemplo, el Orquestator, el que decide qué nodo ejecutar es un LARP Language Model, es nuestro cerebro.
+
+419
+00:30:16,020 --> 00:30:20,020
+Y luego pues ya cumple con el patrón de orquestarlos, de ejecutarlos, etc.
+
+420
+00:30:20,020 --> 00:30:28,020
+Por ejemplo, en este caso estoy utilizando Langraph y él se encarga como de toda esa orquestación, pues toda la parte de saber cómo hacerlo.
+
+421
+00:30:28,020 --> 00:30:29,020
+Pero al final la parte de ingeniería es muy fácil.
+
+422
+00:30:29,020 --> 00:30:30,020
+Entonces, el Orquestator, el que decide qué nodo ejecutar es un LARP Language Model.
+
+423
+00:30:30,020 --> 00:30:46,620
+Así que elashed zhacって유�
+
+424
+00:30:46,620 --> 00:30:58,500
+elu huaren
+
+425
+00:30:58,500 --> 00:30:59,540
+tutOkay
+
+426
+00:30:59,540 --> 00:30:59,820
+Robo
+
+427
+00:30:59,820 --> 00:31:05,120
+mucho más potentes. Déjame mostrarte una cómo funciona, una que tiene el Landgraf de ejemplo,
+
+428
+00:31:05,680 --> 00:31:09,900
+de ver cómo funcionaría un agente que genera contenido. Vamos a ver.
+
+429
+00:31:09,980 --> 00:31:14,940
+Entonces, por ejemplo, tenemos este agente y vemos acá ya patrones mucho más complejos,
+
+430
+00:31:15,160 --> 00:31:19,760
+vemos ya, podemos definir un poco qué es lo que está haciendo, por ejemplo, acá podría estar haciendo
+
+431
+00:31:19,760 --> 00:31:25,780
+un routing o un parallelization, pero vemos exactamente cómo pasa, cuáles son los nodos,
+
+432
+00:31:25,780 --> 00:31:30,400
+por ejemplo, acá ya genera el contenido, luego acá podemos tener un evaluator,
+
+433
+00:31:30,560 --> 00:31:35,840
+casi que hay un loop aquí para condensar el post, luego hay un agente que busca imágenes,
+
+434
+00:31:35,980 --> 00:31:42,680
+las valida, las rankea, luego tiene un human in the loop, luego acá tenemos algo para reescribirlo,
+
+435
+00:31:42,860 --> 00:31:49,480
+en fin, fíjate que así ya se ve orquestar o básicamente utilizar no solo un patrón,
+
+436
+00:31:49,780 --> 00:31:53,160
+sino ya varios de estos, varios en chaining, varios en routing, etc.
+
+437
+00:31:53,160 --> 00:31:55,760
+Y acá es donde también entramos en un patrón interno.
+
+438
+00:31:55,780 --> 00:32:00,560
+Es interesante que por si lo podemos ver por acá, que si no estoy mal era el tercero,
+
+439
+00:32:00,960 --> 00:32:06,100
+que es un subgrafo, es decir, un agente que puede tener algo muy interesante,
+
+440
+00:32:06,240 --> 00:32:09,520
+es decir, este agente en particular puede tener su propia técnica.
+
+441
+00:32:09,940 --> 00:32:13,500
+Si yo lo expando, tiene una técnica que está basado en un loop,
+
+442
+00:32:13,700 --> 00:32:17,740
+podríamos decir que esto es un, vamos a hacerle un poquito más de zoom,
+
+443
+00:32:18,580 --> 00:32:23,200
+podríamos decir que este agente en particular tiene el patrón de un react loop
+
+444
+00:32:23,200 --> 00:32:25,200
+o pues el evaluator optimizador.
+
+445
+00:32:25,780 --> 00:32:31,220
+Y evaluator que tiene un ciclo que se repite y hasta que no cumpla, pues no acaba.
+
+446
+00:32:31,400 --> 00:32:37,260
+Entonces fíjate que en este tipo de arquitecturas, si bien acá lo tenemos como si fuera un routing,
+
+447
+00:32:37,720 --> 00:32:43,900
+internamente cada uno de estos nodos puede manejar una propuesta, una arquitectura en particular.
+
+448
+00:32:44,600 --> 00:32:49,240
+Ahora, si ya vimos todos estos patrones, ¿cómo se utilizan esos patrones en la industria?
+
+449
+00:32:49,240 --> 00:32:53,020
+Pues al final, de nuevo, todo depende de tu caso en particular.
+
+450
+00:32:53,320 --> 00:32:55,240
+Hay uno que es como la arquitectura más...
+
+451
+00:32:55,780 --> 00:33:01,660
+más sólida, que se llama react, que es un patrón que une la parte de reasoning y acting
+
+452
+00:33:01,660 --> 00:33:05,040
+y básicamente es una mezcla de orchestrator con evaluator.
+
+453
+00:33:06,540 --> 00:33:12,780
+No per se, no divide en agentes, utiliza literalmente las características de la language model para hacer call functions,
+
+454
+00:33:13,220 --> 00:33:14,260
+pero se puede ver algo así.
+
+455
+00:33:14,700 --> 00:33:19,700
+Básicamente lo que hace es entender el contexto y la tarea inicial,
+
+456
+00:33:19,700 --> 00:33:24,680
+a ese language model le damos una serie de tools y él es el que decide,
+
+457
+00:33:24,960 --> 00:33:25,700
+con medio de iteración,
+
+458
+00:33:25,780 --> 00:33:30,440
+cuántas veces llamar, cuáles tools hay que llamar, en qué momento hay que llamar,
+
+459
+00:33:30,440 --> 00:33:36,280
+si le falta una iteración más para resolver la tarea, hasta que finalmente la resuelve y produce una respuesta.
+
+460
+00:33:36,580 --> 00:33:39,660
+Es más, a veces la respuesta puede ser para pedir más información.
+
+461
+00:33:39,940 --> 00:33:44,080
+Hey, necesito más información porque la información que me diste no es suficiente.
+
+462
+00:33:44,340 --> 00:33:45,540
+Necesito más información.
+
+463
+00:33:45,540 --> 00:33:49,660
+Entonces, como que yo le puedo decir al usuario, dame más contexto, dame más cosas,
+
+464
+00:33:49,960 --> 00:33:54,460
+y luego vuelve a entrar y ya con la nueva información puede ejecutar todo este loop.
+
+465
+00:33:54,780 --> 00:33:55,740
+Entonces es muy interesante.
+
+466
+00:33:55,780 --> 00:33:58,540
+Pero recuerda que hay que tener mucho cuidado con estos patrones.
+
+467
+00:33:58,540 --> 00:34:01,160
+Ahora, ¿a qué me refiero que hay que tener cuidado con estos patrones?
+
+468
+00:34:01,160 --> 00:34:05,900
+Al final, como en el mundo de ingeniería de software, también podemos caer en sobreingeniería.
+
+469
+00:34:05,900 --> 00:34:09,820
+Es decir, empezar a optimizar donde no hay que optimizar,
+
+470
+00:34:09,820 --> 00:34:16,620
+a colocar arquitecturas muy complejas en donde posiblemente un React architecture o simplemente un loop
+
+471
+00:34:16,620 --> 00:34:20,200
+o un buen prompt puede solucionarlo con muy buenas tools.
+
+472
+00:34:20,200 --> 00:34:25,300
+Entonces hay que hacer mucha iteración y realmente saber si tu agente necesita una arquitectura,
+
+473
+00:34:25,780 --> 00:34:31,900
+un simple chaining o simplemente un buen prompt y ya.
+
+474
+00:34:32,220 --> 00:34:36,600
+Entonces todo depende de tu caso de uso, de qué tan complejo sea tu agente.
+
+475
+00:34:36,780 --> 00:34:39,820
+Realmente hay agentes que pueden ser muy, muy complejos.
+
+476
+00:34:39,980 --> 00:34:44,140
+Entonces a veces necesitamos como una arquitectura muy amplia.
+
+477
+00:34:44,560 --> 00:34:50,340
+Pero de pronto para el caso que tú necesites, con un patrón sencillo y potente a la vez como un React,
+
+478
+00:34:50,820 --> 00:34:51,480
+todo está bien.
+
+479
+00:34:51,700 --> 00:34:53,780
+Así que eso es hasta aquí el video.
+
+480
+00:34:53,780 --> 00:34:55,060
+Espero que te haya gustado.
+
+481
+00:34:55,780 --> 00:34:57,780
+Espero que hayas disfrutado de este contenido acerca de agentes.
+
+482
+00:34:57,780 --> 00:35:03,780
+Así que suscríbete y espero empezar a ahondar en cada una de estas arquitecturas un poco más a fondo.
+
+483
+00:35:03,780 --> 00:35:07,780
+Un orchestrator, un React agent, cómo lo incorporamos, etc.
+
+484
+00:35:07,780 --> 00:35:10,780
+Hablar más de agentes y ver cómo lo llevamos a producción.
+
+485
+00:35:10,780 --> 00:35:14,780
+Así que suscríbete a este canal y nos vemos en la próxima.
+

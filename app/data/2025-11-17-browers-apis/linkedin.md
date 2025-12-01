@@ -1,0 +1,7 @@
+¿Has enfrentado problemas al integrar Server Side Rendering (SSR) en tus aplicaciones Angular, especialmente con APIs del navegador como Geolocalización y Local Storage? En mi último video, exploro cómo superar estos desafíos comunes que surgen cuando todo se ejecuta en un servidor Node, el cual no tiene acceso directo a estas APIs diseñadas para el cliente.
+
+Descubrí dos métodos efectivos para abordar este problema en Angular moderno. El primero es el uso del nuevo hook "After Next Render", que garantiza que el código dependiente de las APIs del navegador solo se ejecute después de que todos los componentes se hayan renderizado en el cliente. Esto es crucial para evitar ejecutar código innecesario en el servidor.
+
+El segundo método se centra en definir estrategias de renderizado por ruta, utilizando "Servered Routes". Esto te permite especificar si una ruta particular debe ser renderizada por el cliente, el servidor, o ambos. Es una solución ideal para páginas interactivas que dependen de las APIs del navegador. 
+
+Ambas estrategias son útiles dependiendo del contexto de tu aplicación. Si quieres conocer más sobre cómo implementar estas soluciones, te invito a ver el video completo aquí: [Ver video](https://youtu.be/hdA6utjrq68). No dudes en compartir en los comentarios tus experiencias y soluciones a este problema. ¡Espero que te sea útil!

@@ -1,0 +1,208 @@
+En Frontend tenemos tres técnicas básicas para como renderiar o entregar nuestra aplicación
+y eso normalmente es server-side rendering, client-side rendering,
+que es cuando literalmente todo se renderiza desde el lado del cliente,
+y en el medio que se llama el static, ¿bien?
+Si bien nosotros normalmente tenemos que escoger cuál es la mejor técnica de arquitectura
+o de entrega de contenido, depende pues a nuestras aplicaciones, a nuestro contexto,
+Angular nos regala algo muy interesante y es que lo podemos hacer a nivel de ruta.
+¿Qué quiere decir?
+Que si bien yo quiero hacer server-side rendering, puedo hacerlo a nivel de ruta.
+La ruta de index quiero que sea server-side rendering,
+pero de pronto la ruta de login no tiene necesidad de ser server-side rendering,
+entonces podríamos decirle que sea client.
+O por ejemplo, todo lo que sea block sea static.
+Quiere decir que no nos casamos con una técnica para todo el proyecto,
+sino que realmente podemos elegir,
+la estrategia más adecuada por ruta.
+A eso se le conoce como server-roaring.
+Así que vamos a ver cómo se implementa en Angular.
+Esta es la aplicación que tengo de ejemplo,
+y como ves es un e-commerce, un e-commerce tradicional, ¿bien?
+Pero aquí es donde podemos tener estrategias de renderizado diferentes
+de acuerdo pues a cada una de las rutas.
+Por ejemplo, el home yo sí quiero que sea server-side,
+por optimización, por cargar el contenido, etc.
+Pero por ejemplo, la página de locations,
+que literalmente por si pide una geolocalización,
+quiere decir que tengo que correr un feature
+que va desde el lado del cliente,
+quiero que esta parte, si por ejemplo, sea client-side.
+O por ejemplo, la página de about,
+también podríamos decir que el about no cambia mucho,
+entonces podríamos elegir que about sea static, generate.
+Es decir, que se va generando cada vez que generemos un build
+y lancemos eso a producción.
+Entonces, realmente podríamos elegir diferentes técnicas
+de acuerdo a nuestras necesidades en un mismo proyecto.
+Vamos a ver.
+Vamos a ver cómo se implementa.
+Si tú vas a tu aplicación, normalmente,
+y ya le habilitaste server-side rendering,
+lo más normal es que te encuentres con un archivo de configuración
+llamado app-routes-server.
+Bien.
+Ese es el que define precisamente cuál estrategia de rendering
+utilizar mejor y sobre todo en qué casos.
+Entonces, por ejemplo, por defecto,
+él va a renderear todo con server-side.
+Todo.
+Todo lo va a hacer desde el lado del servidor.
+Pero aquí es donde podemos hacer
+mucho más estratégicos y dependiendo realmente
+de lo que queramos, podríamos entonces habilitar
+un render en específico.
+Entonces, por ejemplo, yo podría decir que la página de,
+no sé, la página de locations, acá ya me autocompleto un poquito.
+Por ejemplo, la página de locations, le puedo decir que,
+como yo necesito algo que es del lado del cliente,
+le podría decir client.
+Bien.
+Entonces, location va a ser client.
+Pero acá le podría decir que esta parte, about, sea prerender.
+Bien.
+Obviamente, acá también tenemos la definición de algunas rutas,
+pero recuerda que el app-routes, este de acá,
+es el que hace el par entre ruta y componente,
+como tal de la forma dinámica.
+Pero este, el app-server, es el que me va a decir cuál es la estrategia de rendering
+que va a tener esa ruta en específico.
+Entonces, por ejemplo, acá de nuevo, vamos a decir que todo,
+o aquí ya podríamos decir, no sé, pues home, si yo quiero ser más específico,
+pero es bueno dejarlo de ser.
+Voy a darle a ok.
+Pero creo que sería, digamos, que, de esta manera,
+como digamos que por defecto, todo va a ser server-shared rendering
+y empiezas a deshabilitar cuáles son ciertas rutas que realmente no van a ser,
+pues, desde el servidor.
+Por ejemplo, client.
+Algo muy común es, por ejemplo, que el sistema de login lo pongamos como client,
+porque realmente no queremos que eso se rendere desde el lado del servidor,
+no hay necesidad.
+Yo, no necesito optimizaciones, motores de búsqueda,
+para la página de login.
+Entonces, pues, podría ser client, sin ningún problema.
+una aplicación precisamente que de pronto tiene un frontend, bien, hacia el público,
+entonces toda esa parte como va a ser server-side. Pero si tienes, no sé, algo así como app,
+slash app y ahí vive toda la aplicación dinámica, formularios y demás, es posible
+que todo esto sea client. Entonces simplemente podríamos ver ese nivel de routing. Acá
+voy a dejar locations y vamos a ver qué tal cambia y pues cuál es el significado que
+vamos a tener como resultado en nuestro aplicativo. Veamos. Una vez aplicado ese cambio, entonces
+podríamos hacer lo siguiente. Por ejemplo, yo podría utilizar, podría ir aquí a ver
+código fuente y yo sé que la página de home, si yo la deshabilitara o no le pusiera server-side,
+pues no podría ver todo el contenido. Acá está todo el contenido porque el contenido
+se renderizó desde el lado del servidor. Pero vamos a ver la página de about. Si la
+página de about debería ser...
+pre-render o la de locations debería ser solo client-side. Es decir, acá yo no debería
+ver nada de contenido. Entonces si yo voy por acá, voy al... ahí está. View source,
+fíjate que no hay contenido, no hay nada de contenido porque el que hace el render
+pues es el cliente, no lo está haciendo el servidor, pero ahora lo podemos hacer de forma
+dinámica. Entonces podemos ver que locations no viene. ¿Y qué pasa con about? About sí
+tiene un pre-render, ahí está, digamos que está el contenido de about, pero hay que
+tener cuidado con la técnica de pre-render. Eso se utiliza mucho para contenido que no
+cambia tanto, que no es tan dinámico. ¿Por qué? Porque literalmente esto solo se va
+a lanzar en el momento de build, en el momento que tú hagas una construcción y luego, no
+sé, mandes eso a tu hosting o lo que sea, pero habría que haber un proceso manual.
+Si tú quieres actualizar la página de about, vas, la modificas, haces un build y lanzas.
+¿Por qué? Porque entonces él se va a quedar como con esa página estática. Es una de
+las mejores habilidades de por sí.
+Porque no cargamos al servidor de rendería esa página siempre, cada vez, sino que como
+no cambia, ya está pre-renderizada. Entonces ya está lista, literalmente ya está el contenido
+y lo podemos ver. Es decir, si tú vas acá al, acá a la, pues al dist que él genera,
+vamos a ir un momento a la terminal, por ejemplo. Acá vamos a ir a la terminal, voy a hacer
+un build de este sitio y vamos a ver cómo él va a generar cada una de las páginas.
+Como tenemos el RenderRender, pues él debería generar como un ruteo para cada una. Entonces
+si yo voy acá, voy al dist, vamos a ver que si me voy a nivel de server, pues obviamente
+está todo el chunk y demás. Pero fíjate que acá está nuestro index, bien, y por
+acá a nivel de server, vamos a ver, mira que acá está la página de about, ya como
+pre-renderizada. Fíjate que él ya pre-renderiza ese contenido, pero no encontramos locations.
+¿Por qué locations? Va a ser client-side. Entonces todas las páginas que coloquemos
+como pre-render básicamente va a dejar como todo el HTML ya listo, ya preparado. El servidor
+no va a hacer nada, simplemente lo que ya preparó, lo lanza. Pero para que nosotros
+lo actualicemos, pues tendríamos que estar haciendo building continuamente. Pero esa
+es precisamente una de las habilidades. Tú escoges ya cuál es la mejor para ti. Vamos
+a ver un poquito de la documentación para ver más casos. Si quieres ir mucho más a
+fondo, aquí está como el link de la página de about.com. Aquí está como el link de la
+página de about.com. Aquí está como la documentación de este feature, se llama
+server-routing. Y aquí es donde te dicen, mira, la página principal sería client,
+pero about es pre-render, pero profile es server y todo lo demás, mira, acá dice todas
+las demás van a ser server-side. Mira que también entonces lo colocaron por acá al
+final y la página inicial es modo client. Acá literalmente ya van mucho más a fondo
+y si estás interesado en ir más a fondo en esta parte, pues déjame un comentario
+y pues haría un segundo video específico.
+Fijate que acá, digamos que yo tengo un Post, es decir, tengo artículos y como son dinámicos,
+es decir, tengo el Academy arrojado, pues tengo la página, por ejemplo, estoy actualizando
+los Re777. Manufacturer...
+Realmente yo tengo diferentes premios en el cliente y al final de esto puedo donde
+decir de donde nosotros estamos y después de eso tengo
+las actividades en esta página.
+Y aquí otra cosa muy interesante.
+Aquí tenemos Herx misterio más nada.
+Es decir, otra cosa queค Scholta no se conoce molto erste, pero psol nlat referenced se vaむ
+el ID, ¿cómo haríamos para
+prerenderizar todos esos contenidos
+de forma
+dinámica cada vez que le hagamos ngBuild?
+Que vaya a mapear todos los IDs
+y los prerenderice, eso es una locura.
+Pero se puede, se puede haciendo
+este par de configuraciones. Es más,
+si nosotros ya empezamos a hablar
+de servidor, es decir,
+de esto en modo server,
+hay algunas cosas bien interesantes
+en donde uno ya puede empezar a jugar con
+correr cierto código del lado del servidor
+como por ejemplo
+poner un header en específico
+o una llave en específico que solo
+corra del lado del servidor.
+Entonces aquí es donde podemos encontrar mucho
+más detallado este tipo de estrategias.
+Pero por ahora, de nuevo,
+este sería el escenario.
+Si quieres ir mucho más a fondo, déjame en los comentarios
+y podemos hacer sobre todo de
+prerendering, sobre todo de un sistema de block,
+cómo podríamos hacer todo ese
+enganche para prerenderizar todo.
+Servers y client-side no tienen tanta
+complejidad, pero de pronto un prerendering
+un poco sí. Y eso fue todo.
+Literalmente es un feature bastante
+compacto, pero muy potente porque realmente
+uno no piensa en casarse
+con una sola estrategia para
+todo tu website, sino que
+literalmente puedes ir de forma granular
+ruta por ruta y ver cuál es la estrategia
+de renderizado que más te viene mejor.
+Así que déjame en los comentarios si ya sabías
+de esta técnica, si la aprendiste en este video
+y si la vas a empezar a aplicar en tus proyectos.
+Recuerda que para
+aplicar esto tienes que
+por defecto habilitarse al browser rendering.
+Es decir, tienes que habilitar el proyecto
+como server-server rendering y ahí sí ya empiezas
+a degradar quién va a ser client
+o quién va a ser prerendering. Pero por defecto
+el proyecto debe estar habilitado
+para server-server rendering.
+Es bastante sencillo habilitarlo, pero
+esto también requiere que ya
+obviamente necesitamos un servidor, entonces
+tendrías que cambiar el modelo de hosting, pero ya
+he hablado de cómo hacerlo
+con server-server rendering, cómo publicarlo por ejemplo
+en Cloudflare, etc. Entonces ya tienes
+varias opciones o cómo ya lo podrías
+desplegar en un servidor de Naut.
+Pero es interesante y muy importante
+sobre todo que ya al habilitar
+server-server rendering podemos tener estas otras
+features, estas otras novedades
+de ser mucho más granular y escoger la
+estrategia de rendering adecuada para
+nuestro website. Así que nos vemos
+y suscríbete para más contenido
+y nos vemos en la próxima.

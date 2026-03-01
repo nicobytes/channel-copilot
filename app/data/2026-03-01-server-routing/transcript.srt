@@ -1,0 +1,832 @@
+1
+00:00:00,000 --> 00:00:06,300
+En Frontend tenemos tres técnicas básicas para como renderiar o entregar nuestra aplicación
+
+2
+00:00:06,300 --> 00:00:09,580
+y eso normalmente es server-side rendering, client-side rendering,
+
+3
+00:00:09,760 --> 00:00:12,880
+que es cuando literalmente todo se renderiza desde el lado del cliente,
+
+4
+00:00:13,260 --> 00:00:15,800
+y en el medio que se llama el static, ¿bien?
+
+5
+00:00:16,380 --> 00:00:21,580
+Si bien nosotros normalmente tenemos que escoger cuál es la mejor técnica de arquitectura
+
+6
+00:00:21,580 --> 00:00:25,620
+o de entrega de contenido, depende pues a nuestras aplicaciones, a nuestro contexto,
+
+7
+00:00:25,620 --> 00:00:30,240
+Angular nos regala algo muy interesante y es que lo podemos hacer a nivel de ruta.
+
+8
+00:00:30,400 --> 00:00:30,900
+¿Qué quiere decir?
+
+9
+00:00:31,320 --> 00:00:36,120
+Que si bien yo quiero hacer server-side rendering, puedo hacerlo a nivel de ruta.
+
+10
+00:00:36,320 --> 00:00:39,180
+La ruta de index quiero que sea server-side rendering,
+
+11
+00:00:39,560 --> 00:00:43,620
+pero de pronto la ruta de login no tiene necesidad de ser server-side rendering,
+
+12
+00:00:43,880 --> 00:00:46,000
+entonces podríamos decirle que sea client.
+
+13
+00:00:46,360 --> 00:00:48,620
+O por ejemplo, todo lo que sea block sea static.
+
+14
+00:00:49,640 --> 00:00:53,360
+Quiere decir que no nos casamos con una técnica para todo el proyecto,
+
+15
+00:00:53,360 --> 00:00:55,380
+sino que realmente podemos elegir,
+
+16
+00:00:55,620 --> 00:00:57,700
+la estrategia más adecuada por ruta.
+
+17
+00:00:57,860 --> 00:00:59,760
+A eso se le conoce como server-roaring.
+
+18
+00:00:59,980 --> 00:01:01,920
+Así que vamos a ver cómo se implementa en Angular.
+
+19
+00:01:02,240 --> 00:01:03,540
+Esta es la aplicación que tengo de ejemplo,
+
+20
+00:01:03,720 --> 00:01:06,860
+y como ves es un e-commerce, un e-commerce tradicional, ¿bien?
+
+21
+00:01:07,040 --> 00:01:10,460
+Pero aquí es donde podemos tener estrategias de renderizado diferentes
+
+22
+00:01:10,460 --> 00:01:12,640
+de acuerdo pues a cada una de las rutas.
+
+23
+00:01:13,080 --> 00:01:15,900
+Por ejemplo, el home yo sí quiero que sea server-side,
+
+24
+00:01:16,160 --> 00:01:19,420
+por optimización, por cargar el contenido, etc.
+
+25
+00:01:20,020 --> 00:01:22,180
+Pero por ejemplo, la página de locations,
+
+26
+00:01:22,740 --> 00:01:25,180
+que literalmente por si pide una geolocalización,
+
+27
+00:01:25,620 --> 00:01:28,080
+quiere decir que tengo que correr un feature
+
+28
+00:01:28,080 --> 00:01:29,500
+que va desde el lado del cliente,
+
+29
+00:01:29,500 --> 00:01:34,000
+quiero que esta parte, si por ejemplo, sea client-side.
+
+30
+00:01:34,000 --> 00:01:35,620
+O por ejemplo, la página de about,
+
+31
+00:01:35,620 --> 00:01:39,060
+también podríamos decir que el about no cambia mucho,
+
+32
+00:01:39,060 --> 00:01:43,060
+entonces podríamos elegir que about sea static, generate.
+
+33
+00:01:43,060 --> 00:01:46,860
+Es decir, que se va generando cada vez que generemos un build
+
+34
+00:01:46,860 --> 00:01:48,860
+y lancemos eso a producción.
+
+35
+00:01:48,860 --> 00:01:52,360
+Entonces, realmente podríamos elegir diferentes técnicas
+
+36
+00:01:52,360 --> 00:01:55,120
+de acuerdo a nuestras necesidades en un mismo proyecto.
+
+37
+00:01:55,120 --> 00:01:55,620
+Vamos a ver.
+
+38
+00:01:55,620 --> 00:01:57,000
+Vamos a ver cómo se implementa.
+
+39
+00:01:57,000 --> 00:01:59,300
+Si tú vas a tu aplicación, normalmente,
+
+40
+00:01:59,300 --> 00:02:01,620
+y ya le habilitaste server-side rendering,
+
+41
+00:02:01,620 --> 00:02:04,420
+lo más normal es que te encuentres con un archivo de configuración
+
+42
+00:02:04,420 --> 00:02:08,000
+llamado app-routes-server.
+
+43
+00:02:08,680 --> 00:02:09,180
+Bien.
+
+44
+00:02:09,640 --> 00:02:13,520
+Ese es el que define precisamente cuál estrategia de rendering
+
+45
+00:02:13,520 --> 00:02:16,480
+utilizar mejor y sobre todo en qué casos.
+
+46
+00:02:16,940 --> 00:02:18,720
+Entonces, por ejemplo, por defecto,
+
+47
+00:02:18,720 --> 00:02:21,180
+él va a renderear todo con server-side.
+
+48
+00:02:21,180 --> 00:02:21,560
+Todo.
+
+49
+00:02:21,560 --> 00:02:24,020
+Todo lo va a hacer desde el lado del servidor.
+
+50
+00:02:24,280 --> 00:02:25,560
+Pero aquí es donde podemos hacer
+
+51
+00:02:25,620 --> 00:02:28,380
+mucho más estratégicos y dependiendo realmente
+
+52
+00:02:28,380 --> 00:02:30,740
+de lo que queramos, podríamos entonces habilitar
+
+53
+00:02:30,740 --> 00:02:32,620
+un render en específico.
+
+54
+00:02:32,620 --> 00:02:36,220
+Entonces, por ejemplo, yo podría decir que la página de,
+
+55
+00:02:36,220 --> 00:02:39,800
+no sé, la página de locations, acá ya me autocompleto un poquito.
+
+56
+00:02:39,800 --> 00:02:44,380
+Por ejemplo, la página de locations, le puedo decir que,
+
+57
+00:02:44,380 --> 00:02:46,520
+como yo necesito algo que es del lado del cliente,
+
+58
+00:02:46,520 --> 00:02:48,140
+le podría decir client.
+
+59
+00:02:48,140 --> 00:02:48,640
+Bien.
+
+60
+00:02:48,640 --> 00:02:50,260
+Entonces, location va a ser client.
+
+61
+00:02:50,260 --> 00:02:54,740
+Pero acá le podría decir que esta parte, about, sea prerender.
+
+62
+00:02:54,740 --> 00:02:55,240
+Bien.
+
+63
+00:02:55,620 --> 00:02:59,900
+Obviamente, acá también tenemos la definición de algunas rutas,
+
+64
+00:02:59,900 --> 00:03:02,820
+pero recuerda que el app-routes, este de acá,
+
+65
+00:03:02,820 --> 00:03:06,300
+es el que hace el par entre ruta y componente,
+
+66
+00:03:07,500 --> 00:03:09,580
+como tal de la forma dinámica.
+
+67
+00:03:09,580 --> 00:03:14,620
+Pero este, el app-server, es el que me va a decir cuál es la estrategia de rendering
+
+68
+00:03:14,620 --> 00:03:16,500
+que va a tener esa ruta en específico.
+
+69
+00:03:16,860 --> 00:03:19,980
+Entonces, por ejemplo, acá de nuevo, vamos a decir que todo,
+
+70
+00:03:19,980 --> 00:03:24,280
+o aquí ya podríamos decir, no sé, pues home, si yo quiero ser más específico,
+
+71
+00:03:24,280 --> 00:03:25,460
+pero es bueno dejarlo de ser.
+
+72
+00:03:25,460 --> 00:03:27,040
+Voy a darle a ok.
+
+73
+00:03:27,040 --> 00:03:29,180
+Pero creo que sería, digamos, que, de esta manera,
+
+74
+00:03:29,180 --> 00:03:32,700
+como digamos que por defecto, todo va a ser server-shared rendering
+
+75
+00:03:32,700 --> 00:03:37,100
+y empiezas a deshabilitar cuáles son ciertas rutas que realmente no van a ser,
+
+76
+00:03:37,100 --> 00:03:38,520
+pues, desde el servidor.
+
+77
+00:03:38,520 --> 00:03:39,660
+Por ejemplo, client.
+
+78
+00:03:39,660 --> 00:03:43,440
+Algo muy común es, por ejemplo, que el sistema de login lo pongamos como client,
+
+79
+00:03:43,440 --> 00:03:47,780
+porque realmente no queremos que eso se rendere desde el lado del servidor,
+
+80
+00:03:47,780 --> 00:03:48,860
+no hay necesidad.
+
+81
+00:03:48,860 --> 00:03:51,980
+Yo, no necesito optimizaciones, motores de búsqueda,
+
+82
+00:03:51,980 --> 00:03:53,540
+para la página de login.
+
+83
+00:03:53,540 --> 00:03:55,340
+Entonces, pues, podría ser client, sin ningún problema.
+
+84
+00:03:55,340 --> 00:04:00,740
+una aplicación precisamente que de pronto tiene un frontend, bien, hacia el público,
+
+85
+00:04:01,180 --> 00:04:06,680
+entonces toda esa parte como va a ser server-side. Pero si tienes, no sé, algo así como app,
+
+86
+00:04:07,540 --> 00:04:12,960
+slash app y ahí vive toda la aplicación dinámica, formularios y demás, es posible
+
+87
+00:04:12,960 --> 00:04:18,520
+que todo esto sea client. Entonces simplemente podríamos ver ese nivel de routing. Acá
+
+88
+00:04:18,520 --> 00:04:24,920
+voy a dejar locations y vamos a ver qué tal cambia y pues cuál es el significado que
+
+89
+00:04:24,920 --> 00:04:30,460
+vamos a tener como resultado en nuestro aplicativo. Veamos. Una vez aplicado ese cambio, entonces
+
+90
+00:04:30,460 --> 00:04:36,040
+podríamos hacer lo siguiente. Por ejemplo, yo podría utilizar, podría ir aquí a ver
+
+91
+00:04:36,040 --> 00:04:42,640
+código fuente y yo sé que la página de home, si yo la deshabilitara o no le pusiera server-side,
+
+92
+00:04:42,640 --> 00:04:47,840
+pues no podría ver todo el contenido. Acá está todo el contenido porque el contenido
+
+93
+00:04:47,840 --> 00:04:52,780
+se renderizó desde el lado del servidor. Pero vamos a ver la página de about. Si la
+
+94
+00:04:52,780 --> 00:04:54,640
+página de about debería ser...
+
+95
+00:04:54,920 --> 00:05:00,800
+pre-render o la de locations debería ser solo client-side. Es decir, acá yo no debería
+
+96
+00:05:00,800 --> 00:05:06,060
+ver nada de contenido. Entonces si yo voy por acá, voy al... ahí está. View source,
+
+97
+00:05:06,240 --> 00:05:10,640
+fíjate que no hay contenido, no hay nada de contenido porque el que hace el render
+
+98
+00:05:10,640 --> 00:05:14,700
+pues es el cliente, no lo está haciendo el servidor, pero ahora lo podemos hacer de forma
+
+99
+00:05:14,700 --> 00:05:20,500
+dinámica. Entonces podemos ver que locations no viene. ¿Y qué pasa con about? About sí
+
+100
+00:05:20,500 --> 00:05:24,640
+tiene un pre-render, ahí está, digamos que está el contenido de about, pero hay que
+
+101
+00:05:24,920 --> 00:05:29,100
+tener cuidado con la técnica de pre-render. Eso se utiliza mucho para contenido que no
+
+102
+00:05:29,100 --> 00:05:32,760
+cambia tanto, que no es tan dinámico. ¿Por qué? Porque literalmente esto solo se va
+
+103
+00:05:32,760 --> 00:05:38,140
+a lanzar en el momento de build, en el momento que tú hagas una construcción y luego, no
+
+104
+00:05:38,140 --> 00:05:43,660
+sé, mandes eso a tu hosting o lo que sea, pero habría que haber un proceso manual.
+
+105
+00:05:43,660 --> 00:05:48,300
+Si tú quieres actualizar la página de about, vas, la modificas, haces un build y lanzas.
+
+106
+00:05:48,300 --> 00:05:53,400
+¿Por qué? Porque entonces él se va a quedar como con esa página estática. Es una de
+
+107
+00:05:53,400 --> 00:05:54,760
+las mejores habilidades de por sí.
+
+108
+00:05:54,760 --> 00:06:00,360
+Porque no cargamos al servidor de rendería esa página siempre, cada vez, sino que como
+
+109
+00:06:00,360 --> 00:06:05,940
+no cambia, ya está pre-renderizada. Entonces ya está lista, literalmente ya está el contenido
+
+110
+00:06:05,940 --> 00:06:12,640
+y lo podemos ver. Es decir, si tú vas acá al, acá a la, pues al dist que él genera,
+
+111
+00:06:12,640 --> 00:06:17,640
+vamos a ir un momento a la terminal, por ejemplo. Acá vamos a ir a la terminal, voy a hacer
+
+112
+00:06:17,640 --> 00:06:24,760
+un build de este sitio y vamos a ver cómo él va a generar cada una de las páginas.
+
+113
+00:06:24,760 --> 00:06:31,760
+Como tenemos el RenderRender, pues él debería generar como un ruteo para cada una. Entonces
+
+114
+00:06:31,760 --> 00:06:36,500
+si yo voy acá, voy al dist, vamos a ver que si me voy a nivel de server, pues obviamente
+
+115
+00:06:36,500 --> 00:06:42,000
+está todo el chunk y demás. Pero fíjate que acá está nuestro index, bien, y por
+
+116
+00:06:42,000 --> 00:06:48,300
+acá a nivel de server, vamos a ver, mira que acá está la página de about, ya como
+
+117
+00:06:48,300 --> 00:06:54,760
+pre-renderizada. Fíjate que él ya pre-renderiza ese contenido, pero no encontramos locations.
+
+118
+00:06:54,760 --> 00:06:59,080
+¿Por qué locations? Va a ser client-side. Entonces todas las páginas que coloquemos
+
+119
+00:06:59,080 --> 00:07:04,400
+como pre-render básicamente va a dejar como todo el HTML ya listo, ya preparado. El servidor
+
+120
+00:07:04,400 --> 00:07:09,500
+no va a hacer nada, simplemente lo que ya preparó, lo lanza. Pero para que nosotros
+
+121
+00:07:09,500 --> 00:07:14,980
+lo actualicemos, pues tendríamos que estar haciendo building continuamente. Pero esa
+
+122
+00:07:14,980 --> 00:07:19,100
+es precisamente una de las habilidades. Tú escoges ya cuál es la mejor para ti. Vamos
+
+123
+00:07:19,100 --> 00:07:23,020
+a ver un poquito de la documentación para ver más casos. Si quieres ir mucho más a
+
+124
+00:07:23,020 --> 00:07:24,100
+fondo, aquí está como el link de la página de about.com. Aquí está como el link de la
+
+125
+00:07:24,100 --> 00:07:28,180
+página de about.com. Aquí está como la documentación de este feature, se llama
+
+126
+00:07:28,180 --> 00:07:33,100
+server-routing. Y aquí es donde te dicen, mira, la página principal sería client,
+
+127
+00:07:33,260 --> 00:07:38,120
+pero about es pre-render, pero profile es server y todo lo demás, mira, acá dice todas
+
+128
+00:07:38,120 --> 00:07:41,960
+las demás van a ser server-side. Mira que también entonces lo colocaron por acá al
+
+129
+00:07:41,960 --> 00:07:47,060
+final y la página inicial es modo client. Acá literalmente ya van mucho más a fondo
+
+130
+00:07:47,060 --> 00:07:51,700
+y si estás interesado en ir más a fondo en esta parte, pues déjame un comentario
+
+131
+00:07:51,700 --> 00:07:53,700
+y pues haría un segundo video específico.
+
+132
+00:07:54,100 --> 00:08:01,340
+Fijate que acá, digamos que yo tengo un Post, es decir, tengo artículos y como son dinámicos,
+
+133
+00:08:01,340 --> 00:08:05,760
+es decir, tengo el Academy arrojado, pues tengo la página, por ejemplo, estoy actualizando
+
+134
+00:08:05,760 --> 00:08:07,100
+los Re777. Manufacturer...
+
+135
+00:08:07,100 --> 00:08:11,560
+Realmente yo tengo diferentes premios en el cliente y al final de esto puedo donde
+
+136
+00:08:11,560 --> 00:08:19,780
+decir de donde nosotros estamos y después de eso tengo
+
+137
+00:08:19,780 --> 00:08:21,260
+las actividades en esta página.
+
+138
+00:08:21,260 --> 00:08:22,180
+Y aquí otra cosa muy interesante.
+
+139
+00:08:22,180 --> 00:08:23,120
+Aquí tenemos Herx misterio más nada.
+
+140
+00:08:23,120 --> 00:08:23,860
+Es decir, otra cosa queค Scholta no se conoce molto erste, pero psol nlat referenced se vaむ
+
+141
+00:08:23,860 --> 00:08:25,740
+el ID, ¿cómo haríamos para
+
+142
+00:08:25,740 --> 00:08:28,320
+prerenderizar todos esos contenidos
+
+143
+00:08:28,320 --> 00:08:30,180
+de forma
+
+144
+00:08:30,180 --> 00:08:31,920
+dinámica cada vez que le hagamos ngBuild?
+
+145
+00:08:32,060 --> 00:08:33,680
+Que vaya a mapear todos los IDs
+
+146
+00:08:33,680 --> 00:08:35,620
+y los prerenderice, eso es una locura.
+
+147
+00:08:35,940 --> 00:08:37,800
+Pero se puede, se puede haciendo
+
+148
+00:08:37,800 --> 00:08:39,560
+este par de configuraciones. Es más,
+
+149
+00:08:39,980 --> 00:08:41,700
+si nosotros ya empezamos a hablar
+
+150
+00:08:41,700 --> 00:08:43,940
+de servidor, es decir,
+
+151
+00:08:44,240 --> 00:08:45,800
+de esto en modo server,
+
+152
+00:08:46,220 --> 00:08:47,960
+hay algunas cosas bien interesantes
+
+153
+00:08:47,960 --> 00:08:49,920
+en donde uno ya puede empezar a jugar con
+
+154
+00:08:49,920 --> 00:08:51,920
+correr cierto código del lado del servidor
+
+155
+00:08:51,920 --> 00:08:53,760
+como por ejemplo
+
+156
+00:08:53,760 --> 00:08:55,440
+poner un header en específico
+
+157
+00:08:55,440 --> 00:08:57,840
+o una llave en específico que solo
+
+158
+00:08:57,840 --> 00:08:59,140
+corra del lado del servidor.
+
+159
+00:09:00,060 --> 00:09:01,840
+Entonces aquí es donde podemos encontrar mucho
+
+160
+00:09:01,840 --> 00:09:04,180
+más detallado este tipo de estrategias.
+
+161
+00:09:04,560 --> 00:09:05,540
+Pero por ahora, de nuevo,
+
+162
+00:09:06,180 --> 00:09:07,640
+este sería el escenario.
+
+163
+00:09:08,100 --> 00:09:09,980
+Si quieres ir mucho más a fondo, déjame en los comentarios
+
+164
+00:09:09,980 --> 00:09:11,540
+y podemos hacer sobre todo de
+
+165
+00:09:11,540 --> 00:09:13,680
+prerendering, sobre todo de un sistema de block,
+
+166
+00:09:14,220 --> 00:09:15,900
+cómo podríamos hacer todo ese
+
+167
+00:09:15,900 --> 00:09:17,500
+enganche para prerenderizar todo.
+
+168
+00:09:17,900 --> 00:09:19,720
+Servers y client-side no tienen tanta
+
+169
+00:09:19,720 --> 00:09:21,720
+complejidad, pero de pronto un prerendering
+
+170
+00:09:21,720 --> 00:09:23,540
+un poco sí. Y eso fue todo.
+
+171
+00:09:23,540 --> 00:09:25,480
+Literalmente es un feature bastante
+
+172
+00:09:25,480 --> 00:09:27,820
+compacto, pero muy potente porque realmente
+
+173
+00:09:27,820 --> 00:09:29,660
+uno no piensa en casarse
+
+174
+00:09:29,660 --> 00:09:31,580
+con una sola estrategia para
+
+175
+00:09:31,580 --> 00:09:33,380
+todo tu website, sino que
+
+176
+00:09:33,380 --> 00:09:35,320
+literalmente puedes ir de forma granular
+
+177
+00:09:35,320 --> 00:09:37,840
+ruta por ruta y ver cuál es la estrategia
+
+178
+00:09:37,840 --> 00:09:39,720
+de renderizado que más te viene mejor.
+
+179
+00:09:40,180 --> 00:09:41,620
+Así que déjame en los comentarios si ya sabías
+
+180
+00:09:41,620 --> 00:09:43,680
+de esta técnica, si la aprendiste en este video
+
+181
+00:09:43,680 --> 00:09:45,800
+y si la vas a empezar a aplicar en tus proyectos.
+
+182
+00:09:46,240 --> 00:09:47,540
+Recuerda que para
+
+183
+00:09:47,540 --> 00:09:49,120
+aplicar esto tienes que
+
+184
+00:09:49,120 --> 00:09:51,520
+por defecto habilitarse al browser rendering.
+
+185
+00:09:51,520 --> 00:09:53,340
+Es decir, tienes que habilitar el proyecto
+
+186
+00:09:53,340 --> 00:09:55,540
+como server-server rendering y ahí sí ya empiezas
+
+187
+00:09:55,540 --> 00:09:57,380
+a degradar quién va a ser client
+
+188
+00:09:57,380 --> 00:09:59,620
+o quién va a ser prerendering. Pero por defecto
+
+189
+00:09:59,620 --> 00:10:01,500
+el proyecto debe estar habilitado
+
+190
+00:10:01,500 --> 00:10:02,440
+para server-server rendering.
+
+191
+00:10:03,260 --> 00:10:05,300
+Es bastante sencillo habilitarlo, pero
+
+192
+00:10:05,300 --> 00:10:07,320
+esto también requiere que ya
+
+193
+00:10:07,320 --> 00:10:09,480
+obviamente necesitamos un servidor, entonces
+
+194
+00:10:09,480 --> 00:10:11,520
+tendrías que cambiar el modelo de hosting, pero ya
+
+195
+00:10:11,520 --> 00:10:13,260
+he hablado de cómo hacerlo
+
+196
+00:10:13,260 --> 00:10:15,640
+con server-server rendering, cómo publicarlo por ejemplo
+
+197
+00:10:15,640 --> 00:10:17,520
+en Cloudflare, etc. Entonces ya tienes
+
+198
+00:10:17,520 --> 00:10:19,420
+varias opciones o cómo ya lo podrías
+
+199
+00:10:19,420 --> 00:10:20,840
+desplegar en un servidor de Naut.
+
+200
+00:10:20,840 --> 00:10:23,400
+Pero es interesante y muy importante
+
+201
+00:10:23,400 --> 00:10:25,060
+sobre todo que ya al habilitar
+
+202
+00:10:25,060 --> 00:10:27,080
+server-server rendering podemos tener estas otras
+
+203
+00:10:27,080 --> 00:10:28,780
+features, estas otras novedades
+
+204
+00:10:28,780 --> 00:10:31,060
+de ser mucho más granular y escoger la
+
+205
+00:10:31,060 --> 00:10:33,020
+estrategia de rendering adecuada para
+
+206
+00:10:33,020 --> 00:10:34,680
+nuestro website. Así que nos vemos
+
+207
+00:10:34,680 --> 00:10:36,560
+y suscríbete para más contenido
+
+208
+00:10:36,560 --> 00:10:37,940
+y nos vemos en la próxima.
+

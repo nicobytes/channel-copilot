@@ -1,7 +1,7 @@
 # Create env
 
 ```sh
-conda env create -f environment.yml
+conda env create -f env.yml
 ```
 
 # Activate env
@@ -10,22 +10,13 @@ conda env create -f environment.yml
 conda activate channel
 ```
 
-# Install deps
+# List dependencies
 
 ```sh
-poetry install
+conda list
 ```
 
-# Generate conda env from zero
-```sh
-conda create --name channel python=3.10
-conda activate channel
-conda install -c conda-forge poetry
-conda install -c conda-forge ffmpeg
-conda env export --from-history --file env.yml
-poetry init
-
-```
+El `env.yml` instala todas las dependencias (conda + pip) y el proyecto en editable (`pip install -e .`). No hace falta Poetry.
 
 # Run
 ```py

@@ -3,7 +3,7 @@ from settings import settings
 from langchain_core.runnables import RunnablePassthrough
 from langchain_core.output_parsers import StrOutputParser
 from langchain_openai import ChatOpenAI
-from langchain import hub
+from langchain_classic import hub
 from langchain_openai.chat_models.base import BaseChatOpenAI
 
 prompt = hub.pull("nicobutes/linkedin")

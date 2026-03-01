@@ -1,30 +1,13 @@
-[tool.poetry]
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
 name = "app"
 version = "0.1.0"
 description = ""
-authors = ["Nicolas Molina Monroy <hi@nicobytes.com>"]
 readme = "README.md"
-packages = [{include = "channel_copilot"}]
+authors = [{ name = "Nicolas Molina Monroy", email = "hi@nicobytes.com" }]
 
-[tool.poetry.dependencies]
-python = "~3.10"
-openai = "1.44.0"
-openai-whisper = "20250625"
-python-dotenv = "^1.0.1"
-pydantic = "2.9.0"
-moviepy = "2.2.1"
-typer = "^0.12.5"
-rich = "^13.8.0"
-tiktoken = "0.7.0"
-black = "^24.8.0"
-langchain = "0.2.16"
-langchain-openai = "^0.1.23"
-ffmpeg-python = "^0.2.0"
-langchain-core = "^0.2.38"
-pydantic-settings = "^2.4.0"
-ipykernel = "^6.29.5"
-
-
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+[tool.setuptools.packages.find]
+include = ["channel_copilot*"]

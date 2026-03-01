@@ -1,7 +1,7 @@
 from langchain_core.runnables import RunnablePassthrough
 from langchain_core.output_parsers import StrOutputParser
 from langchain_openai import ChatOpenAI
-from langchain import hub
+from langchain_classic import hub
 
 prompt = hub.pull("nicobutes/dalle")
 

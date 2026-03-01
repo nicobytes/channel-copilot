@@ -134,6 +134,9 @@ celerybeat.pid
 # SageMath parsed files
 *.sage.py
 
+# Conda env export by IDE (we use env.yml only)
+condaenv.*.requirements.txt
+
 # Environments
 .env
 .venv

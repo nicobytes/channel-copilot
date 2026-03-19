@@ -1,0 +1,237 @@
+Hoy vas a aprender cómo desplegar una aplicación de Angular en la nube de Cloudflare.
+Y sí, ya sé, yo ya había grabado este video un poquito atrás,
+pero las cosas en Angular han cambiado, han cambiado la API para hacer realmente
+mucho más fácil este despliegue y también Cloudflare ha cambiado un poco sus servicios,
+así que vamos a ver cómo se hace hoy en el 2026,
+cómo podríamos desplegar esta aplicación en esta nube tan potente
+que a mí personalmente me gusta mucho y que además de eso es súper económica y barata.
+Y podemos tener un server-side rendering de mucha calidad y mucha performance,
+es decir, el rendering es muy, muy rápido y además soportar todos los features de Angular.
+Así que empecemos.
+Desde el lado de Cloudflare lo que ha cambiado es que ellos han migrado su servicio
+que antes llamaban Pages hacia Workers, que va a ser el servicio primordial
+para correr cualquier cosa que tenga que ver con Edge Computer en la nube de Cloudflare.
+Entonces hay un cambio de servicios.
+Sobre todo nosotros utilizando los Edge o el Computing Edge de Cloudflare
+vamos a ganar muchísimo rendimiento haciendo server-side rendering en una nube que es muy, muy económica.
+Y por el otro lado tenemos a Angular en el cual nos dice que ahora es mucho más abierto
+y más fácil correr Angular desde servidores que no dependan de Node.js.
+Esto quiere decir que tenemos nuevos Runtimes, es decir, tenemos cosas como Dino, Boom,
+los Cloudflare Workers, E.Javascript.
+etcétera.
+Diferentes Runtimes que hacen que sea JavaScript mucho más ligero y que corra mucho más rápido.
+Sobre todo en el Edge Computing.
+Y para eso tenemos esta nueva API llamada Angular App Engine
+que haciendo un par de configuraciones podríamos dedicar,
+porque normalmente cuando nosotros creamos una aplicación en Angular
+viene, sobre todo con server-side rendering,
+viene con Express por defecto.
+Y Express depende de Node.
+Sin embargo, haciendo este par de configuraciones vamos a lograr que corra
+en la nube.
+En estos nuevos Runtimes modernos, ligeros y rápidos.
+Así que vamos a empezar.
+Voy a iniciar un proyecto desde cero para correr una aplicación de server-side rendering
+y empezar a hacer las configuraciones apropiadas.
+Entonces empezamos con nuestro comando nginio y vamos a hacer ng-edge-example.
+Esa va a ser nuestra aplicación.
+Le voy a decir que todo bien, que sí.
+Vamos a meterle Tailwind.
+Aquí es donde le decimos si necesitamos server-side rendering.
+Le digo que sí.
+Vamos a decirle que nuestro IDE va a ser Cursor
+y que obviamente necesitamos Agents.md.
+Yo creo que con esto basta.
+Y vamos a crear este primer proyecto que tiene server-side rendering.
+Aquí ya ha terminado de crear el proyecto,
+así que entra a la carpeta, vamos a abrir nuestro IDE Cursor
+para empezar a hacer ciertos detalles.
+Listo, aquí tenemos la configuración.
+Nada del otro mundo.
+Sin embargo, lo primero que vamos a hacer es agregar una dependencia
+que nos pide Cloudflare
+para empezar a desarrollar y colocar a nuestra aplicación
+de server-side rendering con Angular.
+Vamos a nuestra terminal y lo que vamos a hacer es
+instalar esta dependencia como desarrollo.
+Se llama Granderer, que básicamente es el que nos permite
+levantar como un entorno local y hacer pruebas
+de si realmente funcionaría bien nuestro proyecto
+corriendo como en una emulación de lo que sería el Edge Computing de Cloudflare.
+Entonces simplemente le damos Enter.
+Algo salió mal por acá.
+Eh...
+Ah, claro, me faltó el Install, obviamente, el "-d",
+y pues instalar la última versión del Granderer.
+Ahora, hay un archivo de configuración.
+Normalmente estos archivos se llaman Granderer.json,
+Granderer.toml, el toml que normalmente uno le puede poner.
+Y esto es súper interesante porque desde estos archivos
+podemos activar o desactivar servicios de cómputo
+de todo lo que es Cloudflare.
+Vamos a escoger el formato que ellos nos aconsejan, que es este,
+el JSON-C, que normalmente tiene este tipo de patrón.
+Entonces vamos a crear este archivo en Cursor.
+Si creo el archivo, literalmente, acá tenemos el archivo
+y este es como el contenido.
+Entonces vamos a tener un esquema, le vamos a poner un nombre.
+Normalmente este nombre es importante porque es el...
+cómo lo vas a reconocer, como el nombre del servicio
+que te va a dar. Entonces es como importante que lo tengas bien.
+Y acá, por ejemplo, algo muy importante es decirle cuál va a ser el main.javascript,
+que va a tener la aplicación y dónde están los assets.
+Esto es súper vital.
+Y cómo nosotros podemos saber realmente cuál es la carpeta correcta,
+pues básicamente podemos ir acá y hacemos un ngBuild
+para ver en dónde genera el dist y cómo los va a nombrar.
+Es decir, la carpeta de distribución que normalmente son los archivos
+compilados, transformados y optimizados para enviar.
+Entonces si nosotros nos vamos aquí al dist,
+vamos a ver que genera dos carpetas, Browser y Server.
+Este archivo Server podemos copiarlo, literalmente,
+el Related Path lo podemos copiar y poner acá para que no tengamos ningún error.
+Ahí sería, ese sería el dist.
+Y assets básicamente va a ser lo que hay en la carpeta de Browser.
+Entonces también podemos copiar el Related Path y ponerlo acá.
+Listo. Entonces esa sería la manera como adecuada de configurar esto.
+Sin embargo, hay una parte vital.
+Si tú miras literalmente en tus archivos,
+va a haber un archivo que se llama main.server
+y otro llamado server.js.
+Y como ves, este archivo depende de Express.
+Sin embargo, si nosotros vamos a querer desplegar esto en el Edge Computing
+en un runtime que no dependa de Node.js,
+básicamente debemos salir de Express,
+porque Express depende mucho de Node.
+Entonces aquí es donde tenemos que empezar a hacer ciertas configuraciones.
+Para no dañar este archivo, voy a crear otro, copio-pego,
+y lo renombro.
+A este lo voy a llamar server.edge.
+¿Por qué Edge?
+Porque no solo nos va a servir para Cloud for Worker,
+sino que podemos desplegar en Dino, en Boon,
+y en otros runtimes muy interesantes,
+pues el ecosistema de JavaScript.
+¿Qué va a tener esto? Vamos a verlo.
+Lo único que tiene que tener este archivo,
+server.edge, es lo siguiente.
+Vamos a, desde Angular Server Surrendering,
+vamos a crear, importar a Angular App Engine,
+y Create Request Handler.
+Entonces aquí creamos esa instancia,
+y lo tenemos que configurar de esta manera.
+Bien, esto es como lo único que tenemos que hacer.
+Así va a funcionar en cualquier servidor que no dependa de Node.js,
+y por ende, estos son los runtimes que son de nuevo rápidos,
+muy, muy rápidos en rendimiento.
+Eso es lo único que tendríamos que tener desde esta parte.
+Lo siguiente es ir al AngularJSON,
+y por acá vamos a ver que se hace referencia al server.
+Fíjate que acá se hace referencia
+al server. Bien, tiene entry y tiene server.
+Aquí es donde le decimos que queremos utilizar ese edge.
+Si de alguna manera quisiéramos luego expresar,
+pues volver a desplegar utilizando express y node,
+pues volvemos al archivo o lo apuntamos al archivo
+que ya teníamos.
+Sin embargo, algo muy, muy, muy importante
+y que no lo encontré en ningún lado,
+no está en la documentación de Angular,
+o en la documentación como tal,
+no la encontré, pero sí está como en el código,
+y sí está en algunos ejemplos de Cloudflare,
+es esta bandera, esta bandera, literalmente,
+si no la pones experimental platform,
+si no la pones en neutral,
+literal, no va a servir nada de esta configuración.
+Es súper raro, es súper raro porque literalmente
+no hay documentación de esto.
+Obviamente, pues no en la documentación per se,
+en angular.dev no vas a encontrar nada,
+pero literal, acá hay una documentación
+un poco más que es dada por este esquema.
+Este esquema tiene una documentación per se,
+entonces aquí te dice, mira, por defecto,
+esto genera un bundle optimizado para node.js environments,
+pero si lo pones en neutral, esto genera una,
+pues un bundle que no depende de node.js
+y se puede correr en ad workers o serverless platform,
+¿bien? Acá literalmente me dice serverless platform.
+Eso es muy vital porque recuerda que al final,
+si tú desplegas en un servidor de node,
+literalmente es una máquina corriendo vivo
+que pues gasta dinero, pero serverless solo se ejecuta
+cada vez que pues corre y con edge computing
+no hay costo de encendido de esa máquina.
+Es, es, el call start es instantáneo y segundo,
+tiene un JavaScript mucho más liviano que hace que,
+pues, corra y renderice mucho más rápido.
+Pero este experimental platform neutral es vital.
+Ahora, si toda esa configuración sirvió,
+deberíamos correr un comando llamado endconfig,
+npx, llamado randler, que fue la dependencia local
+que instalamos, randler, dev, y debería funcionar.
+Vamos a ver. No, por acá creo que lo estoy digitando mal.
+Sí creo que es randler, dev. Vamos a ver.
+Y listo. Fíjate que acá hay unos pequeños errores
+y apuntan al server.mjs. Esto es porque todavía está generando
+el build anterior y el build anterior, pues,
+todavía no tenía esta configuración.
+Así que vamos a generar otro build y es más,
+antes de generarlo, les voy a mostrar una pequeña pieza
+de código, server. Acá está este server.m.
+Fíjate que acá hay algunas cosas que literalmente acá todavía
+dependen de node. Entonces, él va a generar una nueva
+compilación en la cual no dependa de node. ¿Vale?
+Entonces, si yo hago un nuevo build con las nuevas configuraciones,
+va a volver a ser el building de mi aplicación, pero,
+para algo que no depende de node. Entonces, fíjate que ya
+el server.js cambió y ya no tiene dependencias de node.
+Corre en un JavaScript más puro, básicamente.
+Entonces, ahora sí debería funcionar el randler dev. Veamos.
+Fíjate que acá dice que supuestamente ya está corriendo.
+En esta ubicación, vamos a ver si... Acá literalmente ya está corriendo
+la aplicación y si nosotros básicamente inspeccionamos,
+le damos ver código fuente, ver page source, vemos que literalmente
+está generando server surrendering. Es decir, el contenido se está
+prerenderizando, se genera o se renderiza desde el lado del servidor.
+Sólo que una vez desplegado en la nube de Cloudflare, va a alcanzar
+velocidades muy, muy interesantes. Una cosa más. Si al final estás
+utilizando HTTP, pues para hacer peticiones, obviamente,
+¿quién lo está utilizando? Al final, tu aplicación de formen necesita
+hacer request hacia servidores. Acá te recomiendo, o ni siquiera te recomiendo,
+para evitar problemas, te recomiendo que configures esto así.
+Provide HTTP with fetch. Con eso se va a utilizar el fetch nativo de JavaScript
+sin ningún problema y eso también va a acoplarse muy bien en el server surrendering.
+Ahora, tú obviamente debes tener una cuenta en Cloudflare y aquí es donde
+vamos a empezar a ligar y hacer el deployment. Entonces, aquí ya tengo el login
+de mi aplicación. Voy a crear desde la tabla de Windows, voy a crear una cuenta
+en la terminal. Entonces, aquí en la terminal, ya digamos que aquí
+me funciona todo. Entonces, voy a correr el comando npx render, pero esta vez
+voy a hacer un login. Bien. Entonces, él me va a pedir como una validación.
+Aquí vamos a ver si yo lo autorizo. Ahí se autoriza. Perfecto. Y una vez
+autorizado, yo podría hacer el deploy. Render deploy. Es lo único que necesito.
+Literalmente, es lo único que necesito para hacer el deployment. Recuerda el nombre que le habías puesto.
+Porque ese va a ser el nombre que, pues, con el cual vamos a identificarlo.
+Entonces, simplemente ponemos npx render deploy. Obviamente, ya deberías haber hecho ng build.
+Entonces, tú corres ng build y lo pones. Por acá me dice que nos falta poner un compatibility.
+Entonces, vamos a poner este que me está sugiriendo. Esto básicamente es para ver
+desde qué fecha podemos ponerle compatibilidad. Normalmente, si uno quiere crear o utilizar
+ciertas partes chiquitas de Node.js, esto podría ser vital. Pero, bueno, básicamente
+es obligatorio ponerlo. Entonces, simplemente lo vamos a poner. Listo. Lo ponemos
+y intentemos hacer otra vez el deployment. Vamos a ver cómo sale. Ahí está haciendo el build.
+Está subiendo la carpeta de assets. Y luego, pues, está subiendo. Luego ya empieza
+a subir todo lo que es nuestro server-side. Vamos a ver. Ahí dice...
+Que ya lo está subiendo. Se está subiendo. Ahí está. Y fíjate que me creó como una dirección
+que vamos a ver. Fíjate que acá está la aplicación. Y vamos a ver si tiene server-side rendering.
+Tiene server-side rendering. Bien. Si tú comparas la velocidad de rendering de esta aplicación,
+de esta, de el Edge, versus un servidor de Node.js normal, siempre, siempre va a ganar esta.
+¿Por qué? Porque el Edge es mucho más rápido.
+Un runtime mucho más liviano para correr tus aplicaciones. Y listo.
+Ya tienes una aplicación en Cloudflare con server-side rendering en Angular.
+Así de sencillo. Cloudflare es una de mis nubes preferidas. Y de por sí se han
+haciendo muchas cosas interesantes con AI Edge Computing. Todo lo que hacen con su runtime
+de Cloudflare Worker, etc. Así que realmente lo recomiendo mucho. Yo lo utilizo mucho como para
+proyectos personales y algunos proyectos, pues, side projects que tengo montados allí
+y algunos clientes. Así que realmente te lo recomiendo mucho.
+Déjame en los comentarios si esto te funcionó. Y recuerda suscribirte. Y nos vemos en la próxima.

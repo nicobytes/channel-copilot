@@ -1,0 +1,859 @@
+En este video te voy a enseñar cómo utilizar NX para gestionar tu monorepositorio
+y empezar a tener una buena arquitectura en proyectos de Angular.
+Bien, ahora, ¿cuáles son esos casos?
+El más típico es cuando tenemos múltiples aplicaciones.
+Imagínate que normalmente tienes una aplicación, el website que está hecho en Angular,
+el conservador de rendering, pero luego el panel de administración está también en Angular,
+pero está en otra aplicación aparte, está en otro repositorio.
+Bien, normalmente, como es una en Angular, empiezan a compartir cosas,
+compartir servicios, compartir red typing, etc.
+Entonces, normalmente albergar como estos dos repositorios en diferentes lados
+empieza a causar conflictos y duplicación de código.
+Y bien, digamos que si lo queremos tener en un solo proyecto de Angular,
+digamos que slash admin sea todo el panel administrativo y el resto sea como el website público,
+si bien es una opción y comenzamos a, por ejemplo, cargar paquetes o librerías
+que de pronto se van a cargar en un solo proyecto de Angular,
+de pronto afectan a la landing o al website que hace salvar el servendering
+y de pronto no solo está acoplado al sistema de administración.
+Es decir, compensamos a tener problemas como de building o de que al final una librería afecta a la otra, etc.
+Bien, entonces normalmente lo que se aplica es realmente manejar esas dos aplicaciones diferentes,
+de forma diferentes, cada quien es una aplicación en Angular diferente,
+pero con un monorepositorio empezamos a compartir código, librerías, módulos
+y él se va a encargar de hacer un buen trabajo.
+Y el monorepositorio también se va a encargar de gestionarlo.
+Ese es como el caso número uno.
+Entonces, si tú tienes ese caso, tienes múltiples aplicaciones
+y quieres empezar a compartir ciertas bases de código, creo que esa es una gran opción.
+Sin embargo, también está la otra opción de que tú solo tienes una aplicación, ¿bien?
+Pero esa aplicación empieza a ser grande, robusta, empieza a crecer a través del tiempo.
+Ahí es donde también un monorepositorio con NX nos ayuda,
+porque también nos ayuda como a modularizar el typing, el data access,
+todo eso queda como más modularizado y podemos escalarlo.
+Y eso es lo que nos ayuda a crear más fácil.
+Y sobre todo, y la última que creo que es la que también más trae beneficios,
+es también que al final, si bien podríamos utilizarlo solo para gestionar nuestros proyectos en Angular,
+también podríamos como monorepositorio traer nuestro backend, nuestra API.
+Por ejemplo, nuestra API en Express, nuestra API en Nest, etc.
+Todo esto lo podemos tener, porque al final esa es la gracia de un monorepositorio.
+Google, por ejemplo, maneja monorepositorios.
+Todos sus proyectos están en un solo monorepositorio.
+Que no significa que sea un solo deployment o que no sepan cómo compartir librerías, pero todo está ahí.
+Eso trae grandes ventajas de colaboración y deployment.
+También tiene otros retos, pero al estar todos en un solo repositorio,
+tanto el equipo de backend y frontend trabajando en uno solo,
+es más fácil, por ejemplo, sincronizarse entre el equipo o lanzar un solo release.
+Por ejemplo, si se actualiza la API, pues también de una vez actualizo y hago un release de nuestro frontend.
+Entonces, como ven, es muy fácil.
+Como que al estar acoplados o estar todos en un solo repositorio,
+entonces todos estamos mucho mejor sincronizados a nivel de equipo y a nivel también de código.
+Y ahorita en tiempos de AI es una gran ventaja tenerlo en un monorepositorio.
+¿Por qué?
+Porque AI puede saber como todo el scope de tu proyecto, el backend y el frontend,
+tenerlo todo en un solo repo y entonces analizar, ok, listo, el frontend quiere ir a pegarle a este endpoint.
+Entonces no solo sabe el endpoint, sino sabe qué hay por detrás,
+porque el código de backend también lo sabe.
+El código de backend también está allí.
+Entonces ahí es donde cobra bastante sentido,
+porque ahí tiene mucho más contexto de cómo trabaja ese proyecto
+y cómo podemos empezar a trabajar con esos features.
+Entonces, precisamente y de acuerdo a esos casos, pues vamos a aprender NX y vamos a configurar ese proyecto.
+Aquí tenemos la página de NX.
+Por acá dice Smart Repos, FASCI, como un programa continua,
+que es un poco de las ventajas que yo les venía comentando.
+Dice que de por sí, al tener todo en un monorepositorio, también empezamos a compartir librerías,
+empezamos a compartir como un solo building de toda la aplicación, no solo de frontend, sino de backend.
+Entonces es bastante interesante.
+Y NX no solo es muy famoso en el ecosistema de Angular,
+porque realmente ellos nacieron dándole gran soporte a Angular,
+pero luego, si nosotros vemos la documentación, realmente soportan ya grandes tecnologías, bastantes tecnologías.
+Si nos vamos aquí a Technologies,
+vamos a ver que pues tiene Angular, pero también soporta, si yo tengo proyectos en React,
+y eso es bastante interesante, porque entonces yo puedo tener un typing
+que se comparta entre mi aplicación, digamos que es una landing page en Axtro,
+pero mi sistema de administración está en Angular,
+pero entonces yo comparto solo una biblioteca de typing para las dos.
+Entonces empezamos a tener este tipo de arquitecturas bastante interesantes.
+Fíjense que a Expo, que es básicamente React Native,
+tenemos Node, que es solo...
+o Node o Express, que es lo que nos va a permitir es también tener aquí,
+o que ahí también viva nuestro backend.
+Incluso hay Java, si ustedes tienen proyectos,
+y es muy común ver este stack en el mundo laboral.
+Angular como frontend, pero backend es Java.
+Entonces aquí podríamos también gestionarlo,
+y precisamente como NX sabe un poco de esta tupla,
+de este par de trabajo, pues también le da gran soporte a Java, etc.
+Hasta .NET, que es raro tener .NET aquí,
+pero de eso se tratan un poco los monorepositorios,
+como tener todo tu proyecto en uno solo, gestionado con una sola herramienta,
+lo cual nos acelera el building,
+y yo creo que uno de sus side effects es realmente el trabajo colaborativo.
+No estamos viendo varios repositorios,
+luego sincronizando el deployment,
+no, todo está en un solo repositorio,
+y como tenemos una sola herramienta que lo gestiona,
+entonces se vuelve algo súper sencillo de gestionar.
+Haces un building con un solo comando,
+sabes que se afecta, cómo correr un minitest, etc.
+Entonces vamos a ver cómo iniciar con NX.
+Vamos a ir a cualquier terminal y allí vamos a instalar NX,
+o bueno, la forma de iniciar un workspace, que así lo llaman ellos,
+es con el comando npx create nx workspace,
+y bueno, nos bajamos la última versión.
+Normalmente tienen unos presets, que es como una preconfiguración,
+como de una vez tráiganme una aplicación, un workspace que tenga React,
+que tenga Express, y no sé, que tenga Angular por defecto.
+Entonces hay unos presets, como unas preconfiguraciones.
+Pero por ahora yo lo voy a hacer sin preset para ver cómo me va.
+También es importante que en Angular se puede trabajar como en una sola aplicación,
+como si fuera una aplicación, como que solo vamos a encargarnos de una aplicación.
+Yo lo recomiendo, un poco creo que el potencial es no trabajar una aplicación,
+es trabajar múltiples aplicaciones, incluido el backend, en el mismo repositorio.
+Entonces no me gusta agregarlo como la aplicación maestra,
+sino que es una aplicación más.
+Entonces bueno, acá le damos a Yes, le vamos a darle que sí,
+y por ejemplo acá me dice, bueno, tú qué quieres crear, cómo quieres el nombre,
+entonces aquí le voy a poner example nx, por ejemplo.
+Example nx, listo.
+Y fíjate que lo primero que me dice es, bueno mira, tengo varias cosas,
+tengo un custom, tengo un minimal, que es algo simple, ya,
+pero tengo un custom, tengo un minimal, que es algo simple, ya,
+que es algo sin proyectos, digamos este es como vacío,
+el primero, pero sin ningún proyecto.
+Luego tenemos uno que ya que tiene React,
+fíjate que este ya tiene un mono repo con React y Express,
+este que es como el más genérico, Angular y Express.
+También sirve para cuando nosotros manejamos,
+y esto también está incluido en el mono repositorio,
+cuando tú tienes paquetes de npm,
+normalmente hay varios equipos que trabajan en SDKs,
+entonces los trabajan también como parte del mono repositorio,
+y todo esto tiene que ser incluido en el mono repositorio,
+eso queda ahí, por eso les digo que es un repositorio bastante interesante,
+porque no solo están las aplicaciones de frontend, la aplicación de backend,
+también están las librerías que uno lanza a npm y funciona muy bien.
+Voy a darle en el minimal a ver qué me da y voy a ir agregando como proyectos paso a paso.
+Entonces me dice que si quiero utilizar Nextcloud, que es su servicio,
+obviamente ellos monetizan de alguna manera por ofrecer esta herramienta
+y ellos lo que monetizan es poder que ellos corran todo el proceso de building en su cloud
+y va a ser más rápido.
+Y no significa que no lo podamos hacer en otros ambientes,
+o sea, lo puedo correr en GitHub Action, lo puedo correr en cualquier otro lado,
+pero según ellos se utilizan en Nextcloud, pues básicamente va,
+tiene más features como para aprovechar la tecnología.
+Le voy a decir que no, que hago un skip y que si yo quiero compartir la data,
+sí, pues para ayudar al CDI.
+Entonces ahí me va a crear un primer como template,
+como un poco solo como con el setup básico, pero todavía no tiene proyectos.
+No tiene librerías, no tiene backend.
+Vamos a ir agregándolas, pues pasito a pasito.
+Entonces vamos a ir viendo cómo va.
+Esperemos que termine aquí esta primer setup.
+Acá ya terminó el setup, entonces yo puedo ir a entrar a mi carpeta que se llama example.nx.
+Ahí está.
+Y voy a entrar básicamente con cursor, solo para echar un ojo a esto que tiene ahí.
+Entonces voy a entrar por acá y vamos a hacer un poquito más de zoom.
+Y fíjate que ya me trajo una pantalla.
+Y aquí está la configuración bastante grande.
+Me trajo, ya de por sí me trae unas buenas prácticas.
+Me trae ya skills, que luego voy a hacer un video solo de skills.
+Espérenlo pronto en el canal.
+Pero ya tiene como unas configuraciones para trabajar por defecto con ciertos editores.
+De por sí, fíjense que ahorita lo que hay es más archivos de configuración de editor
+que de proyecto en sí.
+Un poquito loco, pero pues así vivimos ahorita en todos estos ides que tenemos ahorita.
+Pero realmente todo esto son cloud, codecs,
+cursos, gemini, github, opencloud.
+Es literalmente los archivos de configuración para que esos editores de AI funcionen pues
+un poquito mejor.
+Pero si nosotros ya miramos un poco pues el proyecto, tenemos un package.
+Déjenme esconder acá.
+Tenemos un package súper sencillo.
+Tenemos, fíjense que nos trajo por defecto Nx, pues como JavaScript.
+Tiene el core de Nx.
+Tiene TypeScript, que es como lo fundamental.
+Esto funciona muy bien para tecnologías de nuevo.
+Un poco de JavaScript.
+Sin embargo, Nx ya tiene otras librerías, otras formas de trabajar con otros lenguajes
+como java.net.
+Todavía no he visto que trabaje bien, por ejemplo, con Python.
+Si ustedes tuvieran un backend en Python, técnicamente se puede agregar.
+Eso podríamos verlo como con algo que ellos tienen que es el Nx command, que es como para
+correrlo, pero como que no le dan soporte de primera clase.
+A uno le toca hacer como unas automatizaciones.
+Si es que quisiera uno traer aquí el proyecto de...
+De un Python, por ejemplo.
+Pero sí funciona muy bien con Java, con .net, con...
+Y con cualquier framework de frontend o de TypeScript.
+Entonces, Node, Remix, React, Angular, etc.
+Acá tienen los packages, que ahorita no tienen nada.
+Los packages son esas librerías que normalmente publicamos hacia Internet.
+Pero ahorita no tienen nada.
+Entonces, literalmente, simplemente creamos algo en vacío.
+Simplemente estamos creando algo en vacío.
+Tenemos un proyecto desde cero.
+¿Cómo empezamos a agregarle aplicaciones a esta Nx?
+Vamos a verlo.
+Lo primero es que podríamos ir por cada tecnología que queremos soportar.
+Y básicamente, uno lo que hace es agregarle un plugin a Nx, a su proyecto de Nx, con cada
+una de las librerías.
+Entonces, yo quiero trabajar en Angular.
+Entonces, lo que me va a dar es que tengo que ir a agregarle el plugin de Angular.
+Entonces, voy, lo agrego.
+Fíjense que Nx es al final como un...
+Acá me está fallando porque no reconoce ese Nx como global.
+Tendría que instalarlo global o correr el local con npx.
+Y ahí lo va a agregar.
+Yo sugiero normalmente agregarlo de forma global, pero por ahora lo podemos trabajar con npx
+para que busque el local que instalamos, que hace parte del proyecto.
+Luego, entonces, aquí es donde nos dan diferentes comandos.
+Por ejemplo, este sería para generar una aplicación.
+Fíjense.
+NxGenerateAngle.
+Y le digo en la carpeta apps.
+La carpeta apps va a ser súper importante porque ahí es donde vamos a tener todas las aplicaciones.
+Y generamos una aplicación.
+Entonces, vamos a generar esta.
+Entonces, digamos que yo tengo acá esta.
+Bueno, ahí se está instalando el plugin.
+Pero luego, entonces, vamos a tener que ponerlo.
+Sin embargo, algo que es muy interesante de Nx es cómo hace para homogenizar los comandos.
+Es decir, él tiene un...
+Unos comandos que es NxServe, Build, Test, Lean y End-to-End.
+Y no importa qué aplicación o qué tecnología, pues simplemente el nombre que le hayamos colocado.
+Entonces, si este es MyApp, MyWebsite, MyAPI, MySDK, que sería como el SDK.
+Que normalmente los SDK no se sirven porque solo se consumen de forma de librerías.
+Entonces, yo creería que las librerías son el único que no se le pueda hacer un SERP.
+Pero, además, se le puede hacer un Build.
+Se le puede hacer un Test.
+Se le puede hacer un Lean.
+Y en ciertas partes se le puede hacer un End-to-End.
+Y fíjense que acá está cómo generar una librería.
+Que eso es súper interesante porque es lo que también nos permite, sobre todo en Angular, empezar a compartir código.
+Entonces, yo tengo dos aplicaciones.
+De nuevo, miremos el caso de que yo tengo mi landing page con Server-side rendering, etc.
+Y luego tengo mi aplicación, que es otra aplicación, que es mi panel administrativo.
+Pero, al final, estoy duplicando servicios.
+Por ejemplo, yo tengo el servicio que se conecta con el landing page.
+Y el servicio que se conecta con el API.
+No tiene mucho sentido tener los dos servicios en dos lados diferentes.
+Entonces, yo lo que puedo hacer es generar una librería que va a ser la librería compartida.
+Que normalmente, por ejemplo, para consumo de API se llama Data Access.
+Y Data Access se importa como una librería.
+Como si fuera un NPM, una librería más.
+Y simplemente se utiliza en el landing o en el website.
+De nuevo, esto lo podríamos hacer con el Angular normal.
+Pero, normalmente, cuando queremos meter todos nuestros servicios en Angular,
+en un solo proyecto, empiezan a haber problemas.
+Sobre todo, no de building.
+O sea, empezamos a tener un proyecto bastante pesado.
+Entonces, es mejor tener esas aplicaciones divididas por scope.
+O hasta por by feature.
+Y luego, simplemente, empezamos a dividir eso by libraries.
+Pero, bueno, vamos a ir haciendo eso a medida que vayamos avanzando.
+Uf, por acá me está dando un error.
+Ah, acá me da un error.
+Y me dice que en el proyecto que me implementó.
+Me dice que la versión de TypeScript no es compatible con la que se va a trabajar en Angular.
+Entonces, vamos a ver cómo solucionarlo.
+Para solucionar este error e incorporar Angular en nuestro proyecto de Nx,
+vamos a cambiar este Composite en False.
+Y listo.
+Y solo con eso ya debería dejarnos agregar.
+Bueno, acá tengo otra vez el error de arreglarlo con Apex.
+Entonces, vamos a correrlo y ver si esto ya nos soluciona.
+Listo.
+Aquí vemos que solo con cambiar esa pequeña bandera, pues ya tenemos el plugin de Angular dentro de nuestra configuración.
+Sin embargo, todavía no tenemos una aplicación per se.
+Entonces, vamos a crear una aplicación.
+Esta sería la forma.
+Creemos esa aplicación en la terminal.
+Entonces, en este caso, voy a poner que este es mi admin.
+Como el administrador de contenido.
+Bien.
+Entonces, ese va a ser.
+Otra vez lo vuelvo a correr con un Apex.
+Y acá estoy ya agregando.
+Bueno, y acá casi que tiene el mismo start de un proyecto de Angular.
+Me dice, oye, ¿qué quiero?
+CSS, SAS.
+Le voy a decir que CSS.
+Fíjate que él normalmente tiene unas formas ya de trabajar con diferentes buildings para Angular.
+Por ejemplo, acá le voy a decir cuál es mi test runner.
+Le voy a decir que el de btests de Angular, que ya es como el oficial.
+Me dice si quiero end-to-end.
+Me dice si quiero un proyecto configurado con end-to-end.
+Como Player, WordPress, Cypress.
+Le voy a decir que por ahora no queremos end-to-end.
+Me dice cuál es el builder.
+Voy a utilizar que es esbuild.
+Y me dice que si mi sitio es serverless rendering.
+Como ese es el sitio de administración, por el momento le voy a decir que false.
+Listo.
+Entonces, aquí ya me crea como la aplicación administrativa en la que se va a gestionar.
+Hay un login, etcétera.
+Bien.
+Pero ahora la aplicación, el website, digamos que es otra aplicación diferente.
+Que, por ejemplo, tiene unos estilos diferentes.
+Por ejemplo, eso pasa mucho.
+Nosotros tenemos, por ejemplo, en el sistema de administración, no sé, PryNG o Material Design.
+Y esos estilos se cargan de forma global.
+Es muy difícil cargarlos en forma de routing, en la ruta.
+Pero, por ejemplo, el website tiene otra cosa.
+Tiene otro sistema.
+Tiene otra cosa.
+Entonces, ahí es donde empezamos a traer librerías que no se utilizan realmente.
+Que el website no utilizaría del admin.
+Entonces, empiezan a chocar y tengo que hacer como limpiezas, etcétera.
+Pero la mejor forma es que sean independientes.
+Solo que en este caso administradas por un monorepositorio.
+Entonces, acá, por ejemplo, ya agregué la aplicación como administrativa.
+Entonces, lo que voy a hacer es ahora agregar la aplicación que mencionaba, que digamos que es el website.
+Y el website, que es, de nuevo, acá es lo...
+Sí, website, pongámosle.
+Website.
+¿Qué es lo bueno?
+Es que no solo puedo tener proyectos en Angular.
+Pues sí, literalmente, acá tengo que hacer todo de nuevo.
+Entonces, acá le digo true.
+Acá, por ejemplo, el website ya sí va a ser server-side rendering.
+Pero, por ejemplo, puedo tener Astro.
+Puedo tener que la landing sí esté en React, en fin, o en Vue.
+Entonces, puedo también empezar a hacer como estos mix de tecnologías.
+Bien.
+Listo.
+Entonces, acá ya está.
+Vamos a ver qué tiene.
+Vamos a volver a abrir el cursor.
+Y fijémonos que aquí, en la carpeta de aplicaciones,
+aquí en la carpeta de apps, lo que tiene es, pues, nuestra aplicación,
+una aplicación en Angular como normal, solo que tenemos dos aplicaciones
+que, pues, funcionan bastante bien.
+Acá lo diferente, lo interesante, es que si tú te fijas, cada aplicación
+no tiene un package.json.
+Y creo que eso es un poco lo que rompe más la cabeza, por ejemplo,
+de cuando yo empecé a trabajar con NX.
+Y es que solo tenemos un solo package.json, que es este de acá,
+para toda la aplicación.
+Eso tiene sus ventajas y desventajas.
+Tiene una ventaja de que sabemos que todo el monorepo está con una sola versión de Angular.
+Por ejemplo, yo sé que acá deben estar Angular.
+Acá está Angular.
+Acá está el Angular compiler, etcétera.
+Acá está el Angular core, el Angular language service, ¿no?
+Está, pues, lo que necesitamos de Angular, ¿no?
+El core, etcétera.
+Entonces, aquí, por ejemplo, lo que nosotros necesitamos,
+lo que nosotros tendríamos es que tenemos un solo,
+una sola versión de Angular, que eso tiene sus ventajas,
+en toda la aplicación.
+Entonces, aquí tiene un trade-off.
+Es decir, si yo quiero actualizar la versión de Angular solo para el admin,
+no voy a poder, de nuevo.
+Porque NX, una de sus reglas, es que manejamos solo un package.json
+para todo el proyecto.
+Realmente, sí se puede hacer con un par de configuraciones,
+que los proyectos manejen sus packages o sus librerías
+o sus dependencias de forma independiente.
+Pero ellos lo que sugieren, o la buena práctica,
+es que todo sea homogéneo.
+Con eso es más fácil de administrar, más fácil de acoplar,
+correr una migración, hacer un solo building, etcétera.
+Entonces, como que comparten esas librerías.
+Pero cada quien es un proyecto, digamos, independiente.
+Entonces, por eso no tenemos un package.json.
+También comienzan a compartir una sola configuración de TypeScript.
+Entonces, como que todo el proyecto tiene una configuración,
+de TypeScript.
+Los SDKs, las librerías, todo es homogéneo, digamos,
+dentro del monorepositorio.
+Que eso, de nuevo, tiene sus ventajas y desventajas.
+Sobre todo en gestión tiene grandes ventajas.
+De nuevo, yo solo tengo una sola versión que administrar.
+Si se rompe, se rompe, digamos, una sola vez.
+Y si se arregla, se arregla para todos.
+Que ese también puede ser su trace vault.
+Si yo actualizo algo, pues tengo que arreglar el problema
+como para todos.
+De nuevo, es una sola...
+Digamos, que gestión de dependencias.
+Entonces, acá tengo una aplicación.
+Y ya, listo.
+Entonces, tengo las aplicaciones.
+Sin embargo, otra cosa muy interesante.
+Ah, bueno, y acá podemos correrlas.
+Corramoslas, corramoslas cada una.
+Entonces, por ejemplo, ahora voy a correr el proyecto.
+Y normalmente lo que haríamos es hacer un ng-serve, ¿verdad?
+Pero realmente con un ng-serve, pues solo estaríamos corriendo
+un proyecto, porque es lo que normalmente tenemos.
+Tenemos.
+Pero ahora, como estamos utilizando Nx,
+lo que haríamos es correr npx nx-server.json.
+Y ya, listo.
+Nx, Nx-ServeAdmin.
+Bien.
+Entonces, vamos a correrlo.
+Vamos a ver el nombre de la aplicación.
+Por acá tengo algo que me está fallando en la línea main.
+Vamos a ver qué tiene esa línea.
+Por alguna razón tiene un console.
+Y acá me está diciendo que no podría utilizar un console.error.
+Al menos en esta parte, supongo, porque es algo de server-server rendering.
+Se lo voy a quitar solo para poder como entrar.
+Ahí está.
+Entonces, fíjense que acá está mi aplicación administrativa.
+Bien.
+Aquí estaría toda como la aplicación administrativa.
+Bien.
+Pero ahora yo también podría correr el otro proyecto que es website.
+Bien.
+Entonces, ahí lo ponemos.
+Website también se va a construir.
+Ahí está.
+Entonces, acá tenemos website.
+Y este es el website.
+Son dos proyectos diferentes.
+Obviamente, tienen el mismo setup, porque las dos son aplicaciones de Angular.
+Pero a través del tiempo, pues cada quien va a ser diferente.
+Una va a tener, no sé, material design o or muchos formularios, etc.
+La otra va a ser más una landing.
+Entonces, posiblemente solo tenga Tailwind.
+Cada proyecto ya va a tener su bifurcación, pero se gestiona o se administra en un solo monorepositorio.
+Y de nuevo, si tuviéramos un proyecto en Next, en Nuke, en React.
+Entonces, instalamos el plugin, creamos el proyecto y luego le ponemos, no sé, digamos que haya un aplicativo que se llame Landings.
+Y eso está en el plugin.
+Entonces, si tú quieres que te ponga un plugin, pues tú puedes hacer un plugin.
+Y luego le ponemos, no sé, digamos que haya un aplicativo que se llame Landings.
+Y eso está en el plugin.
+Y eso está en React o lo que sea.
+Pues simplemente el NX se convierte en el comando general sin importar qué tipo de aplicación o en qué tecnología.
+Simplemente es NXSERP y el nombre de tu aplicación.
+NXSERP y el nombre de tu aplicación.
+Sea Angular, sea React, lo que sea.
+Por ejemplo, precisamente aquí vamos a ver cómo agregar la parte que me parece también interesante que son librerías.
+Si bien cada proyecto puede ser independiente.
+Lo que sí podemos compartir es servicio.
+Qué tal que los dos se comuniquen con la misma API.
+Y es normal que al final los dos, si el e-commerce renderiza productos, pues también el sistema de administración también renderiza productos.
+Entonces, lo que podríamos hacer es compartir una capa de ser de endpoints o de servicios.
+Entonces, lo que podemos hacer acá es decirle, mire, con el plugin de Angular, porque va a ser una librería como para los proyectos de Angular.
+Le voy a decir que es una lib.
+Pero esa lib sí ya no vive dentro de la carpeta apps.
+Vive mylib.
+Mylib se llama.
+Normalmente esa carpeta, una buena convención es llamarla data access.
+Porque si le ponemos services, pues no...
+Hay muchos tipos de servicios.
+Data access sería como más como estos servicios que acceden a información, a data, como APIs.
+Entonces, por ejemplo, yo ya me creo esta librería.
+Acá me dice que quiero usar como otra runner, bit.
+Por alguna razón me dice que...
+Que, que, que, que...
+Que...
+No soporta bit.
+Qué raro.
+A ver, dejándole leer bien el error.
+Unit test.
+Acá está.
+Use bit angle or yes.
+Algo tiene ahí con bits, con ese bit angular.
+Entonces, vamos a escoger otro running test.
+En este caso, voy a hacer uno más clásico.
+Y es...
+Entonces, fíjense que ahí se trae un plugin de yes.
+Que ese plugin de yes se puede utilizar para muchos proyectos, porque pueden haber otros proyectos que, pues, que también colgan sus unit tests en yes.
+Entonces, se va a traer eso.
+Se va a configurarlo.
+Y si yo me voy ya aquí a...
+Pues a mi aplicación.
+Bueno, a mi estructura de carpetas, etcétera.
+Lo que voy a tener es que entonces las aplicaciones van a estar en apps.
+Y luego las librerías van a estar en lips.
+En la carpeta lips.
+Bien.
+Y mientras esto va terminando, ya para ir viendo, porque esto es como un overview.
+Luego voy a hacer más videos de NX.
+Pero vamos a ver cómo se agregaría un...
+El backend, por ejemplo.
+Vamos a ver.
+Por ejemplo, agregar el backend.
+En este caso con NX.
+Que yo utilizo mucho NX, por ejemplo, cuando trabajo mucho en APIs.
+Entonces acá, de nuevo, esto también tiene un preset.
+Pero...
+Pues me gusta más tenerlo como en vacío.
+Y luego ir agregando proyectos.
+O, si a ustedes les falla cualquier cosa, busquen un preset que más o menos tenga como su stack.
+Normalmente el stack Angular NX, por ejemplo.
+O React Express, etcétera.
+Porque también funciona para ese tipo de stack.
+Ah, fíjense que acá ya...
+Ya terminó la librería.
+Entonces ahora tenemos lips y tiene data access.
+Entonces aquí, por ejemplo, yo ya puedo crear un servicio.
+Bien.
+Un servicio y llamar a ese servicio en las dos aplicaciones.
+Vamos a ver cómo sería.
+Entonces, por ejemplo, acá en data access.
+Yo voy a crear algo que se llame products.
+Product.services.
+.service.tabscore.
+Bien.
+Y acá le voy a...
+Voy a utilizar AI para conectarnos a...
+La fake API.
+Para decirle un endpoint, etcétera.
+Entonces le voy a decir que vayamos a los productos.
+Bien.
+Entonces va a conectar a estos productos.
+Listo.
+Entonces le voy a decir que acá...
+Genérame un servicio en Angular para obtener...
+Projects.
+Ah, no.
+Productos.
+Productos.
+Y listo.
+Y le digo que ese es mi endpoint.
+Entonces vamos a ver si lo hace o no.
+Ahí el problema está súper mal, pero vamos a ver qué me genera rápido para avanzar.
+Eso es súper importante.
+Entonces yo puedo empezar a tener una librería solo de como los servicios de acceso a API
+y luego compartirlo con muchos proyectos.
+Es más, así no tengas múltiples proyectos como en este caso admin y website.
+Creo que también es una gran forma de trabajar en Angular.
+Porque entonces puedes tener la aplicación.
+Y luego empezar a dividir como ciertas capas, ciertos módulos en librerías.
+Y luego simplemente las importas.
+Pero vas haciendo ese scope mucho más claro.
+Es más, otra forma de hacer es que la librería de typing, lo que es typing, debería estar en otro lado.
+Y normalmente así se hace.
+La librería de tipos lo que hacemos es generarla como otra librería para que se pueda reutilizar.
+Entonces, por ejemplo, hasta el proyecto de Nest ya podría reutilizarse.
+Y todos utilizan el mismo typing.
+Y entonces en este caso la librería de Access está reutilizando el typing.
+El website está reutilizando el typing.
+El admin está reutilizando el typing.
+Y hasta el API estaría reutilizando como estas interfaces.
+Solo la definición de interfaces.
+Bien.
+Entonces bueno, acá tenemos Product Service.
+Entonces fíjense que acá está.
+Y ahora como de esta librería yo ya lo utilizo en cada uno de los proyectos.
+Acá está el proyecto.
+Acá está algo interesante.
+Y es que normalmente en el archivo TypeScript acá él comienza a poner como estos pads.
+Que no sé por qué me puso ORG.
+Pero pongámosle, normalmente se le coloca el nombre del proyecto.
+Digamos que en esta oportunidad lo voy a llamar Store.
+Entonces, ¿qué pasa?
+Que si yo quiero utilizar desde Website a Store.
+Entonces me voy, no sé, aquí al App.
+Y literalmente puedo importarlo como desde la librería.
+Entonces fíjense que acá lo que hago es Store.
+Store, que es Data Access.
+Y me traigo a ese servicio.
+Entonces acá hago la inyección de dependencias.
+Hago el inject, normal de Angular.
+Por acá me lo van a traer.
+Y luego pues puedo hacer fetching.
+Acá products.getall.
+Y me hago el subscribe.
+Pero lo interesante es que acá yo me traigo.
+Acá yo me traje este servicio.
+Ya no de los servicios de mi aplicativo.
+Que normalmente estaban ahí.
+Sino que ya me lo traigo desde la capa de librerías.
+Dentro de la librería de Store Access.
+Entonces, ¿eso qué hace?
+Que el Website puede reutilizar ese mismo servicio.
+Pero entonces también ahora la aplicación administrativa.
+Podría importar Data Access como librería.
+Entonces este es el...
+No, este es Website.
+Voy a irme al Admin.
+Entonces desde acá también podría importármela.
+Y listo.
+Entonces puedo, sin problema, empezar a hacer importación de esas capas.
+Y lo mismo va a pasar con la librería de Typing.
+Entonces normalmente se crea una librería que se llama Types.
+O Models, como lo quieran llamar.
+Normalmente se llama Types.
+Es una librería exclusiva para definición de tipos, de Typing.
+Eso hace que...
+Porque normalmente Angular, en el contexto de Angular.
+Por ejemplo.
+Pues esto sería un Injectable.
+Entonces yo no podría reutilizar esto dentro de Next.js.
+O dentro de una API de Express.
+O dentro de mi proyecto de React, por ejemplo.
+Entonces lo que se hace es desacoplar esta librería.
+En una librería aparte también.
+Que se crea con NX y se gestiona con NX.
+Que es de solo Typing.
+Entonces en ese caso, la Data Access está reutilizando otra librería.
+Que es la de Tipos.
+Website que la reutiliza.
+Ya está el proyecto de React.
+Ya está el proyecto de la API.
+Entonces con eso empezamos a ver estas grandes formas de empezar a llevar esa arquitectura a otro nivel.
+Ahora, si están interesados en esa librería de Tipos.
+En ese caso sería una librería de TypeScript.
+Porque no es una librería de Angular.
+No es una librería per se.
+Y solo va a ser de Typing.
+¿Verdad?
+Entonces nos interesa solo exportar el Typing.
+Para eso básicamente entramos a TypeScript.
+Y él ya tiene una librería.
+Que esta es la que viene por defecto.
+NX.js.
+Entonces lo que podríamos hacer es crear como esta lib.
+Y ya.
+Generar.
+Acá dice, mira, cómo crear una librería.
+Entonces.
+Y acá me dice si tiene que ser.
+Si esta librería necesita tener Building.
+Es decir, si esta librería queremos que sea exportable.
+Porque la queremos exportar en un Package.jmp.
+Normalmente si lo mantenemos dentro de nuestro proyecto no es necesario.
+Pero si estamos trabajando con SDKs, SDKs, ese tipo de cosas.
+Si empezamos a tener un Package.jmp.
+Es más, acá dice que si es Pushable.
+O Publishable.
+Que sería que si se va a ir a algún registro.
+Pero en este caso no.
+Vamos a simplemente a decirle que esta librería va a ser llamada Types.
+Y de nuevo entonces cogemos NX.js.
+Y lo instalamos.
+Acá me dice yo qué quiero hacer.
+Qué es lo que quiero hacer con él.
+Acabo de utilizar TypeScript.
+O sea, TSX es el compilador de TypeScript.
+Los otros se pueden utilizar.
+Pero yo creo que es mejor que no.
+Porque si no, pues, bueno.
+No es lo que quiero hacer.
+Pero si no, pues, bueno.
+No es lo que quiero hacer.
+No es lo que quiero hacer.
+No es lo que quiero hacer.
+No es lo que quiero hacer.
+Pero si no, pues, bueno.
+No es lo que quiero hacer.
+Acá me dice yo qué quiero hacer.
+Qué es lo que quiero hacer con él.
+Acabo de utilizar TypeScript.
+O sea, TSX es el compilador de TypeScript.
+Los otros se podrían.
+Pero es más cuando yo quiero generar librerías de desarrollo.
+Pero en este caso es una librería de typing.
+Entonces TypeScript me va bien.
+Y es Lint.
+Si quiero Unitex.
+Yo creo que no voy a tener Unitex en este caso.
+Entonces simplemente me la creé así.
+Entonces ahora miren que yo podría entonces estos typings.
+Mandarla a mi librería de typing.
+Acá.
+Acá están los types literalmente.
+Entonces digamos que voy a cambiar estos.
+Y ya.
+Entonces ahí lo puedo empezar a dividir por archivo.
+Category.model.
+Product.model.
+Bueno, ahí ya la división de todos esos typings que tengan.
+Pero entonces acá.
+Entonces ahora dentro de Data Access.
+Y vamos a ver si quedó bien configurado el path.
+Fíjense que otra vez me metió Store.
+En algún lado metí ese nombre y quedó ahí.
+Pero bueno, lo cambio acá.
+Entonces fíjense que ahora.
+El typing se llama desde Store Types.
+Entonces qué pasa.
+Que acá en la librería en mi Data Access.
+Que sería este.
+Yo podría ya utilizar sólo el typing.
+Sólo el typing.
+Desde.
+Pues desde Types.
+Entonces fíjense que le digo quiero mi typing.
+Sólo el typing.
+Entonces lo puedo reutilizar.
+Y si.
+Dentro.
+Esto es dentro de Data Access.
+Pero si alguna otra parte de mi aplicación lo necesita.
+Pues simplemente lo importa y ya.
+De nuevo.
+Quedan librerías compartidas.
+Cross.
+Cross Platform.
+Digamos.
+No importa si es Angular.
+No importa si es React.
+Obviamente.
+Por ejemplo.
+Yo no podría importar.
+Yo no podría importar.
+Este servicio dentro de una aplicación de React.
+No tendría sentido.
+Porque esto es un Injectable de React.
+Pues de Angular.
+Entonces tendría sentido importar eso dentro de proyectos de Angular.
+Y así.
+Entonces vamos teniendo ese tipo de configuraciones.
+Y listo.
+Finalmente.
+Simplemente metámosle un backend.
+Entonces digamos que vamos a meter Nx.
+Entonces necesitamos crear.
+Poner el plugin.
+Entonces lo metemos en la terminal.
+Otra vez.
+Este comando.
+Entonces acá.
+Instalo Nx como plugin.
+Y luego entonces voy a crear la aplicación.
+Bien.
+La aplicación.
+Automáticamente le agrega un proxy.
+Que esto es interesante.
+Pero si quieren lo vemos mucho más adelante.
+Algo más avanzado de Nx.
+Pero por ahora.
+Simplemente me voy a crear como la API.
+Y lo chévere.
+Ya me la creo.
+Entonces ya puedo ir a crearme.
+O sea ya me traje el plugin.
+Entonces lo que puedo hacer es.
+Pues importarme la aplicación.
+En este caso le voy a llamar que esta es la API.
+Bien.
+Esto es mi backend.
+Listo.
+Entonces él va a crear toda la aplicación.
+Le digo que quiero utilizar ESLint.
+Que quiero utilizar Jest.
+Y listo.
+Y normalmente para las aplicaciones de backend.
+O de APIs.
+Casi por default.
+Me incluye un proyecto en especial.
+Que es el de Nx.
+Que es el de Nx.
+Que es el de Nx.
+Que es el de Nx.
+Que es el de Nx.
+Que es el de Nx.
+Que es el de Nx.
+Y vamos a darle un dato aquí específico.
+Que es para hacer End-to-End.
+Que es muy normal en las aplicaciones.
+Pues en APIs.
+Entonces fíjense que ahora tenemos.
+Podríamos decir que tenemos 4 proyectos.
+Tenemos una aplicación administrativa.
+Tenemos una aplicación que es el website.
+Esta API End-to-End sí es un tipo de aplicación.
+Pero es más para End-to-End.
+Entonces digamos que tenemos 3.
+Tenemos un website.
+Tenemos un admin.
+Y tenemos la API.
+Que estaría en lo que conocemos que es el Next Morris.
+Ok!
+también hubiera podido configurar un express
+ahí podríamos configurar y entonces yo quiero una aplicación en express
+pero lo interesante es que entonces como yo tengo aquí ya mi API
+podría utilizar, reutilizar mi typing
+por ejemplo, bueno de nuevo, aquí traer el data access no tiene tanto sentido en Next
+porque son tecnologías diferentes
+pero lo que sí tendría sentido es llamar a mi librería de typing
+por ejemplo si yo estoy trabajando con, pues con producto
+normalmente se comparten varias veces como ese typing
+entonces yo puedo reutilizar el mismo typing a través de toda la aplicación
+puede que sí, puede que no, eso depende más de tu backend
+si realmente el backend de pronto puede que esconda cierto tipo de atributos
+y no todos sean publicados hacia el frontend
+pero aquí básicamente la potencia es que yo puedo reutilizarlo a través de mis aplicaciones
+y si yo lo corro, en este caso por ejemplo yo podría hacer en Next
+bueno, acá, en Next
+en Next
+SERP API
+y entonces él va a reconocer que esto es un proyecto
+pues un proyecto de backend y lo va a correr
+vamos a ver qué es lo que no nos da
+algo me dice que
+no related paths, vamos a ver cómo lo solucionamos
+para solucionar este pequeño problema que me estaba tocando
+básicamente me ayudó mucho de AI
+pero lo que me tocó cambiarle acá fue este
+emite declaration only en false
+ponerle un base URL
+esto en el tgsconfig base
+y ya con eso básicamente se ajustó
+entonces nosotros acá, si yo ya lo vuelvo a correr
+acá
+volví a correr pues ya todo el proceso después de cambiar estas variables
+y acá entonces ya tengo la aplicación corriendo, la aplicación de backend corriendo
+que en teoría eso corre en un puerto localhost 3000
+y pues acá está, este es como el hello world normal de mi API
+entonces ahí está precisamente
+acá podríamos ver, no sé si este tiene docs por defecto, creo que no
+no, todavía no tiene docs
+entonces solo me está mandando 404
+pero aquí ya tengo la API
+para finalizar hay un comando muy potente que es este
+nxgraph
+que me permite ver de forma gráfica cómo es que se está comportando
+y cómo es este árbol de dependencias
+entonces fíjate que por acá él ya me generó un entorno gráfico en donde yo puedo
+visualizar cuáles son las dependencias de todo mi monorepositorio
+por ejemplo veo que tengo cuatro aplicaciones
+al final ya sabemos por ejemplo que la aplicación de API que está en NesGIS
+tiene una aplicación extra digamos para hacer end to end
+luego tenemos dos aplicaciones de frontend, un website y un admin
+de nuevo las dos son angular pero realmente podríamos
+tener más de otra tecnología en el monorepositorio
+pero también tenemos que admin utilizar nuestra librería de tiles
+así como la API también reutiliza esa de tiles
+y a su vez data access utiliza a tiles
+pero también website pues hace la importación a data access
+entonces vemos cómo de forma gráfica podemos visualizar ya cómo se ve el monorepositorio
+y listo esto es una pequeña introducción a lo que es monorepositorios con NX
+es bastante bastante potente
+de nuevo fíjense cómo empezamos a integrar diferentes proyectos
+a modularizar nuestra aplicación
+a compartir código entre backend
+entre varias aplicaciones
+no importa si es de NesGIS o de NesGIS
+no importa si es de NesGIS
+React, Angular, Nux
+sobre todo el typing obviamente
+pero dentro de la misma tecnología podemos empezar a crear ciertos servicios
+por ejemplo tenemos el data access
+que son servicios que se comparten entre las aplicaciones de Angular, etc.
+es bastante interesante, bastante potente
+así que déjame en los comentarios si sabías de NX
+si tienes proyectos que puedan tener el uso
+porque de nuevo puede ser sobre ingeniería
+en proyectos que son pequeños
+en proyectos que solo es un aplicativo, etc.
+pero de pronto si ya estás trabajando en un code
+en un codebase bastante grande
+tienes dos aplicativos diferentes
+y estás empezando a duplicar códigos
+servicios aquí, servicios allá
+y es más, si quieren dar un paso más con su equipo
+y trabajar literalmente también el backend
+eso es una gran forma
+porque de nuevo todo se centraliza en un solo repositorio
+y todo es manejado directamente por NX
+como gestión del monorepositorio
+así que déjame en los comentarios
+suscríbete y nos vemos en la próxima

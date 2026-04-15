@@ -1,0 +1,3436 @@
+1
+00:00:00,000 --> 00:00:04,500
+En este video te voy a enseñar cómo utilizar NX para gestionar tu monorepositorio
+
+2
+00:00:04,500 --> 00:00:08,460
+y empezar a tener una buena arquitectura en proyectos de Angular.
+
+3
+00:00:08,780 --> 00:00:10,620
+Bien, ahora, ¿cuáles son esos casos?
+
+4
+00:00:10,720 --> 00:00:13,740
+El más típico es cuando tenemos múltiples aplicaciones.
+
+5
+00:00:14,180 --> 00:00:18,240
+Imagínate que normalmente tienes una aplicación, el website que está hecho en Angular,
+
+6
+00:00:18,700 --> 00:00:23,380
+el conservador de rendering, pero luego el panel de administración está también en Angular,
+
+7
+00:00:23,680 --> 00:00:26,440
+pero está en otra aplicación aparte, está en otro repositorio.
+
+8
+00:00:26,440 --> 00:00:30,660
+Bien, normalmente, como es una en Angular, empiezan a compartir cosas,
+
+9
+00:00:30,860 --> 00:00:34,440
+compartir servicios, compartir red typing, etc.
+
+10
+00:00:34,740 --> 00:00:39,340
+Entonces, normalmente albergar como estos dos repositorios en diferentes lados
+
+11
+00:00:39,340 --> 00:00:41,680
+empieza a causar conflictos y duplicación de código.
+
+12
+00:00:42,200 --> 00:00:45,240
+Y bien, digamos que si lo queremos tener en un solo proyecto de Angular,
+
+13
+00:00:45,820 --> 00:00:51,220
+digamos que slash admin sea todo el panel administrativo y el resto sea como el website público,
+
+14
+00:00:51,780 --> 00:00:55,960
+si bien es una opción y comenzamos a, por ejemplo, cargar paquetes o librerías
+
+15
+00:00:55,960 --> 00:00:56,420
+que de pronto se van a cargar en un solo proyecto de Angular,
+
+16
+00:00:56,420 --> 00:01:00,080
+de pronto afectan a la landing o al website que hace salvar el servendering
+
+17
+00:01:00,080 --> 00:01:05,260
+y de pronto no solo está acoplado al sistema de administración.
+
+18
+00:01:05,560 --> 00:01:11,580
+Es decir, compensamos a tener problemas como de building o de que al final una librería afecta a la otra, etc.
+
+19
+00:01:11,940 --> 00:01:16,420
+Bien, entonces normalmente lo que se aplica es realmente manejar esas dos aplicaciones diferentes,
+
+20
+00:01:17,120 --> 00:01:20,780
+de forma diferentes, cada quien es una aplicación en Angular diferente,
+
+21
+00:01:21,200 --> 00:01:25,520
+pero con un monorepositorio empezamos a compartir código, librerías, módulos
+
+22
+00:01:25,520 --> 00:01:26,400
+y él se va a encargar de hacer un buen trabajo.
+
+23
+00:01:26,420 --> 00:01:27,520
+Y el monorepositorio también se va a encargar de gestionarlo.
+
+24
+00:01:27,620 --> 00:01:28,940
+Ese es como el caso número uno.
+
+25
+00:01:29,080 --> 00:01:31,420
+Entonces, si tú tienes ese caso, tienes múltiples aplicaciones
+
+26
+00:01:32,060 --> 00:01:36,400
+y quieres empezar a compartir ciertas bases de código, creo que esa es una gran opción.
+
+27
+00:01:36,980 --> 00:01:40,520
+Sin embargo, también está la otra opción de que tú solo tienes una aplicación, ¿bien?
+
+28
+00:01:41,000 --> 00:01:45,220
+Pero esa aplicación empieza a ser grande, robusta, empieza a crecer a través del tiempo.
+
+29
+00:01:45,380 --> 00:01:48,220
+Ahí es donde también un monorepositorio con NX nos ayuda,
+
+30
+00:01:48,540 --> 00:01:53,660
+porque también nos ayuda como a modularizar el typing, el data access,
+
+31
+00:01:53,660 --> 00:01:56,160
+todo eso queda como más modularizado y podemos escalarlo.
+
+32
+00:01:56,420 --> 00:01:58,420
+Y eso es lo que nos ayuda a crear más fácil.
+
+33
+00:01:58,420 --> 00:02:02,420
+Y sobre todo, y la última que creo que es la que también más trae beneficios,
+
+34
+00:02:02,420 --> 00:02:07,420
+es también que al final, si bien podríamos utilizarlo solo para gestionar nuestros proyectos en Angular,
+
+35
+00:02:07,420 --> 00:02:12,420
+también podríamos como monorepositorio traer nuestro backend, nuestra API.
+
+36
+00:02:12,420 --> 00:02:17,420
+Por ejemplo, nuestra API en Express, nuestra API en Nest, etc.
+
+37
+00:02:17,420 --> 00:02:20,420
+Todo esto lo podemos tener, porque al final esa es la gracia de un monorepositorio.
+
+38
+00:02:20,420 --> 00:02:22,420
+Google, por ejemplo, maneja monorepositorios.
+
+39
+00:02:22,420 --> 00:02:25,420
+Todos sus proyectos están en un solo monorepositorio.
+
+40
+00:02:26,420 --> 00:02:33,420
+Que no significa que sea un solo deployment o que no sepan cómo compartir librerías, pero todo está ahí.
+
+41
+00:02:33,420 --> 00:02:36,420
+Eso trae grandes ventajas de colaboración y deployment.
+
+42
+00:02:36,420 --> 00:02:41,420
+También tiene otros retos, pero al estar todos en un solo repositorio,
+
+43
+00:02:41,420 --> 00:02:44,420
+tanto el equipo de backend y frontend trabajando en uno solo,
+
+44
+00:02:44,420 --> 00:02:49,420
+es más fácil, por ejemplo, sincronizarse entre el equipo o lanzar un solo release.
+
+45
+00:02:49,420 --> 00:02:55,420
+Por ejemplo, si se actualiza la API, pues también de una vez actualizo y hago un release de nuestro frontend.
+
+46
+00:02:55,420 --> 00:02:56,420
+Entonces, como ven, es muy fácil.
+
+47
+00:02:56,420 --> 00:02:59,420
+Como que al estar acoplados o estar todos en un solo repositorio,
+
+48
+00:02:59,420 --> 00:03:04,420
+entonces todos estamos mucho mejor sincronizados a nivel de equipo y a nivel también de código.
+
+49
+00:03:04,420 --> 00:03:08,420
+Y ahorita en tiempos de AI es una gran ventaja tenerlo en un monorepositorio.
+
+50
+00:03:08,420 --> 00:03:09,420
+¿Por qué?
+
+51
+00:03:09,420 --> 00:03:14,420
+Porque AI puede saber como todo el scope de tu proyecto, el backend y el frontend,
+
+52
+00:03:14,420 --> 00:03:21,420
+tenerlo todo en un solo repo y entonces analizar, ok, listo, el frontend quiere ir a pegarle a este endpoint.
+
+53
+00:03:21,420 --> 00:03:24,420
+Entonces no solo sabe el endpoint, sino sabe qué hay por detrás,
+
+54
+00:03:24,420 --> 00:03:25,420
+porque el código de backend también lo sabe.
+
+55
+00:03:25,420 --> 00:03:27,420
+El código de backend también está allí.
+
+56
+00:03:27,420 --> 00:03:29,420
+Entonces ahí es donde cobra bastante sentido,
+
+57
+00:03:29,420 --> 00:03:34,420
+porque ahí tiene mucho más contexto de cómo trabaja ese proyecto
+
+58
+00:03:34,420 --> 00:03:37,420
+y cómo podemos empezar a trabajar con esos features.
+
+59
+00:03:37,420 --> 00:03:43,420
+Entonces, precisamente y de acuerdo a esos casos, pues vamos a aprender NX y vamos a configurar ese proyecto.
+
+60
+00:03:43,420 --> 00:03:45,420
+Aquí tenemos la página de NX.
+
+61
+00:03:45,420 --> 00:03:51,420
+Por acá dice Smart Repos, FASCI, como un programa continua,
+
+62
+00:03:51,420 --> 00:03:54,420
+que es un poco de las ventajas que yo les venía comentando.
+
+63
+00:03:54,420 --> 00:03:59,420
+Dice que de por sí, al tener todo en un monorepositorio, también empezamos a compartir librerías,
+
+64
+00:03:59,420 --> 00:04:05,420
+empezamos a compartir como un solo building de toda la aplicación, no solo de frontend, sino de backend.
+
+65
+00:04:05,420 --> 00:04:07,420
+Entonces es bastante interesante.
+
+66
+00:04:07,420 --> 00:04:11,420
+Y NX no solo es muy famoso en el ecosistema de Angular,
+
+67
+00:04:11,420 --> 00:04:15,420
+porque realmente ellos nacieron dándole gran soporte a Angular,
+
+68
+00:04:15,420 --> 00:04:21,420
+pero luego, si nosotros vemos la documentación, realmente soportan ya grandes tecnologías, bastantes tecnologías.
+
+69
+00:04:21,420 --> 00:04:23,420
+Si nos vamos aquí a Technologies,
+
+70
+00:04:23,420 --> 00:04:28,420
+vamos a ver que pues tiene Angular, pero también soporta, si yo tengo proyectos en React,
+
+71
+00:04:28,420 --> 00:04:32,420
+y eso es bastante interesante, porque entonces yo puedo tener un typing
+
+72
+00:04:32,420 --> 00:04:37,420
+que se comparta entre mi aplicación, digamos que es una landing page en Axtro,
+
+73
+00:04:37,420 --> 00:04:41,420
+pero mi sistema de administración está en Angular,
+
+74
+00:04:41,420 --> 00:04:44,420
+pero entonces yo comparto solo una biblioteca de typing para las dos.
+
+75
+00:04:44,420 --> 00:04:47,420
+Entonces empezamos a tener este tipo de arquitecturas bastante interesantes.
+
+76
+00:04:47,420 --> 00:04:51,420
+Fíjense que a Expo, que es básicamente React Native,
+
+77
+00:04:51,420 --> 00:04:52,420
+tenemos Node, que es solo...
+
+78
+00:04:52,420 --> 00:04:56,420
+o Node o Express, que es lo que nos va a permitir es también tener aquí,
+
+79
+00:04:56,420 --> 00:04:58,420
+o que ahí también viva nuestro backend.
+
+80
+00:04:58,420 --> 00:05:01,420
+Incluso hay Java, si ustedes tienen proyectos,
+
+81
+00:05:01,420 --> 00:05:04,420
+y es muy común ver este stack en el mundo laboral.
+
+82
+00:05:04,420 --> 00:05:08,420
+Angular como frontend, pero backend es Java.
+
+83
+00:05:08,420 --> 00:05:10,420
+Entonces aquí podríamos también gestionarlo,
+
+84
+00:05:10,420 --> 00:05:13,420
+y precisamente como NX sabe un poco de esta tupla,
+
+85
+00:05:13,420 --> 00:05:18,420
+de este par de trabajo, pues también le da gran soporte a Java, etc.
+
+86
+00:05:18,420 --> 00:05:21,420
+Hasta .NET, que es raro tener .NET aquí,
+
+87
+00:05:21,420 --> 00:05:25,420
+pero de eso se tratan un poco los monorepositorios,
+
+88
+00:05:25,420 --> 00:05:28,420
+como tener todo tu proyecto en uno solo, gestionado con una sola herramienta,
+
+89
+00:05:28,420 --> 00:05:30,420
+lo cual nos acelera el building,
+
+90
+00:05:30,420 --> 00:05:35,420
+y yo creo que uno de sus side effects es realmente el trabajo colaborativo.
+
+91
+00:05:35,420 --> 00:05:39,420
+No estamos viendo varios repositorios,
+
+92
+00:05:39,420 --> 00:05:41,420
+luego sincronizando el deployment,
+
+93
+00:05:41,420 --> 00:05:43,420
+no, todo está en un solo repositorio,
+
+94
+00:05:43,420 --> 00:05:47,420
+y como tenemos una sola herramienta que lo gestiona,
+
+95
+00:05:47,420 --> 00:05:51,420
+entonces se vuelve algo súper sencillo de gestionar.
+
+96
+00:05:51,420 --> 00:05:53,420
+Haces un building con un solo comando,
+
+97
+00:05:53,420 --> 00:05:56,420
+sabes que se afecta, cómo correr un minitest, etc.
+
+98
+00:05:56,420 --> 00:05:59,420
+Entonces vamos a ver cómo iniciar con NX.
+
+99
+00:05:59,420 --> 00:06:02,420
+Vamos a ir a cualquier terminal y allí vamos a instalar NX,
+
+100
+00:06:02,420 --> 00:06:06,420
+o bueno, la forma de iniciar un workspace, que así lo llaman ellos,
+
+101
+00:06:06,420 --> 00:06:10,420
+es con el comando npx create nx workspace,
+
+102
+00:06:10,420 --> 00:06:12,420
+y bueno, nos bajamos la última versión.
+
+103
+00:06:12,420 --> 00:06:15,420
+Normalmente tienen unos presets, que es como una preconfiguración,
+
+104
+00:06:15,420 --> 00:06:20,420
+como de una vez tráiganme una aplicación, un workspace que tenga React,
+
+105
+00:06:20,420 --> 00:06:23,420
+que tenga Express, y no sé, que tenga Angular por defecto.
+
+106
+00:06:23,420 --> 00:06:26,420
+Entonces hay unos presets, como unas preconfiguraciones.
+
+107
+00:06:26,420 --> 00:06:30,420
+Pero por ahora yo lo voy a hacer sin preset para ver cómo me va.
+
+108
+00:06:30,420 --> 00:06:35,420
+También es importante que en Angular se puede trabajar como en una sola aplicación,
+
+109
+00:06:35,420 --> 00:06:40,420
+como si fuera una aplicación, como que solo vamos a encargarnos de una aplicación.
+
+110
+00:06:40,420 --> 00:06:44,420
+Yo lo recomiendo, un poco creo que el potencial es no trabajar una aplicación,
+
+111
+00:06:44,420 --> 00:06:49,420
+es trabajar múltiples aplicaciones, incluido el backend, en el mismo repositorio.
+
+112
+00:06:49,420 --> 00:06:51,420
+Entonces no me gusta agregarlo como la aplicación maestra,
+
+113
+00:06:51,420 --> 00:06:53,420
+sino que es una aplicación más.
+
+114
+00:06:53,420 --> 00:06:57,420
+Entonces bueno, acá le damos a Yes, le vamos a darle que sí,
+
+115
+00:06:57,420 --> 00:07:01,420
+y por ejemplo acá me dice, bueno, tú qué quieres crear, cómo quieres el nombre,
+
+116
+00:07:01,420 --> 00:07:06,420
+entonces aquí le voy a poner example nx, por ejemplo.
+
+117
+00:07:06,420 --> 00:07:09,420
+Example nx, listo.
+
+118
+00:07:09,420 --> 00:07:14,420
+Y fíjate que lo primero que me dice es, bueno mira, tengo varias cosas,
+
+119
+00:07:14,420 --> 00:07:17,420
+tengo un custom, tengo un minimal, que es algo simple, ya,
+
+120
+00:07:17,420 --> 00:07:18,420
+pero tengo un custom, tengo un minimal, que es algo simple, ya,
+
+121
+00:07:18,420 --> 00:07:21,420
+que es algo sin proyectos, digamos este es como vacío,
+
+122
+00:07:21,420 --> 00:07:24,420
+el primero, pero sin ningún proyecto.
+
+123
+00:07:24,420 --> 00:07:26,420
+Luego tenemos uno que ya que tiene React,
+
+124
+00:07:26,420 --> 00:07:30,420
+fíjate que este ya tiene un mono repo con React y Express,
+
+125
+00:07:30,420 --> 00:07:33,420
+este que es como el más genérico, Angular y Express.
+
+126
+00:07:33,420 --> 00:07:35,420
+También sirve para cuando nosotros manejamos,
+
+127
+00:07:35,420 --> 00:07:38,420
+y esto también está incluido en el mono repositorio,
+
+128
+00:07:38,420 --> 00:07:41,420
+cuando tú tienes paquetes de npm,
+
+129
+00:07:41,420 --> 00:07:44,420
+normalmente hay varios equipos que trabajan en SDKs,
+
+130
+00:07:44,420 --> 00:07:46,420
+entonces los trabajan también como parte del mono repositorio,
+
+131
+00:07:46,420 --> 00:07:47,420
+y todo esto tiene que ser incluido en el mono repositorio,
+
+132
+00:07:48,420 --> 00:07:51,500
+eso queda ahí, por eso les digo que es un repositorio bastante interesante,
+
+133
+00:07:51,840 --> 00:07:54,780
+porque no solo están las aplicaciones de frontend, la aplicación de backend,
+
+134
+00:07:54,920 --> 00:07:58,260
+también están las librerías que uno lanza a npm y funciona muy bien.
+
+135
+00:07:58,780 --> 00:08:02,680
+Voy a darle en el minimal a ver qué me da y voy a ir agregando como proyectos paso a paso.
+
+136
+00:08:03,220 --> 00:08:06,840
+Entonces me dice que si quiero utilizar Nextcloud, que es su servicio,
+
+137
+00:08:06,840 --> 00:08:10,620
+obviamente ellos monetizan de alguna manera por ofrecer esta herramienta
+
+138
+00:08:10,620 --> 00:08:16,480
+y ellos lo que monetizan es poder que ellos corran todo el proceso de building en su cloud
+
+139
+00:08:16,480 --> 00:08:17,700
+y va a ser más rápido.
+
+140
+00:08:18,420 --> 00:08:21,260
+Y no significa que no lo podamos hacer en otros ambientes,
+
+141
+00:08:21,420 --> 00:08:24,500
+o sea, lo puedo correr en GitHub Action, lo puedo correr en cualquier otro lado,
+
+142
+00:08:24,720 --> 00:08:31,220
+pero según ellos se utilizan en Nextcloud, pues básicamente va,
+
+143
+00:08:31,460 --> 00:08:34,320
+tiene más features como para aprovechar la tecnología.
+
+144
+00:08:34,320 --> 00:08:38,740
+Le voy a decir que no, que hago un skip y que si yo quiero compartir la data,
+
+145
+00:08:38,880 --> 00:08:40,480
+sí, pues para ayudar al CDI.
+
+146
+00:08:40,900 --> 00:08:43,320
+Entonces ahí me va a crear un primer como template,
+
+147
+00:08:44,260 --> 00:08:48,320
+como un poco solo como con el setup básico, pero todavía no tiene proyectos.
+
+148
+00:08:48,420 --> 00:08:51,220
+No tiene librerías, no tiene backend.
+
+149
+00:08:51,220 --> 00:08:53,520
+Vamos a ir agregándolas, pues pasito a pasito.
+
+150
+00:08:53,520 --> 00:08:56,020
+Entonces vamos a ir viendo cómo va.
+
+151
+00:08:56,020 --> 00:08:58,220
+Esperemos que termine aquí esta primer setup.
+
+152
+00:08:58,220 --> 00:09:04,020
+Acá ya terminó el setup, entonces yo puedo ir a entrar a mi carpeta que se llama example.nx.
+
+153
+00:09:04,020 --> 00:09:05,020
+Ahí está.
+
+154
+00:09:05,020 --> 00:09:12,220
+Y voy a entrar básicamente con cursor, solo para echar un ojo a esto que tiene ahí.
+
+155
+00:09:12,220 --> 00:09:16,420
+Entonces voy a entrar por acá y vamos a hacer un poquito más de zoom.
+
+156
+00:09:16,420 --> 00:09:18,420
+Y fíjate que ya me trajo una pantalla.
+
+157
+00:09:18,420 --> 00:09:20,620
+Y aquí está la configuración bastante grande.
+
+158
+00:09:20,620 --> 00:09:24,620
+Me trajo, ya de por sí me trae unas buenas prácticas.
+
+159
+00:09:24,620 --> 00:09:27,620
+Me trae ya skills, que luego voy a hacer un video solo de skills.
+
+160
+00:09:27,620 --> 00:09:29,420
+Espérenlo pronto en el canal.
+
+161
+00:09:29,420 --> 00:09:34,420
+Pero ya tiene como unas configuraciones para trabajar por defecto con ciertos editores.
+
+162
+00:09:34,420 --> 00:09:38,620
+De por sí, fíjense que ahorita lo que hay es más archivos de configuración de editor
+
+163
+00:09:38,620 --> 00:09:40,420
+que de proyecto en sí.
+
+164
+00:09:40,420 --> 00:09:45,620
+Un poquito loco, pero pues así vivimos ahorita en todos estos ides que tenemos ahorita.
+
+165
+00:09:45,620 --> 00:09:48,320
+Pero realmente todo esto son cloud, codecs,
+
+166
+00:09:48,420 --> 00:09:50,620
+cursos, gemini, github, opencloud.
+
+167
+00:09:50,620 --> 00:09:55,120
+Es literalmente los archivos de configuración para que esos editores de AI funcionen pues
+
+168
+00:09:55,120 --> 00:09:56,120
+un poquito mejor.
+
+169
+00:09:56,120 --> 00:10:00,620
+Pero si nosotros ya miramos un poco pues el proyecto, tenemos un package.
+
+170
+00:10:00,620 --> 00:10:02,620
+Déjenme esconder acá.
+
+171
+00:10:02,620 --> 00:10:04,620
+Tenemos un package súper sencillo.
+
+172
+00:10:04,620 --> 00:10:09,620
+Tenemos, fíjense que nos trajo por defecto Nx, pues como JavaScript.
+
+173
+00:10:09,620 --> 00:10:11,620
+Tiene el core de Nx.
+
+174
+00:10:11,620 --> 00:10:13,620
+Tiene TypeScript, que es como lo fundamental.
+
+175
+00:10:13,620 --> 00:10:16,620
+Esto funciona muy bien para tecnologías de nuevo.
+
+176
+00:10:16,620 --> 00:10:17,620
+Un poco de JavaScript.
+
+177
+00:10:17,620 --> 00:10:22,820
+Sin embargo, Nx ya tiene otras librerías, otras formas de trabajar con otros lenguajes
+
+178
+00:10:22,820 --> 00:10:23,820
+como java.net.
+
+179
+00:10:23,820 --> 00:10:27,520
+Todavía no he visto que trabaje bien, por ejemplo, con Python.
+
+180
+00:10:27,520 --> 00:10:32,620
+Si ustedes tuvieran un backend en Python, técnicamente se puede agregar.
+
+181
+00:10:32,620 --> 00:10:39,520
+Eso podríamos verlo como con algo que ellos tienen que es el Nx command, que es como para
+
+182
+00:10:39,520 --> 00:10:41,820
+correrlo, pero como que no le dan soporte de primera clase.
+
+183
+00:10:41,820 --> 00:10:44,820
+A uno le toca hacer como unas automatizaciones.
+
+184
+00:10:44,820 --> 00:10:46,820
+Si es que quisiera uno traer aquí el proyecto de...
+
+185
+00:10:46,820 --> 00:10:48,820
+De un Python, por ejemplo.
+
+186
+00:10:48,820 --> 00:10:52,820
+Pero sí funciona muy bien con Java, con .net, con...
+
+187
+00:10:52,820 --> 00:10:55,820
+Y con cualquier framework de frontend o de TypeScript.
+
+188
+00:10:55,820 --> 00:11:00,820
+Entonces, Node, Remix, React, Angular, etc.
+
+189
+00:11:00,820 --> 00:11:03,820
+Acá tienen los packages, que ahorita no tienen nada.
+
+190
+00:11:03,820 --> 00:11:08,820
+Los packages son esas librerías que normalmente publicamos hacia Internet.
+
+191
+00:11:08,820 --> 00:11:09,820
+Pero ahorita no tienen nada.
+
+192
+00:11:09,820 --> 00:11:13,820
+Entonces, literalmente, simplemente creamos algo en vacío.
+
+193
+00:11:13,820 --> 00:11:15,820
+Simplemente estamos creando algo en vacío.
+
+194
+00:11:16,820 --> 00:11:18,820
+Tenemos un proyecto desde cero.
+
+195
+00:11:18,820 --> 00:11:22,820
+¿Cómo empezamos a agregarle aplicaciones a esta Nx?
+
+196
+00:11:22,820 --> 00:11:23,820
+Vamos a verlo.
+
+197
+00:11:23,820 --> 00:11:26,820
+Lo primero es que podríamos ir por cada tecnología que queremos soportar.
+
+198
+00:11:26,820 --> 00:11:32,820
+Y básicamente, uno lo que hace es agregarle un plugin a Nx, a su proyecto de Nx, con cada
+
+199
+00:11:32,820 --> 00:11:33,820
+una de las librerías.
+
+200
+00:11:33,820 --> 00:11:35,820
+Entonces, yo quiero trabajar en Angular.
+
+201
+00:11:35,820 --> 00:11:39,820
+Entonces, lo que me va a dar es que tengo que ir a agregarle el plugin de Angular.
+
+202
+00:11:39,820 --> 00:11:41,820
+Entonces, voy, lo agrego.
+
+203
+00:11:41,820 --> 00:11:45,820
+Fíjense que Nx es al final como un...
+
+204
+00:11:45,820 --> 00:11:48,820
+Acá me está fallando porque no reconoce ese Nx como global.
+
+205
+00:11:48,820 --> 00:11:54,820
+Tendría que instalarlo global o correr el local con npx.
+
+206
+00:11:54,820 --> 00:11:55,820
+Y ahí lo va a agregar.
+
+207
+00:11:55,820 --> 00:12:00,820
+Yo sugiero normalmente agregarlo de forma global, pero por ahora lo podemos trabajar con npx
+
+208
+00:12:00,820 --> 00:12:04,820
+para que busque el local que instalamos, que hace parte del proyecto.
+
+209
+00:12:04,820 --> 00:12:09,820
+Luego, entonces, aquí es donde nos dan diferentes comandos.
+
+210
+00:12:09,820 --> 00:12:12,820
+Por ejemplo, este sería para generar una aplicación.
+
+211
+00:12:12,820 --> 00:12:13,820
+Fíjense.
+
+212
+00:12:13,820 --> 00:12:14,820
+NxGenerateAngle.
+
+213
+00:12:15,820 --> 00:12:17,820
+Y le digo en la carpeta apps.
+
+214
+00:12:17,820 --> 00:12:22,820
+La carpeta apps va a ser súper importante porque ahí es donde vamos a tener todas las aplicaciones.
+
+215
+00:12:22,820 --> 00:12:24,820
+Y generamos una aplicación.
+
+216
+00:12:24,820 --> 00:12:26,820
+Entonces, vamos a generar esta.
+
+217
+00:12:26,820 --> 00:12:29,820
+Entonces, digamos que yo tengo acá esta.
+
+218
+00:12:29,820 --> 00:12:32,820
+Bueno, ahí se está instalando el plugin.
+
+219
+00:12:32,820 --> 00:12:36,820
+Pero luego, entonces, vamos a tener que ponerlo.
+
+220
+00:12:36,820 --> 00:12:43,820
+Sin embargo, algo que es muy interesante de Nx es cómo hace para homogenizar los comandos.
+
+221
+00:12:43,820 --> 00:12:45,820
+Es decir, él tiene un...
+
+222
+00:12:45,820 --> 00:12:49,820
+Unos comandos que es NxServe, Build, Test, Lean y End-to-End.
+
+223
+00:12:49,820 --> 00:12:55,820
+Y no importa qué aplicación o qué tecnología, pues simplemente el nombre que le hayamos colocado.
+
+224
+00:12:55,820 --> 00:13:03,820
+Entonces, si este es MyApp, MyWebsite, MyAPI, MySDK, que sería como el SDK.
+
+225
+00:13:03,820 --> 00:13:08,820
+Que normalmente los SDK no se sirven porque solo se consumen de forma de librerías.
+
+226
+00:13:08,820 --> 00:13:12,820
+Entonces, yo creería que las librerías son el único que no se le pueda hacer un SERP.
+
+227
+00:13:12,820 --> 00:13:14,820
+Pero, además, se le puede hacer un Build.
+
+228
+00:13:14,820 --> 00:13:15,820
+Se le puede hacer un Test.
+
+229
+00:13:15,820 --> 00:13:16,820
+Se le puede hacer un Lean.
+
+230
+00:13:16,820 --> 00:13:18,820
+Y en ciertas partes se le puede hacer un End-to-End.
+
+231
+00:13:18,820 --> 00:13:21,820
+Y fíjense que acá está cómo generar una librería.
+
+232
+00:13:21,820 --> 00:13:28,820
+Que eso es súper interesante porque es lo que también nos permite, sobre todo en Angular, empezar a compartir código.
+
+233
+00:13:28,820 --> 00:13:29,820
+Entonces, yo tengo dos aplicaciones.
+
+234
+00:13:29,820 --> 00:13:34,820
+De nuevo, miremos el caso de que yo tengo mi landing page con Server-side rendering, etc.
+
+235
+00:13:34,820 --> 00:13:38,820
+Y luego tengo mi aplicación, que es otra aplicación, que es mi panel administrativo.
+
+236
+00:13:38,820 --> 00:13:41,820
+Pero, al final, estoy duplicando servicios.
+
+237
+00:13:41,820 --> 00:13:43,820
+Por ejemplo, yo tengo el servicio que se conecta con el landing page.
+
+238
+00:13:43,820 --> 00:13:45,820
+Y el servicio que se conecta con el API.
+
+239
+00:13:45,820 --> 00:13:48,820
+No tiene mucho sentido tener los dos servicios en dos lados diferentes.
+
+240
+00:13:48,820 --> 00:13:54,820
+Entonces, yo lo que puedo hacer es generar una librería que va a ser la librería compartida.
+
+241
+00:13:54,820 --> 00:13:58,820
+Que normalmente, por ejemplo, para consumo de API se llama Data Access.
+
+242
+00:13:58,820 --> 00:14:02,820
+Y Data Access se importa como una librería.
+
+243
+00:14:02,820 --> 00:14:05,820
+Como si fuera un NPM, una librería más.
+
+244
+00:14:05,820 --> 00:14:08,820
+Y simplemente se utiliza en el landing o en el website.
+
+245
+00:14:08,820 --> 00:14:11,820
+De nuevo, esto lo podríamos hacer con el Angular normal.
+
+246
+00:14:11,820 --> 00:14:13,820
+Pero, normalmente, cuando queremos meter todos nuestros servicios en Angular,
+
+247
+00:14:13,820 --> 00:14:15,820
+en un solo proyecto, empiezan a haber problemas.
+
+248
+00:14:15,820 --> 00:14:18,820
+Sobre todo, no de building.
+
+249
+00:14:18,820 --> 00:14:20,820
+O sea, empezamos a tener un proyecto bastante pesado.
+
+250
+00:14:20,820 --> 00:14:24,820
+Entonces, es mejor tener esas aplicaciones divididas por scope.
+
+251
+00:14:24,820 --> 00:14:26,820
+O hasta por by feature.
+
+252
+00:14:26,820 --> 00:14:30,820
+Y luego, simplemente, empezamos a dividir eso by libraries.
+
+253
+00:14:30,820 --> 00:14:33,820
+Pero, bueno, vamos a ir haciendo eso a medida que vayamos avanzando.
+
+254
+00:14:33,820 --> 00:14:35,820
+Uf, por acá me está dando un error.
+
+255
+00:14:35,820 --> 00:14:37,820
+Ah, acá me da un error.
+
+256
+00:14:37,820 --> 00:14:42,820
+Y me dice que en el proyecto que me implementó.
+
+257
+00:14:43,820 --> 00:14:51,820
+Me dice que la versión de TypeScript no es compatible con la que se va a trabajar en Angular.
+
+258
+00:14:51,820 --> 00:14:53,820
+Entonces, vamos a ver cómo solucionarlo.
+
+259
+00:14:53,820 --> 00:14:57,820
+Para solucionar este error e incorporar Angular en nuestro proyecto de Nx,
+
+260
+00:14:57,820 --> 00:15:01,820
+vamos a cambiar este Composite en False.
+
+261
+00:15:03,820 --> 00:15:04,820
+Y listo.
+
+262
+00:15:04,820 --> 00:15:07,820
+Y solo con eso ya debería dejarnos agregar.
+
+263
+00:15:07,820 --> 00:15:10,820
+Bueno, acá tengo otra vez el error de arreglarlo con Apex.
+
+264
+00:15:10,820 --> 00:15:13,820
+Entonces, vamos a correrlo y ver si esto ya nos soluciona.
+
+265
+00:15:13,820 --> 00:15:14,820
+Listo.
+
+266
+00:15:14,820 --> 00:15:23,820
+Aquí vemos que solo con cambiar esa pequeña bandera, pues ya tenemos el plugin de Angular dentro de nuestra configuración.
+
+267
+00:15:23,820 --> 00:15:27,820
+Sin embargo, todavía no tenemos una aplicación per se.
+
+268
+00:15:27,820 --> 00:15:31,820
+Entonces, vamos a crear una aplicación.
+
+269
+00:15:31,820 --> 00:15:33,820
+Esta sería la forma.
+
+270
+00:15:33,820 --> 00:15:35,820
+Creemos esa aplicación en la terminal.
+
+271
+00:15:35,820 --> 00:15:38,820
+Entonces, en este caso, voy a poner que este es mi admin.
+
+272
+00:15:38,820 --> 00:15:40,820
+Como el administrador de contenido.
+
+273
+00:15:40,820 --> 00:15:41,820
+Bien.
+
+274
+00:15:41,820 --> 00:15:42,820
+Entonces, ese va a ser.
+
+275
+00:15:42,820 --> 00:15:44,820
+Otra vez lo vuelvo a correr con un Apex.
+
+276
+00:15:44,820 --> 00:15:46,820
+Y acá estoy ya agregando.
+
+277
+00:15:46,820 --> 00:15:50,820
+Bueno, y acá casi que tiene el mismo start de un proyecto de Angular.
+
+278
+00:15:50,820 --> 00:15:51,820
+Me dice, oye, ¿qué quiero?
+
+279
+00:15:51,820 --> 00:15:53,820
+CSS, SAS.
+
+280
+00:15:53,820 --> 00:15:55,820
+Le voy a decir que CSS.
+
+281
+00:15:55,820 --> 00:16:01,820
+Fíjate que él normalmente tiene unas formas ya de trabajar con diferentes buildings para Angular.
+
+282
+00:16:01,820 --> 00:16:04,820
+Por ejemplo, acá le voy a decir cuál es mi test runner.
+
+283
+00:16:04,820 --> 00:16:08,820
+Le voy a decir que el de btests de Angular, que ya es como el oficial.
+
+284
+00:16:08,820 --> 00:16:10,820
+Me dice si quiero end-to-end.
+
+285
+00:16:10,820 --> 00:16:12,820
+Me dice si quiero un proyecto configurado con end-to-end.
+
+286
+00:16:12,820 --> 00:16:14,820
+Como Player, WordPress, Cypress.
+
+287
+00:16:14,820 --> 00:16:16,820
+Le voy a decir que por ahora no queremos end-to-end.
+
+288
+00:16:16,820 --> 00:16:18,820
+Me dice cuál es el builder.
+
+289
+00:16:18,820 --> 00:16:20,820
+Voy a utilizar que es esbuild.
+
+290
+00:16:20,820 --> 00:16:23,820
+Y me dice que si mi sitio es serverless rendering.
+
+291
+00:16:23,820 --> 00:16:27,820
+Como ese es el sitio de administración, por el momento le voy a decir que false.
+
+292
+00:16:27,820 --> 00:16:28,820
+Listo.
+
+293
+00:16:28,820 --> 00:16:32,820
+Entonces, aquí ya me crea como la aplicación administrativa en la que se va a gestionar.
+
+294
+00:16:32,820 --> 00:16:34,820
+Hay un login, etcétera.
+
+295
+00:16:34,820 --> 00:16:35,820
+Bien.
+
+296
+00:16:35,820 --> 00:16:39,820
+Pero ahora la aplicación, el website, digamos que es otra aplicación diferente.
+
+297
+00:16:39,820 --> 00:16:41,820
+Que, por ejemplo, tiene unos estilos diferentes.
+
+298
+00:16:41,820 --> 00:16:43,820
+Por ejemplo, eso pasa mucho.
+
+299
+00:16:43,820 --> 00:16:49,820
+Nosotros tenemos, por ejemplo, en el sistema de administración, no sé, PryNG o Material Design.
+
+300
+00:16:49,820 --> 00:16:52,820
+Y esos estilos se cargan de forma global.
+
+301
+00:16:52,820 --> 00:16:56,820
+Es muy difícil cargarlos en forma de routing, en la ruta.
+
+302
+00:16:56,820 --> 00:16:59,820
+Pero, por ejemplo, el website tiene otra cosa.
+
+303
+00:16:59,820 --> 00:17:00,820
+Tiene otro sistema.
+
+304
+00:17:00,820 --> 00:17:01,820
+Tiene otra cosa.
+
+305
+00:17:01,820 --> 00:17:06,820
+Entonces, ahí es donde empezamos a traer librerías que no se utilizan realmente.
+
+306
+00:17:06,820 --> 00:17:09,820
+Que el website no utilizaría del admin.
+
+307
+00:17:09,820 --> 00:17:12,820
+Entonces, empiezan a chocar y tengo que hacer como limpiezas, etcétera.
+
+308
+00:17:12,820 --> 00:17:14,820
+Pero la mejor forma es que sean independientes.
+
+309
+00:17:14,820 --> 00:17:17,820
+Solo que en este caso administradas por un monorepositorio.
+
+310
+00:17:17,820 --> 00:17:21,820
+Entonces, acá, por ejemplo, ya agregué la aplicación como administrativa.
+
+311
+00:17:21,820 --> 00:17:29,820
+Entonces, lo que voy a hacer es ahora agregar la aplicación que mencionaba, que digamos que es el website.
+
+312
+00:17:29,820 --> 00:17:35,820
+Y el website, que es, de nuevo, acá es lo...
+
+313
+00:17:35,820 --> 00:17:36,820
+Sí, website, pongámosle.
+
+314
+00:17:36,820 --> 00:17:37,820
+Website.
+
+315
+00:17:37,820 --> 00:17:38,820
+¿Qué es lo bueno?
+
+316
+00:17:38,820 --> 00:17:41,820
+Es que no solo puedo tener proyectos en Angular.
+
+317
+00:17:41,820 --> 00:17:45,820
+Pues sí, literalmente, acá tengo que hacer todo de nuevo.
+
+318
+00:17:45,820 --> 00:17:46,820
+Entonces, acá le digo true.
+
+319
+00:17:46,820 --> 00:17:49,820
+Acá, por ejemplo, el website ya sí va a ser server-side rendering.
+
+320
+00:17:49,820 --> 00:17:51,820
+Pero, por ejemplo, puedo tener Astro.
+
+321
+00:17:51,820 --> 00:17:55,820
+Puedo tener que la landing sí esté en React, en fin, o en Vue.
+
+322
+00:17:55,820 --> 00:17:59,820
+Entonces, puedo también empezar a hacer como estos mix de tecnologías.
+
+323
+00:17:59,820 --> 00:18:00,820
+Bien.
+
+324
+00:18:00,820 --> 00:18:01,820
+Listo.
+
+325
+00:18:01,820 --> 00:18:02,820
+Entonces, acá ya está.
+
+326
+00:18:02,820 --> 00:18:03,820
+Vamos a ver qué tiene.
+
+327
+00:18:03,820 --> 00:18:06,820
+Vamos a volver a abrir el cursor.
+
+328
+00:18:06,820 --> 00:18:07,820
+Y fijémonos que aquí, en la carpeta de aplicaciones,
+
+329
+00:18:07,820 --> 00:18:12,820
+aquí en la carpeta de apps, lo que tiene es, pues, nuestra aplicación,
+
+330
+00:18:12,820 --> 00:18:16,820
+una aplicación en Angular como normal, solo que tenemos dos aplicaciones
+
+331
+00:18:16,820 --> 00:18:19,820
+que, pues, funcionan bastante bien.
+
+332
+00:18:19,820 --> 00:18:24,820
+Acá lo diferente, lo interesante, es que si tú te fijas, cada aplicación
+
+333
+00:18:24,820 --> 00:18:26,820
+no tiene un package.json.
+
+334
+00:18:26,820 --> 00:18:29,820
+Y creo que eso es un poco lo que rompe más la cabeza, por ejemplo,
+
+335
+00:18:29,820 --> 00:18:31,820
+de cuando yo empecé a trabajar con NX.
+
+336
+00:18:31,820 --> 00:18:35,820
+Y es que solo tenemos un solo package.json, que es este de acá,
+
+337
+00:18:35,820 --> 00:18:37,820
+para toda la aplicación.
+
+338
+00:18:37,820 --> 00:18:39,820
+Eso tiene sus ventajas y desventajas.
+
+339
+00:18:39,820 --> 00:18:46,820
+Tiene una ventaja de que sabemos que todo el monorepo está con una sola versión de Angular.
+
+340
+00:18:46,820 --> 00:18:49,820
+Por ejemplo, yo sé que acá deben estar Angular.
+
+341
+00:18:49,820 --> 00:18:50,820
+Acá está Angular.
+
+342
+00:18:50,820 --> 00:18:52,820
+Acá está el Angular compiler, etcétera.
+
+343
+00:18:52,820 --> 00:18:56,820
+Acá está el Angular core, el Angular language service, ¿no?
+
+344
+00:18:56,820 --> 00:18:59,820
+Está, pues, lo que necesitamos de Angular, ¿no?
+
+345
+00:18:59,820 --> 00:19:01,820
+El core, etcétera.
+
+346
+00:19:01,820 --> 00:19:05,820
+Entonces, aquí, por ejemplo, lo que nosotros necesitamos,
+
+347
+00:19:05,820 --> 00:19:08,820
+lo que nosotros tendríamos es que tenemos un solo,
+
+348
+00:19:08,820 --> 00:19:11,820
+una sola versión de Angular, que eso tiene sus ventajas,
+
+349
+00:19:11,820 --> 00:19:14,820
+en toda la aplicación.
+
+350
+00:19:14,820 --> 00:19:17,820
+Entonces, aquí tiene un trade-off.
+
+351
+00:19:17,820 --> 00:19:22,820
+Es decir, si yo quiero actualizar la versión de Angular solo para el admin,
+
+352
+00:19:22,820 --> 00:19:24,820
+no voy a poder, de nuevo.
+
+353
+00:19:24,820 --> 00:19:28,820
+Porque NX, una de sus reglas, es que manejamos solo un package.json
+
+354
+00:19:28,820 --> 00:19:30,820
+para todo el proyecto.
+
+355
+00:19:30,820 --> 00:19:33,820
+Realmente, sí se puede hacer con un par de configuraciones,
+
+356
+00:19:33,820 --> 00:19:36,820
+que los proyectos manejen sus packages o sus librerías
+
+357
+00:19:36,820 --> 00:19:38,820
+o sus dependencias de forma independiente.
+
+358
+00:19:38,820 --> 00:19:40,820
+Pero ellos lo que sugieren, o la buena práctica,
+
+359
+00:19:40,820 --> 00:19:42,820
+es que todo sea homogéneo.
+
+360
+00:19:42,820 --> 00:19:45,820
+Con eso es más fácil de administrar, más fácil de acoplar,
+
+361
+00:19:45,820 --> 00:19:49,820
+correr una migración, hacer un solo building, etcétera.
+
+362
+00:19:49,820 --> 00:19:51,820
+Entonces, como que comparten esas librerías.
+
+363
+00:19:51,820 --> 00:19:54,820
+Pero cada quien es un proyecto, digamos, independiente.
+
+364
+00:19:54,820 --> 00:19:56,820
+Entonces, por eso no tenemos un package.json.
+
+365
+00:19:56,820 --> 00:20:00,820
+También comienzan a compartir una sola configuración de TypeScript.
+
+366
+00:20:00,820 --> 00:20:02,820
+Entonces, como que todo el proyecto tiene una configuración,
+
+367
+00:20:02,820 --> 00:20:04,820
+de TypeScript.
+
+368
+00:20:04,820 --> 00:20:08,820
+Los SDKs, las librerías, todo es homogéneo, digamos,
+
+369
+00:20:08,820 --> 00:20:10,820
+dentro del monorepositorio.
+
+370
+00:20:10,820 --> 00:20:12,820
+Que eso, de nuevo, tiene sus ventajas y desventajas.
+
+371
+00:20:12,820 --> 00:20:15,820
+Sobre todo en gestión tiene grandes ventajas.
+
+372
+00:20:15,820 --> 00:20:18,820
+De nuevo, yo solo tengo una sola versión que administrar.
+
+373
+00:20:18,820 --> 00:20:21,820
+Si se rompe, se rompe, digamos, una sola vez.
+
+374
+00:20:21,820 --> 00:20:23,820
+Y si se arregla, se arregla para todos.
+
+375
+00:20:23,820 --> 00:20:25,820
+Que ese también puede ser su trace vault.
+
+376
+00:20:25,820 --> 00:20:28,820
+Si yo actualizo algo, pues tengo que arreglar el problema
+
+377
+00:20:28,820 --> 00:20:30,820
+como para todos.
+
+378
+00:20:30,820 --> 00:20:31,820
+De nuevo, es una sola...
+
+379
+00:20:31,820 --> 00:20:33,820
+Digamos, que gestión de dependencias.
+
+380
+00:20:33,820 --> 00:20:36,820
+Entonces, acá tengo una aplicación.
+
+381
+00:20:36,820 --> 00:20:37,820
+Y ya, listo.
+
+382
+00:20:37,820 --> 00:20:39,820
+Entonces, tengo las aplicaciones.
+
+383
+00:20:39,820 --> 00:20:41,820
+Sin embargo, otra cosa muy interesante.
+
+384
+00:20:41,820 --> 00:20:43,820
+Ah, bueno, y acá podemos correrlas.
+
+385
+00:20:43,820 --> 00:20:44,820
+Corramoslas, corramoslas cada una.
+
+386
+00:20:44,820 --> 00:20:46,820
+Entonces, por ejemplo, ahora voy a correr el proyecto.
+
+387
+00:20:46,820 --> 00:20:49,820
+Y normalmente lo que haríamos es hacer un ng-serve, ¿verdad?
+
+388
+00:20:49,820 --> 00:20:52,820
+Pero realmente con un ng-serve, pues solo estaríamos corriendo
+
+389
+00:20:52,820 --> 00:20:54,820
+un proyecto, porque es lo que normalmente tenemos.
+
+390
+00:20:54,820 --> 00:20:55,820
+Tenemos.
+
+391
+00:20:55,820 --> 00:20:57,820
+Pero ahora, como estamos utilizando Nx,
+
+392
+00:20:57,820 --> 00:20:59,820
+lo que haríamos es correr npx nx-server.json.
+
+393
+00:20:59,820 --> 00:21:00,820
+Y ya, listo.
+
+394
+00:21:00,820 --> 00:21:02,820
+Nx, Nx-ServeAdmin.
+
+395
+00:21:02,820 --> 00:21:03,820
+Bien.
+
+396
+00:21:03,820 --> 00:21:04,820
+Entonces, vamos a correrlo.
+
+397
+00:21:04,820 --> 00:21:06,820
+Vamos a ver el nombre de la aplicación.
+
+398
+00:21:06,820 --> 00:21:09,820
+Por acá tengo algo que me está fallando en la línea main.
+
+399
+00:21:09,820 --> 00:21:12,820
+Vamos a ver qué tiene esa línea.
+
+400
+00:21:12,820 --> 00:21:14,820
+Por alguna razón tiene un console.
+
+401
+00:21:14,820 --> 00:21:17,820
+Y acá me está diciendo que no podría utilizar un console.error.
+
+402
+00:21:17,820 --> 00:21:20,820
+Al menos en esta parte, supongo, porque es algo de server-server rendering.
+
+403
+00:21:20,820 --> 00:21:24,820
+Se lo voy a quitar solo para poder como entrar.
+
+404
+00:21:24,820 --> 00:21:25,820
+Ahí está.
+
+405
+00:21:25,820 --> 00:21:28,820
+Entonces, fíjense que acá está mi aplicación administrativa.
+
+406
+00:21:28,820 --> 00:21:29,820
+Bien.
+
+407
+00:21:29,820 --> 00:21:32,820
+Aquí estaría toda como la aplicación administrativa.
+
+408
+00:21:32,820 --> 00:21:33,820
+Bien.
+
+409
+00:21:33,820 --> 00:21:36,820
+Pero ahora yo también podría correr el otro proyecto que es website.
+
+410
+00:21:36,820 --> 00:21:37,820
+Bien.
+
+411
+00:21:37,820 --> 00:21:39,820
+Entonces, ahí lo ponemos.
+
+412
+00:21:39,820 --> 00:21:41,820
+Website también se va a construir.
+
+413
+00:21:41,820 --> 00:21:42,820
+Ahí está.
+
+414
+00:21:42,820 --> 00:21:44,820
+Entonces, acá tenemos website.
+
+415
+00:21:44,820 --> 00:21:45,820
+Y este es el website.
+
+416
+00:21:45,820 --> 00:21:47,820
+Son dos proyectos diferentes.
+
+417
+00:21:47,820 --> 00:21:51,820
+Obviamente, tienen el mismo setup, porque las dos son aplicaciones de Angular.
+
+418
+00:21:51,820 --> 00:21:54,820
+Pero a través del tiempo, pues cada quien va a ser diferente.
+
+419
+00:21:54,820 --> 00:21:57,820
+Una va a tener, no sé, material design o or muchos formularios, etc.
+
+420
+00:21:57,820 --> 00:21:59,820
+La otra va a ser más una landing.
+
+421
+00:21:59,820 --> 00:22:01,820
+Entonces, posiblemente solo tenga Tailwind.
+
+422
+00:22:01,820 --> 00:22:05,820
+Cada proyecto ya va a tener su bifurcación, pero se gestiona o se administra en un solo monorepositorio.
+
+423
+00:22:05,820 --> 00:22:10,820
+Y de nuevo, si tuviéramos un proyecto en Next, en Nuke, en React.
+
+424
+00:22:10,820 --> 00:22:17,820
+Entonces, instalamos el plugin, creamos el proyecto y luego le ponemos, no sé, digamos que haya un aplicativo que se llame Landings.
+
+425
+00:22:17,820 --> 00:22:19,820
+Y eso está en el plugin.
+
+426
+00:22:19,820 --> 00:22:21,820
+Entonces, si tú quieres que te ponga un plugin, pues tú puedes hacer un plugin.
+
+427
+00:22:21,820 --> 00:22:23,820
+Y luego le ponemos, no sé, digamos que haya un aplicativo que se llame Landings.
+
+428
+00:22:23,820 --> 00:22:25,820
+Y eso está en el plugin.
+
+429
+00:22:25,820 --> 00:22:28,820
+Y eso está en React o lo que sea.
+
+430
+00:22:28,820 --> 00:22:37,820
+Pues simplemente el NX se convierte en el comando general sin importar qué tipo de aplicación o en qué tecnología.
+
+431
+00:22:37,820 --> 00:22:40,820
+Simplemente es NXSERP y el nombre de tu aplicación.
+
+432
+00:22:40,820 --> 00:22:42,820
+NXSERP y el nombre de tu aplicación.
+
+433
+00:22:42,820 --> 00:22:44,820
+Sea Angular, sea React, lo que sea.
+
+434
+00:22:44,820 --> 00:22:51,820
+Por ejemplo, precisamente aquí vamos a ver cómo agregar la parte que me parece también interesante que son librerías.
+
+435
+00:22:51,820 --> 00:22:53,820
+Si bien cada proyecto puede ser independiente.
+
+436
+00:22:53,820 --> 00:22:55,820
+Lo que sí podemos compartir es servicio.
+
+437
+00:22:55,820 --> 00:22:58,820
+Qué tal que los dos se comuniquen con la misma API.
+
+438
+00:22:58,820 --> 00:23:05,820
+Y es normal que al final los dos, si el e-commerce renderiza productos, pues también el sistema de administración también renderiza productos.
+
+439
+00:23:05,820 --> 00:23:11,820
+Entonces, lo que podríamos hacer es compartir una capa de ser de endpoints o de servicios.
+
+440
+00:23:11,820 --> 00:23:18,820
+Entonces, lo que podemos hacer acá es decirle, mire, con el plugin de Angular, porque va a ser una librería como para los proyectos de Angular.
+
+441
+00:23:18,820 --> 00:23:20,820
+Le voy a decir que es una lib.
+
+442
+00:23:20,820 --> 00:23:23,820
+Pero esa lib sí ya no vive dentro de la carpeta apps.
+
+443
+00:23:23,820 --> 00:23:24,820
+Vive mylib.
+
+444
+00:23:24,820 --> 00:23:25,820
+Mylib se llama.
+
+445
+00:23:25,820 --> 00:23:30,820
+Normalmente esa carpeta, una buena convención es llamarla data access.
+
+446
+00:23:30,820 --> 00:23:33,820
+Porque si le ponemos services, pues no...
+
+447
+00:23:33,820 --> 00:23:35,820
+Hay muchos tipos de servicios.
+
+448
+00:23:35,820 --> 00:23:42,820
+Data access sería como más como estos servicios que acceden a información, a data, como APIs.
+
+449
+00:23:42,820 --> 00:23:45,820
+Entonces, por ejemplo, yo ya me creo esta librería.
+
+450
+00:23:45,820 --> 00:23:48,820
+Acá me dice que quiero usar como otra runner, bit.
+
+451
+00:23:48,820 --> 00:23:51,820
+Por alguna razón me dice que...
+
+452
+00:23:51,820 --> 00:23:52,820
+Que, que, que, que...
+
+453
+00:23:52,820 --> 00:23:53,820
+Que...
+
+454
+00:23:53,820 --> 00:23:55,820
+No soporta bit.
+
+455
+00:23:55,820 --> 00:23:56,820
+Qué raro.
+
+456
+00:23:56,820 --> 00:23:57,820
+A ver, dejándole leer bien el error.
+
+457
+00:23:57,820 --> 00:23:58,820
+Unit test.
+
+458
+00:23:58,820 --> 00:23:59,820
+Acá está.
+
+459
+00:23:59,820 --> 00:24:01,820
+Use bit angle or yes.
+
+460
+00:24:01,820 --> 00:24:04,820
+Algo tiene ahí con bits, con ese bit angular.
+
+461
+00:24:04,820 --> 00:24:07,820
+Entonces, vamos a escoger otro running test.
+
+462
+00:24:07,820 --> 00:24:09,820
+En este caso, voy a hacer uno más clásico.
+
+463
+00:24:09,820 --> 00:24:10,820
+Y es...
+
+464
+00:24:10,820 --> 00:24:13,820
+Entonces, fíjense que ahí se trae un plugin de yes.
+
+465
+00:24:13,820 --> 00:24:20,820
+Que ese plugin de yes se puede utilizar para muchos proyectos, porque pueden haber otros proyectos que, pues, que también colgan sus unit tests en yes.
+
+466
+00:24:20,820 --> 00:24:21,820
+Entonces, se va a traer eso.
+
+467
+00:24:21,820 --> 00:24:22,820
+Se va a configurarlo.
+
+468
+00:24:22,820 --> 00:24:24,820
+Y si yo me voy ya aquí a...
+
+469
+00:24:24,820 --> 00:24:26,820
+Pues a mi aplicación.
+
+470
+00:24:26,820 --> 00:24:29,820
+Bueno, a mi estructura de carpetas, etcétera.
+
+471
+00:24:29,820 --> 00:24:33,820
+Lo que voy a tener es que entonces las aplicaciones van a estar en apps.
+
+472
+00:24:33,820 --> 00:24:36,820
+Y luego las librerías van a estar en lips.
+
+473
+00:24:36,820 --> 00:24:37,820
+En la carpeta lips.
+
+474
+00:24:37,820 --> 00:24:38,820
+Bien.
+
+475
+00:24:38,820 --> 00:24:43,820
+Y mientras esto va terminando, ya para ir viendo, porque esto es como un overview.
+
+476
+00:24:43,820 --> 00:24:45,820
+Luego voy a hacer más videos de NX.
+
+477
+00:24:45,820 --> 00:24:48,820
+Pero vamos a ver cómo se agregaría un...
+
+478
+00:24:48,820 --> 00:24:50,820
+El backend, por ejemplo.
+
+479
+00:24:50,820 --> 00:24:51,820
+Vamos a ver.
+
+480
+00:24:51,820 --> 00:24:53,820
+Por ejemplo, agregar el backend.
+
+481
+00:24:53,820 --> 00:24:54,820
+En este caso con NX.
+
+482
+00:24:54,820 --> 00:24:58,820
+Que yo utilizo mucho NX, por ejemplo, cuando trabajo mucho en APIs.
+
+483
+00:24:58,820 --> 00:25:01,820
+Entonces acá, de nuevo, esto también tiene un preset.
+
+484
+00:25:01,820 --> 00:25:02,820
+Pero...
+
+485
+00:25:02,820 --> 00:25:05,820
+Pues me gusta más tenerlo como en vacío.
+
+486
+00:25:05,820 --> 00:25:06,820
+Y luego ir agregando proyectos.
+
+487
+00:25:06,820 --> 00:25:11,820
+O, si a ustedes les falla cualquier cosa, busquen un preset que más o menos tenga como su stack.
+
+488
+00:25:11,820 --> 00:25:14,820
+Normalmente el stack Angular NX, por ejemplo.
+
+489
+00:25:14,820 --> 00:25:17,820
+O React Express, etcétera.
+
+490
+00:25:17,820 --> 00:25:19,820
+Porque también funciona para ese tipo de stack.
+
+491
+00:25:19,820 --> 00:25:20,820
+Ah, fíjense que acá ya...
+
+492
+00:25:20,820 --> 00:25:22,820
+Ya terminó la librería.
+
+493
+00:25:22,820 --> 00:25:25,820
+Entonces ahora tenemos lips y tiene data access.
+
+494
+00:25:25,820 --> 00:25:27,820
+Entonces aquí, por ejemplo, yo ya puedo crear un servicio.
+
+495
+00:25:27,820 --> 00:25:28,820
+Bien.
+
+496
+00:25:28,820 --> 00:25:31,820
+Un servicio y llamar a ese servicio en las dos aplicaciones.
+
+497
+00:25:31,820 --> 00:25:32,820
+Vamos a ver cómo sería.
+
+498
+00:25:32,820 --> 00:25:35,820
+Entonces, por ejemplo, acá en data access.
+
+499
+00:25:35,820 --> 00:25:39,820
+Yo voy a crear algo que se llame products.
+
+500
+00:25:39,820 --> 00:25:43,820
+Product.services.
+
+501
+00:25:43,820 --> 00:25:45,820
+.service.tabscore.
+
+502
+00:25:45,820 --> 00:25:46,820
+Bien.
+
+503
+00:25:46,820 --> 00:25:47,820
+Y acá le voy a...
+
+504
+00:25:47,820 --> 00:25:49,820
+Voy a utilizar AI para conectarnos a...
+
+505
+00:25:49,820 --> 00:25:53,820
+La fake API.
+
+506
+00:25:53,820 --> 00:25:55,820
+Para decirle un endpoint, etcétera.
+
+507
+00:25:55,820 --> 00:25:58,820
+Entonces le voy a decir que vayamos a los productos.
+
+508
+00:25:58,820 --> 00:25:59,820
+Bien.
+
+509
+00:25:59,820 --> 00:26:00,820
+Entonces va a conectar a estos productos.
+
+510
+00:26:00,820 --> 00:26:01,820
+Listo.
+
+511
+00:26:01,820 --> 00:26:05,820
+Entonces le voy a decir que acá...
+
+512
+00:26:05,820 --> 00:26:13,820
+Genérame un servicio en Angular para obtener...
+
+513
+00:26:13,820 --> 00:26:14,820
+Projects.
+
+514
+00:26:14,820 --> 00:26:15,820
+Ah, no.
+
+515
+00:26:15,820 --> 00:26:16,820
+Productos.
+
+516
+00:26:16,820 --> 00:26:17,820
+Productos.
+
+517
+00:26:17,820 --> 00:26:18,820
+Y listo.
+
+518
+00:26:18,820 --> 00:26:20,820
+Y le digo que ese es mi endpoint.
+
+519
+00:26:20,820 --> 00:26:22,820
+Entonces vamos a ver si lo hace o no.
+
+520
+00:26:22,820 --> 00:26:26,820
+Ahí el problema está súper mal, pero vamos a ver qué me genera rápido para avanzar.
+
+521
+00:26:26,820 --> 00:26:28,820
+Eso es súper importante.
+
+522
+00:26:28,820 --> 00:26:32,820
+Entonces yo puedo empezar a tener una librería solo de como los servicios de acceso a API
+
+523
+00:26:32,820 --> 00:26:34,820
+y luego compartirlo con muchos proyectos.
+
+524
+00:26:34,820 --> 00:26:39,820
+Es más, así no tengas múltiples proyectos como en este caso admin y website.
+
+525
+00:26:39,820 --> 00:26:43,820
+Creo que también es una gran forma de trabajar en Angular.
+
+526
+00:26:43,820 --> 00:26:46,820
+Porque entonces puedes tener la aplicación.
+
+527
+00:26:46,820 --> 00:26:51,820
+Y luego empezar a dividir como ciertas capas, ciertos módulos en librerías.
+
+528
+00:26:51,820 --> 00:26:53,820
+Y luego simplemente las importas.
+
+529
+00:26:53,820 --> 00:26:55,820
+Pero vas haciendo ese scope mucho más claro.
+
+530
+00:26:55,820 --> 00:27:03,820
+Es más, otra forma de hacer es que la librería de typing, lo que es typing, debería estar en otro lado.
+
+531
+00:27:03,820 --> 00:27:04,820
+Y normalmente así se hace.
+
+532
+00:27:04,820 --> 00:27:11,820
+La librería de tipos lo que hacemos es generarla como otra librería para que se pueda reutilizar.
+
+533
+00:27:11,820 --> 00:27:14,820
+Entonces, por ejemplo, hasta el proyecto de Nest ya podría reutilizarse.
+
+534
+00:27:14,820 --> 00:27:18,820
+Y todos utilizan el mismo typing.
+
+535
+00:27:18,820 --> 00:27:22,820
+Y entonces en este caso la librería de Access está reutilizando el typing.
+
+536
+00:27:22,820 --> 00:27:24,820
+El website está reutilizando el typing.
+
+537
+00:27:24,820 --> 00:27:26,820
+El admin está reutilizando el typing.
+
+538
+00:27:26,820 --> 00:27:31,820
+Y hasta el API estaría reutilizando como estas interfaces.
+
+539
+00:27:31,820 --> 00:27:33,820
+Solo la definición de interfaces.
+
+540
+00:27:33,820 --> 00:27:34,820
+Bien.
+
+541
+00:27:34,820 --> 00:27:37,820
+Entonces bueno, acá tenemos Product Service.
+
+542
+00:27:37,820 --> 00:27:39,820
+Entonces fíjense que acá está.
+
+543
+00:27:39,820 --> 00:27:43,820
+Y ahora como de esta librería yo ya lo utilizo en cada uno de los proyectos.
+
+544
+00:27:43,820 --> 00:27:44,820
+Acá está el proyecto.
+
+545
+00:27:44,820 --> 00:27:45,820
+Acá está algo interesante.
+
+546
+00:27:45,820 --> 00:27:53,820
+Y es que normalmente en el archivo TypeScript acá él comienza a poner como estos pads.
+
+547
+00:27:53,820 --> 00:27:55,820
+Que no sé por qué me puso ORG.
+
+548
+00:27:55,820 --> 00:27:59,820
+Pero pongámosle, normalmente se le coloca el nombre del proyecto.
+
+549
+00:27:59,820 --> 00:28:04,820
+Digamos que en esta oportunidad lo voy a llamar Store.
+
+550
+00:28:04,820 --> 00:28:05,820
+Entonces, ¿qué pasa?
+
+551
+00:28:05,820 --> 00:28:09,820
+Que si yo quiero utilizar desde Website a Store.
+
+552
+00:28:09,820 --> 00:28:13,820
+Entonces me voy, no sé, aquí al App.
+
+553
+00:28:13,820 --> 00:28:16,820
+Y literalmente puedo importarlo como desde la librería.
+
+554
+00:28:16,820 --> 00:28:20,820
+Entonces fíjense que acá lo que hago es Store.
+
+555
+00:28:20,820 --> 00:28:22,820
+Store, que es Data Access.
+
+556
+00:28:22,820 --> 00:28:24,820
+Y me traigo a ese servicio.
+
+557
+00:28:24,820 --> 00:28:28,820
+Entonces acá hago la inyección de dependencias.
+
+558
+00:28:28,820 --> 00:28:31,820
+Hago el inject, normal de Angular.
+
+559
+00:28:31,820 --> 00:28:33,820
+Por acá me lo van a traer.
+
+560
+00:28:33,820 --> 00:28:35,820
+Y luego pues puedo hacer fetching.
+
+561
+00:28:35,820 --> 00:28:38,820
+Acá products.getall.
+
+562
+00:28:38,820 --> 00:28:40,820
+Y me hago el subscribe.
+
+563
+00:28:40,820 --> 00:28:42,820
+Pero lo interesante es que acá yo me traigo.
+
+564
+00:28:42,820 --> 00:28:45,820
+Acá yo me traje este servicio.
+
+565
+00:28:45,820 --> 00:28:48,820
+Ya no de los servicios de mi aplicativo.
+
+566
+00:28:48,820 --> 00:28:50,820
+Que normalmente estaban ahí.
+
+567
+00:28:50,820 --> 00:28:52,820
+Sino que ya me lo traigo desde la capa de librerías.
+
+568
+00:28:52,820 --> 00:28:56,820
+Dentro de la librería de Store Access.
+
+569
+00:28:56,820 --> 00:28:57,820
+Entonces, ¿eso qué hace?
+
+570
+00:28:57,820 --> 00:29:00,820
+Que el Website puede reutilizar ese mismo servicio.
+
+571
+00:29:00,820 --> 00:29:03,820
+Pero entonces también ahora la aplicación administrativa.
+
+572
+00:29:03,820 --> 00:29:06,820
+Podría importar Data Access como librería.
+
+573
+00:29:06,820 --> 00:29:08,820
+Entonces este es el...
+
+574
+00:29:08,820 --> 00:29:10,820
+No, este es Website.
+
+575
+00:29:10,820 --> 00:29:12,820
+Voy a irme al Admin.
+
+576
+00:29:12,820 --> 00:29:15,820
+Entonces desde acá también podría importármela.
+
+577
+00:29:15,820 --> 00:29:16,820
+Y listo.
+
+578
+00:29:16,820 --> 00:29:22,820
+Entonces puedo, sin problema, empezar a hacer importación de esas capas.
+
+579
+00:29:22,820 --> 00:29:25,820
+Y lo mismo va a pasar con la librería de Typing.
+
+580
+00:29:25,820 --> 00:29:28,820
+Entonces normalmente se crea una librería que se llama Types.
+
+581
+00:29:28,820 --> 00:29:30,820
+O Models, como lo quieran llamar.
+
+582
+00:29:30,820 --> 00:29:32,820
+Normalmente se llama Types.
+
+583
+00:29:32,820 --> 00:29:35,820
+Es una librería exclusiva para definición de tipos, de Typing.
+
+584
+00:29:35,820 --> 00:29:37,820
+Eso hace que...
+
+585
+00:29:37,820 --> 00:29:41,820
+Porque normalmente Angular, en el contexto de Angular.
+
+586
+00:29:41,820 --> 00:29:43,820
+Por ejemplo.
+
+587
+00:29:43,820 --> 00:29:47,820
+Pues esto sería un Injectable.
+
+588
+00:29:47,820 --> 00:29:51,820
+Entonces yo no podría reutilizar esto dentro de Next.js.
+
+589
+00:29:51,820 --> 00:29:53,820
+O dentro de una API de Express.
+
+590
+00:29:53,820 --> 00:29:55,820
+O dentro de mi proyecto de React, por ejemplo.
+
+591
+00:29:55,820 --> 00:29:59,820
+Entonces lo que se hace es desacoplar esta librería.
+
+592
+00:29:59,820 --> 00:30:01,820
+En una librería aparte también.
+
+593
+00:30:01,820 --> 00:30:03,820
+Que se crea con NX y se gestiona con NX.
+
+594
+00:30:03,820 --> 00:30:05,820
+Que es de solo Typing.
+
+595
+00:30:05,820 --> 00:30:09,820
+Entonces en ese caso, la Data Access está reutilizando otra librería.
+
+596
+00:30:09,820 --> 00:30:10,820
+Que es la de Tipos.
+
+597
+00:30:10,820 --> 00:30:12,820
+Website que la reutiliza.
+
+598
+00:30:12,820 --> 00:30:13,820
+Ya está el proyecto de React.
+
+599
+00:30:13,820 --> 00:30:15,820
+Ya está el proyecto de la API.
+
+600
+00:30:15,820 --> 00:30:21,820
+Entonces con eso empezamos a ver estas grandes formas de empezar a llevar esa arquitectura a otro nivel.
+
+601
+00:30:21,820 --> 00:30:23,820
+Ahora, si están interesados en esa librería de Tipos.
+
+602
+00:30:23,820 --> 00:30:26,820
+En ese caso sería una librería de TypeScript.
+
+603
+00:30:26,820 --> 00:30:28,820
+Porque no es una librería de Angular.
+
+604
+00:30:28,820 --> 00:30:29,820
+No es una librería per se.
+
+605
+00:30:29,820 --> 00:30:30,820
+Y solo va a ser de Typing.
+
+606
+00:30:30,820 --> 00:30:31,820
+¿Verdad?
+
+607
+00:30:31,820 --> 00:30:33,820
+Entonces nos interesa solo exportar el Typing.
+
+608
+00:30:33,820 --> 00:30:36,820
+Para eso básicamente entramos a TypeScript.
+
+609
+00:30:36,820 --> 00:30:37,820
+Y él ya tiene una librería.
+
+610
+00:30:37,820 --> 00:30:38,820
+Que esta es la que viene por defecto.
+
+611
+00:30:38,820 --> 00:30:39,820
+NX.js.
+
+612
+00:30:39,820 --> 00:30:42,820
+Entonces lo que podríamos hacer es crear como esta lib.
+
+613
+00:30:42,820 --> 00:30:43,820
+Y ya.
+
+614
+00:30:43,820 --> 00:30:46,820
+Generar.
+
+615
+00:30:46,820 --> 00:30:48,820
+Acá dice, mira, cómo crear una librería.
+
+616
+00:30:48,820 --> 00:30:49,820
+Entonces.
+
+617
+00:30:49,820 --> 00:30:51,820
+Y acá me dice si tiene que ser.
+
+618
+00:30:51,820 --> 00:30:54,820
+Si esta librería necesita tener Building.
+
+619
+00:30:54,820 --> 00:30:58,820
+Es decir, si esta librería queremos que sea exportable.
+
+620
+00:30:58,820 --> 00:31:01,820
+Porque la queremos exportar en un Package.jmp.
+
+621
+00:31:01,820 --> 00:31:03,820
+Normalmente si lo mantenemos dentro de nuestro proyecto no es necesario.
+
+622
+00:31:03,820 --> 00:31:07,820
+Pero si estamos trabajando con SDKs, SDKs, ese tipo de cosas.
+
+623
+00:31:07,820 --> 00:31:08,820
+Si empezamos a tener un Package.jmp.
+
+624
+00:31:08,820 --> 00:31:10,820
+Es más, acá dice que si es Pushable.
+
+625
+00:31:10,820 --> 00:31:11,820
+O Publishable.
+
+626
+00:31:11,820 --> 00:31:12,820
+Que sería que si se va a ir a algún registro.
+
+627
+00:31:12,820 --> 00:31:13,820
+Pero en este caso no.
+
+628
+00:31:13,820 --> 00:31:14,820
+Vamos a simplemente a decirle que esta librería va a ser llamada Types.
+
+629
+00:31:14,820 --> 00:31:15,820
+Y de nuevo entonces cogemos NX.js.
+
+630
+00:31:15,820 --> 00:31:16,820
+Y lo instalamos.
+
+631
+00:31:16,820 --> 00:31:17,820
+Acá me dice yo qué quiero hacer.
+
+632
+00:31:17,820 --> 00:31:18,820
+Qué es lo que quiero hacer con él.
+
+633
+00:31:18,820 --> 00:31:19,820
+Acabo de utilizar TypeScript.
+
+634
+00:31:19,820 --> 00:31:20,820
+O sea, TSX es el compilador de TypeScript.
+
+635
+00:31:20,820 --> 00:31:21,820
+Los otros se pueden utilizar.
+
+636
+00:31:21,820 --> 00:31:22,820
+Pero yo creo que es mejor que no.
+
+637
+00:31:22,820 --> 00:31:23,820
+Porque si no, pues, bueno.
+
+638
+00:31:23,820 --> 00:31:24,820
+No es lo que quiero hacer.
+
+639
+00:31:24,820 --> 00:31:25,820
+Pero si no, pues, bueno.
+
+640
+00:31:25,820 --> 00:31:26,820
+No es lo que quiero hacer.
+
+641
+00:31:26,820 --> 00:31:27,820
+No es lo que quiero hacer.
+
+642
+00:31:27,820 --> 00:31:28,820
+No es lo que quiero hacer.
+
+643
+00:31:28,820 --> 00:31:29,820
+No es lo que quiero hacer.
+
+644
+00:31:29,820 --> 00:31:30,820
+Pero si no, pues, bueno.
+
+645
+00:31:30,820 --> 00:31:31,820
+No es lo que quiero hacer.
+
+646
+00:31:31,820 --> 00:31:32,820
+Acá me dice yo qué quiero hacer.
+
+647
+00:31:32,820 --> 00:31:33,820
+Qué es lo que quiero hacer con él.
+
+648
+00:31:33,820 --> 00:31:34,820
+Acabo de utilizar TypeScript.
+
+649
+00:31:34,820 --> 00:31:37,960
+O sea, TSX es el compilador de TypeScript.
+
+650
+00:31:37,960 --> 00:31:39,460
+Los otros se podrían.
+
+651
+00:31:39,460 --> 00:31:42,920
+Pero es más cuando yo quiero generar librerías de desarrollo.
+
+652
+00:31:42,920 --> 00:31:44,580
+Pero en este caso es una librería de typing.
+
+653
+00:31:44,580 --> 00:31:45,700
+Entonces TypeScript me va bien.
+
+654
+00:31:45,700 --> 00:31:46,940
+Y es Lint.
+
+655
+00:31:46,940 --> 00:31:47,940
+Si quiero Unitex.
+
+656
+00:31:47,940 --> 00:31:51,060
+Yo creo que no voy a tener Unitex en este caso.
+
+657
+00:31:51,060 --> 00:31:52,660
+Entonces simplemente me la creé así.
+
+658
+00:31:52,660 --> 00:31:57,320
+Entonces ahora miren que yo podría entonces estos typings.
+
+659
+00:31:57,320 --> 00:31:59,060
+Mandarla a mi librería de typing.
+
+660
+00:31:59,060 --> 00:31:59,820
+Acá.
+
+661
+00:31:59,820 --> 00:32:01,940
+Acá están los types literalmente.
+
+662
+00:32:01,940 --> 00:32:04,000
+Entonces digamos que voy a cambiar estos.
+
+663
+00:32:04,000 --> 00:32:05,000
+Y ya.
+
+664
+00:32:05,000 --> 00:32:08,040
+Entonces ahí lo puedo empezar a dividir por archivo.
+
+665
+00:32:08,040 --> 00:32:09,040
+Category.model.
+
+666
+00:32:09,040 --> 00:32:10,040
+Product.model.
+
+667
+00:32:10,040 --> 00:32:14,300
+Bueno, ahí ya la división de todos esos typings que tengan.
+
+668
+00:32:14,300 --> 00:32:15,300
+Pero entonces acá.
+
+669
+00:32:15,300 --> 00:32:17,160
+Entonces ahora dentro de Data Access.
+
+670
+00:32:17,160 --> 00:32:19,940
+Y vamos a ver si quedó bien configurado el path.
+
+671
+00:32:19,940 --> 00:32:22,260
+Fíjense que otra vez me metió Store.
+
+672
+00:32:22,260 --> 00:32:26,080
+En algún lado metí ese nombre y quedó ahí.
+
+673
+00:32:26,080 --> 00:32:27,500
+Pero bueno, lo cambio acá.
+
+674
+00:32:27,500 --> 00:32:29,280
+Entonces fíjense que ahora.
+
+675
+00:32:29,280 --> 00:32:31,400
+El typing se llama desde Store Types.
+
+676
+00:32:31,400 --> 00:32:32,400
+Entonces qué pasa.
+
+677
+00:32:32,400 --> 00:32:35,600
+Que acá en la librería en mi Data Access.
+
+678
+00:32:35,600 --> 00:32:38,140
+Que sería este.
+
+679
+00:32:38,140 --> 00:32:40,560
+Yo podría ya utilizar sólo el typing.
+
+680
+00:32:40,560 --> 00:32:41,560
+Sólo el typing.
+
+681
+00:32:41,560 --> 00:32:42,560
+Desde.
+
+682
+00:32:42,560 --> 00:32:43,560
+Pues desde Types.
+
+683
+00:32:43,560 --> 00:32:48,280
+Entonces fíjense que le digo quiero mi typing.
+
+684
+00:32:48,280 --> 00:32:49,280
+Sólo el typing.
+
+685
+00:32:49,280 --> 00:32:50,280
+Entonces lo puedo reutilizar.
+
+686
+00:32:50,280 --> 00:32:51,280
+Y si.
+
+687
+00:32:51,280 --> 00:32:52,280
+Dentro.
+
+688
+00:32:52,280 --> 00:32:53,280
+Esto es dentro de Data Access.
+
+689
+00:32:53,280 --> 00:32:57,400
+Pero si alguna otra parte de mi aplicación lo necesita.
+
+690
+00:32:57,400 --> 00:32:58,400
+Pues simplemente lo importa y ya.
+
+691
+00:32:58,400 --> 00:32:59,160
+De nuevo.
+
+692
+00:32:59,160 --> 00:33:00,780
+Quedan librerías compartidas.
+
+693
+00:33:00,780 --> 00:33:01,780
+Cross.
+
+694
+00:33:01,780 --> 00:33:02,780
+Cross Platform.
+
+695
+00:33:02,780 --> 00:33:03,780
+Digamos.
+
+696
+00:33:03,780 --> 00:33:04,780
+No importa si es Angular.
+
+697
+00:33:04,780 --> 00:33:05,780
+No importa si es React.
+
+698
+00:33:05,780 --> 00:33:06,780
+Obviamente.
+
+699
+00:33:06,780 --> 00:33:07,780
+Por ejemplo.
+
+700
+00:33:07,780 --> 00:33:08,780
+Yo no podría importar.
+
+701
+00:33:08,780 --> 00:33:11,440
+Yo no podría importar.
+
+702
+00:33:11,440 --> 00:33:13,560
+Este servicio dentro de una aplicación de React.
+
+703
+00:33:13,560 --> 00:33:14,860
+No tendría sentido.
+
+704
+00:33:14,860 --> 00:33:17,200
+Porque esto es un Injectable de React.
+
+705
+00:33:17,200 --> 00:33:18,200
+Pues de Angular.
+
+706
+00:33:18,200 --> 00:33:22,000
+Entonces tendría sentido importar eso dentro de proyectos de Angular.
+
+707
+00:33:22,000 --> 00:33:23,000
+Y así.
+
+708
+00:33:23,000 --> 00:33:26,280
+Entonces vamos teniendo ese tipo de configuraciones.
+
+709
+00:33:26,280 --> 00:33:27,280
+Y listo.
+
+710
+00:33:27,280 --> 00:33:28,280
+Finalmente.
+
+711
+00:33:28,280 --> 00:33:29,900
+Simplemente metámosle un backend.
+
+712
+00:33:29,900 --> 00:33:32,280
+Entonces digamos que vamos a meter Nx.
+
+713
+00:33:32,280 --> 00:33:33,280
+Entonces necesitamos crear.
+
+714
+00:33:33,280 --> 00:33:35,480
+Poner el plugin.
+
+715
+00:33:35,480 --> 00:33:36,660
+Entonces lo metemos en la terminal.
+
+716
+00:33:36,660 --> 00:33:39,220
+Otra vez.
+
+717
+00:33:39,220 --> 00:33:40,220
+Este comando.
+
+718
+00:33:40,220 --> 00:33:42,220
+Entonces acá.
+
+719
+00:33:42,220 --> 00:33:44,520
+Instalo Nx como plugin.
+
+720
+00:33:44,520 --> 00:33:46,900
+Y luego entonces voy a crear la aplicación.
+
+721
+00:33:46,900 --> 00:33:47,900
+Bien.
+
+722
+00:33:47,900 --> 00:33:49,900
+La aplicación.
+
+723
+00:33:49,900 --> 00:33:51,900
+Automáticamente le agrega un proxy.
+
+724
+00:33:51,900 --> 00:33:53,520
+Que esto es interesante.
+
+725
+00:33:53,520 --> 00:33:55,700
+Pero si quieren lo vemos mucho más adelante.
+
+726
+00:33:55,700 --> 00:33:56,900
+Algo más avanzado de Nx.
+
+727
+00:33:56,900 --> 00:33:57,900
+Pero por ahora.
+
+728
+00:33:57,900 --> 00:33:59,520
+Simplemente me voy a crear como la API.
+
+729
+00:33:59,520 --> 00:34:00,520
+Y lo chévere.
+
+730
+00:34:00,520 --> 00:34:01,520
+Ya me la creo.
+
+731
+00:34:01,520 --> 00:34:02,520
+Entonces ya puedo ir a crearme.
+
+732
+00:34:02,520 --> 00:34:03,520
+O sea ya me traje el plugin.
+
+733
+00:34:03,520 --> 00:34:04,520
+Entonces lo que puedo hacer es.
+
+734
+00:34:04,520 --> 00:34:05,520
+Pues importarme la aplicación.
+
+735
+00:34:05,520 --> 00:34:06,520
+En este caso le voy a llamar que esta es la API.
+
+736
+00:34:06,520 --> 00:34:07,520
+Bien.
+
+737
+00:34:07,520 --> 00:34:08,520
+Esto es mi backend.
+
+738
+00:34:08,520 --> 00:34:09,520
+Listo.
+
+739
+00:34:09,520 --> 00:34:10,520
+Entonces él va a crear toda la aplicación.
+
+740
+00:34:10,520 --> 00:34:11,520
+Le digo que quiero utilizar ESLint.
+
+741
+00:34:11,520 --> 00:34:12,520
+Que quiero utilizar Jest.
+
+742
+00:34:12,520 --> 00:34:13,520
+Y listo.
+
+743
+00:34:13,520 --> 00:34:14,520
+Y normalmente para las aplicaciones de backend.
+
+744
+00:34:14,520 --> 00:34:15,520
+O de APIs.
+
+745
+00:34:15,520 --> 00:34:16,520
+Casi por default.
+
+746
+00:34:16,520 --> 00:34:17,520
+Me incluye un proyecto en especial.
+
+747
+00:34:17,520 --> 00:34:18,520
+Que es el de Nx.
+
+748
+00:34:18,520 --> 00:34:19,520
+Que es el de Nx.
+
+749
+00:34:19,520 --> 00:34:20,520
+Que es el de Nx.
+
+750
+00:34:20,520 --> 00:34:21,520
+Que es el de Nx.
+
+751
+00:34:21,520 --> 00:34:22,520
+Que es el de Nx.
+
+752
+00:34:22,520 --> 00:34:23,520
+Que es el de Nx.
+
+753
+00:34:27,900 --> 00:34:28,900
+Que es el de Nx.
+
+754
+00:34:28,900 --> 00:34:29,900
+Y vamos a darle un dato aquí específico.
+
+755
+00:34:29,900 --> 00:34:30,900
+Que es para hacer End-to-End.
+
+756
+00:34:30,900 --> 00:34:32,220
+Que es muy normal en las aplicaciones.
+
+757
+00:34:32,220 --> 00:34:33,520
+Pues en APIs.
+
+758
+00:34:33,520 --> 00:34:36,920
+Entonces fíjense que ahora tenemos.
+
+759
+00:34:36,920 --> 00:34:40,680
+Podríamos decir que tenemos 4 proyectos.
+
+760
+00:34:40,680 --> 00:34:42,440
+Tenemos una aplicación administrativa.
+
+761
+00:34:42,440 --> 00:34:45,080
+Tenemos una aplicación que es el website.
+
+762
+00:34:45,080 --> 00:34:47,260
+Esta API End-to-End sí es un tipo de aplicación.
+
+763
+00:34:47,260 --> 00:34:48,300
+Pero es más para End-to-End.
+
+764
+00:34:48,300 --> 00:34:49,900
+Entonces digamos que tenemos 3.
+
+765
+00:34:49,900 --> 00:34:51,620
+Tenemos un website.
+
+766
+00:34:51,620 --> 00:34:52,620
+Tenemos un admin.
+
+767
+00:34:52,620 --> 00:34:53,760
+Y tenemos la API.
+
+768
+00:34:53,760 --> 00:34:57,660
+Que estaría en lo que conocemos que es el Next Morris.
+
+769
+00:34:57,660 --> 00:34:57,780
+Ok!
+
+770
+00:34:57,780 --> 00:35:00,760
+también hubiera podido configurar un express
+
+771
+00:35:00,760 --> 00:35:04,320
+ahí podríamos configurar y entonces yo quiero una aplicación en express
+
+772
+00:35:04,320 --> 00:35:08,080
+pero lo interesante es que entonces como yo tengo aquí ya mi API
+
+773
+00:35:08,080 --> 00:35:11,200
+podría utilizar, reutilizar mi typing
+
+774
+00:35:11,200 --> 00:35:15,760
+por ejemplo, bueno de nuevo, aquí traer el data access no tiene tanto sentido en Next
+
+775
+00:35:15,760 --> 00:35:17,800
+porque son tecnologías diferentes
+
+776
+00:35:17,800 --> 00:35:21,620
+pero lo que sí tendría sentido es llamar a mi librería de typing
+
+777
+00:35:21,620 --> 00:35:26,160
+por ejemplo si yo estoy trabajando con, pues con producto
+
+778
+00:35:26,160 --> 00:35:29,820
+normalmente se comparten varias veces como ese typing
+
+779
+00:35:29,820 --> 00:35:33,280
+entonces yo puedo reutilizar el mismo typing a través de toda la aplicación
+
+780
+00:35:33,280 --> 00:35:36,280
+puede que sí, puede que no, eso depende más de tu backend
+
+781
+00:35:36,280 --> 00:35:40,740
+si realmente el backend de pronto puede que esconda cierto tipo de atributos
+
+782
+00:35:40,740 --> 00:35:44,020
+y no todos sean publicados hacia el frontend
+
+783
+00:35:44,020 --> 00:35:49,100
+pero aquí básicamente la potencia es que yo puedo reutilizarlo a través de mis aplicaciones
+
+784
+00:35:49,100 --> 00:35:53,280
+y si yo lo corro, en este caso por ejemplo yo podría hacer en Next
+
+785
+00:35:53,280 --> 00:35:56,140
+bueno, acá, en Next
+
+786
+00:35:56,140 --> 00:35:57,680
+en Next
+
+787
+00:35:57,680 --> 00:35:59,720
+SERP API
+
+788
+00:35:59,720 --> 00:36:02,700
+y entonces él va a reconocer que esto es un proyecto
+
+789
+00:36:02,700 --> 00:36:07,440
+pues un proyecto de backend y lo va a correr
+
+790
+00:36:07,440 --> 00:36:09,600
+vamos a ver qué es lo que no nos da
+
+791
+00:36:09,600 --> 00:36:12,040
+algo me dice que
+
+792
+00:36:12,040 --> 00:36:16,580
+no related paths, vamos a ver cómo lo solucionamos
+
+793
+00:36:16,580 --> 00:36:20,680
+para solucionar este pequeño problema que me estaba tocando
+
+794
+00:36:20,680 --> 00:36:23,260
+básicamente me ayudó mucho de AI
+
+795
+00:36:23,260 --> 00:36:25,860
+pero lo que me tocó cambiarle acá fue este
+
+796
+00:36:26,140 --> 00:36:29,220
+emite declaration only en false
+
+797
+00:36:29,220 --> 00:36:31,600
+ponerle un base URL
+
+798
+00:36:31,600 --> 00:36:34,640
+esto en el tgsconfig base
+
+799
+00:36:34,640 --> 00:36:37,260
+y ya con eso básicamente se ajustó
+
+800
+00:36:37,260 --> 00:36:41,020
+entonces nosotros acá, si yo ya lo vuelvo a correr
+
+801
+00:36:41,020 --> 00:36:42,400
+acá
+
+802
+00:36:42,400 --> 00:36:46,360
+volví a correr pues ya todo el proceso después de cambiar estas variables
+
+803
+00:36:46,360 --> 00:36:51,140
+y acá entonces ya tengo la aplicación corriendo, la aplicación de backend corriendo
+
+804
+00:36:51,140 --> 00:36:55,580
+que en teoría eso corre en un puerto localhost 3000
+
+805
+00:36:56,140 --> 00:37:00,380
+y pues acá está, este es como el hello world normal de mi API
+
+806
+00:37:00,380 --> 00:37:02,700
+entonces ahí está precisamente
+
+807
+00:37:02,700 --> 00:37:06,300
+acá podríamos ver, no sé si este tiene docs por defecto, creo que no
+
+808
+00:37:06,300 --> 00:37:08,340
+no, todavía no tiene docs
+
+809
+00:37:08,340 --> 00:37:10,200
+entonces solo me está mandando 404
+
+810
+00:37:10,200 --> 00:37:12,320
+pero aquí ya tengo la API
+
+811
+00:37:12,320 --> 00:37:15,500
+para finalizar hay un comando muy potente que es este
+
+812
+00:37:15,500 --> 00:37:16,500
+nxgraph
+
+813
+00:37:16,500 --> 00:37:19,980
+que me permite ver de forma gráfica cómo es que se está comportando
+
+814
+00:37:19,980 --> 00:37:22,020
+y cómo es este árbol de dependencias
+
+815
+00:37:22,020 --> 00:37:26,020
+entonces fíjate que por acá él ya me generó un entorno gráfico en donde yo puedo
+
+816
+00:37:26,020 --> 00:37:29,860
+visualizar cuáles son las dependencias de todo mi monorepositorio
+
+817
+00:37:29,860 --> 00:37:32,500
+por ejemplo veo que tengo cuatro aplicaciones
+
+818
+00:37:32,500 --> 00:37:37,500
+al final ya sabemos por ejemplo que la aplicación de API que está en NesGIS
+
+819
+00:37:37,500 --> 00:37:42,180
+tiene una aplicación extra digamos para hacer end to end
+
+820
+00:37:42,180 --> 00:37:45,600
+luego tenemos dos aplicaciones de frontend, un website y un admin
+
+821
+00:37:45,600 --> 00:37:48,320
+de nuevo las dos son angular pero realmente podríamos
+
+822
+00:37:48,320 --> 00:37:51,280
+tener más de otra tecnología en el monorepositorio
+
+823
+00:37:51,280 --> 00:37:55,500
+pero también tenemos que admin utilizar nuestra librería de tiles
+
+824
+00:37:56,020 --> 00:37:59,020
+así como la API también reutiliza esa de tiles
+
+825
+00:37:59,020 --> 00:38:02,040
+y a su vez data access utiliza a tiles
+
+826
+00:38:02,040 --> 00:38:05,580
+pero también website pues hace la importación a data access
+
+827
+00:38:05,580 --> 00:38:11,020
+entonces vemos cómo de forma gráfica podemos visualizar ya cómo se ve el monorepositorio
+
+828
+00:38:11,020 --> 00:38:15,240
+y listo esto es una pequeña introducción a lo que es monorepositorios con NX
+
+829
+00:38:15,240 --> 00:38:16,880
+es bastante bastante potente
+
+830
+00:38:16,880 --> 00:38:20,320
+de nuevo fíjense cómo empezamos a integrar diferentes proyectos
+
+831
+00:38:20,320 --> 00:38:22,020
+a modularizar nuestra aplicación
+
+832
+00:38:22,020 --> 00:38:23,960
+a compartir código entre backend
+
+833
+00:38:23,960 --> 00:38:25,280
+entre varias aplicaciones
+
+834
+00:38:25,280 --> 00:38:25,660
+no importa si es de NesGIS o de NesGIS
+
+835
+00:38:25,660 --> 00:38:26,000
+no importa si es de NesGIS
+
+836
+00:38:26,000 --> 00:38:27,080
+React, Angular, Nux
+
+837
+00:38:27,080 --> 00:38:28,660
+sobre todo el typing obviamente
+
+838
+00:38:28,660 --> 00:38:34,560
+pero dentro de la misma tecnología podemos empezar a crear ciertos servicios
+
+839
+00:38:34,560 --> 00:38:36,780
+por ejemplo tenemos el data access
+
+840
+00:38:36,780 --> 00:38:40,040
+que son servicios que se comparten entre las aplicaciones de Angular, etc.
+
+841
+00:38:40,300 --> 00:38:42,440
+es bastante interesante, bastante potente
+
+842
+00:38:42,440 --> 00:38:44,720
+así que déjame en los comentarios si sabías de NX
+
+843
+00:38:44,720 --> 00:38:47,180
+si tienes proyectos que puedan tener el uso
+
+844
+00:38:47,180 --> 00:38:49,100
+porque de nuevo puede ser sobre ingeniería
+
+845
+00:38:49,100 --> 00:38:50,720
+en proyectos que son pequeños
+
+846
+00:38:50,720 --> 00:38:53,360
+en proyectos que solo es un aplicativo, etc.
+
+847
+00:38:53,360 --> 00:38:55,640
+pero de pronto si ya estás trabajando en un code
+
+848
+00:38:55,640 --> 00:38:57,120
+en un codebase bastante grande
+
+849
+00:38:57,120 --> 00:38:59,820
+tienes dos aplicativos diferentes
+
+850
+00:38:59,820 --> 00:39:01,720
+y estás empezando a duplicar códigos
+
+851
+00:39:01,720 --> 00:39:03,120
+servicios aquí, servicios allá
+
+852
+00:39:03,120 --> 00:39:05,960
+y es más, si quieren dar un paso más con su equipo
+
+853
+00:39:05,960 --> 00:39:08,580
+y trabajar literalmente también el backend
+
+854
+00:39:08,580 --> 00:39:10,680
+eso es una gran forma
+
+855
+00:39:10,680 --> 00:39:13,340
+porque de nuevo todo se centraliza en un solo repositorio
+
+856
+00:39:13,340 --> 00:39:15,600
+y todo es manejado directamente por NX
+
+857
+00:39:15,600 --> 00:39:18,400
+como gestión del monorepositorio
+
+858
+00:39:18,400 --> 00:39:19,780
+así que déjame en los comentarios
+
+859
+00:39:19,780 --> 00:39:21,340
+suscríbete y nos vemos en la próxima
+

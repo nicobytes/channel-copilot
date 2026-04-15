@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "skills": {
+    "blog-post": {
+      "source": "langchain-ai/deepagents",
+      "sourceType": "github",
+      "computedHash": "4a695b9be73d15798cf887a5c55732a8247e4926d2ce3d844c97ae57c44bb3f2"
+    },
+    "deep-agents-core": {
+      "source": "langchain-ai/langchain-skills",
+      "sourceType": "github",
+      "computedHash": "8cbf6f61f42b2482472f53a99e23607f16017e1e16ca037409c6c8fcfcbcc395"
+    },
+    "deep-agents-memory": {
+      "source": "langchain-ai/langchain-skills",
+      "sourceType": "github",
+      "computedHash": "b7b0facdff17b6f3ad77019e30a697175389e06ec7260780f49d5b3a1d28ad2a"
+    },
+    "deep-agents-orchestration": {
+      "source": "langchain-ai/langchain-skills",
+      "sourceType": "github",
+      "computedHash": "1570f8d88e1233edc3306d28224604172b016aedba0ced2efa2dd8e38e28ae62"
+    },
+    "langgraph-docs": {
+      "source": "langchain-ai/deepagents",
+      "sourceType": "github",
+      "computedHash": "623b8c10cbb70f70ea875d1b0901f0fb0e174a837c2d6d10707627a46ae30631"
+    },
+    "social-media": {
+      "source": "langchain-ai/deepagents",
+      "sourceType": "github",
+      "computedHash": "ede71a9ae8de94bb9c4b633fb087a760b20ecb5fd4d0266f6ddd8934e03fbd84"
+    }
+  }
+}

@@ -18,8 +18,11 @@ conda list
 
 El `env.yml` instala todas las dependencias (conda + pip) y el proyecto en editable (`pip install -e .`). No hace falta Poetry.
 
+Agrega `YOUTUBE_LINK` en tu archivo `.env` para usar la descarga automática de video.
+
 # Run
 ```py
+python main.py download
 python main.py audio
 python main.py transcribe ./data/2025-07-03-lint-ci
 python main.py summary ./data/2025-07-03-lint-ci

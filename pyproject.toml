@@ -11,3 +11,12 @@ authors = [{ name = "Nicolas Molina Monroy", email = "hi@nicobytes.com" }]
 
 [tool.setuptools.packages.find]
 include = ["channel_copilot*"]
+
+[tool.ruff]
+line-length = 88
+exclude = [
+    "app/data",
+]
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]

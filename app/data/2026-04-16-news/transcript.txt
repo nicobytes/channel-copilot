@@ -1,0 +1,59 @@
+Hola, mi nombre es Andrés Villanueva y esto es NG News en Español,
+con las últimas actualizaciones de la comunidad de Angular en nuestro idioma.
+Y esta vez hemos fusionado dos episodios en uno para mantenernos al día con nuestro calendario de lanzamientos.
+Andrew Scott, miembro del core team de Angular, estuvo como invitado en el podcast de Armin Farhan en Angular Space
+y discutieron varios temas. Por ejemplo, una posible y próxima integración de resource en el router.
+También hubo una discusión sobre el futuro de RFS y si seguirá siendo opcional.
+Otro aspecto interesante fue la discusión sobre la relación entre las librerías de la comunidad y el framework Angular.
+Por ejemplo, mencionaron NG Extension, que proporciona muchas utilidades para el sistema del router,
+que podrían encajar muy bien dentro del propio framework.
+Aquí, Andrew mencionó.
+La reescritura de TypeScript en Go también fue un tema interesante.
+Teóricamente, en un enfoque mixto también podría ser posible.
+Alice Rickerberg, líder del framework de Angular, no fue parte del podcast,
+pero publicó que está considerando usar Rust en algunas partes del proceso de compilación de Angular.
+Jonas Jaide publicó un video sobre VITES, que es el framework de testing por defecto de Angular desde la versión 21.
+Su enfoque principal fue el llamado Browser Mode,
+que aprovecha un runner de estilo end-to-end como PlayGrid o WebDriver para interactuar con el DOM.
+Como era de esperar, Jonas compartió muchos conocimientos técnicos,
+pero también consejos pragmáticos sobre cómo usar VITES.
+Jonas es muy respetado dentro de la comunidad de Angular por su profundo conocimiento
+y ha estado promoviendo el uso de VITES en Angular antes incluso de que fuera oficial.
+Así que en ese sentido, su video es bastante fidedigno.
+La IA se puede encontrar en muchos lugares diferentes y también en Angular.
+En Angular se puede aceptar PROMs, llamar herramientas sobre la marcha o simplemente generar componentes dinámicamente.
+La librería más destacada para esto es Hashbrown.
+Y Manfred Steyer ha dedicado actualmente una serie de tres artículos sobre el tema.
+Él discute la configuración básica, la integración de un PROM, la conexión con tu aplicación
+y luego características más avanzadas como el uso de componentes dinámicos
+o permitir que Hashbrown ejecute el código en el navegador.
+State of JavaScript es una encuesta anual muy popular para el estado del ecosistema de JavaScript.
+Han publicado ahora los resultados.
+Desde 2025, Angular vio un aumento en 2024 en cuanto a las métricas relacionadas con la popularidad y la satisfacción.
+Tuvo un pequeño descenso en 2025, pero todavía hay una cierta brecha con respecto a los resultados de 2023.
+Escuchamos muy a menudo que la muestra del State of JavaScript no es realmente representativa.
+Es decir, que podría no reflejar la población real.
+Sea como sea, por otro lado, el repositorio de Angular ha alcanzado un nuevo récord con 100.000 estrellas en GitHub.
+Para comparar, React tiene unas 240.000.
+Y sus 53.000.
+Inia Yagulari publicó un hilo de Reddit en el subreddit WebDev
+donde alguien preguntaba si Angular todavía se utiliza.
+Como dijo Inia, hubo algunos buenos comentarios sobre Angular.
+Maximilian Schwarzmuller es un hombre muy conocido en Angular.
+Sus cursos de Udemy han sido la puerta de entrada para muchos desarrolladores de Angular desde 2016.
+Ahora ha lanzado un nuevo video titulado
+Mirando atrás a 10 años de Angular y su futuro.
+Él describe los inicios de Angular, sus diferentes hitos y en qué punto nos encontramos actualmente.
+En general, si buscas nostalgia o si quieres tener una visión general rápida en la historia de Angular,
+este es un muy buen video para ver.
+En otras noticias, NG Extension fue lanzado en su versión 7.1 e incluyó InjectParams Global,
+que te da un signal que contiene todos los parámetros de la jerarquía de rutas actual.
+NG Diagram vio su lanzamiento estable inicial con la versión 1.
+Viene con cero dependencias.
+Está basado en Angular moderno y te permite crear, como su nombre lo indica, diagramas interactivos.
+Se ve muy prometedor.
+Finalmente, si trabajas en VS Code, no olvides echar un vistazo a la última extensión de Angular para VS Code.
+Contiene algunas novedades interesantes.
+Y eso es todo.
+Les deseo una excelente semana y nos vemos en el próximo episodio.
+Adiós.

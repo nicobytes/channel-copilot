@@ -1,9 +1,20 @@
 from pathlib import Path
+from typing import Literal
 
 from pytubefix import YouTube
 
 
-def download_video(video_url: str, output_path: str) -> str:
+def _resolution_height(stream) -> int:
+    resolution = getattr(stream, "resolution", None) or ""
+    if not resolution.endswith("p"):
+        return 0
+    value = resolution[:-1]
+    return int(value) if value.isdigit() else 0
+
+
+def download_video(
+    video_url: str, output_path: str, preferred_resolution: Literal["lowest", "highest"]
+) -> str:
     path = Path(output_path)
     path.parent.mkdir(parents=True, exist_ok=True)
 
@@ -11,24 +22,30 @@ def download_video(video_url: str, output_path: str) -> str:
         yt = YouTube(video_url)
     except Exception as error:
         raise RuntimeError(
-            "No se pudo inicializar la descarga del video. "
-            "Verifica que la URL sea publica y valida."
+            "Could not initialize the video download. "
+            "Make sure the URL is public and valid."
         ) from error
-    progressive_streams = yt.streams.filter(
-        progressive=True, file_extension="mp4"
-    ).order_by("resolution")
-    # Preferimos 360p para reducir tamaño y facilitar extracción de audio.
-    stream = (
-        progressive_streams.filter(res="360p").first() or progressive_streams.first()
-    )
+    if preferred_resolution == "highest":
+        stream = (
+            yt.streams.filter(adaptive=True, only_video=True, file_extension="mp4")
+            .order_by("resolution")
+            .desc()
+            .first()
+        )
+        if stream is None or _resolution_height(stream) < 1080:
+            raise ValueError(
+                "No video-only MP4 stream with a minimum resolution of 1080p was found."
+            )
+    else:
+        stream = yt.streams.get_lowest_resolution()
 
     if stream is None:
-        raise ValueError("No se encontró un stream mp4 progresivo para descargar.")
+        raise ValueError("No compatible stream was found for download.")
 
     try:
         stream.download(output_path=str(path.parent), filename=path.name)
     except Exception as error:
         raise RuntimeError(
-            "No se pudo descargar el video desde YouTube en este momento."
+            "The video could not be downloaded from YouTube at this time."
         ) from error
     return str(path)

@@ -1,43 +1,43 @@
 # Channel Copilot
 
-Pipeline para transformar un video de YouTube en activos de contenido para redes sociales:
+Pipeline to transform a YouTube video into social media content assets:
 
-- transcripcion (`.txt` y `.srt`)
-- resumen
-- titulos para YouTube
-- descripcion de YouTube
-- capitulos para YouTube
-- post para X/Twitter
-- post para LinkedIn
+- transcription (`.txt` and `.srt`)
+- summary
+- YouTube titles
+- YouTube description
+- YouTube chapters
+- X/Twitter post
+- LinkedIn post
 
-## Requisitos
+## Requirements
 
-- Conda (Miniconda o Anaconda)
-- Python 3.11 (gestionado por `env.yml`)
-- `ffmpeg` (incluido en el entorno Conda)
-- Claves de API para los modelos que uses
+- Conda (Miniconda or Anaconda)
+- Python 3.11 (managed by `env.yml`)
+- `ffmpeg` (included in the Conda environment)
+- API keys for the models you use
 
-## Instalacion
+## Installation
 
-1) Crea el entorno:
+1) Create the environment:
 
 ```sh
 conda env create -f env.yml
 ```
 
-2) Activa el entorno:
+2) Activate the environment:
 
 ```sh
 conda activate channel
 ```
 
-`env.yml` instala dependencias de Conda + Pip y deja el proyecto en modo editable (`pip install -e .`).
+`env.yml` installs Conda + Pip dependencies and sets the project in editable mode (`pip install -e .`).
 
-## Configuracion
+## Configuration
 
-1) Crea tu `.env` a partir de `.env-example`.
+1) Create your `.env` file from `.env-example`.
 
-2) Define al menos estas variables:
+2) Define at least these variables:
 
 ```env
 OPENAI_API_KEY=
@@ -49,20 +49,20 @@ FOLDER=data/2026-04-15-nx
 YOUTUBE_LINK=https://youtu.be/EDRzckXBtKs
 ```
 
-Notas:
+Notes:
 
-- `FOLDER` es la carpeta donde se guardan los resultados.
-- `YOUTUBE_LINK` es el video fuente para la descarga.
+- `FOLDER` is the directory where outputs are written.
+- `YOUTUBE_LINK` is the source video URL to download.
 
-## Flujo rapido con Just
+## Quick Flow with Just
 
-Desde la raiz del proyecto:
+From the project root:
 
 ```sh
 just run
 ```
 
-Este comando ejecuta de forma secuencial:
+This command runs the following steps sequentially:
 
 1. `download`
 2. `audio`
@@ -74,22 +74,22 @@ Este comando ejecuta de forma secuencial:
 8. `tweet`
 9. `linkedin`
 
-Tambien puedes ejecutar pasos individuales:
+You can also run individual steps:
 
 ```sh
 just audio
 just transcribe
 just summary
-just titles
-just description
-just chapters
+just youtube-titles
+just youtube-description
+just youtube-chapters
 just tweet
 just linkedin
 ```
 
-## Comandos CLI (Typer)
+## CLI Commands (Typer)
 
-Todos estos comandos se ejecutan desde `app/`.
+All commands below are run from `app/`.
 
 ```sh
 python main.py download <video_url>
@@ -103,7 +103,7 @@ python main.py tweet <path> <youtube_link> "Developers"
 python main.py linkedin <path> "Spanish LATAM"
 ```
 
-Ejemplo:
+Example:
 
 ```sh
 cd app
@@ -112,9 +112,9 @@ python main.py summary data/2026-04-15-nx
 python main.py tweet data/2026-04-15-nx https://youtu.be/EDRzckXBtKs "Developers"
 ```
 
-## Estructura de salida esperada
+## Expected Output Structure
 
-Para una corrida con `FOLDER=data/2026-04-15-nx`:
+For a run with `FOLDER=data/2026-04-15-nx`:
 
 ```text
 app/data/2026-04-15-nx/
@@ -128,8 +128,9 @@ app/data/2026-04-15-nx/
   linkedin.md
 ```
 
-## Formateo
+## Formatting and Linting
 
 ```sh
 just fmt
+just lint
 ```

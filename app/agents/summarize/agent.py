@@ -3,9 +3,9 @@ from __future__ import annotations
 from functools import lru_cache
 from uuid import uuid4
 
+from agents.utils import extract_text_content
 from deepagents import create_deep_agent
 from deepagents.backends import FilesystemBackend
-from agents.utils import extract_text_content
 
 
 @lru_cache(maxsize=1)
@@ -24,7 +24,9 @@ def summarize_transcript(transcript: str) -> str:
             "messages": [
                 {
                     "role": "user",
-                    "content": f"Provide a summary of the following transcript: {transcript}",
+                    "content": (
+                        f"Provide a summary of the following transcript: {transcript}"
+                    ),
                 }
             ]
         },

@@ -1,0 +1,236 @@
+1
+00:00:00,000 --> 00:00:03,540
+Hola, mi nombre es Andrés Villanueva y esto es NG News en Español,
+
+2
+00:00:03,660 --> 00:00:06,800
+con las últimas actualizaciones de la comunidad de Angular en nuestro idioma.
+
+3
+00:00:06,880 --> 00:00:12,020
+Y esta vez hemos fusionado dos episodios en uno para mantenernos al día con nuestro calendario de lanzamientos.
+
+4
+00:00:12,300 --> 00:00:17,580
+Andrew Scott, miembro del core team de Angular, estuvo como invitado en el podcast de Armin Farhan en Angular Space
+
+5
+00:00:17,580 --> 00:00:22,880
+y discutieron varios temas. Por ejemplo, una posible y próxima integración de resource en el router.
+
+6
+00:00:30,000 --> 00:00:41,760
+También hubo una discusión sobre el futuro de RFS y si seguirá siendo opcional.
+
+7
+00:01:00,000 --> 00:01:08,400
+Otro aspecto interesante fue la discusión sobre la relación entre las librerías de la comunidad y el framework Angular.
+
+8
+00:01:08,500 --> 00:01:13,300
+Por ejemplo, mencionaron NG Extension, que proporciona muchas utilidades para el sistema del router,
+
+9
+00:01:13,420 --> 00:01:16,000
+que podrían encajar muy bien dentro del propio framework.
+
+10
+00:01:16,120 --> 00:01:17,300
+Aquí, Andrew mencionó.
+
+11
+00:01:30,000 --> 00:01:41,580
+La reescritura de TypeScript en Go también fue un tema interesante.
+
+12
+00:01:41,880 --> 00:01:44,820
+Teóricamente, en un enfoque mixto también podría ser posible.
+
+13
+00:01:44,820 --> 00:01:48,380
+Alice Rickerberg, líder del framework de Angular, no fue parte del podcast,
+
+14
+00:01:48,580 --> 00:01:54,320
+pero publicó que está considerando usar Rust en algunas partes del proceso de compilación de Angular.
+
+15
+00:01:54,460 --> 00:01:59,860
+Jonas Jaide publicó un video sobre VITES, que es el framework de testing por defecto de Angular desde la versión 21.
+
+16
+00:02:00,060 --> 00:02:02,320
+Su enfoque principal fue el llamado Browser Mode,
+
+17
+00:02:02,660 --> 00:02:07,980
+que aprovecha un runner de estilo end-to-end como PlayGrid o WebDriver para interactuar con el DOM.
+
+18
+00:02:08,100 --> 00:02:11,440
+Como era de esperar, Jonas compartió muchos conocimientos técnicos,
+
+19
+00:02:11,440 --> 00:02:14,880
+pero también consejos pragmáticos sobre cómo usar VITES.
+
+20
+00:02:15,000 --> 00:02:18,440
+Jonas es muy respetado dentro de la comunidad de Angular por su profundo conocimiento
+
+21
+00:02:18,980 --> 00:02:23,440
+y ha estado promoviendo el uso de VITES en Angular antes incluso de que fuera oficial.
+
+22
+00:02:24,140 --> 00:02:26,800
+Así que en ese sentido, su video es bastante fidedigno.
+
+23
+00:02:26,880 --> 00:02:29,980
+La IA se puede encontrar en muchos lugares diferentes y también en Angular.
+
+24
+00:02:30,060 --> 00:02:36,320
+En Angular se puede aceptar PROMs, llamar herramientas sobre la marcha o simplemente generar componentes dinámicamente.
+
+25
+00:02:36,400 --> 00:02:38,860
+La librería más destacada para esto es Hashbrown.
+
+26
+00:02:38,960 --> 00:02:42,860
+Y Manfred Steyer ha dedicado actualmente una serie de tres artículos sobre el tema.
+
+27
+00:02:42,980 --> 00:02:47,280
+Él discute la configuración básica, la integración de un PROM, la conexión con tu aplicación
+
+28
+00:02:47,280 --> 00:02:50,840
+y luego características más avanzadas como el uso de componentes dinámicos
+
+29
+00:02:50,840 --> 00:02:53,920
+o permitir que Hashbrown ejecute el código en el navegador.
+
+30
+00:02:54,060 --> 00:02:58,400
+State of JavaScript es una encuesta anual muy popular para el estado del ecosistema de JavaScript.
+
+31
+00:02:58,400 --> 00:02:59,900
+Han publicado ahora los resultados.
+
+32
+00:03:00,000 --> 00:03:07,160
+Desde 2025, Angular vio un aumento en 2024 en cuanto a las métricas relacionadas con la popularidad y la satisfacción.
+
+33
+00:03:07,360 --> 00:03:13,140
+Tuvo un pequeño descenso en 2025, pero todavía hay una cierta brecha con respecto a los resultados de 2023.
+
+34
+00:03:13,320 --> 00:03:17,480
+Escuchamos muy a menudo que la muestra del State of JavaScript no es realmente representativa.
+
+35
+00:03:17,600 --> 00:03:20,240
+Es decir, que podría no reflejar la población real.
+
+36
+00:03:20,340 --> 00:03:26,780
+Sea como sea, por otro lado, el repositorio de Angular ha alcanzado un nuevo récord con 100.000 estrellas en GitHub.
+
+37
+00:03:26,780 --> 00:03:29,640
+Para comparar, React tiene unas 240.000.
+
+38
+00:03:30,000 --> 00:03:30,940
+Y sus 53.000.
+
+39
+00:03:31,020 --> 00:03:35,160
+Inia Yagulari publicó un hilo de Reddit en el subreddit WebDev
+
+40
+00:03:35,160 --> 00:03:38,000
+donde alguien preguntaba si Angular todavía se utiliza.
+
+41
+00:03:38,100 --> 00:03:41,000
+Como dijo Inia, hubo algunos buenos comentarios sobre Angular.
+
+42
+00:03:41,300 --> 00:03:44,120
+Maximilian Schwarzmuller es un hombre muy conocido en Angular.
+
+43
+00:03:44,300 --> 00:03:49,500
+Sus cursos de Udemy han sido la puerta de entrada para muchos desarrolladores de Angular desde 2016.
+
+44
+00:03:49,740 --> 00:03:52,060
+Ahora ha lanzado un nuevo video titulado
+
+45
+00:03:52,060 --> 00:03:55,120
+Mirando atrás a 10 años de Angular y su futuro.
+
+46
+00:03:55,120 --> 00:03:59,980
+Él describe los inicios de Angular, sus diferentes hitos y en qué punto nos encontramos actualmente.
+
+47
+00:04:00,000 --> 00:04:05,180
+En general, si buscas nostalgia o si quieres tener una visión general rápida en la historia de Angular,
+
+48
+00:04:05,180 --> 00:04:07,380
+este es un muy buen video para ver.
+
+49
+00:04:07,380 --> 00:04:13,380
+En otras noticias, NG Extension fue lanzado en su versión 7.1 e incluyó InjectParams Global,
+
+50
+00:04:13,380 --> 00:04:17,380
+que te da un signal que contiene todos los parámetros de la jerarquía de rutas actual.
+
+51
+00:04:17,380 --> 00:04:21,180
+NG Diagram vio su lanzamiento estable inicial con la versión 1.
+
+52
+00:04:21,180 --> 00:04:23,380
+Viene con cero dependencias.
+
+53
+00:04:23,380 --> 00:04:28,380
+Está basado en Angular moderno y te permite crear, como su nombre lo indica, diagramas interactivos.
+
+54
+00:04:28,380 --> 00:04:29,800
+Se ve muy prometedor.
+
+55
+00:04:29,800 --> 00:04:35,100
+Finalmente, si trabajas en VS Code, no olvides echar un vistazo a la última extensión de Angular para VS Code.
+
+56
+00:04:35,100 --> 00:04:37,100
+Contiene algunas novedades interesantes.
+
+57
+00:04:37,100 --> 00:04:38,100
+Y eso es todo.
+
+58
+00:04:38,100 --> 00:04:41,260
+Les deseo una excelente semana y nos vemos en el próximo episodio.
+
+59
+00:04:41,260 --> 00:04:41,760
+Adiós.
+

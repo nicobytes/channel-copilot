@@ -3,9 +3,9 @@ from __future__ import annotations
 from functools import lru_cache
 from uuid import uuid4
 
+from agents.utils import extract_text_content
 from deepagents import create_deep_agent
 from deepagents.backends import FilesystemBackend
-from agents.utils import extract_text_content
 
 
 @lru_cache(maxsize=1)
@@ -24,7 +24,10 @@ def create_titles(content: str, language: str) -> str:
             "messages": [
                 {
                     "role": "user",
-                    "content": f"Create the titles in {language} based on this summary: {content}",
+                    "content": (
+                        f"Create the titles in {language} "
+                        f"based on this summary: {content}"
+                    ),
                 }
             ]
         },

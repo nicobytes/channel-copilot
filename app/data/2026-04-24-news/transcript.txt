@@ -1,0 +1,77 @@
+Hola, mi nombre es Alejandro Cugarriz y esto es ND News en español con las últimas actualizaciones de la comunidad de Angular.
+Recuerden que a finales de febrero, la versión 21.2 fue lanzada según el plan oficial de lanzamiento del framework.
+Por cierto, esta será la última versión menor antes de Angular 22,
+cuyas versiones candidatas van a comenzar a aparecer en mayo, antes de su lanzamiento oficial en la primera semana del mes de junio.
+Y según he mencionado semántico, una versión menor significa correcciones, errores y características menores,
+y ha habido muchas de ellas en esta ocasión.
+Signal Forms ha incorporado varias características útiles que lo complementan.
+Parece que ya nos estamos moviendo hacia una fase de Developer Preview o hacia la estabilización total.
+Por ejemplo, la forma en la que manejamos el envío de formularios se ha tornado muchísimo más fácil.
+Ya notémoslo.
+Tenemos que configurar esto nosotros mismos.
+Simplemente agregamos la directiva FormRoot al formulario y apagamos el comportamiento de envío.
+Es decir, el submit predeterminado del navegador, que invocaría una recarga de página.
+Se configura el manejador del envío a través de la opción submission de la función form.
+Y por defecto, esto significa que el envío también ocurre cuando los validadores asíncronos aún están pendientes.
+Por lo tanto,
+debemos saber que el envío no está en el mismo lugar que el envío actual.
+Lo que se puede ver es que cuando un validador asíncrono se inicia, establece la propiedad invalid como falsa.
+Y para el envío, el criterio de inicialización es cuando invalid tenga ese valor falso.
+Entonces, el valor predeterminado es permisivo porque el servidor validará de nuevo al enviar de todos modos.
+Por lo que no hay necesidad de esperar a los validadores asíncronos antes de permitir la solicitud.
+Para los controles personalizados, ahora tenemos la capacidad de utilizar la opción submission.
+Para el envío, se puede utilizar la utilidad transform value que vendría traduciéndose como valor transformado para el formato y el análisis esparceo.
+Se puede utilizar para campos de entrada con formatos numéricos internacionales o fechas que no están en el inglés americano.
+Estas funcionalidades para el manejo de controles de formulario personalizado y para su envío son geniales,
+pero la mayoría de nosotros trabajamos con aplicaciones Angular existentes.
+En nuestro caso, probablemente,
+la nueva característica más importante sea la de Signal Form Control,
+que nos permite introducir un control de formulario dentro de Reactive Forms,
+el cual soporta, por ejemplo, las reglas de validación avanzadas de Signal Forms.
+Y al utilizar eso de Signal Form Control, también podemos usar la directiva form field en lugar de form control name.
+Eso hace que la migración hacia Signal Forms sea muchísimo más fácil.
+Resources Snapshot.
+Ya también está disponible.
+Originalmente estaba planificado para Angular 21.
+Estaba en la rama principal, pero fue revertido.
+Pero bueno, hoy por hoy, Resources Snapshot ya se puede usar para crear recursos derivados
+o hablando en términos generales, para la composición de recursos.
+El ejemplo dado en la documentación cambia el comportamiento anterior de establecer el valor hacia undefined durante la carga.
+Así que ahora,
+se puede mantener el valor original.
+En el código fuente de Angular, el Snapshot se usa principalmente para pruebas
+donde actúa como una conveniente función factory de recursos.
+Ya veremos qué otros casos de uso son posibles.
+Y dado que el Angular CLI ya proporciona una integración completa de Tailwind CSS,
+Angular 21.2 también integra Prettier en el framework.
+Además, la sintaxis de plantilla, ojo, que no es JavaScript real,
+se extiende con dos nuevas características.
+Ahora, podemos usar funciones lambda directamente.
+El caso de uso favorito aquí es, por ejemplo,
+llamar al método update en un signal dentro de la plantilla.
+En términos generales, la lógica debe permanecer fuera de la plantilla,
+así que es muy recomendable no abusar de esa característica.
+Y la declaración switch ahora soporta verificación exhaustiva,
+lo que significa que el compilado verifica
+que todos los casos posibles estén cubiertos.
+Y como ya se anunció, el Change Detection Strategy default fue renombrado a Eager,
+que puede traducirse como detección impaciente de cambios.
+Eso se debe a que en junio, en Angular 22,
+onPush se va a convertir en el valor predeterminado,
+y por lo tanto, no tiene sentido llamar default
+a algo que no va a ser la configuración predeterminada.
+De ahí el problema.
+Hay un nombre diferente.
+Y solo para estar seguros, nadie nos está obligando a usar onPush.
+Incluso cuando se convierta en predeterminado,
+las esquemáticas de actualización del framework van a cambiar
+los valores existentes de Change Detection Strategy default hacia Eager.
+Para obtener más información,
+pueden consultar el registro de cambios oficiales en el changelog
+del proyecto de Angular en GitHub.
+Y esta vez, un gran agradecimiento por parte de Rainer
+y del equipo completo de NGINIUS,
+a Sidri X. Bryat, porque su blog fue la fuente principal para este episodio.
+Y eso es todo.
+Les deseo una muy buena semana, y nos vemos en el próximo episodio.
+Chao.

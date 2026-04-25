@@ -1,0 +1,315 @@
+¿Qué tal si ahora puedes darle todo el conocimiento de un semi-senior en un proyecto o en un framework en específico?
+Literalmente esos son los skills y ya salieron los skills oficiales de Angular, los Angular Skills,
+que podemos instalarlos en nuestro proyecto y utilizando una IDE que tenga AI como Cursor, Windsor, Anti-Gravity,
+a mí me gusta mucho Cursor, pues utilizándolos vamos a poder pedirle cosas y él va a aplicar automáticamente
+como bastante conocimiento de esa habilidad. Haz de cuenta que en la película de Matrix,
+cuando a Neo le inyectan este conocimiento como tecondo y manejo de armas, algo así son los skills.
+Le puedes inyectar diferentes tipos de conocimiento, como que sea ya un Angular Developer,
+sea un Frontend Developer, ya pensando en otros temas de arquitectura, etc.
+Hay skills para todos y hoy te voy a enseñar cómo vas a usar los skills de Angular, así que empecemos.
+En este momento tenemos este proyecto, este proyecto es bastante sencillo, es un e-commerce,
+pues ahí está cómo trabaja, simplemente empieza a mirar categorías, etc.
+Por ejemplo, yo puedo agregar algo al carrito, acá tengo el carrito, etc.
+Entonces vamos a ver cómo en este proyecto que ya está andando, que ya está corriendo,
+pues implementamos skills y le pedimos unas mejoras, pero estas mejoras esta vez van a ser mucho mejores,
+precisamente porque una AI tiene, pues está dando ciertos skills.
+Como contexto del repositorio, lo puedes encontrar acá, se llaman Kibitz eCommerce FullStack
+y es un monorepositorio trabajado con NX, ya hice un video de cómo configurar NX para trabajar monorepositorios,
+así que este está trabajando con él, pero sin embargo, si estás trabajando en un proyecto normal de Angular,
+sin monorepositorios, igual te va a funcionar lo que vamos a aprender, así que vamos a instalar,
+entonces en este proyecto que está trabajando en Angular,
+en este proyecto que está trabajando en Angular,
+en este proyecto de Kibitz,
+hay dos skills que ellos sugieren que recomiendan,
+uno es el Angular Developer y el Angular New.
+Entonces si nosotros vemos este va a generar código que provee una guía arquitectónica
+de cómo utilizar componentes, cómo crear servicios, cómo crear routing,
+normalmente un Learn Language Model ya está entrenado con un código que vio en su fase de entrenamiento,
+pero ¿qué es lo que hace diferente los skills?
+Vamos a verlo. Si nosotros vamos a fondo a mirar esos skills, la verdad que es un estándar que se creó, que creó Antropic para definir como esta serie de habilidades y básicamente es un archivo Martaund en el cual explica o es una forma guiada a la AI de explicarle cómo debería ser buen código en un aspecto muy específico.
+De nuevo, los language model ya fueron entrenados, ya vieron mucho código en su entrenamiento, pero eso no quiere decir que escriban buen código. No quiere decir literalmente que sepan, por ejemplo, cómo hacer un signal form o las nuevas patrones. Normalmente los language model están atrasados un poco en cuanto a los nuevos patrones de arquitectura, pero con un skill podemos guiarlos y actualizarlos mucho más rápido.
+Es más, los skills tienen una tabla de referencia y puedes acabar toda la referencia que casi que es un poco la documentación de Angular.
+Pero puesta hacia la AI, a que esto lo lea una inteligencia artificial. Y por ejemplo, si yo me voy acá, literalmente son ejemplos de cómo, por ejemplo, se usa un effect. Bien, cuáles son las buenas prácticas, las malas prácticas, etc.
+No, o por ejemplo, vamos a ver inputs. Entonces acá literalmente le están explicando, le dan ejemplos. Es una forma de documentar, pero más que para humanos, para la inteligencia artificial.
+Y es más, aquí le dicen cuáles son las buenas prácticas.
+Entonces vamos a ver cómo instalarlo. Este es el que vamos a instalar, Angular Developer. Este también sirve, pero es más como para hacer el bootstrapping de la aplicación, es decir, el inicio.
+Pero creo que con el engine new es suficiente. Entonces realmente se lo voy a necesitar el Angular Developer, que es el que quiero usar para desarrollar features.
+Entonces lo que vamos a hacer es copiar este comando. Fíjate que es np skills y vamos a traernos esos skills. Para eso vamos a ir a la terminal.
+Está no justo acá en la terminal. Entonces vamos a hacer la instalación. Entonces hacemos, simplemente corremos el comando y él me va a decir, ok, listo, qué skill quiero.
+Le voy a decir que el de Angular Developer, el de Angular New App no lo voy a seleccionar. Simplemente entonces le digo Angular Developer.
+Y fíjate que acá hay algo interesante y es que este estándar, si bien es un estándar, hay algunos editores que no siguen ese estándar.
+Entonces lo que nos recomienda es el Universal que va a guardar estos.
+En la carpeta punto.
+Y esta carpeta o la lectura de esta carpeta básicamente soportada por la mayoría de editores con ella y como antigravity, codex, cursor, tipo agent, etcétera.
+Pero hay unos que no. Entonces si tú estás utilizando algunos como Cloud Code, que sería como el más famoso o Open Cloud, pues ahí sí tienes que hacer como esa darle esa configuración extra porque no es universal.
+Bien, entonces simplemente selecciona cuál es como tu idea y ya.
+Una recomendación, si estás trabajando en monorepositorios, no lo incluyas dentro de cada proyecto.
+Esto tiene que quedar global, que tiene que quedar en el root, literalmente en punto agents y no mucho más a fondo.
+Tiene que quedar en el root de la aplicación.
+Si estás en un repositorio, un standalone project, es decir, un solo proyecto, pues simplemente lo instalas y ya.
+Pero si es monorepositorio, igual déjalo en el root.
+No lo hagas por allá en un folder.
+A dos, tres niveles. Tiene que estar en el root.
+Entonces una vez elegido eso, también uno puede decir si lo quiere de forma global o a nivel de proyecto.
+A mí me gusta a nivel de proyecto y listo.
+Le damos acá que sí, que sí y listo.
+Entonces ahí se fue. Ahí ya tenemos el skill.
+Vamos a ver qué cambios son los que hay.
+Si yo me pongo a analizar mi repositorio, voy a encontrar que acá tengo los skills.
+Literalmente se creó esa carpeta Agents, Skills, Angular Developer.
+Y lo que hizo fue descargarse de ese repositorio.
+Y luego lo que hizo fue ponerlo en mi proyecto.
+Es básicamente una colección de archivos Smartdown, aunque hay unos skills que literalmente sí tienen código scripts para ejecutar.
+No importa de nuevo si es un monorepositorio o es un proyecto normal de Angular.
+Igual tiene que estar en esa en ese lado, en esa referencia.
+Ok, una vez hecho eso, básicamente lo que podemos hacer es ir acá.
+Si estás utilizando Cloud, el que sea que estés utilizando,
+normalmente puedes llamarlo
+con el slash.
+Y entonces ya tienes el skill.
+Entonces, ¿qué pasa?
+Es que ya tienes el skill.
+Entonces, ¿qué pasa?
+Es que cada vez que yo quiera pedirle algo de Angular,
+pues ahí ya me sale el skill.
+Entonces, cada vez que yo quiera pedirle algo de Angular,
+voy a utilizar el skill porque esto va a hacer que,
+como que ya tenga todas esas buenas prácticas,
+ya como parte del contexto y cuando produzca código lo haga de buena calidad.
+En este momento, por ejemplo, voy a abrir mi browser.
+Acá está el browser.
+Entonces voy a ir acá, por ejemplo, 4000.
+Acá.
+Este es mi website.
+Perfecto.
+Vamos a refrescarlo porque esta no es la versión que tengo.
+Entonces voy a hacer un pool del proyecto.
+Sí, creo que hay muchos archivos.
+Voy a refrescarlo primero.
+Ya en este momento volví a relanzar el proyecto.
+Entonces, bueno, acá ya tengo la versión actualizada en la que había estado trabajando.
+Listo.
+Perfecto.
+Entonces digamos que yo quiero y aquí con Cursor tengo
+como un browser integrado.
+Entonces como que puedo ir viendo lo que el resultado.
+Acá vemos que ya están todos los cambios, es decir, tengo todos los skills,
+pero ahora vamos a pedirle un feature basado en utilizar ese skill.
+Es más, vamos a ver de pronto cómo empezar a utilizar uno versus otro.
+Es decir, de pronto, cuál sería la diferencia entre usar uno sin el skill
+y otro con el skill y vamos a ver precisamente eso.
+Entonces, por ejemplo, yo voy a ir a website.
+Que es donde está mi proyecto y digamos que voy a ir acá a Product.
+Bien, es que este Product no es tan grande que hiciera algo un poquito más grande.
+Y vamos a la lista.
+Digamos que este puede ser que esté un poquito de larguito.
+Entonces le voy a decir en este caso, le voy a decir que no me utilice el skill.
+Lo voy a quitar, voy a quitar el skill.
+Ya, listo.
+Entonces le voy a decir dame feedback.
+Feedback de este componente.
+Entonces, básicamente va a preguntar todo eso, pero fíjense que en este momento no utilice el skill.
+Entonces vamos a ver cuál sería el resultado de uno con el otro.
+Acá yo puedo correr literalmente, voy a copiar el mismo prompt,
+pero le voy a decir usa el Angular Developer Skills, vale, y lo corro.
+Entonces vamos a ver que tengo dos agentes en paralelo.
+Acá literalmente me dice.
+Lo que está bien, lo que está mal, pero vamos a ver qué cambios hay entre usar un skill o no.
+Fíjate que cuando normalmente tenemos el skill encuentra más cosas porque ya está mucho más atado a la documentación.
+También Cursor mejora, es decir, de acuerdo a la tarea él puede más o menos ver qué skills tiene y seleccionarlos,
+pero a mí me gusta más hacerlo explícito.
+Es decir, si yo quiero literalmente que aplique un skill, pues aplica ese skill.
+Entonces fíjate que acá si bien me hizo varias mejoras, digamos,
+uso correcto, por acá me dice problemas y sugerencias, orden de declaraciones,
+el efecto para meta-ataques es uso válido pero mejorable, a ver, ok.
+El link sign out, usar previews innecesariamente.
+Hay buenos detalles que encontró, pero vamos a ver cuáles serían si yo ya uso el skill.
+Acá debería encontrarme muchas más cosas.
+Me encontró igual el orden de dependencias, me dijo que podía quitar el common model,
+eso es interesante porque el skill sabe que tendríamos que utilizar stand alone.
+El naming, simplificar el link sign out.
+Bueno, acá me encontró muchas más cosas de las que lo hubiera hecho sin el skill.
+Eso simplemente es un detalle para que vean cómo podemos funcionar uno o el otro.
+Pero voy a pedirle un feature mucho más grande para que veamos cómo lo hacen
+y les muestro también como el flujo de trabajo.
+Entonces en este momento no está mal.
+Mi website está bien, sin embargo, le voy a decir que quiero que implemente una librería de componentes.
+Vamos a buscar cuál es la que quiero implementar.
+Como estoy utilizando Tailwind, le quiero decir que utilice esta librería de componentes.
+Entonces básicamente acá tiene como la instalación, install, entonces la puedo instalar y decirle,
+oye, yo sé que tenemos Tailwind, pero trate de usar como estos components de DAISY
+que son menos verbos.
+Y la cuestión de los temas es un poquito más fácil de hacer.
+Es un framework de componentes sobre Tailwind y funciona para cualquier framework.
+Y me va a funcionar bien porque ya tiene como un chat integrado que luego lo voy a reutilizar.
+Entonces algo interesante es que este tipo de páginas tienen la documentación con un archivo
+que se llama el LLM text.
+Entonces yo también puedo indexar esto como parte de mi Recorder.
+Entonces yo también puedo indexar esto como parte de mi Recorder.
+Entonces yo también puedo indexar esto como parte de mi Recorder.
+Entonces yo también puedo indexar esto como parte de mi Recorder.
+En mi cursor, en mi ID, en tu ID.
+Entonces voy a agregar esto.
+Normalmente puedo decirle con base a la documentación y vamos a ver si está y si no toca agregarlo.
+Entonces como no está lo voy a agregar, le voy a agregar como esa documentación.
+Va a hacer el proceso de indexación.
+Lo confirmo y entonces ahora tengo ya la documentación directamente de DAISY UI.
+Recuerden, pueden enviarle el link, el website directamente.
+Recuerden, pueden enviarle el link, el website directamente.
+Recuerden, pueden enviarle el link, el website directamente.
+Pero si ven que soporta este tipo de extensión, es mucho más fácil porque literalmente no les toca hacer Scrapping o leer HTML.
+Es una forma más cómoda de leerlo.
+Si están interesados en esto, déjenme comentarios y les explico un poco más.
+Esto es como el robots.txt, el sitemap.xml, pero ahora esto es el LLM text, que es un poco la documentación más amable para AI.
+Entonces acá le añadí DAISY UI y le dije ok.
+Voy a utilizar el plan mode que también me parece que es mejor antes de que él haga código.
+Y le voy a decir, bueno, tenemos DAISY UI, quiero implementar DAISY UI.
+Voy a quitarlo acá para que esté un poco más contextual.
+Entonces le digo talks y le doy DAISY.
+Listo.
+Quiero implementar DAISY UI en mi website.
+Como esto es un monorepo, entonces le puedo jalar como todo el folder.
+Y fíjense que esto va siendo parte de mi contexto.
+Y úsalo.
+Y trata de usar, bueno, no trata no.
+Y usa los componentes de DAISY sobre Tailwind.
+Sobre Tailwind.
+Y al hacer esa implementación, al hacer esa implementación, usa y ¡pum!
+Le mando el skill.
+Es decir, le estoy adjuntando documentación, le estoy adjuntando a mi contexto el website.
+Y además de eso le estoy diciendo que por favor vaya y utilice las mejores prácticas que hay en Angular.
+Entonces, y aún así lo estoy haciendo en plan mode.
+Plan mode sería una versión en la que antes de ejecutar el código, antes, literalmente,
+le estoy pidiendo que como que analice todo el repositorio.
+Piense, básicamente es un poquito de chain of thought.
+Es decir, le estoy diciendo como piense todo el repositorio.
+Mírelo, explórelo, mire lo que yo le estoy pidiendo.
+Y dígame qué va a hacer antes.
+O sea, génereme un plan.
+Ese workflow es muy interesante porque el plan yo lo puedo iterar, lo puedo mejorar.
+Le puedo decir, uy, por ahí no va.
+O ya como arquitecto puedo decirle, no, pero utiliza mejor esto o aquello, etcétera.
+Fíjate que él lanzó ya dos subagents.
+Uno para como explorar el monorepo y luego otro en donde está haciendo la exploración.
+Y como yo le agregué la documentación, pues también sabe un poco qué componentes de DCUI son los que puede implementar.
+Entonces vamos a ver que acabe la exploración.
+Ahí me va a hacer un plan y con eso pues vamos a poder seguir.
+En este momento ya me botó un plan.
+Entonces me dice, mira, va a integrar DCUI 5 en este website.
+Me dice que va a correr una instalación.
+Luego va a hacer unos ajustes en el plan.
+Va a hacer un test en el Temient.
+Luego va a migrar ciertos components.
+Va a utilizar el NAT Bar Start.
+O sea, ciertas utilities que tiene DC.
+Va a utilizar ciertas cosas en el search.
+El product lo va a encerrar en un cart y el cart body.
+Perfecto.
+Es decir, es un buen plan.
+Recuerden que si están utilizando el plan mode, la gracia es revisar el plan.
+Es decir, acá, por ejemplo, me creó toda una arquitectura de cómo él lo quiere empezar a hacer.
+Y yo básicamente recomiendo mucho de ello.
+Es decir, que se utilice el plan mode para no simplemente dejarlo ejecutar.
+Realmente reviso el plan, lo detallo, lo leo, lo corrijo, etcétera.
+Digamos que esto está bien.
+Entonces acá lo que hago es decirle Build y listo, que se vaya a ejecutar eso.
+Recordemos que el plan lo hicimos literalmente utilizando las buenas prácticas de Angular.
+Entonces él va a tener eso en cuenta para el momento de la ejecución.
+O ya igual lo dejó como en el plan para hacer como la mejor ejecución.
+Fíjate que acá ya está haciendo el primer paso.
+Lo que nosotros deberíamos hacer como buenos ingenieros y es dividir una tarea larga en pequeños pasos.
+Entonces fíjate que por acá él dividió esa tarea en 14 pasos.
+Él dijo primero tengo que instalar la librería, luego mapió cada componente y empezó a aplicar DCUI en cada uno de los componentes.
+Entonces fíjate que acá ya te estoy mostrando cómo es un poco el flujo de AI con Cursor, el plan mode y sobre todo cómo utilizar los skills de Angular.
+Aquí solo queda esperar básicamente un minuto.
+Fíjate que el agent termine de hacer todo ese ajuste.
+Aquí ya terminó y si nosotros nos damos cuenta como yo le pedí fue la mayoría de cosas de elementos de UI.
+Pues al final no hay mucho que haya aplicado como del expertise de Angular.
+Porque si vemos los cambios pues al final son cambios más del HTML como tal.
+Es decir, no cambió mucho pero sí empezó a aplicar como ciertos utilities que tiene DCUI para controlar esto mejor.
+Acá por ejemplo push on batch para no tener que hacer todo verbose con Tailwind o un Cardbody.
+Está bien, o sea cumplió con el objetivo pero si nosotros nos fijamos la mayoría de cambios son basados en el HTML.
+O sea no hubo mucha oportunidad de mejorar nuestro código de Angular per se.
+Vamos a ver si nos encontramos con algún error por acá de por si tengo muchos alerts por acá.
+Entonces voy a abrir un nuevo agent y por ejemplo acá vemos que esto es un node desconocido.
+Es decir este resource, este value está sin tipar.
+Entonces podríamos hacer una mejora aquí, etcétera.
+Pero le voy a pedir esa mejora como al chat.
+Obviamente también podemos como solucionarlo nosotros.
+Pero acá también le puedo de nuevo siempre estar guiando con el Angular Developer que lo solucione.
+Y ver cuál es la recomendación o la mejor recomendación para hacer el typing correcto.
+Aún así con skills puede fallar hay que ver.
+Normalmente yo lo solucionaría tipando el resource.
+Por acá debe estar el resource.
+Entonces lo mejor sería typear el resource para que sepa qué tipo de valor es el que esperamos en un ProductResource.
+Pero vamos a ver cómo lo resuelve.
+Si tiene esa intención, si va a ser un typing resource o de pronto va a ser algo más.
+Tal vez haga un if, tal vez haga un ask de TypeScript.
+Vamos a ver qué hace aquí.
+Fíjate que acá ya terminó de solucionar el problema.
+Y sí, sólo que más o menos yo hubiera hecho esto.
+Que es tipar el Product directamente.
+Y le añadió el parámetro en el cual nosotros estamos mapeando.
+Cada vez que cambie el slot debería ir a renderizar.
+BuySlot, etc.
+Pero entonces sí lo hizo de forma adecuada.
+Sí siguió como las prácticas que debería seguir.
+Simplemente indicándole y agregando este skill.
+Entonces acá por ejemplo si yo ya voy al HTML ya no se me rompe o no me dan alerts.
+Porque ahora yo sé que esto es un wearable resource.
+Pero tiene un typing específico.
+Bien.
+Entonces por acá sabemos que este resource es un resource reference pero de un producto.
+Obviamente puede ser un define porque puede fallar el request.
+Pero pues sí, si no falla pues es un producto per se.
+Y para eso igual también tenemos el if de que realmente si la data llega.
+Si el value es algo que pues es el producto.
+No es un define y además tiene un cover.
+Entonces lo va a poder renderizar.
+Entonces aquí solucioné ese error.
+Pero lo solucioné solo atando el error a la digamos que a mi id.
+Y además le incluí el skill de Angular para que sepa cómo hacer correcto typado y demás.
+Es decir, le estoy inyectando mucho conocimiento de buenas prácticas de Angular.
+Para que la siga cada vez que yo le pido un request.
+O algo que él tenga que hacer dentro de mi proyecto de Angular.
+De esta manera ahora le enchufaste como una habilidad más a tu desarrollo.
+A tu proyecto en Angular.
+Lo cual quiere decir que cada vez que utilices un id de programación con AI.
+Pues le puedes adjuntar este skill como parte de tu contexto.
+Para que siga las mejores prácticas según pues Angular.
+Es como literalmente mandarle toda esa documentación.
+Con buenas, malas y saber el por qué de las cosas.
+Pero más orientado hacia AI.
+Hacia este tipo de ids de desarrollo.
+Dime si este skill te gustó.
+Si lo sabías.
+Si lo vas a empezar a implementar.
+Déjamelo en los comentarios.
+Recuerda que no es el único skill.
+Normalmente hay otros skills.
+Que tú puedes digamos que implementar.
+No sólo el de Angular.
+También hay uno muy bueno que es de Front End Design.
+Por ejemplo.
+O de accesibilidad.
+O de SEO.
+Para todo lo que es optimización de motores de búsqueda.
+Realmente ahorita hay muchos, muchos skills.
+Obviamente hoy vimos el oficial de Angular.
+Pero pues puedes empezar a buscar.
+Y empezarlos a utilizar.
+Ya sabes cómo instalarlos.
+Ya sabes un poco cómo funcionan.
+Así que recuerda suscribirte al canal.
+Y nos vemos en el siguiente video.
+Te leo en los comentarios.
+Hasta luego.
+Chao
+Sahave
+Observador
+Test
+plataforma
+Internet
+CIMBAL
+Cubight
+Software

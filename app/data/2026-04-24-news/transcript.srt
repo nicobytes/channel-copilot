@@ -1,0 +1,308 @@
+1
+00:00:00,120 --> 00:00:06,820
+Hola, mi nombre es Alejandro Cugarriz y esto es ND News en español con las últimas actualizaciones de la comunidad de Angular.
+
+2
+00:00:07,460 --> 00:00:14,640
+Recuerden que a finales de febrero, la versión 21.2 fue lanzada según el plan oficial de lanzamiento del framework.
+
+3
+00:00:15,180 --> 00:00:19,700
+Por cierto, esta será la última versión menor antes de Angular 22,
+
+4
+00:00:20,600 --> 00:00:27,820
+cuyas versiones candidatas van a comenzar a aparecer en mayo, antes de su lanzamiento oficial en la primera semana del mes de junio.
+
+5
+00:00:27,820 --> 00:00:35,500
+Y según he mencionado semántico, una versión menor significa correcciones, errores y características menores,
+
+6
+00:00:36,020 --> 00:00:38,620
+y ha habido muchas de ellas en esta ocasión.
+
+7
+00:00:39,260 --> 00:00:44,060
+Signal Forms ha incorporado varias características útiles que lo complementan.
+
+8
+00:00:44,500 --> 00:00:50,760
+Parece que ya nos estamos moviendo hacia una fase de Developer Preview o hacia la estabilización total.
+
+9
+00:00:51,120 --> 00:00:56,800
+Por ejemplo, la forma en la que manejamos el envío de formularios se ha tornado muchísimo más fácil.
+
+10
+00:00:56,980 --> 00:00:57,800
+Ya notémoslo.
+
+11
+00:00:58,020 --> 00:01:00,520
+Tenemos que configurar esto nosotros mismos.
+
+12
+00:01:00,620 --> 00:01:06,760
+Simplemente agregamos la directiva FormRoot al formulario y apagamos el comportamiento de envío.
+
+13
+00:01:07,300 --> 00:01:12,400
+Es decir, el submit predeterminado del navegador, que invocaría una recarga de página.
+
+14
+00:01:13,080 --> 00:01:17,560
+Se configura el manejador del envío a través de la opción submission de la función form.
+
+15
+00:01:18,100 --> 00:01:25,360
+Y por defecto, esto significa que el envío también ocurre cuando los validadores asíncronos aún están pendientes.
+
+16
+00:01:26,020 --> 00:01:26,920
+Por lo tanto,
+
+17
+00:01:27,220 --> 00:01:27,800
+debemos saber que el envío no está en el mismo lugar que el envío actual.
+
+18
+00:01:28,020 --> 00:01:33,420
+Lo que se puede ver es que cuando un validador asíncrono se inicia, establece la propiedad invalid como falsa.
+
+19
+00:01:33,680 --> 00:01:38,220
+Y para el envío, el criterio de inicialización es cuando invalid tenga ese valor falso.
+
+20
+00:01:38,920 --> 00:01:46,060
+Entonces, el valor predeterminado es permisivo porque el servidor validará de nuevo al enviar de todos modos.
+
+21
+00:01:46,320 --> 00:01:52,720
+Por lo que no hay necesidad de esperar a los validadores asíncronos antes de permitir la solicitud.
+
+22
+00:01:53,620 --> 00:01:57,020
+Para los controles personalizados, ahora tenemos la capacidad de utilizar la opción submission.
+
+23
+00:01:57,020 --> 00:02:05,820
+Para el envío, se puede utilizar la utilidad transform value que vendría traduciéndose como valor transformado para el formato y el análisis esparceo.
+
+24
+00:02:06,220 --> 00:02:13,180
+Se puede utilizar para campos de entrada con formatos numéricos internacionales o fechas que no están en el inglés americano.
+
+25
+00:02:13,780 --> 00:02:19,240
+Estas funcionalidades para el manejo de controles de formulario personalizado y para su envío son geniales,
+
+26
+00:02:19,860 --> 00:02:24,280
+pero la mayoría de nosotros trabajamos con aplicaciones Angular existentes.
+
+27
+00:02:24,340 --> 00:02:26,560
+En nuestro caso, probablemente,
+
+28
+00:02:26,560 --> 00:02:31,060
+la nueva característica más importante sea la de Signal Form Control,
+
+29
+00:02:31,440 --> 00:02:36,700
+que nos permite introducir un control de formulario dentro de Reactive Forms,
+
+30
+00:02:37,080 --> 00:02:41,800
+el cual soporta, por ejemplo, las reglas de validación avanzadas de Signal Forms.
+
+31
+00:02:42,080 --> 00:02:49,740
+Y al utilizar eso de Signal Form Control, también podemos usar la directiva form field en lugar de form control name.
+
+32
+00:02:50,160 --> 00:02:54,320
+Eso hace que la migración hacia Signal Forms sea muchísimo más fácil.
+
+33
+00:02:55,120 --> 00:02:56,220
+Resources Snapshot.
+
+34
+00:02:56,220 --> 00:02:58,260
+Ya también está disponible.
+
+35
+00:02:58,480 --> 00:03:01,400
+Originalmente estaba planificado para Angular 21.
+
+36
+00:03:02,220 --> 00:03:04,860
+Estaba en la rama principal, pero fue revertido.
+
+37
+00:03:05,320 --> 00:03:10,980
+Pero bueno, hoy por hoy, Resources Snapshot ya se puede usar para crear recursos derivados
+
+38
+00:03:11,240 --> 00:03:15,400
+o hablando en términos generales, para la composición de recursos.
+
+39
+00:03:16,240 --> 00:03:24,920
+El ejemplo dado en la documentación cambia el comportamiento anterior de establecer el valor hacia undefined durante la carga.
+
+40
+00:03:25,220 --> 00:03:26,220
+Así que ahora,
+
+41
+00:03:26,320 --> 00:03:28,080
+se puede mantener el valor original.
+
+42
+00:03:29,280 --> 00:03:33,720
+En el código fuente de Angular, el Snapshot se usa principalmente para pruebas
+
+43
+00:03:33,820 --> 00:03:37,720
+donde actúa como una conveniente función factory de recursos.
+
+44
+00:03:38,120 --> 00:03:41,280
+Ya veremos qué otros casos de uso son posibles.
+
+45
+00:03:42,100 --> 00:03:47,100
+Y dado que el Angular CLI ya proporciona una integración completa de Tailwind CSS,
+
+46
+00:03:47,200 --> 00:03:51,480
+Angular 21.2 también integra Prettier en el framework.
+
+47
+00:03:51,680 --> 00:03:55,520
+Además, la sintaxis de plantilla, ojo, que no es JavaScript real,
+
+48
+00:03:55,520 --> 00:03:58,420
+se extiende con dos nuevas características.
+
+49
+00:03:58,620 --> 00:04:01,420
+Ahora, podemos usar funciones lambda directamente.
+
+50
+00:04:01,920 --> 00:04:04,620
+El caso de uso favorito aquí es, por ejemplo,
+
+51
+00:04:04,620 --> 00:04:08,320
+llamar al método update en un signal dentro de la plantilla.
+
+52
+00:04:09,020 --> 00:04:13,120
+En términos generales, la lógica debe permanecer fuera de la plantilla,
+
+53
+00:04:13,120 --> 00:04:16,420
+así que es muy recomendable no abusar de esa característica.
+
+54
+00:04:17,120 --> 00:04:21,620
+Y la declaración switch ahora soporta verificación exhaustiva,
+
+55
+00:04:21,620 --> 00:04:24,420
+lo que significa que el compilado verifica
+
+56
+00:04:24,420 --> 00:04:27,320
+que todos los casos posibles estén cubiertos.
+
+57
+00:04:27,920 --> 00:04:33,620
+Y como ya se anunció, el Change Detection Strategy default fue renombrado a Eager,
+
+58
+00:04:33,620 --> 00:04:37,520
+que puede traducirse como detección impaciente de cambios.
+
+59
+00:04:38,120 --> 00:04:42,320
+Eso se debe a que en junio, en Angular 22,
+
+60
+00:04:42,320 --> 00:04:46,320
+onPush se va a convertir en el valor predeterminado,
+
+61
+00:04:46,320 --> 00:04:50,320
+y por lo tanto, no tiene sentido llamar default
+
+62
+00:04:50,320 --> 00:04:53,320
+a algo que no va a ser la configuración predeterminada.
+
+63
+00:04:53,320 --> 00:04:54,320
+De ahí el problema.
+
+64
+00:04:54,420 --> 00:04:56,120
+Hay un nombre diferente.
+
+65
+00:04:56,120 --> 00:05:00,120
+Y solo para estar seguros, nadie nos está obligando a usar onPush.
+
+66
+00:05:00,120 --> 00:05:02,420
+Incluso cuando se convierta en predeterminado,
+
+67
+00:05:02,420 --> 00:05:05,420
+las esquemáticas de actualización del framework van a cambiar
+
+68
+00:05:05,420 --> 00:05:10,420
+los valores existentes de Change Detection Strategy default hacia Eager.
+
+69
+00:05:10,920 --> 00:05:12,520
+Para obtener más información,
+
+70
+00:05:12,520 --> 00:05:16,120
+pueden consultar el registro de cambios oficiales en el changelog
+
+71
+00:05:16,120 --> 00:05:18,020
+del proyecto de Angular en GitHub.
+
+72
+00:05:18,020 --> 00:05:22,120
+Y esta vez, un gran agradecimiento por parte de Rainer
+
+73
+00:05:22,120 --> 00:05:23,920
+y del equipo completo de NGINIUS,
+
+74
+00:05:23,920 --> 00:05:30,920
+a Sidri X. Bryat, porque su blog fue la fuente principal para este episodio.
+
+75
+00:05:30,920 --> 00:05:31,920
+Y eso es todo.
+
+76
+00:05:31,920 --> 00:05:35,920
+Les deseo una muy buena semana, y nos vemos en el próximo episodio.
+
+77
+00:05:35,920 --> 00:05:36,920
+Chao.
+

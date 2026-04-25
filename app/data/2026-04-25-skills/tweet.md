@@ -1,0 +1,2 @@
+Tweet mejorado: En este video muestro cómo los Angular Skills le dan a la IA contexto experto para generar mejor código en Cursor: mejores prácticas, arquitectura, typing y patrones actuales. También enseño DaisyUI + planning mode en un caso real. https://youtu.be/Jea0oQ53s18 #Angular #IA
+Caracteres: 289

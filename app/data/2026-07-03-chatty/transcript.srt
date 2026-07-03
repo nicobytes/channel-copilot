@@ -1,0 +1,1180 @@
+1
+00:00:00,080 --> 00:00:01,560
+Hola bienvenidos a una nueva entrega de mi
+
+2
+00:00:01,560 --> 00:00:03,240
+canal y este va a ser un video diferente,
+
+3
+00:00:03,240 --> 00:00:04,720
+este va a ser un video de una plataforma
+
+4
+00:00:04,720 --> 00:00:06,080
+que he estado construyendo y quiero
+
+5
+00:00:06,080 --> 00:00:07,120
+compartirlo contigo.
+
+6
+00:00:08,760 --> 00:00:09,040
+Este es
+
+7
+00:00:14,270 --> 00:00:16,470
+Chati, un motor de agentes que corre en
+
+8
+00:00:16,470 --> 00:00:18,630
+WhatsApp y básicamente se alimenta de toda
+
+9
+00:00:18,630 --> 00:00:20,990
+la información de tu website, agendamiento,
+
+10
+00:00:21,110 --> 00:00:23,230
+se sincroniza con tu calendario, etcétera.
+
+11
+00:00:23,550 --> 00:00:25,190
+Pero como hablar es barato voy a mostrarte
+
+12
+00:00:25,190 --> 00:00:26,070
+cómo funciona.
+
+13
+00:00:26,070 --> 00:00:28,750
+Acá tengo precisamente un caso que tenemos
+
+14
+00:00:28,750 --> 00:00:29,870
+trabajando con un cliente
+
+15
+00:00:30,110 --> 00:00:32,150
+y se llama, bueno, me dio permiso de
+
+16
+00:00:32,150 --> 00:00:34,630
+compartirlo y lo llamamos Amaru
+
+17
+00:00:35,160 --> 00:00:36,960
+es a Maru, básicamente un agente que hace
+
+18
+00:00:36,960 --> 00:00:37,760
+derivación,
+
+19
+00:00:38,000 --> 00:00:40,320
+él entiende literalmente cuando hay
+
+20
+00:00:40,320 --> 00:00:42,720
+preguntas curiosas y cuando ya tiene que
+
+21
+00:00:42,720 --> 00:00:45,320
+derivar para que un operador humano cierre
+
+22
+00:00:45,320 --> 00:00:46,080
+la compra.
+
+23
+00:00:46,320 --> 00:00:48,240
+En este caso, nosotros lo que hicimos
+
+24
+00:00:49,120 --> 00:00:49,760
+para aquí
+
+25
+00:00:50,160 --> 00:00:52,640
+fue hacer el web scraping de todo el sitio web
+
+26
+00:00:53,040 --> 00:00:55,400
+para obtener toda la información respecto a
+
+27
+00:00:55,400 --> 00:00:56,720
+los tours que ellos venden
+
+28
+00:00:57,040 --> 00:00:57,520
+y
+
+29
+00:00:57,760 --> 00:01:00,880
+pues el agente se nutre de esa información.
+
+30
+00:01:01,000 --> 00:01:02,840
+Sin embargo, pues esto literalmente es
+
+31
+00:01:02,840 --> 00:01:04,640
+fácil de configurar porque le puedes
+
+32
+00:01:04,640 --> 00:01:06,400
+agregar una URL, le puedes agregar tus
+
+33
+00:01:06,400 --> 00:01:06,880
+archivos
+
+34
+00:01:07,120 --> 00:01:08,080
+y él se nutre.
+
+35
+00:01:08,080 --> 00:01:10,320
+En el caso de un website, pues acá vemos
+
+36
+00:01:10,320 --> 00:01:13,240
+todos los como los tours que él logró
+
+37
+00:01:13,240 --> 00:01:13,840
+obtener
+
+38
+00:01:14,160 --> 00:01:16,280
+y la forma en las que él los obtiene.
+
+39
+00:01:16,280 --> 00:01:17,800
+Aquí está todo el detalle.
+
+40
+00:01:17,800 --> 00:01:19,520
+Entonces, por ejemplo, aquí ya me
+
+41
+00:01:19,520 --> 00:01:20,280
+respondió.
+
+42
+00:01:20,640 --> 00:01:22,800
+Obviamente también es personalizado como el
+
+43
+00:01:22,800 --> 00:01:24,880
+tono, la forma en que debe contestar, todo
+
+44
+00:01:24,880 --> 00:01:25,840
+ese tipo de cosas.
+
+45
+00:01:25,840 --> 00:01:28,320
+Entonces acá me dice un gusto saludarte,
+
+46
+00:01:28,320 --> 00:01:29,200
+perfecto, dice.
+
+47
+00:01:29,920 --> 00:01:31,360
+Oye, estoy
+
+48
+00:01:31,680 --> 00:01:32,560
+buscando
+
+49
+00:01:34,080 --> 00:01:35,040
+un plan
+
+50
+00:01:35,520 --> 00:01:36,640
+para
+
+51
+00:01:37,760 --> 00:01:38,960
+Tierra Caliente, no sé.
+
+52
+00:01:41,200 --> 00:01:44,000
+Entonces aquí es muy importante porque esta
+
+53
+00:01:44,000 --> 00:01:46,800
+es una respuesta semántica, es decir,
+
+54
+00:01:47,840 --> 00:01:50,160
+lee la intención y entre todo el catálogo
+
+55
+00:01:50,160 --> 00:01:52,360
+de tures que hay en este caso, pues él
+
+56
+00:01:52,360 --> 00:01:54,480
+dice: Oye, Tierra Caliente es Tonima,
+
+57
+00:01:54,480 --> 00:01:56,880
+Tierra Cariente es el Caribe, ¿no?
+
+58
+00:01:56,880 --> 00:01:57,760
+Cartagena, ¿no?
+
+59
+00:01:58,080 --> 00:01:59,880
+haz de cuenta que tienes un tour, no
+
+60
+00:01:59,880 --> 00:02:04,000
+importa mucho también si tu website o tus
+
+61
+00:02:04,080 --> 00:02:06,160
+archivos son de otra
+
+62
+00:02:06,640 --> 00:02:08,800
+industria, pues es literalmente empieza a
+
+63
+00:02:08,800 --> 00:02:11,280
+hallar esas conexiones semánticas y pues
+
+64
+00:02:11,280 --> 00:02:13,440
+contesta y empieza a recomendar
+
+65
+00:02:13,760 --> 00:02:14,800
+tus eh
+
+66
+00:02:15,040 --> 00:02:17,400
+pues tus tours o tu producto, bien.
+
+67
+00:02:17,920 --> 00:02:20,240
+Ok, aquí me dice Cabo de la Vela,
+
+68
+00:02:20,640 --> 00:02:23,240
+Mano Gigante, Paracaidismo, me gusta Cabo
+
+69
+00:02:23,240 --> 00:02:23,840
+de la Vela, le
+
+70
+00:02:24,200 --> 00:02:25,280
+voy a decir me gusta,
+
+71
+00:02:28,000 --> 00:02:28,880
+Cabo
+
+72
+00:02:29,840 --> 00:02:30,480
+de
+
+73
+00:02:31,040 --> 00:02:31,760
+la
+
+74
+00:02:32,160 --> 00:02:32,960
+vela.
+
+75
+00:02:33,440 --> 00:02:34,840
+Listo, vamos a ver qué más pasa.
+
+76
+00:02:35,280 --> 00:02:38,080
+Él automáticamente en lo que nosotros lo
+
+77
+00:02:38,080 --> 00:02:40,280
+entrenamos, básicamente él sabe cuándo
+
+78
+00:02:40,280 --> 00:02:41,920
+empezar a hacer la derivación, cuando hay
+
+79
+00:02:41,920 --> 00:02:43,600
+una intención real de compra, porque por
+
+80
+00:02:43,600 --> 00:02:44,640
+ejemplo, en este caso,
+
+81
+00:02:44,880 --> 00:02:46,400
+lo que pasa es que ellos tienen un montón
+
+82
+00:02:46,400 --> 00:02:46,960
+de tours,
+
+83
+00:02:47,200 --> 00:02:49,560
+precisamente, por ejemplo, ahorita lo más
+
+84
+00:02:49,560 --> 00:02:51,520
+común en esta temporada es el avistamiento
+
+85
+00:02:51,520 --> 00:02:52,320
+de ballenas,
+
+86
+00:02:52,560 --> 00:02:52,920
+que es
+
+87
+00:02:53,520 --> 00:02:54,160
+hermoso.
+
+88
+00:02:54,160 --> 00:02:56,080
+Y este es un momento para
+
+89
+00:02:56,560 --> 00:02:58,520
+que meterle una campaña muy grande en
+
+90
+00:02:58,520 --> 00:03:00,000
+Facebook Ads, en Instagram
+
+91
+00:03:00,400 --> 00:03:02,360
+y llegan un montón de mensajes, llegan un
+
+92
+00:03:02,360 --> 00:03:04,040
+montón de mensajes a WhatsApp que ellos no
+
+93
+00:03:04,040 --> 00:03:06,320
+tienen la capacidad de contestarlos todos o
+
+94
+00:03:06,320 --> 00:03:08,400
+tienen que literalmente limitarse y apagar
+
+95
+00:03:08,400 --> 00:03:10,280
+ciertas campañas porque son un montón de
+
+96
+00:03:10,280 --> 00:03:11,360
+mensajes los que llegan.
+
+97
+00:03:11,520 --> 00:03:14,040
+En este caso, pues AI absorbe todos esos
+
+98
+00:03:14,040 --> 00:03:14,640
+mensajes
+
+99
+00:03:15,120 --> 00:03:15,280
+y
+
+100
+00:03:15,520 --> 00:03:17,600
+es más, puede empezar a recomendar otros
+
+101
+00:03:17,600 --> 00:03:19,400
+tours en el caso que no sea el adecuado
+
+102
+00:03:19,400 --> 00:03:19,880
+para ti.
+
+103
+00:03:19,880 --> 00:03:21,480
+¿Qué casos? Por ejemplo, te digo que hay
+
+104
+00:03:21,480 --> 00:03:22,960
+unos tours que son de nevado
+
+105
+00:03:24,160 --> 00:03:25,920
+y y literalmente pues tú no estás como en
+
+106
+00:03:25,920 --> 00:03:27,400
+una posición física de hacer ese
+
+107
+00:03:27,400 --> 00:03:29,920
+escalamiento, entonces empieza de acuerdo
+
+108
+00:03:29,920 --> 00:03:31,360
+como a las preguntas que te va haciendo y
+
+109
+00:03:31,360 --> 00:03:31,720
+dicen “yo
+
+110
+00:03:32,000 --> 00:03:34,240
+creo que este tour es más apropiado para
+
+111
+00:03:34,240 --> 00:03:35,600
+ti, por esto y esta razón”.
+
+112
+00:03:35,840 --> 00:03:37,600
+Toda esa información igual está en el
+
+113
+00:03:37,600 --> 00:03:38,000
+website,
+
+114
+00:03:38,640 --> 00:03:41,840
+como el tipo, la dificultad, el itinerario,
+
+115
+00:03:42,160 --> 00:03:43,760
+todo eso está en el website, entonces
+
+116
+00:03:43,760 --> 00:03:45,760
+nosotros lo que hacemos es hacer web
+
+117
+00:03:45,760 --> 00:03:46,360
+scraping
+
+118
+00:03:46,800 --> 00:03:50,160
+y obtenemos toda esa información y como que
+
+119
+00:03:50,160 --> 00:03:52,040
+la preprocesamos para que la gente pues
+
+120
+00:03:52,040 --> 00:03:53,720
+pueda responder más a fin de esto.
+
+121
+00:03:54,000 --> 00:03:55,440
+No tienes un website, no hay problema,
+
+122
+00:03:55,440 --> 00:03:58,240
+igual subimos todos los archivos que tengas
+
+123
+00:03:58,240 --> 00:04:00,480
+respecto a tus productos y automáticamente
+
+124
+00:04:00,480 --> 00:04:02,320
+pues el legend responde.
+
+125
+00:04:02,320 --> 00:04:03,600
+Entonces por acá me dice, mira,
+
+126
+00:04:04,320 --> 00:04:04,680
+esto
+
+127
+00:04:05,120 --> 00:04:08,160
+es un plan bellísimo, desierto, bla, bla.
+
+128
+00:04:08,160 --> 00:04:09,040
+Ok, le voy a decir,
+
+129
+00:04:09,360 --> 00:04:10,400
+ok, me encanta,
+
+130
+00:04:11,160 --> 00:04:12,720
+me encanta, quiero
+
+131
+00:04:13,360 --> 00:04:14,240
+reservar
+
+132
+00:04:14,560 --> 00:04:15,120
+ahora,
+
+133
+00:04:15,360 --> 00:04:15,800
+listo.
+
+134
+00:04:16,960 --> 00:04:19,400
+Entonces vamos a ver qué pasa en este punto.
+
+135
+00:04:19,680 --> 00:04:21,040
+Entonces ahí es donde
+
+136
+00:04:22,200 --> 00:04:24,200
+él hace un calentamiento del lead, lo que
+
+137
+00:04:24,200 --> 00:04:26,560
+se conoce como "hey, ya esa persona está
+
+138
+00:04:26,560 --> 00:04:27,840
+casi lista para comprar",
+
+139
+00:04:28,080 --> 00:04:31,120
+entonces ya pasa a un humano o si es
+
+140
+00:04:31,120 --> 00:04:33,120
+necesario de pronto hacer unas preguntas más
+
+141
+00:04:33,520 --> 00:04:35,160
+porque hay unos planes que pueden tener
+
+142
+00:04:35,160 --> 00:04:36,880
+ciertos requisitos de edad,
+
+143
+00:04:37,120 --> 00:04:38,960
+de condicionamiento físico.
+
+144
+00:04:38,960 --> 00:04:39,280
+Entonces
+
+145
+00:04:39,760 --> 00:04:41,680
+él como que te guía por esas preguntas y
+
+146
+00:04:41,680 --> 00:04:43,520
+cuando ya esté listo para la compra, lo
+
+147
+00:04:43,520 --> 00:04:45,200
+deriva a un humano,
+
+148
+00:04:45,440 --> 00:04:47,720
+que es precisamente este panel que está por acá.
+
+149
+00:04:48,400 --> 00:04:51,360
+Literalmente por acá ya me derivó esa
+
+150
+00:04:51,360 --> 00:04:53,520
+conversación, ya me llegó y me llega como
+
+151
+00:04:53,520 --> 00:04:55,600
+con unos labels de que es una intención
+
+152
+00:04:55,600 --> 00:04:56,560
+alta de compra
+
+153
+00:04:57,280 --> 00:04:58,720
+y él se va a ordenar.
+
+154
+00:04:58,720 --> 00:05:00,960
+Si me llegan varios mensajes ya asignados a
+
+155
+00:05:00,960 --> 00:05:03,360
+mí, pues entonces yo puedo empezar a
+
+156
+00:05:03,440 --> 00:05:04,360
+atender.
+
+157
+00:05:04,360 --> 00:05:06,080
+También tengo aquí el panel de Agent
+
+158
+00:05:06,320 --> 00:05:07,880
+para monitorear literalmente las
+
+159
+00:05:07,880 --> 00:05:09,840
+conversaciones que el agente está
+
+160
+00:05:09,840 --> 00:05:11,120
+resolviendo por sí solo.
+
+161
+00:05:11,280 --> 00:05:13,040
+Pero las que ya fueran asignadas a mí
+
+162
+00:05:13,040 --> 00:05:14,360
+significa que ya no necesita una
+
+163
+00:05:14,360 --> 00:05:15,360
+intervención.
+
+164
+00:05:15,560 --> 00:05:17,880
+Entonces, en este caso, yo le puedo decir,
+
+165
+00:05:17,880 --> 00:05:19,440
+ok, me encanta quería resolver ahora,
+
+166
+00:05:19,440 --> 00:05:22,400
+entonces aquí ya es un humano respondiendo.
+
+167
+00:05:22,480 --> 00:05:23,680
+Entonces le digo, ok,
+
+168
+00:05:24,080 --> 00:05:26,160
+págame a esta
+
+169
+00:05:26,880 --> 00:05:29,200
+cuenta, y le envío una foto o un audio,
+
+170
+00:05:29,200 --> 00:05:29,840
+etcétera.
+
+171
+00:05:30,040 --> 00:05:31,840
+Entonces aquí yo ya empiezo a responder
+
+172
+00:05:31,840 --> 00:05:32,320
+directo
+
+173
+00:05:32,560 --> 00:05:33,760
+y ya se vuelve un chat
+
+174
+00:05:34,960 --> 00:05:36,120
+normal, digamos.
+
+175
+00:05:37,200 --> 00:05:38,520
+Dime los datos.
+
+176
+00:05:39,680 --> 00:05:41,360
+Este ya es un chat normal.
+
+177
+00:05:41,640 --> 00:05:43,720
+porque ya se derivó, literalmente ya hubo
+
+178
+00:05:43,720 --> 00:05:44,640
+una derivación.
+
+179
+00:05:44,640 --> 00:05:46,760
+Entonces ya el que está cerrando ya el
+
+180
+00:05:46,760 --> 00:05:49,080
+proceso y los detalles finales es un
+
+181
+00:05:49,080 --> 00:05:51,040
+humano, ¿no? Entonces acá dice, dime los
+
+182
+00:05:51,040 --> 00:05:54,880
+datos de compra, claro, son 1, 2, 3, 4 y
+
+183
+00:05:54,880 --> 00:05:55,440
+listo, ¿no?
+
+184
+00:05:57,120 --> 00:05:59,400
+Llega, simplemente se torna una
+
+185
+00:05:59,400 --> 00:06:01,320
+conversación normal, típica.
+
+186
+00:06:01,320 --> 00:06:03,360
+Sin embargo, aquí vimos como que todo este
+
+187
+00:06:03,360 --> 00:06:05,280
+proceso es el que le hubiera tocado
+
+188
+00:06:05,520 --> 00:06:09,120
+a, pues a esta persona atender manualmente,
+
+189
+00:06:09,200 --> 00:06:11,360
+y es lo que Chaty haría por ti.
+
+190
+00:06:11,560 --> 00:06:13,760
+Entonces eso, Chatty es una plataforma de
+
+191
+00:06:13,760 --> 00:06:15,440
+agentes que corren en WhatsApp, que pueden
+
+192
+00:06:15,440 --> 00:06:16,840
+hacer agendamiento, conectarte a tu
+
+193
+00:06:16,840 --> 00:06:18,720
+calendario, conectarte a tu website,
+
+194
+00:06:19,120 --> 00:06:21,160
+calentar un link y derivarlo a tu sistema
+
+195
+00:06:21,160 --> 00:06:22,120
+de operadores.
+
+196
+00:06:22,160 --> 00:06:24,560
+Si tienes uno, dos, tres personas
+
+197
+00:06:24,560 --> 00:06:25,680
+atendiendo el WhatsApp,
+
+198
+00:06:26,480 --> 00:06:28,680
+pues pueden haber varios operadores o uno e
+
+199
+00:06:28,680 --> 00:06:31,520
+igual contestar y apoyarte de un motor de
+
+200
+00:06:31,520 --> 00:06:33,160
+AI para hacer esto.
+
+201
+00:06:33,360 --> 00:06:35,520
+Entonces, este es nuestro website.
+
+202
+00:06:35,520 --> 00:06:37,960
+Literalmente, una de las cosas más potentes es
+
+203
+00:06:38,720 --> 00:06:41,320
+absorbe como el 80% de trabajo de esas
+
+204
+00:06:41,320 --> 00:06:43,280
+personas que están día a día contestando y
+
+205
+00:06:43,280 --> 00:06:45,120
+entonces esas personas solo se encargan ya
+
+206
+00:06:45,120 --> 00:06:46,400
+de cerrar esos deals
+
+207
+00:06:46,720 --> 00:06:49,720
+y pues AI o esa gente trabaja para ti.
+
+208
+00:06:50,000 --> 00:06:51,560
+En este momento estamos teniendo como un
+
+209
+00:06:51,560 --> 00:06:53,160
+beta cerrado entonces me gustaría, me
+
+210
+00:06:53,160 --> 00:06:55,880
+encantaría que si te interesa me dejes un
+
+211
+00:06:55,880 --> 00:06:56,800
+comentario, me
+
+212
+00:06:57,360 --> 00:06:58,360
+escribas un mensaje.
+
+213
+00:06:58,360 --> 00:07:00,800
+Es más, si estás interesado, puedes
+
+214
+00:07:01,120 --> 00:07:04,120
+escribirme a nico@innovatica.bo a este
+
+215
+00:07:04,120 --> 00:07:05,520
+correo en el cual
+
+216
+00:07:05,760 --> 00:07:07,560
+voy a estar agendando como demos,
+
+217
+00:07:07,560 --> 00:07:09,120
+entrevistas con esos usuarios para ver
+
+218
+00:07:09,120 --> 00:07:11,680
+estos casos y si es necesario, pues montar
+
+219
+00:07:11,680 --> 00:07:13,800
+este sistema para cada uno de esos casos.
+
+220
+00:07:13,800 --> 00:07:15,880
+Entonces me encantaría que me ayudes un
+
+221
+00:07:15,880 --> 00:07:16,480
+montón.
+
+222
+00:07:16,560 --> 00:07:18,760
+Y si conoces a alguien que le pueda
+
+223
+00:07:18,760 --> 00:07:20,480
+interesar o conectarme con alguien
+
+224
+00:07:20,720 --> 00:07:22,960
+de la industria de.
+
+225
+00:07:23,360 --> 00:07:24,720
+no sé, una agencia de viajes, una
+
+226
+00:07:24,720 --> 00:07:26,840
+veterinaria, spas, que son como los que
+
+227
+00:07:26,840 --> 00:07:27,200
+también
+
+228
+00:07:27,440 --> 00:07:28,960
+son de este tipo de target,
+
+229
+00:07:29,200 --> 00:07:30,640
+que tienen que hacer agendamiento, que
+
+230
+00:07:30,640 --> 00:07:32,400
+contestan mucho en WhatsApp, que reciben un
+
+231
+00:07:32,400 --> 00:07:33,480
+montón de mensajes.
+
+232
+00:07:33,480 --> 00:07:35,120
+Te agradecería un montón que me conectes
+
+233
+00:07:35,120 --> 00:07:36,160
+con esas personas.
+
+234
+00:07:36,160 --> 00:07:37,720
+Eso es todo, muchas gracias.
+
+235
+00:07:37,840 --> 00:07:41,120
+Y estamos, pues estamos en contacto, espero
+
+236
+00:07:41,120 --> 00:07:41,920
+verlos pronto.
+
+237
+00:07:42,880 --> 00:07:44,160
+Ah, y una cosa más,
+
+238
+00:07:44,880 --> 00:07:46,800
+dentro de mi canal de YouTube
+
+239
+00:07:47,200 --> 00:07:48,560
+voy a empezar a subir
+
+240
+00:07:48,880 --> 00:07:50,320
+como contenido
+
+241
+00:07:51,360 --> 00:07:53,160
+features que voy a ir haciendo de esta
+
+242
+00:07:53,160 --> 00:07:53,840
+plataforma.
+
+243
+00:07:53,840 --> 00:07:55,880
+Bien, ahorita ya tengo varias cosas y he
+
+244
+00:07:55,880 --> 00:07:56,960
+aprendido varias cosas,
+
+245
+00:07:57,280 --> 00:07:59,040
+entre ellas utilizar, no sé,
+
+246
+00:07:59,440 --> 00:08:02,160
+Railway para todo el sistema y
+
+247
+00:08:02,880 --> 00:08:06,480
+como todo la parte de una API energías que
+
+248
+00:08:06,480 --> 00:08:08,720
+va haciendo el encolamiento en Redis,
+
+249
+00:08:08,720 --> 00:08:09,360
+etcétera.
+
+250
+00:08:09,600 --> 00:08:11,760
+También utilicé Superbase, por ejemplo,
+
+251
+00:08:11,760 --> 00:08:13,520
+para todo el ya el logging de la
+
+252
+00:08:13,520 --> 00:08:15,280
+conversación, etcétera, etcétera.
+
+253
+00:08:15,520 --> 00:08:17,760
+Y utilicé por ejemplo el Agent Guntime, que
+
+254
+00:08:17,760 --> 00:08:20,280
+es donde viven estos agentes, donde el
+
+255
+00:08:20,560 --> 00:08:23,560
+el agente ya vive y se conecta a modelos.
+
+256
+00:08:23,560 --> 00:08:25,520
+Entonces, por eso el canal está un
+
+257
+00:08:25,520 --> 00:08:26,560
+poquito...
+
+258
+00:08:27,280 --> 00:08:29,120
+hace un mes como que no subo videos, pero
+
+259
+00:08:29,120 --> 00:08:31,520
+porque he estado trabajando mucho a esto, a
+
+260
+00:08:31,520 --> 00:08:33,520
+Rack Systems y un montón de cosas
+
+261
+00:08:33,840 --> 00:08:37,200
+que espero ir dosificando y pues subiendo
+
+262
+00:08:37,200 --> 00:08:39,920
+video a video, como conectar a Angular con
+
+263
+00:08:39,920 --> 00:08:42,720
+Supabase, cómo conectar NestJS, cómo hacer
+
+264
+00:08:42,720 --> 00:08:44,680
+un Rack System, cómo hacer un deployment de
+
+265
+00:08:44,680 --> 00:08:47,360
+este tipo de agentes utilizando el Agent
+
+266
+00:08:47,360 --> 00:08:48,960
+Runtime, o Google Cloud,
+
+267
+00:08:49,280 --> 00:08:50,000
+etcétera.
+
+268
+00:08:50,480 --> 00:08:53,040
+Entonces, la plataforma está hecha en
+
+269
+00:08:53,040 --> 00:08:54,920
+Angular, obviamente, porque pues es el
+
+270
+00:08:54,920 --> 00:08:56,160
+mejor framework de frontend.
+
+271
+00:08:56,320 --> 00:08:57,480
+Entonces,
+
+272
+00:08:58,000 --> 00:08:59,400
+nada, quería también hacerles esa
+
+273
+00:08:59,400 --> 00:09:01,000
+actualización en mi canal.
+
+274
+00:09:01,000 --> 00:09:02,000
+Si estás aquí en
+
+275
+00:09:02,480 --> 00:09:04,720
+mi canal, pues voy a empezar a subir como
+
+276
+00:09:04,960 --> 00:09:06,880
+contenido y de pronto
+
+277
+00:09:07,200 --> 00:09:09,200
+explicando cómo desarrollé ciertos features
+
+278
+00:09:09,200 --> 00:09:11,360
+y lo que se viene, ¿no? Porque pues esto no
+
+279
+00:09:11,360 --> 00:09:11,920
+termina.
+
+280
+00:09:12,000 --> 00:09:14,040
+Entonces, ¿cómo vamos a ir haciendo ciertos
+
+281
+00:09:14,040 --> 00:09:15,560
+agentes o ciertas cosas que voy
+
+282
+00:09:15,560 --> 00:09:16,320
+experimentando?
+
+283
+00:09:16,840 --> 00:09:18,800
+Y eso es todo, así que también me gustaría
+
+284
+00:09:18,800 --> 00:09:20,080
+mucho un like, que lo compartas
+
+285
+00:09:20,400 --> 00:09:22,720
+y espero te guste este tipo de contenido
+
+286
+00:09:22,720 --> 00:09:23,600
+que ya es como
+
+287
+00:09:24,640 --> 00:09:27,520
+ciertos features de Angular, Supabase,
+
+288
+00:09:28,240 --> 00:09:31,840
+NES como backend API y
+
+289
+00:09:32,320 --> 00:09:32,720
+en
+
+290
+00:09:33,280 --> 00:09:35,840
+este caso utilicé el Google EDK
+
+291
+00:09:36,240 --> 00:09:37,320
+para hacer el motor.
+
+292
+00:09:37,320 --> 00:09:39,080
+Entonces voy a estar como compartiendo
+
+293
+00:09:39,080 --> 00:09:41,080
+contenido alrededor de esas tecnologías.
+
+294
+00:09:41,080 --> 00:09:42,520
+Así que nada, suscríbete también.
+
+295
+00:09:42,520 --> 00:09:43,240
+Nos vemos.
+

@@ -1,0 +1,170 @@
+Hola, mi nombre es Eduardo Roth 
+y esto es ngNews en español con las últimas
+novedades de la comunidad de Angular
+de cada semana.
+Una vulnerabilidad de cross-site scripting
+se encontró en Angular.
+Si usas el paquete de internacionalización
+de Angular con atributos HTML,
+déjame decirte que sus valores 
+no están sanitizados.
+La corrección fue aplicada en las versiones
+con soporte,
+las cuales son Angular 19, 20 y 21
+Mark Thompson,
+AnglarDevRel estuvo como invitado en NG Asia.
+La sesión fue una mezcla entre
+presentación, pero también de
+ preguntas y respuestas.
+Por ejemplo, él compartió su visión de cómo
+la inteligencia artificial va a definir la
+forma en que el desarrollo trabajará para nosotros.
+Tenemos un extremo que es como, oh, yo solo
+¿Te gustaría tal vez una función de autocompletado con asistencia de IA?
+y el otro extremo de como
+ningún humano, todo agente. Creo
+En algún punto intermedio se encontrará lo más
+productivo.
+También explicó qué significa IA para
+futuras aplicaciones,
+donde la interfaz de usuario es solamente
+otra herramienta de inteligencia artificial
+que va a ser utilizada por un LLM.
+Actualmente, ya hay algunas librerías que
+pueden hacer esto,
+por ejemplo, Hash Brown.
+Mark Thompson también realizó una sesión de
+preguntas y respuestas, en la cual su
+invitado fue Alan, del equipo de Angular,
+y Alan presentó el servidor MCP de Angular
+junto con el servidor MCP de Chrome.
+MCP significa que el LLM puede ejecutar
+herramientas adicionales,
+realizar algo y no sólo regresar texto.
+El server MCP de Angular brinda
+documentación actualizada de las mejores
+prácticas del framework.
+Puede ayudarte a migrar a Zoneless o
+funcionar como un tutor.
+Junto con el server MCP de Chrome, permite
+al LLM verificar el código generado de
+manera automática y corregirlo
+durante la sesión de preguntas.
+2 respuestas tuvieron mucha importancia.
+Primero, las skills de IA y los servers MCP
+no son excluyentes.
+Pueden ser usados en combinación.
+Estoy intentando enseñarle a Alan
+cómo tocar la guitarra.
+No es lo mismo que si yo dijera, Alan,
+Pulsa este botón para tocar
+master of puppets.
+Y luego "master of puppets" suena igual
+siempre
+Y la habilidad es más bien, oye, Alan,
+Así es como se toca a "master of puppets"
+Ahora te toca tocarla.
+Alan puede
+Lo logré a la primera.
+o puede decir, bueno, ahí hay un extra verse
+en "Master of Puppet" que no conocías.
+ ¿por qué Angular está invirtiendo tanto en IA?
+ Llevamos diciendo esto mucho tiempo.
+que Angular realmente no está enfocado
+popularidad
+En general, realmente se centraron en asegurarse de que
+Angular es el mejor framework para
+Angular devs
+Tienes que tener herramientas
+que los desarrolladores modernos están utilizando, porque
+que los desarrolladores modernos están utilizando, porque
+Entonces la gente dirá: bueno, Angular no lo es.
+Preparados para el futuro.
+Como mencionamos en el episodio anterior,
+hay un compilador experimental escrito en
+Rust por parte de Void Zero, la compañía
+detrás de Vite.
+Ese compilador es llamado el Oxidation
+Compiler, o brevemente OXC.
+La parte interesante es que está escrito en
+Rust y no en GO, el cual es el lenguaje
+usado en el refactoring próximo de
+TypeScript.
+Brandon Roberts, quien es muy conocido en
+la comunidad de Angular, ha integrado el
+Oxidation Compiler en Analog.js,
+Un meta framework para angular que soporta
+Vite para las compilaciones.
+Brandon compartió una comparación, quedando
+en claro que el tiempo de compilación con
+ES build bajó de 47 segundos a solamente
+1.5 segundos,
+alrededor de 97% de mejora.
+El roadmap de angular tuvo una
+actualización o mejor dicho, un ajuste en
+prioridades.
+En resumen, la IA es el rey,
+temas como un nuevo formato para
+componentes.
+streaming para el Server Side Rendering o
+mejoras a TestBed fueron eliminados.
+Eso no significa que estos temas jamás se
+tomen en cuenta, pero por ahora, han bajado
+su prioridad.
+Y si eres un fan de los números de
+descarga,
+a pesar de los resultados de la última
+encuesta de JavaScript,
+Angular parece que se encuentra en un lugar
+importante.
+En mayo de 2025, las descargas semanales
+superaron los 4 millones por primera vez.
+Ahora, En la primera semana de marzo de
+2026 estuvieron arriba de los 5 millones, un
+incremento de alrededor del 25% en un solo año.
+Como referencia, Angular pasó los 3 millones
+de descargas semanales en febrero del 2022.
+Fátima Amsil
+publicó un artículo sobre una nueva función
+basada en Signals llamada Debounced,
+que no hay que confundir con Debounce de
+Signal Forms.
+Esta última sólo es relevante para Signal Forms.
+y demora la sincronización entre un campo
+de tu formulario y su modelo.
+Debounced, por el otro lado, funciona con
+cualquier tipo de signal, ya sea un
+computed, un linked signal o solo una función
+que regrese un valor,
+el cual será actualizado de manera
+automática, como cualquier otra signal.
+Sin embargo, el valor que regresa esta
+función no es otra signal, sino un
+resource.
+Debounced está planeado para ser lanzado en
+Angular 22.
+Michael Small también contribuyó con una
+publicación en BlueSky
+con un GIF demostrando esta nueva función.
+En otras noticias, Angular Viena Meetup se
+realizó con éxito y la grabación de su
+livestream está disponible en YouTube.
+En el Meetup, Dmytro Mezhenskyi, conocido
+como Decoded Frontend, presentó su primera
+plática pública.
+Otro speaker fue Matthieu Riegler,
+del equipo de Angular,
+quien habló sobre JavaScript en general y
+los cambios futuros en Angular debido al
+cambio de TypeScript a Go.
+Manfred Steyer habló sobre la IA en Angular
+y Dániel Szendrei sobre hacks para Angular.
+Sonu Kapoor
+publicó en Code Magazine un artículo a
+detalle sobre la evolución de los
+formularios en Angular.
+Este artículo tiene alrededor de 15 mil
+palabras.
+Y eso es todo, te deseo una excelente
+semana y nos vemos en el siguiente
+episodio. Adiós.

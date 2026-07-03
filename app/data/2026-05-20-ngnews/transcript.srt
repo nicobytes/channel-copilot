@@ -1,0 +1,680 @@
+1
+00:00:00,080 --> 00:00:02,680
+Hola, mi nombre es Eduardo Roth 
+
+2
+00:00:02,680 --> 00:00:04,800
+y esto es ngNews en español con las últimas
+
+3
+00:00:04,800 --> 00:00:06,720
+novedades de la comunidad de Angular
+
+4
+00:00:06,720 --> 00:00:07,680
+de cada semana.
+
+5
+00:00:07,680 --> 00:00:09,920
+Una vulnerabilidad de cross-site scripting
+
+6
+00:00:09,920 --> 00:00:11,280
+se encontró en Angular.
+
+7
+00:00:11,520 --> 00:00:13,840
+Si usas el paquete de internacionalización
+
+8
+00:00:13,840 --> 00:00:16,080
+de Angular con atributos HTML,
+
+9
+00:00:16,400 --> 00:00:18,800
+déjame decirte que sus valores 
+
+10
+00:00:18,800 --> 00:00:19,880
+no están sanitizados.
+
+11
+00:00:20,080 --> 00:00:22,400
+La corrección fue aplicada en las versiones
+
+12
+00:00:22,400 --> 00:00:23,200
+con soporte,
+
+13
+00:00:23,440 --> 00:00:27,400
+las cuales son Angular 19, 20 y 21
+
+14
+00:00:27,400 --> 00:00:27,920
+Mark Thompson,
+
+15
+00:00:28,240 --> 00:00:31,200
+AnglarDevRel estuvo como invitado en NG Asia.
+
+16
+00:00:31,360 --> 00:00:32,880
+La sesión fue una mezcla entre
+
+17
+00:00:32,880 --> 00:00:35,160
+presentación, pero también de
+
+18
+00:00:35,160 --> 00:00:36,080
+ preguntas y respuestas.
+
+19
+00:00:36,400 --> 00:00:39,080
+Por ejemplo, él compartió su visión de cómo
+
+20
+00:00:39,080 --> 00:00:41,680
+la inteligencia artificial va a definir la
+
+21
+00:00:41,680 --> 00:00:43,720
+forma en que el desarrollo trabajará para nosotros.
+
+23
+00:00:44,680 --> 00:00:47,480
+We have one end which is like, oh, I only
+
+24
+00:00:47,480 --> 00:00:49,840
+do like maybe autocomplete AI assistance
+
+25
+00:00:50,200 --> 00:00:51,720
+and the other extreme of like
+
+26
+00:00:52,000 --> 00:00:53,680
+no human, all agent. I think
+
+27
+00:00:54,080 --> 00:00:56,960
+somewhere in the middle will find the most
+
+28
+00:00:56,960 --> 00:00:57,760
+productivity.
+
+29
+00:00:58,040 --> 00:01:00,480
+También explicó qué significa IA para
+
+30
+00:01:00,480 --> 00:01:01,680
+futuras aplicaciones,
+
+31
+00:01:01,920 --> 00:01:04,320
+donde la interfaz de usuario es solamente
+
+32
+00:01:04,320 --> 00:01:06,640
+otra herramienta de inteligencia artificial
+
+33
+00:01:06,880 --> 00:01:09,440
+que va a ser utilizada por un LLM.
+
+34
+00:01:09,760 --> 00:01:12,320
+Actualmente, ya hay algunas librerías que
+
+35
+00:01:12,320 --> 00:01:13,280
+pueden hacer esto,
+
+36
+00:01:13,520 --> 00:01:15,120
+por ejemplo, Hash Brown.
+
+37
+00:01:15,280 --> 00:01:17,760
+Mark Thompson también realizó una sesión de
+
+38
+00:01:17,760 --> 00:01:19,880
+preguntas y respuestas, en la cual su
+
+39
+00:01:19,880 --> 00:01:22,240
+invitado fue Alan, del equipo de Angular,
+
+40
+00:01:22,560 --> 00:01:25,520
+y Alan presentó el servidor MCP de Angular
+
+41
+00:01:25,680 --> 00:01:27,880
+junto con el servidor MCP de Chrome.
+
+42
+00:01:28,240 --> 00:01:31,760
+MCP significa que el LLM puede ejecutar
+
+43
+00:01:31,760 --> 00:01:33,120
+herramientas adicionales,
+
+44
+00:01:33,360 --> 00:01:36,480
+realizar algo y no sólo regresar texto.
+
+45
+00:01:36,960 --> 00:01:39,480
+El server MCP de Angular brinda
+
+46
+00:01:39,480 --> 00:01:41,840
+documentación actualizada de las mejores
+
+47
+00:01:41,840 --> 00:01:43,080
+prácticas del framework.
+
+48
+00:01:43,360 --> 00:01:45,440
+Puede ayudarte a migrar a Zoneless o
+
+49
+00:01:45,440 --> 00:01:46,720
+funcionar como un tutor.
+
+50
+00:01:46,960 --> 00:01:49,680
+Junto con el server MCP de Chrome, permite
+
+51
+00:01:49,680 --> 00:01:52,600
+al LLM verificar el código generado de
+
+52
+00:01:52,600 --> 00:01:54,640
+manera automática y corregirlo
+
+53
+00:01:55,360 --> 00:01:57,160
+durante la sesión de preguntas.
+
+54
+00:01:57,240 --> 00:01:59,600
+2 respuestas tuvieron mucha importancia.
+
+55
+00:01:59,840 --> 00:02:02,840
+Primero, las skills de IA y los servers MCP
+
+56
+00:02:02,840 --> 00:02:04,880
+no son excluyentes.
+
+57
+00:02:05,120 --> 00:02:07,200
+Pueden ser usados en combinación.
+
+58
+00:02:07,200 --> 00:02:08,560
+I'm trying to teach Alan
+
+59
+00:02:08,960 --> 00:02:10,720
+how to like play guitar.
+
+60
+00:02:11,200 --> 00:02:13,360
+It's not the same thing as me saying, Alan,
+
+61
+00:02:13,360 --> 00:02:14,960
+press this button to play
+
+62
+00:02:15,280 --> 00:02:16,280
+master of puppets.
+
+63
+00:02:16,280 --> 00:02:18,040
+And then master of puppets plays the same
+
+64
+00:02:18,040 --> 00:02:18,880
+way every time.
+
+65
+00:02:19,760 --> 00:02:22,080
+And the skill is more like, hey, Alan,
+
+66
+00:02:22,240 --> 00:02:23,880
+here's how you play master of puppets.
+
+67
+00:02:23,880 --> 00:02:24,800
+Now you play it.
+
+68
+00:02:24,800 --> 00:02:25,840
+Alan may
+
+69
+00:02:26,240 --> 00:02:27,440
+nailed it the first time,
+
+70
+00:02:28,000 --> 00:02:30,360
+or he may say, well, there's an extroverse
+
+71
+00:02:30,360 --> 00:02:32,240
+in Master of Puppet that you didn't know about.
+
+72
+00:02:32,480 --> 00:02:35,920
+Second, why is Angular investing so much in AI,
+
+73
+00:02:36,360 --> 00:02:38,480
+according to Mark? We said this a long time
+
+74
+00:02:38,480 --> 00:02:41,040
+ago that Angular isn't really focused on
+
+75
+00:02:41,600 --> 00:02:42,800
+popularity
+
+76
+00:02:43,080 --> 00:02:44,920
+in general, really focused on making sure
+
+77
+00:02:44,920 --> 00:02:46,520
+Angular is the best framework for Angular
+
+78
+00:02:46,520 --> 00:02:47,320
+developers.
+
+79
+00:02:47,320 --> 00:02:48,480
+You have to have tools
+
+80
+00:02:48,720 --> 00:02:50,560
+that modern developers are using, because
+
+81
+00:02:50,560 --> 00:02:52,240
+if we didn't have any AI stuff,
+
+82
+00:02:52,720 --> 00:02:54,320
+then people will say, well, Angular is not
+
+83
+00:02:54,400 --> 00:02:55,760
+ready for the future.
+
+84
+00:02:56,320 --> 00:02:58,320
+Como mencionamos en el episodio anterior, 
+
+85
+00:02:58,560 --> 00:03:00,760
+hay un compilador experimental escrito en
+
+86
+00:03:00,760 --> 00:03:03,200
+Rust por parte de Void Zero, la compañía
+
+87
+00:03:03,200 --> 00:03:04,120
+detrás de Vite.
+
+88
+00:03:04,320 --> 00:03:06,720
+Ese compilador es llamado el Oxidation
+
+89
+00:03:06,720 --> 00:03:08,920
+Compiler, o brevemente OXC.
+
+90
+00:03:09,240 --> 00:03:11,880
+La parte interesante es que está escrito en
+
+91
+00:03:11,880 --> 00:03:14,120
+Rust y no en GO, el cual es el lenguaje
+
+92
+00:03:14,120 --> 00:03:16,160
+usado en el refactoring próximo de
+
+93
+00:03:16,160 --> 00:03:17,000
+TypeScript.
+
+94
+00:03:17,440 --> 00:03:19,600
+Brandon Roberts, quien es muy conocido en
+
+95
+00:03:19,600 --> 00:03:21,880
+la comunidad de Angular, ha integrado el
+
+96
+00:03:21,880 --> 00:03:24,240
+Oxidation Compiler en Analog.js,
+
+97
+00:03:24,600 --> 00:03:27,120
+Un meta framework para angular que soporta
+
+98
+00:03:27,120 --> 00:03:28,840
+Vite para las compilaciones.
+
+99
+00:03:29,280 --> 00:03:31,520
+Brandon compartió una comparación, quedando
+
+100
+00:03:31,520 --> 00:03:34,320
+en claro que el tiempo de compilación con
+
+101
+00:03:34,320 --> 00:03:38,320
+ES build bajó de 47 segundos a solamente
+
+102
+00:03:38,320 --> 00:03:40,080
+1.5 segundos,
+
+103
+00:03:40,320 --> 00:03:43,200
+alrededor de 97% de mejora.
+
+104
+00:03:43,200 --> 00:03:45,000
+El roadmap de angular tuvo una
+
+105
+00:03:45,000 --> 00:03:47,640
+actualización o mejor dicho, un ajuste en
+
+106
+00:03:47,640 --> 00:03:48,680
+prioridades.
+
+107
+00:03:48,800 --> 00:03:51,040
+En resumen, la IA es el rey,
+
+108
+00:03:51,440 --> 00:03:53,200
+temas como un nuevo formato para
+
+109
+00:03:53,200 --> 00:03:54,280
+componentes.
+
+110
+00:03:54,280 --> 00:03:56,640
+streaming para el Server Side Rendering o
+
+111
+00:03:56,640 --> 00:03:59,160
+mejoras a TestBed fueron eliminados.
+
+112
+00:03:59,760 --> 00:04:01,840
+Eso no significa que estos temas jamás se
+
+113
+00:04:01,840 --> 00:04:04,520
+tomen en cuenta, pero por ahora, han bajado
+
+114
+00:04:04,520 --> 00:04:05,280
+su prioridad.
+
+115
+00:04:05,520 --> 00:04:07,280
+Y si eres un fan de los números de
+
+116
+00:04:07,280 --> 00:04:07,920
+descarga,
+
+117
+00:04:08,160 --> 00:04:10,000
+a pesar de los resultados de la última
+
+118
+00:04:10,000 --> 00:04:11,120
+encuesta de JavaScript,
+
+119
+00:04:11,360 --> 00:04:13,520
+Angular parece que se encuentra en un lugar
+
+120
+00:04:13,520 --> 00:04:14,440
+importante.
+
+121
+00:04:14,800 --> 00:04:18,040
+En mayo de 2025, las descargas semanales
+
+122
+00:04:18,040 --> 00:04:20,480
+superaron los 4 millones por primera vez.
+
+123
+00:04:20,800 --> 00:04:23,200
+Ahora, En la primera semana de marzo de
+
+124
+00:04:23,200 --> 00:04:27,360
+2026 estuvieron arriba de los 5 millones, un
+
+125
+00:04:27,360 --> 00:04:30,800
+incremento de alrededor del 25% en un solo año.
+
+126
+00:04:31,120 --> 00:04:34,080
+Como referencia, Angular pasó los 3 millones
+
+127
+00:04:34,080 --> 00:04:37,320
+de descargas semanales en febrero del 2022.
+
+128
+00:04:37,680 --> 00:04:38,800
+Fátima Amsil
+
+129
+00:04:39,040 --> 00:04:41,520
+publicó un artículo sobre una nueva función
+
+130
+00:04:41,520 --> 00:04:43,920
+basada en Signals llamada Debounced,
+
+131
+00:04:44,320 --> 00:04:46,640
+que no hay que confundir con Debounce de
+
+132
+00:04:46,640 --> 00:04:47,440
+Signal Forms.
+
+133
+00:04:47,760 --> 00:04:50,920
+Esta última sólo es relevante para Signal Forms.
+
+134
+00:04:50,920 --> 00:04:53,080
+y demora la sincronización entre un campo
+
+135
+00:04:53,080 --> 00:04:55,040
+de tu formulario y su modelo.
+
+136
+00:04:55,040 --> 00:04:57,520
+Debounced, por el otro lado, funciona con
+
+137
+00:04:57,520 --> 00:04:59,520
+cualquier tipo de signal, ya sea un
+
+138
+00:04:59,520 --> 00:05:02,520
+computed, un linked signal o solo una función
+
+139
+00:05:02,520 --> 00:05:03,440
+que regrese un valor,
+
+140
+00:05:03,840 --> 00:05:05,760
+el cual será actualizado de manera
+
+141
+00:05:05,760 --> 00:05:07,840
+automática, como cualquier otra signal.
+
+142
+00:05:08,000 --> 00:05:10,160
+Sin embargo, el valor que regresa esta
+
+143
+00:05:10,160 --> 00:05:12,520
+función no es otra signal, sino un
+
+144
+00:05:12,520 --> 00:05:13,160
+resource.
+
+145
+00:05:13,520 --> 00:05:16,520
+Debounced está planeado para ser lanzado en
+
+146
+00:05:16,520 --> 00:05:17,720
+Angular 22.
+
+147
+00:05:18,240 --> 00:05:20,400
+Michael Small también contribuyó con una
+
+148
+00:05:20,400 --> 00:05:22,000
+publicación en BlueSky
+
+149
+00:05:22,240 --> 00:05:25,040
+con un GIF demostrando esta nueva función.
+
+150
+00:05:25,040 --> 00:05:27,640
+En otras noticias, Angular Viena Meetup se
+
+151
+00:05:27,640 --> 00:05:29,880
+realizó con éxito y la grabación de su
+
+152
+00:05:29,880 --> 00:05:32,120
+livestream está disponible en YouTube.
+
+153
+00:05:32,480 --> 00:05:35,840
+En el Meetup, Dmytro Mezhenskyi, conocido
+
+154
+00:05:35,840 --> 00:05:38,320
+como Decoded Frontend, presentó su primera
+
+155
+00:05:38,320 --> 00:05:39,520
+plática pública.
+
+156
+00:05:40,000 --> 00:05:41,760
+Otro speaker fue Matthieu Riegler,
+
+157
+00:05:42,000 --> 00:05:43,120
+del equipo de Angular,
+
+158
+00:05:43,440 --> 00:05:45,680
+quien habló sobre JavaScript en general y
+
+159
+00:05:45,680 --> 00:05:47,720
+los cambios futuros en Angular debido al
+
+160
+00:05:47,720 --> 00:05:49,280
+cambio de TypeScript a Go.
+
+161
+00:05:50,080 --> 00:05:53,280
+Manfred Steyer habló sobre la IA en Angular
+
+162
+00:05:53,520 --> 00:05:56,480
+y Dániel Szendrei sobre hacks para Angular.
+
+163
+00:05:56,720 --> 00:05:57,600
+Sonu Kapoor
+
+164
+00:05:57,840 --> 00:06:00,160
+publicó en Code Magazine un artículo a
+
+165
+00:06:00,160 --> 00:06:02,000
+detalle sobre la evolución de los
+
+166
+00:06:02,000 --> 00:06:03,480
+formularios en Angular.
+
+167
+00:06:03,680 --> 00:06:06,080
+Este artículo tiene alrededor de 15 mil
+
+168
+00:06:06,080 --> 00:06:06,960
+palabras.
+
+169
+00:06:07,120 --> 00:06:09,520
+Y eso es todo, te deseo una excelente
+
+170
+00:06:09,520 --> 00:06:11,560
+semana y nos vemos en el siguiente
+
+171
+00:06:11,560 --> 00:06:13,000
+episodio. Adiós.
+

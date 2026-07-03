@@ -1,0 +1,297 @@
+
+Hola bienvenidos a una nueva entrega de mi
+canal y este va a ser un video diferente,
+este va a ser un video de una plataforma
+que he estado construyendo y quiero
+compartirlo contigo.
+Este es
+Chati, un motor de agentes que corre en
+WhatsApp y básicamente se alimenta de toda
+la información de tu website, agendamiento,
+se sincroniza con tu calendario, etcétera.
+Pero como hablar es barato voy a mostrarte
+cómo funciona.
+Acá tengo precisamente un caso que tenemos
+trabajando con un cliente
+y se llama, bueno, me dio permiso de
+compartirlo y lo llamamos Amaru
+es a Maru, básicamente un agente que hace
+derivación,
+él entiende literalmente cuando hay
+preguntas curiosas y cuando ya tiene que
+derivar para que un operador humano cierre
+la compra.
+En este caso, nosotros lo que hicimos
+para aquí
+fue hacer el web scraping de todo el sitio web
+para obtener toda la información respecto a
+los tours que ellos venden
+y
+pues el agente se nutre de esa información.
+Sin embargo, pues esto literalmente es
+fácil de configurar porque le puedes
+agregar una URL, le puedes agregar tus
+archivos
+y él se nutre.
+En el caso de un website, pues acá vemos
+todos los como los tours que él logró
+obtener
+y la forma en las que él los obtiene.
+Aquí está todo el detalle.
+Entonces, por ejemplo, aquí ya me
+respondió.
+Obviamente también es personalizado como el
+tono, la forma en que debe contestar, todo
+ese tipo de cosas.
+Entonces acá me dice un gusto saludarte,
+perfecto, dice.
+Oye, estoy
+buscando
+un plan
+para
+Tierra Caliente, no sé.
+Entonces aquí es muy importante porque esta
+es una respuesta semántica, es decir,
+lee la intención y entre todo el catálogo
+de tures que hay en este caso, pues él
+dice: Oye, Tierra Caliente es Tonima,
+Tierra Cariente es el Caribe, ¿no?
+Cartagena, ¿no?
+haz de cuenta que tienes un tour, no
+importa mucho también si tu website o tus
+archivos son de otra
+industria, pues es literalmente empieza a
+hallar esas conexiones semánticas y pues
+contesta y empieza a recomendar
+tus eh
+pues tus tours o tu producto, bien.
+Ok, aquí me dice Cabo de la Vela,
+Mano Gigante, Paracaidismo, me gusta Cabo
+de la Vela, le
+voy a decir me gusta,
+Cabo
+de
+la
+vela.
+Listo, vamos a ver qué más pasa.
+Él automáticamente en lo que nosotros lo
+entrenamos, básicamente él sabe cuándo
+empezar a hacer la derivación, cuando hay
+una intención real de compra, porque por
+ejemplo, en este caso,
+lo que pasa es que ellos tienen un montón
+de tours,
+precisamente, por ejemplo, ahorita lo más
+común en esta temporada es el avistamiento
+de ballenas,
+que es
+hermoso.
+Y este es un momento para
+que meterle una campaña muy grande en
+Facebook Ads, en Instagram
+y llegan un montón de mensajes, llegan un
+montón de mensajes a WhatsApp que ellos no
+tienen la capacidad de contestarlos todos o
+tienen que literalmente limitarse y apagar
+ciertas campañas porque son un montón de
+mensajes los que llegan.
+En este caso, pues AI absorbe todos esos
+mensajes
+y
+es más, puede empezar a recomendar otros
+tours en el caso que no sea el adecuado
+para ti.
+¿Qué casos? Por ejemplo, te digo que hay
+unos tours que son de nevado
+y y literalmente pues tú no estás como en
+una posición física de hacer ese
+escalamiento, entonces empieza de acuerdo
+como a las preguntas que te va haciendo y
+dicen “yo
+creo que este tour es más apropiado para
+ti, por esto y esta razón”.
+Toda esa información igual está en el
+website,
+como el tipo, la dificultad, el itinerario,
+todo eso está en el website, entonces
+nosotros lo que hacemos es hacer web
+scraping
+y obtenemos toda esa información y como que
+la preprocesamos para que la gente pues
+pueda responder más a fin de esto.
+No tienes un website, no hay problema,
+igual subimos todos los archivos que tengas
+respecto a tus productos y automáticamente
+pues el legend responde.
+Entonces por acá me dice, mira,
+esto
+es un plan bellísimo, desierto, bla, bla.
+Ok, le voy a decir,
+ok, me encanta,
+me encanta, quiero
+reservar
+ahora,
+listo.
+Entonces vamos a ver qué pasa en este punto.
+Entonces ahí es donde
+él hace un calentamiento del lead, lo que
+se conoce como "hey, ya esa persona está
+casi lista para comprar",
+entonces ya pasa a un humano o si es
+necesario de pronto hacer unas preguntas más
+porque hay unos planes que pueden tener
+ciertos requisitos de edad,
+de condicionamiento físico.
+Entonces
+él como que te guía por esas preguntas y
+cuando ya esté listo para la compra, lo
+deriva a un humano,
+que es precisamente este panel que está por acá.
+Literalmente por acá ya me derivó esa
+conversación, ya me llegó y me llega como
+con unos labels de que es una intención
+alta de compra
+y él se va a ordenar.
+Si me llegan varios mensajes ya asignados a
+mí, pues entonces yo puedo empezar a
+atender.
+También tengo aquí el panel de Agent
+para monitorear literalmente las
+conversaciones que el agente está
+resolviendo por sí solo.
+Pero las que ya fueran asignadas a mí
+significa que ya no necesita una
+intervención.
+Entonces, en este caso, yo le puedo decir,
+ok, me encanta quería resolver ahora,
+entonces aquí ya es un humano respondiendo.
+Entonces le digo, ok,
+págame a esta
+cuenta, y le envío una foto o un audio,
+etcétera.
+Entonces aquí yo ya empiezo a responder
+directo
+y ya se vuelve un chat
+normal, digamos.
+Dime los datos.
+Este ya es un chat normal.
+porque ya se derivó, literalmente ya hubo
+una derivación.
+Entonces ya el que está cerrando ya el
+proceso y los detalles finales es un
+humano, ¿no? Entonces acá dice, dime los
+datos de compra, claro, son 1, 2, 3, 4 y
+listo, ¿no?
+Llega, simplemente se torna una
+conversación normal, típica.
+Sin embargo, aquí vimos como que todo este
+proceso es el que le hubiera tocado
+a, pues a esta persona atender manualmente,
+y es lo que Chaty haría por ti.
+Entonces eso, Chatty es una plataforma de
+agentes que corren en WhatsApp, que pueden
+hacer agendamiento, conectarte a tu
+calendario, conectarte a tu website,
+calentar un link y derivarlo a tu sistema
+de operadores.
+Si tienes uno, dos, tres personas
+atendiendo el WhatsApp,
+pues pueden haber varios operadores o uno e
+igual contestar y apoyarte de un motor de
+AI para hacer esto.
+Entonces, este es nuestro website.
+Literalmente, una de las cosas más potentes es
+absorbe como el 80% de trabajo de esas
+personas que están día a día contestando y
+entonces esas personas solo se encargan ya
+de cerrar esos deals
+y pues AI o esa gente trabaja para ti.
+En este momento estamos teniendo como un
+beta cerrado entonces me gustaría, me
+encantaría que si te interesa me dejes un
+comentario, me
+escribas un mensaje.
+Es más, si estás interesado, puedes
+escribirme a nico@innovatica.bo a este
+correo en el cual
+voy a estar agendando como demos,
+entrevistas con esos usuarios para ver
+estos casos y si es necesario, pues montar
+este sistema para cada uno de esos casos.
+Entonces me encantaría que me ayudes un
+montón.
+Y si conoces a alguien que le pueda
+interesar o conectarme con alguien
+de la industria de.
+no sé, una agencia de viajes, una
+veterinaria, spas, que son como los que
+también
+son de este tipo de target,
+que tienen que hacer agendamiento, que
+contestan mucho en WhatsApp, que reciben un
+montón de mensajes.
+Te agradecería un montón que me conectes
+con esas personas.
+Eso es todo, muchas gracias.
+Y estamos, pues estamos en contacto, espero
+verlos pronto.
+Ah, y una cosa más,
+dentro de mi canal de YouTube
+voy a empezar a subir
+como contenido
+features que voy a ir haciendo de esta
+plataforma.
+Bien, ahorita ya tengo varias cosas y he
+aprendido varias cosas,
+entre ellas utilizar, no sé,
+Railway para todo el sistema y
+como todo la parte de una API energías que
+va haciendo el encolamiento en Redis,
+etcétera.
+También utilicé Superbase, por ejemplo,
+para todo el ya el logging de la
+conversación, etcétera, etcétera.
+Y utilicé por ejemplo el Agent Guntime, que
+es donde viven estos agentes, donde el
+el agente ya vive y se conecta a modelos.
+Entonces, por eso el canal está un
+poquito...
+hace un mes como que no subo videos, pero
+porque he estado trabajando mucho a esto, a
+Rack Systems y un montón de cosas
+que espero ir dosificando y pues subiendo
+video a video, como conectar a Angular con
+Supabase, cómo conectar NestJS, cómo hacer
+un Rack System, cómo hacer un deployment de
+este tipo de agentes utilizando el Agent
+Runtime, o Google Cloud,
+etcétera.
+Entonces, la plataforma está hecha en
+Angular, obviamente, porque pues es el
+mejor framework de frontend.
+Entonces,
+nada, quería también hacerles esa
+actualización en mi canal.
+Si estás aquí en
+mi canal, pues voy a empezar a subir como
+contenido y de pronto
+explicando cómo desarrollé ciertos features
+y lo que se viene, ¿no? Porque pues esto no
+termina.
+Entonces, ¿cómo vamos a ir haciendo ciertos
+agentes o ciertas cosas que voy
+experimentando?
+Y eso es todo, así que también me gustaría
+mucho un like, que lo compartas
+y espero te guste este tipo de contenido
+que ya es como
+ciertos features de Angular, Supabase,
+NES como backend API y
+en
+este caso utilicé el Google EDK
+para hacer el motor.
+Entonces voy a estar como compartiendo
+contenido alrededor de esas tecnologías.
+Así que nada, suscríbete también.
+Nos vemos.
+

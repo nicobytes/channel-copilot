@@ -1,0 +1,202 @@
+
+Hola, mi nombre es Nicolás Molina y esto es
+NG News con las últimas novedades de la
+comunidad de Angular cada semana.
+La versión de TypeScript ya está disponible
+y como se mencionó en algunos capítulos
+anteriores,
+esta versión será la última escrita en el
+propio TypeScript.
+La siguiente estará escrita en Go.
+Para nosotros como desarrolladores en
+Angular, en la versión 21 de Angular
+todavía tenemos TypeScript 5.9 como
+dependencia,
+pero en las ramas de Git o en la versión 22
+ya va a estar TypeScript 6.
+Dado que TypeScript 6 pretende ser un
+puente entre la versión antigua de Angular
+y la nueva,
+viene con muchas características y
+deprecations,
+pero también se adapta en términos de
+configuraciones predeterminadas,
+o cómo funciona el ecosistema en este 2026.
+Esto significa que el modo estricto, Strict
+Mode, estará activado por defecto.
+La opción de módulo por defectoahora es ESNext.
+Así que en la práctica, estás en el entorno
+de módulos de Ecmascript para los nuevos
+proyectos y el target también se ajusta al
+año actual de Ecmascript.
+En este momento recae en el estándar
+ES2025.
+En cuanto a lo descontinuado, el target de
+ES5 va de salida.
+Este es el mundo antes de las clases,
+funciones tipo flechas, promises, let y const,
+template strings y todo eso.
+Para la mayoría de nosotros, eso ya es
+historia antigua.
+De todos modos,
+la opción.
+BaseURL en el TsConfig será obsoleta, y
+el soporte para módulos AMD, UMD y
+System.js también va de salida y será
+descontinuado.
+Por supuesto, puedes optar por no aplicar
+todas estas restricciones, pero ten
+cuidado, porque en TypeScript 7 esto será
+obligatorio.
+También vale la pena mencionar que hay una
+herramienta de migración experimental
+disponible para pasar de TypeScript 5 a
+TypeScript 6.
+Y TypeScript 6 no se trata solo de
+deprecaciones o descontinuaciones.
+También trajo nuevas características.
+Una de ellas es la API de Temporal.
+Es una nueva API de fecha y hora que ya
+está estandarizada y sirve como reemplazo
+para el antiguo objeto Date.
+Como tal,
+proporciona mucha más funcionalidad, por
+ejemplo, zonas horarias, un calendario que
+se puede usar para reflejar un calendario
+chino u otros sistemas, inmutabilidad y una
+gama de otras funcionalidades
+muy interesantes.
+Algunos veteranos recordaremos esto, o el
+cambio de API de fecha y hora en Java hace
+más de 10 años.
+Y en cierto modo, se siente así.
+Pasando a otros temas,
+NGRX, la biblioteca de gestión de estado
+más utilizada en Angular, ya empezó a
+soportar resources y también signal forms.
+Este trabajo ha comenzado.
+Se han publicado dos nuevos
+RFCs, solicitudes de comentarios.
+Y el primer RFC está
+relacionado con el soporte de Signal Forms
+e introduce un nuevo tipo de signal llamado
+Delegate Signal o Signal delegado.
+Hacia el exterior es un signal en el que se
+puede escribir, pero no almacenar un valor.
+En su lugar, lo escribe en otro signal.
+Pero, ¿para qué sirve esto? Digamos que
+tenemos un objeto de usuario en un signal,
+que tiene dos propiedades anidadas: nombre
+y dirección.
+El nombre tiene otras propiedades, el
+nombre y apellido.
+Y la dirección tiene calle y ciudad.
+Si tenemos un formulario que requiere una
+versión aplanada, flat del objeto del
+usuario, normalmente crearíamos un link
+signal.
+El problema es que los cambios en el
+formulario podrían sincronizarse de vuelta
+al signal original.
+Por el momento, la única forma de hacerlo
+sería usar un effect,
+lo cual sería una sincronización asíncrona.
+El delegate signal, por otro lado, resuelve
+el problema al escribir sincrónicamente de
+vuelta en el signal original.
+Este signal delegado también se puede usar
+para otros casos, pero la idea para el
+signal store es que, si usas signal forms,
+cada cambio de cada
+campo en el formulario actualiza de
+inmediato el estado.
+En cierto modo, puedes ver el delegate
+signal como un linked signal,
+donde no se crea un clon, sino que los
+cambios se escriben directamente en el
+estado original del signal.
+El otro RFC trata sobre el soporte a los
+recursos.
+Te permite extender los recursos de lo que
+va más allá de las posibilidades de la
+función Snapshot actual.
+Por ejemplo, una extensión cambiará el
+comportamiento de un recurso en estado de error,
+donde un acceso al valor no arrojaría una
+excepción.
+También son posibles las extensiones
+personalizadas.
+Incluso hay una opción para definir
+extensiones predeterminadas.
+Ambos reportes fueron creados por Marko, y
+el mismo Marko también fue invitado en un
+episodio anterior del Angular Plus Show.
+Así que si estás interesado en saber más
+sobre la gestión de estado y Signal Store,
+en particular, deberías echar un vistoso a
+ese episodio.
+En otras noticias, Martina Kraus fue
+invitada al Angular Plus Show y eso
+significa que el tema fue la seguridad.
+Junto a los tres presentadores
+Lara Newsom, Brooke Avery, and Jan-Niklas Wortmann
+discutieron todo el portafolio de temas de
+seguridad.
+Ya sean tipos confiables, sanitization,
+ataques de cross-site screening, cross-site
+requests, pero también políticas de
+contenido y el mayor riesgo que se viene
+con la inteligencia artificial.
+Al final, Martina dio algunos consejos
+sobre dónde empezar con la seguridad.
+Crea conciencia de lo que hay afuera.
+Hay un nuevo top 10 de OWASP del 2025.
+Allí puedes ver los ataques más comunes y
+luego simplemente preguntarte ¿pueden
+ocurrir estos ataques en mi sitio web?
+También destaco la OWASP Juice Shop,
+que que está escrita en Angular y es un
+entorno de pruebas experimental con
+diferentes tipos de vulnerabilidades para
+que testees tu aplicación.
+Además tendremos una tercera opción de
+Debounce en Angular.
+La primera fue la función Debounce de
+SignalForms, que lo que significa es que
+hay un retraso entre lo que ocurre en un
+campo de formulario y su modelo.
+La segunda es la función Debounced,
+que se puede usar para cualquier signal.
+Y la tercera
+es para los validadores asíncronos en
+signos forms.
+Esto permite tener validadores síncronos
+sin debounce, pero aplicar un debounces
+directamente en el validador asíncrono.
+Esta función se ha integrado en la rama de
+la versión 22.
+En otros temas, Alfredo Pérez publicó una
+serie de tres artículos sobre el desarrollo
+impulsado por especificaciones con AI, o
+conocido como Spec Driven Development.
+Probablemente la herramienta más popular
+sea SpecKit en GitHub,
+lo cual Alfredo describe en sus artículos.
+Pedro, además, ha creado una extensión para
+VS Code llamada SpecKit Companion, no solo
+para visualizar, sino para editar y
+ejecutar esa especificación.
+Dado que SpecKit de GitHub no es la única
+herramienta que existe, Alfredo también
+muestra alternativas y cómo se puede
+configurar SpecKit
+y su extensión para soportar estas
+herramientas también.
+Finalmente, las grabaciones del Meetup de
+Angular Graz ya están disponibles en
+YouTube,
+no se publican todas a la vez,
+siguen siendo en un intervalo regular.
+Y eso es todo, les deseo una excelente
+semana y nos vemos en el próximo episodio.
+Adios

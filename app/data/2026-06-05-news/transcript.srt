@@ -1,0 +1,804 @@
+1
+00:00:00,040 --> 00:00:02,280
+Hola, mi nombre es Nicolás Molina y esto es
+
+2
+00:00:02,280 --> 00:00:04,240
+NG News con las últimas novedades de la
+
+3
+00:00:04,240 --> 00:00:06,320
+comunidad de Angular cada semana.
+
+4
+00:00:06,360 --> 00:00:08,720
+La versión de TypeScript ya está disponible
+
+5
+00:00:08,720 --> 00:00:10,360
+y como se mencionó en algunos capítulos
+
+6
+00:00:10,360 --> 00:00:11,040
+anteriores,
+
+7
+00:00:11,280 --> 00:00:13,400
+esta versión será la última escrita en el
+
+8
+00:00:13,400 --> 00:00:14,560
+propio TypeScript.
+
+9
+00:00:14,560 --> 00:00:16,880
+La siguiente estará escrita en Go.
+
+10
+00:00:17,200 --> 00:00:19,080
+Para nosotros como desarrolladores en
+
+11
+00:00:19,080 --> 00:00:21,120
+Angular, en la versión 21 de Angular
+
+12
+00:00:21,120 --> 00:00:23,680
+todavía tenemos TypeScript 5.9 como
+
+13
+00:00:23,680 --> 00:00:24,480
+dependencia,
+
+14
+00:00:24,880 --> 00:00:27,600
+pero en las ramas de Git o en la versión 22
+
+15
+00:00:27,840 --> 00:00:29,920
+ya va a estar TypeScript 6.
+
+16
+00:00:30,240 --> 00:00:32,320
+Dado que TypeScript 6 pretende ser un
+
+17
+00:00:32,320 --> 00:00:34,800
+puente entre la versión antigua de Angular
+
+18
+00:00:34,800 --> 00:00:35,520
+y la nueva,
+
+19
+00:00:35,760 --> 00:00:37,720
+viene con muchas características y
+
+20
+00:00:37,720 --> 00:00:38,560
+deprecations,
+
+21
+00:00:38,800 --> 00:00:40,320
+pero también se adapta en términos de
+
+22
+00:00:40,320 --> 00:00:41,920
+configuraciones predeterminadas,
+
+23
+00:00:42,400 --> 00:00:45,120
+o cómo funciona el ecosistema en este 2026.
+
+24
+00:00:45,120 --> 00:00:47,320
+Esto significa que el modo estricto, Strict
+
+25
+00:00:47,320 --> 00:00:49,600
+Mode, estará activado por defecto.
+
+26
+00:00:49,600 --> 00:00:52,480
+La opción de módulo por defectoahora es ESNext.
+
+27
+00:00:52,680 --> 00:00:54,800
+Así que en la práctica, estás en el entorno
+
+28
+00:00:54,800 --> 00:00:56,640
+de módulos de Ecmascript para los nuevos
+
+29
+00:00:56,640 --> 00:00:59,080
+proyectos y el target también se ajusta al
+
+30
+00:00:59,080 --> 00:01:00,920
+año actual de Ecmascript.
+
+31
+00:01:01,200 --> 00:01:03,120
+En este momento recae en el estándar
+
+32
+00:01:03,120 --> 00:01:04,480
+ES2025.
+
+33
+00:01:04,880 --> 00:01:08,240
+En cuanto a lo descontinuado, el target de
+
+34
+00:01:08,320 --> 00:01:10,080
+ES5 va de salida.
+
+35
+00:01:10,240 --> 00:01:12,720
+Este es el mundo antes de las clases,
+
+36
+00:01:12,720 --> 00:01:15,920
+funciones tipo flechas, promises, let y const,
+
+37
+00:01:15,920 --> 00:01:17,760
+template strings y todo eso.
+
+38
+00:01:17,920 --> 00:01:19,760
+Para la mayoría de nosotros, eso ya es
+
+39
+00:01:19,760 --> 00:01:20,640
+historia antigua.
+
+40
+00:01:20,640 --> 00:01:21,280
+De todos modos,
+
+41
+00:01:21,520 --> 00:01:22,440
+la opción.
+
+42
+00:01:22,560 --> 00:01:26,360
+BaseURL en el TsConfig será obsoleta, y
+
+43
+00:01:26,360 --> 00:01:29,200
+el soporte para módulos AMD, UMD y
+
+44
+00:01:29,200 --> 00:01:31,920
+System.js también va de salida y será
+
+45
+00:01:31,920 --> 00:01:32,960
+descontinuado.
+
+46
+00:01:33,520 --> 00:01:35,640
+Por supuesto, puedes optar por no aplicar
+
+47
+00:01:35,640 --> 00:01:37,120
+todas estas restricciones, pero ten
+
+48
+00:01:37,120 --> 00:01:39,600
+cuidado, porque en TypeScript 7 esto será
+
+49
+00:01:39,760 --> 00:01:40,640
+obligatorio.
+
+50
+00:01:40,960 --> 00:01:42,640
+También vale la pena mencionar que hay una
+
+51
+00:01:42,640 --> 00:01:44,160
+herramienta de migración experimental
+
+52
+00:01:44,160 --> 00:01:46,800
+disponible para pasar de TypeScript 5 a
+
+53
+00:01:46,800 --> 00:01:47,760
+TypeScript 6.
+
+54
+00:01:48,160 --> 00:01:50,080
+Y TypeScript 6 no se trata solo de
+
+55
+00:01:50,080 --> 00:01:52,080
+deprecaciones o descontinuaciones.
+
+56
+00:01:52,160 --> 00:01:54,160
+También trajo nuevas características.
+
+57
+00:01:54,160 --> 00:01:56,680
+Una de ellas es la API de Temporal.
+
+58
+00:01:56,960 --> 00:01:59,120
+Es una nueva API de fecha y hora que ya
+
+59
+00:01:59,120 --> 00:02:01,240
+está estandarizada y sirve como reemplazo
+
+60
+00:02:01,240 --> 00:02:02,920
+para el antiguo objeto Date.
+
+61
+00:02:03,520 --> 00:02:04,080
+Como tal,
+
+62
+00:02:04,320 --> 00:02:06,640
+proporciona mucha más funcionalidad, por
+
+63
+00:02:06,640 --> 00:02:08,640
+ejemplo, zonas horarias, un calendario que
+
+64
+00:02:08,640 --> 00:02:10,800
+se puede usar para reflejar un calendario
+
+65
+00:02:10,960 --> 00:02:13,960
+chino u otros sistemas, inmutabilidad y una
+
+66
+00:02:13,960 --> 00:02:15,600
+gama de otras funcionalidades
+
+67
+00:02:15,840 --> 00:02:16,960
+muy interesantes.
+
+68
+00:02:17,240 --> 00:02:19,600
+Algunos veteranos recordaremos esto, o el
+
+69
+00:02:19,600 --> 00:02:22,120
+cambio de API de fecha y hora en Java hace
+
+70
+00:02:22,120 --> 00:02:23,280
+más de 10 años.
+
+71
+00:02:23,280 --> 00:02:25,000
+Y en cierto modo, se siente así.
+
+72
+00:02:25,120 --> 00:02:26,240
+Pasando a otros temas,
+
+73
+00:02:26,480 --> 00:02:28,960
+NGRX, la biblioteca de gestión de estado
+
+74
+00:02:28,960 --> 00:02:31,040
+más utilizada en Angular, ya empezó a
+
+75
+00:02:31,040 --> 00:02:34,440
+soportar resources y también signal forms.
+
+76
+00:02:34,480 --> 00:02:36,080
+Este trabajo ha comenzado.
+
+77
+00:02:36,240 --> 00:02:38,000
+Se han publicado dos nuevos
+
+78
+00:02:38,400 --> 00:02:40,520
+RFCs, solicitudes de comentarios.
+
+79
+00:02:40,520 --> 00:02:42,400
+Y el primer RFC está
+
+80
+00:02:42,640 --> 00:02:44,880
+relacionado con el soporte de Signal Forms
+
+81
+00:02:44,880 --> 00:02:47,200
+e introduce un nuevo tipo de signal llamado
+
+82
+00:02:47,200 --> 00:02:49,800
+Delegate Signal o Signal delegado.
+
+83
+00:02:50,400 --> 00:02:52,640
+Hacia el exterior es un signal en el que se
+
+84
+00:02:52,640 --> 00:02:54,800
+puede escribir, pero no almacenar un valor.
+
+85
+00:02:54,800 --> 00:02:57,400
+En su lugar, lo escribe en otro signal.
+
+86
+00:02:57,400 --> 00:02:58,920
+Pero, ¿para qué sirve esto? Digamos que
+
+87
+00:02:58,920 --> 00:03:01,520
+tenemos un objeto de usuario en un signal,
+
+88
+00:03:01,520 --> 00:03:03,880
+que tiene dos propiedades anidadas: nombre
+
+89
+00:03:03,880 --> 00:03:04,640
+y dirección.
+
+90
+00:03:05,440 --> 00:03:07,680
+El nombre tiene otras propiedades, el
+
+91
+00:03:07,680 --> 00:03:09,120
+nombre y apellido.
+
+92
+00:03:09,440 --> 00:03:11,280
+Y la dirección tiene calle y ciudad.
+
+93
+00:03:11,440 --> 00:03:13,200
+Si tenemos un formulario que requiere una
+
+94
+00:03:13,200 --> 00:03:15,680
+versión aplanada, flat del objeto del
+
+95
+00:03:15,680 --> 00:03:18,080
+usuario, normalmente crearíamos un link
+
+96
+00:03:18,080 --> 00:03:18,560
+signal.
+
+97
+00:03:19,200 --> 00:03:21,080
+El problema es que los cambios en el
+
+98
+00:03:21,080 --> 00:03:23,360
+formulario podrían sincronizarse de vuelta
+
+99
+00:03:23,360 --> 00:03:24,560
+al signal original.
+
+100
+00:03:24,840 --> 00:03:26,560
+Por el momento, la única forma de hacerlo
+
+101
+00:03:26,560 --> 00:03:27,920
+sería usar un effect,
+
+102
+00:03:28,600 --> 00:03:31,680
+lo cual sería una sincronización asíncrona.
+
+103
+00:03:31,920 --> 00:03:34,440
+El delegate signal, por otro lado, resuelve
+
+104
+00:03:34,440 --> 00:03:36,640
+el problema al escribir sincrónicamente de
+
+105
+00:03:36,640 --> 00:03:38,360
+vuelta en el signal original.
+
+106
+00:03:38,640 --> 00:03:41,360
+Este signal delegado también se puede usar
+
+107
+00:03:41,360 --> 00:03:43,200
+para otros casos, pero la idea para el
+
+108
+00:03:43,200 --> 00:03:45,440
+signal store es que, si usas signal forms,
+
+109
+00:03:45,600 --> 00:03:47,160
+cada cambio de cada
+
+110
+00:03:47,520 --> 00:03:49,320
+campo en el formulario actualiza de
+
+111
+00:03:49,320 --> 00:03:50,480
+inmediato el estado.
+
+112
+00:03:50,880 --> 00:03:52,560
+En cierto modo, puedes ver el delegate
+
+113
+00:03:52,560 --> 00:03:53,960
+signal como un linked signal,
+
+114
+00:03:54,560 --> 00:03:56,880
+donde no se crea un clon, sino que los
+
+115
+00:03:56,880 --> 00:03:58,600
+cambios se escriben directamente en el
+
+116
+00:03:58,600 --> 00:03:59,960
+estado original del signal.
+
+117
+00:04:00,040 --> 00:04:02,040
+El otro RFC trata sobre el soporte a los
+
+118
+00:04:02,040 --> 00:04:02,800
+recursos.
+
+119
+00:04:02,800 --> 00:04:04,800
+Te permite extender los recursos de lo que
+
+120
+00:04:04,800 --> 00:04:06,480
+va más allá de las posibilidades de la
+
+121
+00:04:06,480 --> 00:04:08,120
+función Snapshot actual.
+
+122
+00:04:08,160 --> 00:04:10,120
+Por ejemplo, una extensión cambiará el
+
+123
+00:04:10,120 --> 00:04:12,880
+comportamiento de un recurso en estado de error,
+
+124
+00:04:13,200 --> 00:04:15,560
+donde un acceso al valor no arrojaría una
+
+125
+00:04:15,560 --> 00:04:16,320
+excepción.
+
+126
+00:04:16,800 --> 00:04:18,560
+También son posibles las extensiones
+
+127
+00:04:18,560 --> 00:04:19,440
+personalizadas.
+
+128
+00:04:19,440 --> 00:04:21,360
+Incluso hay una opción para definir
+
+129
+00:04:21,360 --> 00:04:23,040
+extensiones predeterminadas.
+
+130
+00:04:23,480 --> 00:04:25,920
+Ambos reportes fueron creados por Marko, y
+
+131
+00:04:25,920 --> 00:04:27,960
+el mismo Marko también fue invitado en un
+
+132
+00:04:27,960 --> 00:04:30,480
+episodio anterior del Angular Plus Show.
+
+133
+00:04:30,800 --> 00:04:32,560
+Así que si estás interesado en saber más
+
+134
+00:04:32,560 --> 00:04:34,880
+sobre la gestión de estado y Signal Store,
+
+135
+00:04:35,120 --> 00:04:37,040
+en particular, deberías echar un vistoso a
+
+136
+00:04:37,040 --> 00:04:37,840
+ese episodio.
+
+137
+00:04:37,840 --> 00:04:39,400
+En otras noticias, Martina Kraus fue
+
+138
+00:04:39,400 --> 00:04:41,000
+invitada al Angular Plus Show y eso
+
+139
+00:04:41,000 --> 00:04:43,280
+significa que el tema fue la seguridad.
+
+140
+00:04:43,360 --> 00:04:45,200
+Junto a los tres presentadores
+
+141
+00:04:45,200 --> 00:04:48,240
+Lara Newsom, Brooke Avery, and Jan-Niklas Wortmann
+
+142
+00:04:48,400 --> 00:04:50,160
+discutieron todo el portafolio de temas de
+
+143
+00:04:50,160 --> 00:04:50,640
+seguridad.
+
+144
+00:04:51,120 --> 00:04:53,200
+Ya sean tipos confiables, sanitization,
+
+145
+00:04:53,200 --> 00:04:55,520
+ataques de cross-site screening, cross-site
+
+146
+00:04:55,520 --> 00:04:57,040
+requests, pero también políticas de
+
+147
+00:04:57,040 --> 00:04:59,400
+contenido y el mayor riesgo que se viene
+
+148
+00:04:59,400 --> 00:05:00,800
+con la inteligencia artificial.
+
+149
+00:05:00,960 --> 00:05:02,600
+Al final, Martina dio algunos consejos
+
+150
+00:05:02,600 --> 00:05:04,720
+sobre dónde empezar con la seguridad.
+
+151
+00:05:05,280 --> 00:05:07,640
+Crea conciencia de lo que hay afuera.
+
+152
+00:05:07,640 --> 00:05:11,360
+Hay un nuevo top 10 de OWASP del 2025.
+
+153
+00:05:11,840 --> 00:05:14,160
+Allí puedes ver los ataques más comunes y
+
+154
+00:05:14,160 --> 00:05:16,040
+luego simplemente preguntarte ¿pueden
+
+155
+00:05:16,040 --> 00:05:17,640
+ocurrir estos ataques en mi sitio web?
+
+156
+00:05:18,240 --> 00:05:20,320
+También destaco la OWASP Juice Shop,
+
+157
+00:05:20,720 --> 00:05:22,680
+que que está escrita en Angular y es un
+
+158
+00:05:22,680 --> 00:05:24,400
+entorno de pruebas experimental con
+
+159
+00:05:24,400 --> 00:05:26,560
+diferentes tipos de vulnerabilidades para
+
+160
+00:05:26,560 --> 00:05:28,120
+que testees tu aplicación.
+
+161
+00:05:28,160 --> 00:05:30,240
+Además tendremos una tercera opción de
+
+162
+00:05:30,240 --> 00:05:31,480
+Debounce en Angular.
+
+163
+00:05:31,560 --> 00:05:33,560
+La primera fue la función Debounce de
+
+164
+00:05:33,560 --> 00:05:35,640
+SignalForms, que lo que significa es que
+
+165
+00:05:35,640 --> 00:05:37,480
+hay un retraso entre lo que ocurre en un
+
+166
+00:05:37,480 --> 00:05:39,360
+campo de formulario y su modelo.
+
+167
+00:05:39,720 --> 00:05:41,600
+La segunda es la función Debounced,
+
+168
+00:05:41,920 --> 00:05:44,680
+que se puede usar para cualquier signal.
+
+169
+00:05:44,880 --> 00:05:45,760
+Y la tercera
+
+170
+00:05:46,400 --> 00:05:48,560
+es para los validadores asíncronos en
+
+171
+00:05:48,560 --> 00:05:49,320
+signos forms.
+
+172
+00:05:49,320 --> 00:05:52,080
+Esto permite tener validadores síncronos
+
+173
+00:05:52,560 --> 00:05:54,600
+sin debounce, pero aplicar un debounces
+
+174
+00:05:54,600 --> 00:05:56,640
+directamente en el validador asíncrono.
+
+175
+00:05:57,120 --> 00:05:58,880
+Esta función se ha integrado en la rama de
+
+176
+00:05:58,880 --> 00:06:00,000
+la versión 22.
+
+177
+00:06:00,000 --> 00:06:02,000
+En otros temas, Alfredo Pérez publicó una
+
+178
+00:06:02,000 --> 00:06:04,080
+serie de tres artículos sobre el desarrollo
+
+179
+00:06:04,080 --> 00:06:06,240
+impulsado por especificaciones con AI, o
+
+180
+00:06:06,240 --> 00:06:08,320
+conocido como Spec Driven Development.
+
+181
+00:06:08,720 --> 00:06:10,480
+Probablemente la herramienta más popular
+
+182
+00:06:10,480 --> 00:06:11,920
+sea SpecKit en GitHub,
+
+183
+00:06:12,240 --> 00:06:14,240
+lo cual Alfredo describe en sus artículos.
+
+184
+00:06:14,440 --> 00:06:16,360
+Pedro, además, ha creado una extensión para
+
+185
+00:06:16,360 --> 00:06:18,840
+VS Code llamada SpecKit Companion, no solo
+
+186
+00:06:18,840 --> 00:06:20,400
+para visualizar, sino para editar y
+
+187
+00:06:20,400 --> 00:06:22,080
+ejecutar esa especificación.
+
+188
+00:06:22,240 --> 00:06:24,440
+Dado que SpecKit de GitHub no es la única
+
+189
+00:06:24,440 --> 00:06:26,080
+herramienta que existe, Alfredo también
+
+190
+00:06:26,240 --> 00:06:28,240
+muestra alternativas y cómo se puede
+
+191
+00:06:28,240 --> 00:06:29,440
+configurar SpecKit
+
+192
+00:06:29,760 --> 00:06:31,360
+y su extensión para soportar estas
+
+193
+00:06:31,360 --> 00:06:32,440
+herramientas también.
+
+194
+00:06:32,480 --> 00:06:34,400
+Finalmente, las grabaciones del Meetup de
+
+195
+00:06:34,400 --> 00:06:36,080
+Angular Graz ya están disponibles en
+
+196
+00:06:36,080 --> 00:06:36,360
+YouTube,
+
+197
+00:06:36,640 --> 00:06:38,160
+no se publican todas a la vez,
+
+198
+00:06:38,400 --> 00:06:40,400
+siguen siendo en un intervalo regular.
+
+199
+00:06:40,400 --> 00:06:41,920
+Y eso es todo, les deseo una excelente
+
+200
+00:06:41,920 --> 00:06:44,160
+semana y nos vemos en el próximo episodio.
+
+201
+00:06:44,160 --> 00:06:44,240
+Adios
+

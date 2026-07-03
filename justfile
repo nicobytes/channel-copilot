@@ -18,15 +18,20 @@ format:
 run:
     echo $FOLDER
     echo $YOUTUBE_LINK
-    cd app && python main.py download $YOUTUBE_LINK --quality lowest
-    cd app && python main.py audio
-    cd app && python main.py transcribe $FOLDER
     cd app && python main.py summary $FOLDER
     cd app && python main.py yt-title $FOLDER "Spanish LATAM"
     cd app && python main.py yt-description $FOLDER "Spanish LATAM"
     cd app && python main.py yt-chapters $FOLDER "Spanish LATAM"
     cd app && python main.py tweet $FOLDER $YOUTUBE_LINK "Developers"
     cd app && python main.py linkedin $FOLDER "Spanish LATAM"
+
+news:
+    echo $FOLDER
+    echo $YOUTUBE_LINK
+    cd app && python main.py summary $FOLDER
+    cd app && python main.py yt-title $FOLDER "Spanish LATAM"
+    cd app && python main.py yt-description $FOLDER "Spanish LATAM"
+    cd app && python main.py yt-chapters $FOLDER "Spanish LATAM"
 
 download:
     echo "Downloading video..."
@@ -75,3 +80,6 @@ tweet:
 linkedin:
     echo $FOLDER
     cd app && python main.py linkedin $FOLDER "Spanish LATAM"
+
+markitdown:
+    markitdown markitdown/file.pdf > markitdown/file.md

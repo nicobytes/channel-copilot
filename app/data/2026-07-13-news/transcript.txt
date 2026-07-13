@@ -1,0 +1,111 @@
+Hola, mi nombre es Ricardo Chavarria y esto
+es NG News en español con las últimas
+actualizaciones de la comunidad de Angular
+en nuestro idioma.
+La sesión mensual de preguntas y respuestas
+se realizó como siempre con Mark Thompson
+del equipo
+de Angular y esta vez con Alex Rickabaugh,
+quien es líder técnico del framework
+Angular.
+Estas son las conclusiones principales.
+Alex aclaró por qué Selectorless fue
+degradado, Selectorless era una
+funcionalidad planificada
+que nos habría permitido referirnos a un
+componente en la plantilla mediante el
+nombre de su clase en lugar de su selector.
+Esto también habría eliminado la necesidad
+de una doble importación.
+Pero, en gran medida, lo que le paso a Selectorless se debe a la IA.
+Hay mucho valor en que la AI
+tenga una sintaxis consistente,
+Y bien entendida con la cual escribir código
+al escribir plantillas modernas de Angular cuando
+le diste las instrucciones correctas para hacerlo.
+Pero en cierto modo cambia un poco nuestros cálculos
+sobre cómo pensamos en la evolución del
+framework.
+Eso habría sido enormemente negativo
+impactando la capacidad de la IA para generar
+el código Angular moderno se encuentra en un punto crítico
+momento en que todos empezaban a darse cuenta
+cómo utilizar estas herramientas con todos los
+frameworks que existen.
+Y entonces tenemos una especie de solución temporal
+porque al hacer una especie de gran ruptura
+También surgió la pregunta recurrente sobre
+skill versus herramientas MCP.
+aquí Alex dijo
+Las habilidades son algo relativamente nuevo que es
+en gran medida, están empezando a reemplazar a MCP.
+Las agentes son realmente muy buenas en solo
+utilizando comandos estándar de la CLI.
+Así que si le das al agente una CLI que pueda
+llamar como lo haría un humano en el
+terminal, tienen una herramienta que llama a algo como
+ejecutar un script de shell,
+corriendo un
+comando de shell, luego
+ellas son capaces de trabajar con eso
+entonces, una habilidad es como una forma más general de
+darle al agente
+información sobre
+una memoria o un sistema o un proceso que
+quieres que siga
+El programa Angular Plus lanzo un episodio sobre testing
+los invitados fueron Andrew Scott del equipo Angular
+Younes Jaidi y Rainer Hahnekamp.
+Fue una gran discusión, muy animada.
+Y Andrew explicó por qué el testing Zoneless
+mejora, aunque ya no tengamos acceso
+a waitForAsync o fakeAsync
+Pero una de las principales razones fue esa prueba
+el cuerpo opera en la zona de la raíz
+por lo tanto, no toca la zona angular
+digamos, como, oh, cambié algo y luego
+ejecutar la comprobación de cambios automáticamente
+es como cualquier cosa que estés haciendo en la prueba
+el cuerpo está completamente
+y eso no lo sabe
+así que tienes que envolver cada
+llamada si quisieras que funcionara exactamente como
+una app.
+Otro punto de discusión fue la función
+AutoTick, que se lanzó poco después de la
+grabación.
+AutoTick ya apareció en un episodio
+anterior de NGNews, pero en resumen, hace
+que manejar tareas asíncronas con
+temporizadores falsos sea mucho más fácil.
+Sin embargo, Younes señaló que auto-tick y
+los temporizadores falsos en general no son
+su primera opción.
+Siempre digo que
+Manten temporizadores falsos como el 
+ultimo recurso, también otra cosa es que estoy
+asustado es que la gente
+especialmente con los LLM, podrían terminar
+con tests que utilizan tanto temporizadores reales como
+temporizadores falsos al mismo tiempo
+Por ejemplo, si montas un componente y
+entonces es cuando configuras el temporizador falso.
+Entonces su componente podría estar utilizando un setInterval
+o algo que sea real
+la implementación real
+Pero cuando lo llamas, cuando haces clic o
+tu interactúas, usas el falso,
+y entonces "Suerte con eso"
+Las conferencias Angular han visto tiempos
+mejores.
+ngRome tuvo que moverse a la segunda mitad
+y ng-de, la conferencia de Angular
+de Alemania
+fue cancelada por completo.
+Así que ahora en adelante, al final de cada
+episodio de ng-news, publicaremos las
+próximas conferencias, al menos de aquellas
+que tengamos conocimiento.
+Y eso es todo.
+Espero que tengas una excelente semana.
+Nos vemos en el próximo episodio. Adiós.

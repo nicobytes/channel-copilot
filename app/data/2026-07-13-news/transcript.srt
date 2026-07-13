@@ -1,0 +1,452 @@
+1
+00:00:00,000 --> 00:00:02,160
+Hola, mi nombre es Ricardo Chavarria y esto
+
+2
+00:00:02,160 --> 00:00:04,240
+es NG News en español con las últimas
+
+3
+00:00:04,240 --> 00:00:06,040
+actualizaciones de la comunidad de Angular
+
+4
+00:00:06,040 --> 00:00:07,080
+en nuestro idioma.
+
+5
+00:00:07,160 --> 00:00:09,360
+La sesión mensual de preguntas y respuestas
+
+6
+00:00:09,360 --> 00:00:11,200
+se realizó como siempre con Mark Thompson
+
+7
+00:00:11,200 --> 00:00:11,840
+del equipo
+
+8
+00:00:12,080 --> 00:00:14,200
+de Angular y esta vez con Alex Rickabaugh,
+
+9
+00:00:14,200 --> 00:00:15,880
+quien es líder técnico del framework
+
+10
+00:00:15,880 --> 00:00:16,360
+Angular.
+
+11
+00:00:16,360 --> 00:00:18,360
+Estas son las conclusiones principales.
+
+12
+00:00:18,880 --> 00:00:21,160
+Alex aclaró por qué Selectorless fue
+
+13
+00:00:21,160 --> 00:00:22,880
+degradado, Selectorless era una
+
+14
+00:00:22,880 --> 00:00:24,320
+funcionalidad planificada
+
+15
+00:00:24,840 --> 00:00:27,120
+que nos habría permitido referirnos a un
+
+16
+00:00:27,120 --> 00:00:28,800
+componente en la plantilla mediante el
+
+17
+00:00:28,800 --> 00:00:30,880
+nombre de su clase en lugar de su selector.
+
+18
+00:00:31,520 --> 00:00:33,760
+Esto también habría eliminado la necesidad
+
+19
+00:00:33,760 --> 00:00:35,600
+de una doble importación.
+
+20
+00:00:35,600 --> 00:00:39,040
+Pero, en gran medida, lo que le paso a Selectorless se debe a la IA.
+
+21
+00:00:39,160 --> 00:00:41,120
+Hay mucho valor en que la AI
+
+22
+00:00:43,280 --> 00:00:48,520
+tenga una sintaxis consistente,
+
+23
+00:00:48,520 --> 00:00:51,800
+Y bien entendida con la cual escribir código
+
+24
+00:00:51,520 --> 00:00:52,720
+notamos que en realidad era bastante buena escribiendo plantillas
+
+25
+00:00:49,720 --> 00:00:52,040
+modernas de Angular cuando le dabas las instrucciones correctas.
+
+26
+00:00:52,040 --> 00:00:54,760
+al escribir plantillas modernas de Angular cuando
+
+27
+00:00:54,760 --> 00:00:56,760
+le diste las instrucciones correctas para hacerlo.
+
+28
+00:00:57,200 --> 00:01:00,360
+Pero en cierto modo cambia un poco nuestros cálculos
+
+29
+00:01:00,360 --> 00:01:02,240
+sobre cómo pensamos en la evolución del
+
+30
+00:01:02,240 --> 00:01:03,000
+framework.
+
+31
+00:01:03,000 --> 00:01:05,960
+Eso habría sido enormemente negativo
+
+32
+00:01:05,960 --> 00:01:08,400
+impactando la capacidad de la IA para generar
+
+33
+00:01:08,400 --> 00:01:10,960
+el código Angular moderno se encuentra en un punto crítico
+
+34
+00:01:10,960 --> 00:01:13,160
+momento en que todos empezaban a darse cuenta
+
+35
+00:01:13,160 --> 00:01:15,120
+cómo utilizar estas herramientas con todos los
+
+36
+00:01:15,120 --> 00:01:16,240
+frameworks que existen.
+
+37
+00:01:16,960 --> 00:01:18,880
+Y entonces tenemos una especie de solución temporal
+
+38
+00:01:19,280 --> 00:01:22,000
+porque al hacer una especie de gran ruptura
+
+39
+00:01:22,720 --> 00:01:24,840
+También surgió la pregunta recurrente sobre
+
+40
+00:01:24,840 --> 00:01:27,040
+skill versus herramientas MCP.
+
+41
+00:01:27,280 --> 00:01:28,400
+aquí Alex dijo
+
+42
+00:01:28,440 --> 00:01:31,120
+Las habilidades son algo relativamente nuevo que es
+
+43
+00:01:31,120 --> 00:01:33,400
+en gran medida, están empezando a reemplazar a MCP.
+
+44
+00:01:33,400 --> 00:01:35,520
+Las agentes son realmente muy buenas en solo
+
+45
+00:01:35,520 --> 00:01:37,880
+utilizando comandos estándar de la CLI.
+
+46
+00:01:38,480 --> 00:01:41,240
+Así que si le das al agente una CLI que pueda
+
+47
+00:01:41,240 --> 00:01:42,840
+llamar como lo haría un humano en el
+
+48
+00:01:42,840 --> 00:01:44,800
+terminal, tienen una herramienta que llama a algo como
+
+49
+00:01:44,800 --> 00:01:45,720
+ejecutar un script de shell,
+
+50
+00:01:46,200 --> 00:01:46,600
+corriendo un
+
+51
+00:01:46,880 --> 00:01:48,040
+comando de shell, luego
+
+52
+00:01:48,440 --> 00:01:50,280
+ellas son capaces de trabajar con eso
+
+53
+00:01:50,280 --> 00:01:52,800
+entonces, una habilidad es como una forma más general de
+
+54
+00:01:53,480 --> 00:01:54,520
+darle al agente
+
+55
+00:01:54,760 --> 00:01:56,040
+información sobre
+
+56
+00:01:56,520 --> 00:01:59,200
+una memoria o un sistema o un proceso que
+
+57
+00:01:59,200 --> 00:02:00,040
+quieres que siga
+
+58
+00:02:00,120 --> 00:02:03,880
+El programa Angular Plus lanzo un episodio sobre testing
+
+59
+00:02:03,960 --> 00:02:06,440
+los invitados fueron Andrew Scott del equipo Angular
+
+60
+00:02:08,240 --> 00:02:09,760
+Younes Jaidi y Rainer Hahnekamp.
+
+61
+00:02:09,760 --> 00:02:12,320
+Fue una gran discusión, muy animada.
+
+62
+00:02:12,320 --> 00:02:14,520
+Y Andrew explicó por qué el testing Zoneless
+
+63
+00:02:14,520 --> 00:02:17,080
+mejora, aunque ya no tengamos acceso
+
+64
+00:02:17,480 --> 00:02:19,000
+a waitForAsync o fakeAsync
+
+65
+00:02:19,320 --> 00:02:21,440
+Pero una de las principales razones fue esa prueba
+
+66
+00:02:21,440 --> 00:02:23,440
+el cuerpo opera en la zona de la raíz
+
+67
+00:02:23,440 --> 00:02:25,640
+por lo tanto, no toca la zona angular
+
+68
+00:02:25,640 --> 00:02:28,360
+digamos, como, oh, cambié algo y luego
+
+69
+00:02:28,680 --> 00:02:30,240
+ejecutar la comprobación de cambios automáticamente
+
+70
+00:02:30,240 --> 00:02:32,640
+es como cualquier cosa que estés haciendo en la prueba
+
+71
+00:02:32,640 --> 00:02:34,520
+el cuerpo está completamente
+
+72
+00:02:34,920 --> 00:02:36,120
+y eso no lo sabe
+
+73
+00:02:36,360 --> 00:02:39,360
+así que tienes que envolver cada
+
+74
+00:02:39,360 --> 00:02:41,120
+llamada si quisieras que funcionara exactamente como
+
+75
+00:02:41,120 --> 00:02:41,680
+una app.
+
+76
+00:02:41,680 --> 00:02:43,640
+Otro punto de discusión fue la función
+
+77
+00:02:43,640 --> 00:02:45,960
+AutoTick, que se lanzó poco después de la
+
+78
+00:02:45,960 --> 00:02:46,720
+grabación.
+
+79
+00:02:46,720 --> 00:02:48,480
+AutoTick ya apareció en un episodio
+
+80
+00:02:48,480 --> 00:02:50,840
+anterior de NGNews, pero en resumen, hace
+
+81
+00:02:50,840 --> 00:02:52,520
+que manejar tareas asíncronas con
+
+82
+00:02:52,520 --> 00:02:54,920
+temporizadores falsos sea mucho más fácil.
+
+83
+00:02:55,000 --> 00:02:57,800
+Sin embargo, Younes señaló que auto-tick y
+
+84
+00:02:57,800 --> 00:02:59,840
+los temporizadores falsos en general no son
+
+85
+00:02:59,840 --> 00:03:01,000
+su primera opción.
+
+86
+00:03:01,000 --> 00:03:01,400
+Siempre digo que
+
+87
+00:03:01,760 --> 00:03:04,920
+Manten temporizadores falsos como el 
+
+88
+00:03:04,920 --> 00:03:07,600
+ultimo recurso, también otra cosa es que estoy
+
+89
+00:03:07,640 --> 00:03:08,680
+asustado es que la gente
+
+90
+00:03:08,920 --> 00:03:11,320
+especialmente con los LLM, podrían terminar
+
+91
+00:03:11,320 --> 00:03:14,600
+con tests que utilizan tanto temporizadores reales como
+
+92
+00:03:14,600 --> 00:03:16,040
+temporizadores falsos al mismo tiempo
+
+93
+00:03:16,040 --> 00:03:18,680
+Por ejemplo, si montas un componente y
+
+94
+00:03:18,680 --> 00:03:20,520
+entonces es cuando configuras el temporizador falso.
+
+95
+00:03:20,680 --> 00:03:23,000
+Entonces su componente podría estar utilizando un setInterval
+
+96
+00:03:23,080 --> 00:03:25,200
+o algo que sea real
+
+97
+00:03:25,200 --> 00:03:26,440
+la implementación real
+
+98
+00:03:26,680 --> 00:03:28,720
+Pero cuando lo llamas, cuando haces clic o
+
+99
+00:03:28,720 --> 00:03:30,680
+tu interactúas, usas el falso,
+
+100
+00:03:30,840 --> 00:03:32,480
+y entonces "Suerte con eso"
+
+101
+00:03:32,800 --> 00:03:34,080
+Las conferencias Angular han visto tiempos
+
+102
+00:03:34,080 --> 00:03:34,880
+mejores.
+
+103
+00:03:34,880 --> 00:03:36,560
+ngRome tuvo que moverse a la segunda mitad
+
+104
+00:03:36,560 --> 00:03:39,240
+y ng-de, la conferencia de Angular
+
+105
+00:03:39,240 --> 00:03:39,880
+de Alemania
+
+106
+00:03:40,120 --> 00:03:41,520
+fue cancelada por completo.
+
+107
+00:03:41,520 --> 00:03:43,200
+Así que ahora en adelante, al final de cada
+
+108
+00:03:43,200 --> 00:03:45,480
+episodio de ng-news, publicaremos las
+
+109
+00:03:45,480 --> 00:03:47,720
+próximas conferencias, al menos de aquellas
+
+110
+00:03:47,720 --> 00:03:49,360
+que tengamos conocimiento.
+
+111
+00:03:49,360 --> 00:03:50,040
+Y eso es todo.
+
+112
+00:03:50,040 --> 00:03:51,800
+Espero que tengas una excelente semana.
+
+113
+00:03:51,800 --> 00:03:53,960
+Nos vemos en el próximo episodio. Adiós.
+

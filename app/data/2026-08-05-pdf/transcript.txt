@@ -1,0 +1,172 @@
+
+¿Qué servicio es mejor para transformar
+archivos
+en Markdown? Porque al final esto es vital
+para AI, porque normalmente podemos hacer
+un rack o incluirlo dentro del sistema y
+tiene que quedar bien formateado.
+Justo yo utilizo uno que es Cloud4 como
+servicio.
+Pero hace poco,
+las personas de esta gran empresa que es
+Fiecrow, básicamente lanzaron una librería
+open source para hacer esto en automático.
+Así que me construí rápido un
+previsualizador para ver quién lo hace mejor.
+Y vamos a ver esa comparación.
+Fíjate que yo subí este archivo, que es un
+archivo un poco complejo.
+Déjame que creo que no está ahí, déjame lo
+vuelvo a subir.
+Ahí está, miremos cómo procesa.
+Y fíjate que este archivo es un poquito, o
+sea, es denso.
+lo que no hace ninguno de los dos es como
+capturar imágenes, creo que eso es en otro
+tipo de servicio, pero al menos como
+capturar toda la información si lo hace, lo
+hacen los dos, lo hace bien, lo hace
+diferente,
+pero fíjate aquí en el preview, por
+ejemplo, CloudFord lo que hace es como
+sacarlo página a página, como que divide el
+bloque,
+ciertos bloques página a página,
+pero lo que hace esta nueva librería
+llamada
+PDF Spector,
+lo que hace sí es como sacarlo y como que
+el formato me parece que es mejor.
+Es más, si yo lo veo en formato RAW, como
+en puro, en bruto, creo que está mucho
+mejor formateado a nivel Markdown que este,
+que a veces tiene como
+que deja los textos a la mitad o el tab,
+como que está mucho más organizado este y
+por ende el preview
+sale mejor.
+Una cosa que he visto de PDF Inspector es
+que realmente saca tablas.
+no puede con las tablas, literalmente no
+puede sacar tablas,
+saca como la información pero pierde todo
+el formato y eso puede hacer que pues
+que si estamos utilizando estos markdowns o
+estos archivos para alimentar nuestros
+AI, como nuestro knowledge base, entonces
+pues quedan mal formateados y demás.
+Obviamente uno puede tomar este markdown y
+con un language model como aplicarle un
+proceso de mejora, pero entre menos pues
+consumamos mejor, bien.
+creamos otro otro archivo, por ejemplo,
+este que es solo tablas, esta es una tabla,
+fíjense acá,
+este es un como un PDF que pusieron en una tabla.
+Acá fíjate que CloudFire no puede con esto.
+CloudFire literalmente solo me dice hay
+tantas páginas pero no puede con la tabla.
+Y acá si veo el RAW, aquí veo si la tabla,
+pero acá pues no, veo contenido en vacío.
+Ok, entonces CloudFire no puede con las
+tablas.
+pero casi que dan a la par cuando son como
+PDFs sencillos, por ejemplo, acá tengo un
+currículum,
+mi currículum acá está como un currículum
+normal, sencillito
+y puede, es más, aquí Clauser como que sacó
+mejor ciertos aspectos, fíjense que acá
+como que no lo sacó tan bien el PDF
+Specter,
+pero de resto como que está mejor
+organizado esta parte, podemos ver el RAW
+y vamos a ver cómo lo organiza,
+A mí me parece
+que sea muy a la par cada uno, es decir,
+sobre todo en archivos básicos,
+pero de nuevo, si ustedes manejan muchas
+tablas y sus clientes están subiendo como
+PDFs a su knowledge base
+con muchas tablas, ahí sí, pues PDF
+Inspector gana, gana un
+montón.
+Acá tengo otro archivo que es también
+sencillito,
+fíjense acá, es un archivo normal, tiene
+algunas tablas, imágenes, no logra sacar
+imágenes,
+pero lo logras sacar bastante bien,
+fíjense acá como lo saca PB Spector.
+Ahora, obviamente la ventaja de PB Spector
+es que es gratis, literalmente es
+totalmente gratis.
+Esta gente lo sacó sin ningún costo y hay
+librería literalmente.
+Dicen que el performance es brutal,
+que lo hace muy muy rápido, pero aún así
+también lo bueno es que está la librería
+para Python, para Node, Es más, lo puedes
+correr desde el lado del browser con
+WebAssembly hasta lo puedes correr en Rust.
+Así que
+esto te da una libertad increíble y no
+tienes que pagar ningún servicio.
+Por ejemplo, en mi caso, que yo utilizaba
+el de Cloudfare o yo utilizo el de
+Cloudfare, básicamente utilizo este
+endpoint de Markdown, le paso mi archivo y
+luego pues él me devuelve un output.
+Pero básicamente que estoy consumiendo un
+endpoint que utiliza, pues que está dentro
+de la suscripción de Cloudfare,
+que obviamente no es tan costosa son como 5
+dólares
+pero pues no solo tengo este endpoint sino
+tengo muchas otras cosas más como computer use,
+rendering,
+workers AI y bueno un montón de cosas
+aparte de este endpoint pero si tú solo
+estás por ejemplo utilizando tu markdown
+posiblemente puedas ahorrarte ese
+esa suscripción porque ya está como
+librería
+y es literalmente se instala como un
+paquete de node y ya
+literalmente en este en este ejemplo que hice
+lo monté aquí en un repositorio y lo puedes
+ver, se llama ParserPBF, es este que está
+acá.
+Si quieres probarlo, pues básicamente lo
+interesante aquí son estos dos archivos.
+Si tú te vas al server, vas a controllers,
+aquí vas a ver cómo se implementa PDF
+Inspector
+y es súper sencillo, o sea, solo hay que
+ponerle el archivo y pasarlo por la función
+y ya, y el nuevo tal Markdown
+sale.
+Obviamente el de Cloudfare también es
+sencillo porque al final solo es llamar a
+un endpoint,
+uno le pasa su token, le pasa su account ID y
+listo, envía el archivo y pues obtiene la
+respuesta.
+Pero básicamente esto es un
+request, un endpoint y este es una pues una
+librería ya interna dentro del
+microservicio. Así que
+nada, ahí se los dejo para que lo puedan
+explorar.
+A mí me funcionó bien, de por sí creo que
+voy a hacer otros experimentos más,
+pero creo que me podría ahorrar la llamada
+a Cloudfare
+y pues no utilizar ese servicio y creo que
+de nuevo si están trabajando con tablas y
+tipos más complejos,
+creo que
+es una gran gran opción.
+Si no pueden utilizar todavía el ecosistema
+de Closform.
+

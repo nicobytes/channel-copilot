@@ -1,0 +1,680 @@
+1
+00:00:00,080 --> 00:00:01,880
+¿Qué servicio es mejor para transformar
+
+2
+00:00:01,880 --> 00:00:02,480
+archivos
+
+3
+00:00:02,800 --> 00:00:05,120
+en Markdown? Porque al final esto es vital
+
+4
+00:00:05,120 --> 00:00:06,960
+para AI, porque normalmente podemos hacer
+
+5
+00:00:06,960 --> 00:00:08,760
+un rack o incluirlo dentro del sistema y
+
+6
+00:00:08,760 --> 00:00:10,320
+tiene que quedar bien formateado.
+
+7
+00:00:10,560 --> 00:00:13,040
+Justo yo utilizo uno que es Cloud4 como
+
+8
+00:00:13,040 --> 00:00:13,760
+servicio.
+
+9
+00:00:14,080 --> 00:00:14,960
+Pero hace poco,
+
+10
+00:00:15,280 --> 00:00:18,760
+las personas de esta gran empresa que es
+
+11
+00:00:18,800 --> 00:00:21,360
+Fiecrow, básicamente lanzaron una librería
+
+12
+00:00:21,360 --> 00:00:23,720
+open source para hacer esto en automático.
+
+13
+00:00:23,760 --> 00:00:25,920
+Así que me construí rápido un
+
+14
+00:00:25,920 --> 00:00:28,320
+previsualizador para ver quién lo hace mejor.
+
+15
+00:00:28,400 --> 00:00:29,920
+Y vamos a ver esa comparación.
+
+16
+00:00:30,320 --> 00:00:32,080
+Fíjate que yo subí este archivo, que es un
+
+17
+00:00:32,080 --> 00:00:33,520
+archivo un poco complejo.
+
+18
+00:00:33,520 --> 00:00:35,760
+Déjame que creo que no está ahí, déjame lo
+
+19
+00:00:35,760 --> 00:00:36,680
+vuelvo a subir.
+
+20
+00:00:37,200 --> 00:00:38,840
+Ahí está, miremos cómo procesa.
+
+21
+00:00:39,120 --> 00:00:41,520
+Y fíjate que este archivo es un poquito, o
+
+22
+00:00:41,520 --> 00:00:42,600
+sea, es denso.
+
+23
+00:00:42,960 --> 00:00:44,960
+lo que no hace ninguno de los dos es como
+
+24
+00:00:44,960 --> 00:00:47,200
+capturar imágenes, creo que eso es en otro
+
+25
+00:00:47,200 --> 00:00:48,800
+tipo de servicio, pero al menos como
+
+26
+00:00:48,800 --> 00:00:51,360
+capturar toda la información si lo hace, lo
+
+27
+00:00:51,360 --> 00:00:53,040
+hacen los dos, lo hace bien, lo hace
+
+28
+00:00:53,040 --> 00:00:53,760
+diferente,
+
+29
+00:00:54,160 --> 00:00:55,720
+pero fíjate aquí en el preview, por
+
+30
+00:00:55,720 --> 00:00:57,440
+ejemplo, CloudFord lo que hace es como
+
+31
+00:00:57,440 --> 00:00:59,840
+sacarlo página a página, como que divide el
+
+32
+00:00:59,840 --> 00:01:00,320
+bloque,
+
+33
+00:01:00,640 --> 00:01:02,640
+ciertos bloques página a página,
+
+34
+00:01:03,120 --> 00:01:06,000
+pero lo que hace esta nueva librería
+
+35
+00:01:06,000 --> 00:01:06,560
+llamada
+
+36
+00:01:07,120 --> 00:01:08,240
+PDF Spector,
+
+37
+00:01:08,680 --> 00:01:10,760
+lo que hace sí es como sacarlo y como que
+
+38
+00:01:10,760 --> 00:01:12,480
+el formato me parece que es mejor.
+
+39
+00:01:12,480 --> 00:01:14,960
+Es más, si yo lo veo en formato RAW, como
+
+40
+00:01:14,960 --> 00:01:17,440
+en puro, en bruto, creo que está mucho
+
+41
+00:01:17,440 --> 00:01:20,160
+mejor formateado a nivel Markdown que este,
+
+42
+00:01:20,160 --> 00:01:21,200
+que a veces tiene como
+
+43
+00:01:21,440 --> 00:01:23,960
+que deja los textos a la mitad o el tab,
+
+44
+00:01:23,960 --> 00:01:26,160
+como que está mucho más organizado este y
+
+45
+00:01:26,160 --> 00:01:27,120
+por ende el preview
+
+46
+00:01:27,440 --> 00:01:28,160
+sale mejor.
+
+47
+00:01:28,320 --> 00:01:31,040
+Una cosa que he visto de PDF Inspector es
+
+48
+00:01:31,040 --> 00:01:32,760
+que realmente saca tablas.
+
+49
+00:01:32,800 --> 00:01:35,760
+no puede con las tablas, literalmente no
+
+50
+00:01:35,760 --> 00:01:36,800
+puede sacar tablas,
+
+51
+00:01:37,040 --> 00:01:38,880
+saca como la información pero pierde todo
+
+52
+00:01:38,880 --> 00:01:40,640
+el formato y eso puede hacer que pues
+
+53
+00:01:41,040 --> 00:01:43,640
+que si estamos utilizando estos markdowns o
+
+54
+00:01:43,640 --> 00:01:45,520
+estos archivos para alimentar nuestros
+
+55
+00:01:46,480 --> 00:01:49,800
+AI, como nuestro knowledge base, entonces
+
+56
+00:01:49,800 --> 00:01:51,880
+pues quedan mal formateados y demás.
+
+57
+00:01:51,880 --> 00:01:55,280
+Obviamente uno puede tomar este markdown y
+
+58
+00:01:55,280 --> 00:01:57,560
+con un language model como aplicarle un
+
+59
+00:01:57,560 --> 00:01:59,760
+proceso de mejora, pero entre menos pues
+
+60
+00:01:59,760 --> 00:02:01,200
+consumamos mejor, bien.
+
+61
+00:02:01,480 --> 00:02:03,360
+creamos otro otro archivo, por ejemplo,
+
+62
+00:02:03,360 --> 00:02:06,000
+este que es solo tablas, esta es una tabla,
+
+63
+00:02:06,080 --> 00:02:06,880
+fíjense acá,
+
+64
+00:02:07,280 --> 00:02:11,120
+este es un como un PDF que pusieron en una tabla.
+
+65
+00:02:11,280 --> 00:02:13,400
+Acá fíjate que CloudFire no puede con esto.
+
+66
+00:02:13,400 --> 00:02:15,200
+CloudFire literalmente solo me dice hay
+
+67
+00:02:15,200 --> 00:02:17,760
+tantas páginas pero no puede con la tabla.
+
+68
+00:02:18,000 --> 00:02:21,120
+Y acá si veo el RAW, aquí veo si la tabla,
+
+69
+00:02:21,120 --> 00:02:24,040
+pero acá pues no, veo contenido en vacío.
+
+70
+00:02:24,040 --> 00:02:26,320
+Ok, entonces CloudFire no puede con las
+
+71
+00:02:26,320 --> 00:02:26,800
+tablas.
+
+72
+00:02:27,160 --> 00:02:30,240
+pero casi que dan a la par cuando son como
+
+73
+00:02:30,240 --> 00:02:32,840
+PDFs sencillos, por ejemplo, acá tengo un
+
+74
+00:02:32,840 --> 00:02:33,480
+currículum,
+
+75
+00:02:35,920 --> 00:02:37,920
+mi currículum acá está como un currículum
+
+76
+00:02:37,920 --> 00:02:39,040
+normal, sencillito
+
+77
+00:02:39,280 --> 00:02:42,320
+y puede, es más, aquí Clauser como que sacó
+
+78
+00:02:42,320 --> 00:02:44,800
+mejor ciertos aspectos, fíjense que acá
+
+79
+00:02:45,040 --> 00:02:47,760
+como que no lo sacó tan bien el PDF
+
+80
+00:02:47,760 --> 00:02:48,480
+Specter,
+
+81
+00:02:48,720 --> 00:02:50,800
+pero de resto como que está mejor
+
+82
+00:02:50,800 --> 00:02:53,760
+organizado esta parte, podemos ver el RAW
+
+83
+00:02:54,320 --> 00:02:56,320
+y vamos a ver cómo lo organiza,
+
+84
+00:02:58,480 --> 00:02:59,600
+A mí me parece
+
+85
+00:03:00,480 --> 00:03:03,440
+que sea muy a la par cada uno, es decir,
+
+86
+00:03:03,440 --> 00:03:04,960
+sobre todo en archivos básicos,
+
+87
+00:03:05,200 --> 00:03:07,040
+pero de nuevo, si ustedes manejan muchas
+
+88
+00:03:07,040 --> 00:03:08,960
+tablas y sus clientes están subiendo como
+
+89
+00:03:09,120 --> 00:03:10,680
+PDFs a su knowledge base
+
+90
+00:03:11,040 --> 00:03:14,240
+con muchas tablas, ahí sí, pues PDF
+
+91
+00:03:14,240 --> 00:03:16,040
+Inspector gana, gana un
+
+92
+00:03:16,440 --> 00:03:17,200
+montón.
+
+93
+00:03:17,200 --> 00:03:18,920
+Acá tengo otro archivo que es también
+
+94
+00:03:18,920 --> 00:03:19,680
+sencillito,
+
+95
+00:03:20,480 --> 00:03:22,680
+fíjense acá, es un archivo normal, tiene
+
+96
+00:03:22,680 --> 00:03:24,680
+algunas tablas, imágenes, no logra sacar
+
+97
+00:03:24,680 --> 00:03:25,200
+imágenes,
+
+98
+00:03:25,520 --> 00:03:27,600
+pero lo logras sacar bastante bien,
+
+99
+00:03:27,920 --> 00:03:29,760
+fíjense acá como lo saca PB Spector.
+
+100
+00:03:29,760 --> 00:03:32,240
+Ahora, obviamente la ventaja de PB Spector
+
+101
+00:03:32,560 --> 00:03:34,640
+es que es gratis, literalmente es
+
+102
+00:03:34,640 --> 00:03:35,680
+totalmente gratis.
+
+103
+00:03:35,680 --> 00:03:38,600
+Esta gente lo sacó sin ningún costo y hay
+
+104
+00:03:38,600 --> 00:03:39,960
+librería literalmente.
+
+105
+00:03:39,960 --> 00:03:41,760
+Dicen que el performance es brutal,
+
+106
+00:03:43,120 --> 00:03:45,200
+que lo hace muy muy rápido, pero aún así
+
+107
+00:03:45,760 --> 00:03:47,680
+también lo bueno es que está la librería
+
+108
+00:03:47,680 --> 00:03:50,640
+para Python, para Node, Es más, lo puedes
+
+109
+00:03:50,640 --> 00:03:52,080
+correr desde el lado del browser con
+
+110
+00:03:52,080 --> 00:03:54,760
+WebAssembly hasta lo puedes correr en Rust.
+
+111
+00:03:54,960 --> 00:03:55,600
+Así que
+
+112
+00:03:55,840 --> 00:03:57,800
+esto te da una libertad increíble y no
+
+113
+00:03:57,800 --> 00:03:59,320
+tienes que pagar ningún servicio.
+
+114
+00:03:59,320 --> 00:04:01,240
+Por ejemplo, en mi caso, que yo utilizaba
+
+115
+00:04:01,240 --> 00:04:03,240
+el de Cloudfare o yo utilizo el de
+
+116
+00:04:03,240 --> 00:04:04,920
+Cloudfare, básicamente utilizo este
+
+117
+00:04:04,920 --> 00:04:08,320
+endpoint de Markdown, le paso mi archivo y
+
+118
+00:04:08,320 --> 00:04:10,480
+luego pues él me devuelve un output.
+
+119
+00:04:10,560 --> 00:04:12,360
+Pero básicamente que estoy consumiendo un
+
+120
+00:04:12,360 --> 00:04:14,800
+endpoint que utiliza, pues que está dentro
+
+121
+00:04:14,800 --> 00:04:16,200
+de la suscripción de Cloudfare,
+
+122
+00:04:16,600 --> 00:04:18,800
+que obviamente no es tan costosa son como 5
+
+123
+00:04:18,800 --> 00:04:19,440
+dólares
+
+124
+00:04:19,680 --> 00:04:21,680
+pero pues no solo tengo este endpoint sino
+
+125
+00:04:21,680 --> 00:04:24,200
+tengo muchas otras cosas más como computer use,
+
+126
+00:04:24,560 --> 00:04:25,440
+rendering,
+
+127
+00:04:26,000 --> 00:04:27,800
+workers AI y bueno un montón de cosas
+
+128
+00:04:27,800 --> 00:04:29,920
+aparte de este endpoint pero si tú solo
+
+129
+00:04:29,920 --> 00:04:32,160
+estás por ejemplo utilizando tu markdown
+
+130
+00:04:32,400 --> 00:04:34,240
+posiblemente puedas ahorrarte ese
+
+131
+00:04:34,560 --> 00:04:36,640
+esa suscripción porque ya está como
+
+132
+00:04:36,640 --> 00:04:37,200
+librería
+
+133
+00:04:37,520 --> 00:04:40,720
+y es literalmente se instala como un
+
+134
+00:04:40,720 --> 00:04:42,000
+paquete de node y ya
+
+135
+00:04:42,240 --> 00:04:45,520
+literalmente en este en este ejemplo que hice
+
+136
+00:04:45,880 --> 00:04:47,640
+lo monté aquí en un repositorio y lo puedes
+
+137
+00:04:47,640 --> 00:04:50,160
+ver, se llama ParserPBF, es este que está
+
+138
+00:04:50,560 --> 00:04:50,880
+acá.
+
+139
+00:04:50,880 --> 00:04:53,680
+Si quieres probarlo, pues básicamente lo
+
+140
+00:04:53,680 --> 00:04:56,240
+interesante aquí son estos dos archivos.
+
+141
+00:04:56,240 --> 00:04:58,320
+Si tú te vas al server, vas a controllers,
+
+142
+00:04:58,800 --> 00:05:01,520
+aquí vas a ver cómo se implementa PDF
+
+143
+00:05:01,840 --> 00:05:02,720
+Inspector
+
+144
+00:05:02,960 --> 00:05:04,640
+y es súper sencillo, o sea, solo hay que
+
+145
+00:05:04,720 --> 00:05:07,920
+ponerle el archivo y pasarlo por la función
+
+146
+00:05:07,920 --> 00:05:09,440
+y ya, y el nuevo tal Markdown
+
+147
+00:05:09,920 --> 00:05:10,560
+sale.
+
+148
+00:05:11,000 --> 00:05:13,400
+Obviamente el de Cloudfare también es
+
+149
+00:05:13,400 --> 00:05:15,360
+sencillo porque al final solo es llamar a
+
+150
+00:05:15,360 --> 00:05:15,920
+un endpoint,
+
+151
+00:05:16,160 --> 00:05:19,360
+uno le pasa su token, le pasa su account ID y
+
+152
+00:05:19,680 --> 00:05:22,840
+listo, envía el archivo y pues obtiene la
+
+153
+00:05:22,840 --> 00:05:23,400
+respuesta.
+
+154
+00:05:23,400 --> 00:05:24,680
+Pero básicamente esto es un
+
+155
+00:05:24,960 --> 00:05:28,000
+request, un endpoint y este es una pues una
+
+156
+00:05:28,000 --> 00:05:29,280
+librería ya interna dentro del
+
+157
+00:05:29,280 --> 00:05:30,640
+microservicio. Así que
+
+158
+00:05:31,120 --> 00:05:33,200
+nada, ahí se los dejo para que lo puedan
+
+159
+00:05:33,200 --> 00:05:33,920
+explorar.
+
+160
+00:05:33,920 --> 00:05:35,440
+A mí me funcionó bien, de por sí creo que
+
+161
+00:05:35,440 --> 00:05:37,200
+voy a hacer otros experimentos más,
+
+162
+00:05:37,520 --> 00:05:39,400
+pero creo que me podría ahorrar la llamada
+
+163
+00:05:39,400 --> 00:05:40,360
+a Cloudfare
+
+164
+00:05:40,600 --> 00:05:42,880
+y pues no utilizar ese servicio y creo que
+
+165
+00:05:42,880 --> 00:05:44,880
+de nuevo si están trabajando con tablas y
+
+166
+00:05:44,880 --> 00:05:46,160
+tipos más complejos,
+
+167
+00:05:46,480 --> 00:05:47,200
+creo que
+
+168
+00:05:47,520 --> 00:05:49,280
+es una gran gran opción.
+
+169
+00:05:49,280 --> 00:05:51,200
+Si no pueden utilizar todavía el ecosistema
+
+170
+00:05:51,240 --> 00:05:51,840
+de Closform.
+

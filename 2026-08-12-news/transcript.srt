@@ -1,0 +1,504 @@
+1
+00:00:00,080 --> 00:00:02,520
+Hola, mi nombre es Eduardo Roth y esto es NG
+
+2
+00:00:02,520 --> 00:00:04,880
+News en Español con las últimas novedades
+
+3
+00:00:04,880 --> 00:00:06,320
+de la comunidad de Angular.
+
+4
+00:00:06,320 --> 00:00:08,240
+El lanzamiento de la versión de Angular 22
+
+5
+00:00:08,240 --> 00:00:10,640
+se acerca y hemos visto más información
+
+6
+00:00:10,640 --> 00:00:12,120
+sobre los nuevos cambios.
+
+7
+00:00:12,240 --> 00:00:14,560
+Por ejemplo, tendremos un nuevo decorador
+
+8
+00:00:14,560 --> 00:00:16,800
+para los servicios, el cual será llamado
+
+9
+00:00:16,800 --> 00:00:17,560
+@Service.
+
+10
+00:00:17,920 --> 00:00:18,800
+Entonces,
+
+11
+00:00:19,120 --> 00:00:20,840
+¿cuál es la diferencia entre este y el
+
+12
+00:00:20,840 --> 00:00:22,320
+existente de @Injectable?
+
+13
+00:00:22,640 --> 00:00:25,520
+Por default, @Service proveerá al servicio en raíz
+
+14
+00:00:25,760 --> 00:00:27,440
+y sólo podrás usar inyección de
+
+15
+00:00:27,440 --> 00:00:29,800
+dependencias a través del método inject.
+
+16
+00:00:30,320 --> 00:00:32,320
+Y otra Pull Request que aún se encuentra
+
+17
+00:00:32,320 --> 00:00:34,640
+abierta nos indica que la familia Resource,
+
+18
+00:00:34,960 --> 00:00:37,680
+que incluye no sólo httpResource, sino
+
+19
+00:00:37,680 --> 00:00:38,080
+también
+
+20
+00:00:38,320 --> 00:00:39,120
+rxResource,
+
+21
+00:00:39,360 --> 00:00:40,800
+será promovida a estable,
+
+22
+00:00:41,040 --> 00:00:42,640
+de manera que el estado de Developer
+
+23
+00:00:42,640 --> 00:00:44,040
+Preview será saltado.
+
+24
+00:00:44,160 --> 00:00:47,120
+Aún así, estas APIs han estado presentes
+
+25
+00:00:47,120 --> 00:00:49,120
+durante casi un año y medio.
+
+26
+00:00:49,360 --> 00:00:51,680
+Entonces, digamos que es tiempo más que
+
+27
+00:00:51,680 --> 00:00:52,480
+suficiente.
+
+28
+00:00:52,480 --> 00:00:54,640
+Alejandro Cuba Ruiz publicó un artículo en
+
+29
+00:00:54,640 --> 00:00:56,880
+NGConf Medium Blog, acerca de las cinco
+
+30
+00:00:56,880 --> 00:00:59,400
+fases o etapas del ciclo de vida de un
+
+31
+00:00:59,400 --> 00:01:00,640
+feature en Angular:
+
+32
+00:01:01,040 --> 00:01:03,360
+Experimental, Developer Preview,
+
+33
+00:01:03,600 --> 00:01:04,400
+Estable
+
+34
+00:01:04,640 --> 00:01:07,120
+y también Deprecado y Removido.
+
+35
+00:01:07,840 --> 00:01:10,120
+El artículo de Alejandro no es un documento
+
+36
+00:01:10,120 --> 00:01:12,000
+interno secreto, pero se alinea
+
+37
+00:01:12,000 --> 00:01:13,760
+perfectamente con la información que
+
+38
+00:01:13,760 --> 00:01:15,640
+recibimos del equipo de Angular.
+
+39
+00:01:16,000 --> 00:01:18,480
+Experimental significa que la API puede
+
+40
+00:01:18,480 --> 00:01:20,840
+cambiar en versiones menores o parches.
+
+41
+00:01:21,040 --> 00:01:23,240
+Developer Preview es más cuando el diseño
+
+42
+00:01:23,240 --> 00:01:24,000
+está listo.
+
+43
+00:01:24,640 --> 00:01:26,560
+Y ahora nos interesa saber cuáles son los
+
+44
+00:01:26,560 --> 00:01:28,160
+puntos incómodos de usarlo.
+
+45
+00:01:28,480 --> 00:01:31,040
+Estable es cuando hay un contrato definido
+
+46
+00:01:31,440 --> 00:01:33,360
+y los breaking changes pertenecen en
+
+47
+00:01:33,360 --> 00:01:36,240
+versiones mayores y cuando hay posibilidad
+
+48
+00:01:36,240 --> 00:01:38,560
+que existan migraciones o que sean
+
+49
+00:01:38,560 --> 00:01:39,480
+agregadas.
+
+50
+00:01:39,840 --> 00:01:42,600
+Deprecated te brinda la conocida despedida
+
+51
+00:01:42,600 --> 00:01:44,000
+de 2 versiones mayores
+
+52
+00:01:44,240 --> 00:01:46,160
+y Remove es cuando ya se eliminó
+
+53
+00:01:46,160 --> 00:01:47,240
+completamente.
+
+54
+00:01:47,680 --> 00:01:49,520
+También menciona herramientas fuera de la
+
+55
+00:01:49,760 --> 00:01:51,200
+documentación oficial.
+
+56
+00:01:51,360 --> 00:01:53,640
+Por ejemplo, Can I use Angular Feature, de
+
+57
+00:01:53,640 --> 00:01:54,520
+Gérôme Grignon.
+
+58
+00:01:54,880 --> 00:01:57,120
+Native Federation, después de Module
+
+59
+00:01:57,120 --> 00:01:59,200
+Federation, es una de las librerías de
+
+60
+00:01:59,200 --> 00:02:01,680
+Angular más utilizadas en cuanto a micro
+
+61
+00:02:01,680 --> 00:02:03,040
+front-ends se refiere.
+
+62
+00:02:03,480 --> 00:02:05,440
+La versión cuatro de Native Federation
+
+63
+00:02:05,440 --> 00:02:08,000
+acaba de ser publicada con muchas nuevas
+
+64
+00:02:08,000 --> 00:02:09,040
+funcionalidades,
+
+65
+00:02:09,280 --> 00:02:11,360
+pero la más notoria es un sitio web con
+
+66
+00:02:11,360 --> 00:02:12,720
+mucha documentación.
+
+67
+00:02:12,960 --> 00:02:15,440
+El repositorio de GitHub también fue movido
+
+68
+00:02:15,440 --> 00:02:16,880
+a una nueva organización.
+
+69
+00:02:17,120 --> 00:02:19,320
+El código ahora está separado en múltiples
+
+70
+00:02:19,320 --> 00:02:20,240
+repositorios
+
+71
+00:02:20,480 --> 00:02:22,480
+y hay un orquestador que se encarga de
+
+72
+00:02:22,480 --> 00:02:24,720
+cuándo Los Micro Frontends nuevos
+
+73
+00:02:24,880 --> 00:02:26,880
+reemplazarán a los anteriores.
+
+74
+00:02:26,880 --> 00:02:28,640
+En un episodio anterior de NG News en
+
+75
+00:02:28,640 --> 00:02:31,600
+español hablamos acerca del trabajo de Void Zero
+
+76
+00:02:32,000 --> 00:02:34,560
+de un compilador para Angular basado en su
+
+77
+00:02:34,560 --> 00:02:36,320
+propio Oxidation Compiler,
+
+78
+00:02:36,560 --> 00:02:38,280
+el cual está basado en Rust.
+
+79
+00:02:38,800 --> 00:02:41,520
+Ahora han publicado un artículo con números
+
+80
+00:02:41,520 --> 00:02:44,080
+oficiales y donde también explican un poco
+
+81
+00:02:44,080 --> 00:02:46,400
+acerca del flujo de trabajo de desarrollo,
+
+82
+00:02:46,720 --> 00:02:48,800
+el cual fue basado fuertemente en
+
+83
+00:02:48,800 --> 00:02:50,160
+inteligencia artificial.
+
+84
+00:02:50,720 --> 00:02:52,880
+Ellos describen que fue alrededor de dos
+
+85
+00:02:52,880 --> 00:02:53,840
+meses de trabajo,
+
+86
+00:02:54,160 --> 00:02:55,840
+principalmente con Claude
+
+87
+00:02:56,080 --> 00:02:56,560
+Code y
+
+88
+00:02:56,800 --> 00:02:57,520
+Codex,
+
+89
+00:02:57,760 --> 00:02:59,400
+bajo el mando de desarrolladores
+
+90
+00:02:59,400 --> 00:03:01,840
+experimentados y no algo donde el modelo
+
+91
+00:03:01,840 --> 00:03:04,080
+escribió un compilador durante la noche.
+
+92
+00:03:04,560 --> 00:03:07,120
+Fueron agentes trabajando a gran escala,
+
+93
+00:03:07,280 --> 00:03:08,400
+una migración,
+
+94
+00:03:08,720 --> 00:03:10,640
+junto con trabajo de revisión,
+
+95
+00:03:10,960 --> 00:03:13,360
+una vez que la arquitectura y las guías se
+
+96
+00:03:13,360 --> 00:03:14,160
+definieron.
+
+97
+00:03:15,040 --> 00:03:16,920
+Los números del título son visualmente
+
+98
+00:03:16,920 --> 00:03:17,800
+atractivos.
+
+99
+00:03:18,200 --> 00:03:20,720
+Reportan tiempos de compilación de hasta 6
+
+100
+00:03:20,720 --> 00:03:23,680
+veces más rápido comparados con esbuild
+
+101
+00:03:24,080 --> 00:03:26,800
+y 20 veces más rápido comparados con
+
+102
+00:03:26,800 --> 00:03:27,560
+Webpack.
+
+103
+00:03:28,080 --> 00:03:30,480
+Como siempre, hay que ser cautelosos con
+
+104
+00:03:30,480 --> 00:03:31,280
+estos números,
+
+105
+00:03:31,520 --> 00:03:33,040
+pero pueden ser razonables,
+
+106
+00:03:33,360 --> 00:03:35,520
+especialmente si tomamos en cuenta que
+
+107
+00:03:35,520 --> 00:03:37,480
+omitieron tareas pesadas como el type
+
+108
+00:03:37,480 --> 00:03:38,960
+checking de los templates.
+
+109
+00:03:39,360 --> 00:03:41,520
+Inclusive ellos mencionan que quitar este
+
+110
+00:03:41,520 --> 00:03:43,040
+type checking
+
+111
+00:03:43,280 --> 00:03:45,280
+fue un gran incremento en el performance
+
+112
+00:03:45,280 --> 00:03:46,240
+por sí solo.
+
+113
+00:03:46,920 --> 00:03:49,080
+El compilador está disponible como un
+
+114
+00:03:49,080 --> 00:03:50,080
+plug-in de vite,
+
+115
+00:03:50,560 --> 00:03:53,680
+OXC, Angular vite, lo que significa que si
+
+116
+00:03:53,680 --> 00:03:56,080
+quieres utilizarlo, tu opción es utilizar
+
+117
+00:03:56,080 --> 00:03:57,320
+AnalogJS.
+
+118
+00:03:57,600 --> 00:03:59,680
+Void Zero también dejó en claro que esto
+
+119
+00:03:59,680 --> 00:04:02,080
+sólo fue un experimento, por lo que este
+
+120
+00:04:02,080 --> 00:04:04,320
+proyecto ya no recibe soporte.
+
+121
+00:04:04,560 --> 00:04:06,800
+Pero, al mismo tiempo, sabemos que el
+
+122
+00:04:06,800 --> 00:04:08,440
+equipo de Angular ya se encuentra
+
+123
+00:04:08,440 --> 00:04:10,960
+trabajando con Rust en un nuevo compilador.
+
+124
+00:04:11,200 --> 00:04:13,440
+Y eso es todo, te deseo una excelente
+
+125
+00:04:13,440 --> 00:04:16,160
+semana y nos vemos en el próximo episodio.
+
+126
+00:04:16,600 --> 00:04:17,250
+Hasta luego.
+

@@ -1,0 +1,126 @@
+Hola, mi nombre es Eduardo Roth y esto es NG
+News en Español con las últimas novedades
+de la comunidad de Angular.
+El lanzamiento de la versión de Angular 22
+se acerca y hemos visto más información
+sobre los nuevos cambios.
+Por ejemplo, tendremos un nuevo decorador
+para los servicios, el cual será llamado
+@Service.
+Entonces,
+¿cuál es la diferencia entre este y el
+existente de @Injectable?
+Por default, @Service proveerá al servicio en raíz
+y sólo podrás usar inyección de
+dependencias a través del método inject.
+Y otra Pull Request que aún se encuentra
+abierta nos indica que la familia Resource,
+que incluye no sólo httpResource, sino
+también
+rxResource,
+será promovida a estable,
+de manera que el estado de Developer
+Preview será saltado.
+Aún así, estas APIs han estado presentes
+durante casi un año y medio.
+Entonces, digamos que es tiempo más que
+suficiente.
+Alejandro Cuba Ruiz publicó un artículo en
+NGConf Medium Blog, acerca de las cinco
+fases o etapas del ciclo de vida de un
+feature en Angular:
+Experimental, Developer Preview,
+Estable
+y también Deprecado y Removido.
+El artículo de Alejandro no es un documento
+interno secreto, pero se alinea
+perfectamente con la información que
+recibimos del equipo de Angular.
+Experimental significa que la API puede
+cambiar en versiones menores o parches.
+Developer Preview es más cuando el diseño
+está listo.
+Y ahora nos interesa saber cuáles son los
+puntos incómodos de usarlo.
+Estable es cuando hay un contrato definido
+y los breaking changes pertenecen en
+versiones mayores y cuando hay posibilidad
+que existan migraciones o que sean
+agregadas.
+Deprecated te brinda la conocida despedida
+de 2 versiones mayores
+y Remove es cuando ya se eliminó
+completamente.
+También menciona herramientas fuera de la
+documentación oficial.
+Por ejemplo, Can I use Angular Feature, de
+Gérôme Grignon.
+Native Federation, después de Module
+Federation, es una de las librerías de
+Angular más utilizadas en cuanto a micro
+front-ends se refiere.
+La versión cuatro de Native Federation
+acaba de ser publicada con muchas nuevas
+funcionalidades,
+pero la más notoria es un sitio web con
+mucha documentación.
+El repositorio de GitHub también fue movido
+a una nueva organización.
+El código ahora está separado en múltiples
+repositorios
+y hay un orquestador que se encarga de
+cuándo Los Micro Frontends nuevos
+reemplazarán a los anteriores.
+En un episodio anterior de NG News en
+español hablamos acerca del trabajo de Void Zero
+de un compilador para Angular basado en su
+propio Oxidation Compiler,
+el cual está basado en Rust.
+Ahora han publicado un artículo con números
+oficiales y donde también explican un poco
+acerca del flujo de trabajo de desarrollo,
+el cual fue basado fuertemente en
+inteligencia artificial.
+Ellos describen que fue alrededor de dos
+meses de trabajo,
+principalmente con Claude
+Code y
+Codex,
+bajo el mando de desarrolladores
+experimentados y no algo donde el modelo
+escribió un compilador durante la noche.
+Fueron agentes trabajando a gran escala,
+una migración,
+junto con trabajo de revisión,
+una vez que la arquitectura y las guías se
+definieron.
+Los números del título son visualmente
+atractivos.
+Reportan tiempos de compilación de hasta 6
+veces más rápido comparados con esbuild
+y 20 veces más rápido comparados con
+Webpack.
+Como siempre, hay que ser cautelosos con
+estos números,
+pero pueden ser razonables,
+especialmente si tomamos en cuenta que
+omitieron tareas pesadas como el type
+checking de los templates.
+Inclusive ellos mencionan que quitar este
+type checking
+fue un gran incremento en el performance
+por sí solo.
+El compilador está disponible como un
+plug-in de vite,
+OXC, Angular vite, lo que significa que si
+quieres utilizarlo, tu opción es utilizar
+AnalogJS.
+Void Zero también dejó en claro que esto
+sólo fue un experimento, por lo que este
+proyecto ya no recibe soporte.
+Pero, al mismo tiempo, sabemos que el
+equipo de Angular ya se encuentra
+trabajando con Rust en un nuevo compilador.
+Y eso es todo, te deseo una excelente
+semana y nos vemos en el próximo episodio.
+Hasta luego.
